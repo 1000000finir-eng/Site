@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Фінансова трансформація</title>
+  <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/finansova-transformaciya/ft.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+
+
+<body>
+<!-- =================================================================
+                       topbar
+ =================================================================== -->
+  <div class="topbar">
+    <div class="logo">
+      <img src="/assets/images/logo.png" alt="Лого" />
+    </div>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="menu">
+        <a href="/" onclick="closeMenu()">Головна</a>
+        <a onclick="openPaymentModal(); closeMenu()">Оплата</a>
+  <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+</nav>
+  </div>
+
+<!-- =========================================
+                HERO SECTION
+========================================= -->
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+
+    <img src="/assets/images/ft.jpg" alt="" class="hero-cover">
+
+    <div class="hero-text">
+  <h1 class="hero-line hero-line-1"><span class="shifted">ФІНАНСОВА ТРАНСФОРМАЦІЯ</span></h1>
+  <h1 class="hero-line hero-line-2">ЩО ДАЄ ПРОРИВИ, А НЕ ІЛЮЗІЮ РУХУ</h1>
+
+  <p class="hero-sub hero-line hero-line-3">
+    Для тих, хто хоче керувати бізнесом, а не бігати за ним
+  </p>
+        <br>
+</div>
+
+
+  </div>
+</section>
+
+
+
+
+<!-- ===============================
+ FT START (картинка слева, текст справа)
+================================= -->
+<section class="ft-start ft-animate">
+  <div class="ft-start__grid">
+
+    <!-- LEFT IMAGE -->
+    <div class="ft-start__media">
+      <img src="/assets/images/ft-hero.jpg" alt="Фінансова трансформація">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="ft-start__content">
+      <h2 class="ft-start__title">«ФІНАНСОВА ТРАНСФОРМАЦІЯ»</h2>
+
+      <p class="ft-start__lead">
+        Глибока програма для тих, <strong>хто готовий вирости</strong><br>
+        за межі своєї фінансової стелі
+      </p>
+
+      <p class="ft-start__sub">
+        Ти заробляєш, працюєш багато… але грошей як не було, так і немає.
+        Наче хтось відкручує кран. Вони заходять — і так само легко витікають
+      </p>
+
+     <!-- красная плашка -->
+<div class="ft-start__badge">
+  Індивідуальна робота. 6 сесій
+</div>
+
+<!-- желтая кнопка -->
+<button class="price-btn ft-start__btn"
+        data-send-email="true"
+       data-product="Фінансова трансформація"
+       data-email-template="free"
+       data-price=""
+       data-pay-link=""
+       data-redirect="false"
+  onclick="openPricePopup(event, 'Фінансова трансформація')">
+  ХОЧУ НА ПРОГРАМУ
+</button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===============================
+ FT WIDE TEXT BOX (как большой прямоугольник)
+================================= -->
+<section class="ft-wide ft-animate">
+
+  <div class="ft-wide__box">
+    <p>
+      Є момент, <strong>який важко визнати навіть собі</strong>…
+    </p>
+
+    <p>
+      Ви заробляєте, працюєте багато… але грошей як не було, так і немає.
+      Наче хтось відкручує кран. Вони заходять — і так само легко витікають.
+      Витрати ростуть разом із доходами.
+    </p>
+
+    <p>
+      Ви ніби доганяєте себе самого і не можете зловити той рівень,
+      який давно мав би бути вашою нормою. При цьому ви не стоїте на місці —
+      ви працюєте. І працюєте багато.
+    </p>
+
+    <p>
+      Але всередині — тиша й розпач: «Я роблю все, що можу… то чому я досі у цьому
+      замкненому колі?»
+    </p>
+
+    <p>
+      Це і є фінансова стеля. Та сама невидима межа, яка тримає сильних, амбітних,
+      розумних людей у звичних цифрах.
+    </p>
+
+    <p>
+      Не тому, що вони не знають як. А тому, що всередині є внутрішні програми,
+      які не дозволяють мати більше.
+    </p>
+
+    <button class="price-btn ft-wide__btn"
+        data-send-email="true"
+        data-product="Фінансова трансформація"
+        data-email-template="free"
+        data-price=""
+        data-pay-link=""
+        data-redirect="false"
+        onclick="openPricePopup(event, 'Фінансова трансформація')">
+  ХОЧУ ВИЙТИ ЗА МЕЖІ СТЕЛІ
+</button>
+
+  </div>
+</section>
+
+
+<!-- =====================================
+ ПРО ПРОГРАМУ (фото + текст в рамке)
+===================================== -->
+<section class="ft-frame ft-animate">
+
+  <div class="ft-frame__grid">
+
+    <!-- LEFT PHOTO -->
+    <div class="ft-frame__media">
+      <img src="/assets/images/ft2.jpg" alt="">
+    </div>
+
+    <!-- RIGHT TEXT BOX -->
+    <div class="ft-frame__box">
+      <p>
+        <strong>«ФІНАНСОВА ТРАНСФОРМАЦІЯ»</strong> — для тих, хто хоче не латати дірки,
+        а змінити систему <strong>всередині себе</strong>.
+      </p>
+
+      <p>Це індивідуальна глибока робота.</p>
+
+      <p>
+        6 індивідуальних сесій, де ми торкнемося того,
+        що зазвичай людина не бачить роками:
+      </p>
+
+      <ul class="ft-diamond-list">
+        <li>ваша фінансова зона комфорту — і як вона вас обмежує</li>
+        <li>внутрішні фінансові сценарії, які змушують гроші витікати</li>
+        <li>підсвідомі заборони на великі доходи</li>
+        <li>страхи, які блокують рух вперед</li>
+        <li>поведінку, що «обнуляє» будь-який фінансовий прорив</li>
+      </ul>
+
+      <p>
+        Ми не просто поговоримо про гроші.<br>
+        <strong>Ми змінимо основу</strong>, на якій стоїть ваш фінансовий рівень.
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- =====================================
+ ЩО ВИ ОТРИМАЄТЕ
+===================================== -->
+<section class="ft-results ft-animate">
+  <div class="ft-results__box">
+
+    <h2>ЩО ВИ ОТРИМАЄТЕ В ПРОЦЕСІ РОБОТИ</h2>
+
+    <p><strong>1. Діагностика та фінансова розтяжка</strong></p>
+    <p>
+      Ви побачите, що саме тримає ваш дохід на одному рівні.
+      Ми розширимо вашу фінансову ємність і пропишемо перші кроки
+      до нового рівня.
+    </p>
+
+    <p><strong>2. Покрокова стратегія фінансового прориву</strong></p>
+    <p>
+      Ви отримаєте чіткий, конкретний план, який веде до іншого рівня доходу —
+      без вигоряння, істерик і хаосу.
+    </p>
+
+    <p><strong>3. Глибоке розпакування фінансових установок</strong></p>
+    <p>
+      Ми знайдемо внутрішні “стопи” — ті самі невидимі гальма,
+      які роками тримають вас в одному сценарії.
+    </p>
+
+    <p><strong>4. Пропрацювання страхів та обмежуючих переконань</strong></p>
+    <p>
+      Страх втрат, страх заробляти більше, страх відповідальності.
+    </p>
+
+    <p class="ft-results__note">
+      Це не про гроші — це про ваше тіло, нервову систему,
+      про те, що ви дозволяєте або НЕ дозволяєте собі мати.
+      Ми пропрацюємо це м’яко, екологічно, але глибоко.
+    </p>
+
+    <button class="price-btn ft-results__btn"
+        data-send-email="true"
+        data-product="Фінансова трансформація"
+        data-email-template="free"
+        data-price=""
+        data-pay-link=""
+        data-redirect="false"
+        onclick="openPricePopup(event, 'Фінансова трансформація')">
+  ЗАПИСАТИСЬ НА ТРАНСФОРМАЦІЮ
+</button>
+
+
+  </div>
+</section>
+
+
+
+<section class="ft-highlight ft-animate">
+  <div class="ft-highlight__box">
+    <p>
+      Гроші — це продовження вас<br>
+      Коли змінюється внутрішня система — змінюється і цифра
+    </p>
+  </div>
+</section>
+
+
+<!--=========================================
+        ЩО ЗМІНИТЬСЯ ПІСЛЯ ПРОГРАМИ
+===========================================-->
+<section class="ft-scope ft-animate">
+  <div class="ft-scope__box">
+
+    <h3>ЩО ЗМІНИТЬСЯ ПІСЛЯ ПРОГРАМИ</h3>
+
+    <ul class="ft-list-impact">
+      <li>утримаєте і збільшите дохід, а не лише робитимете обороти</li>
+      <li>розширите свою фінансову ємність</li>
+      <li>перестанете втрачати гроші через підсвідомі сценарії</li>
+      <li>отримаєте чітку покрокову стратегію зростання</li>
+      <li>вийдете на рівень доходу, який давно мав бути вашою нормою</li>
+    </ul>
+
+    <!-- КНОПКА ПО ЦЕНТРУ -->
+    <button class="price-btn ft-results__btn"
+        data-send-email="true"
+        data-product="Фінансова трансформація"
+        data-email-template="free"
+        data-price=""
+        data-pay-link=""
+        data-redirect="false"
+        onclick="openPricePopup(event, 'Фінансова трансформація')">
+   ХОЧУ ОБГОВОРИТИ УЧАСТЬ
+</button>
+
+
+  </div>
+</section>
+<!--=========================================
+        ДЛЯ КОГО ЦЯ ПРОГРАМА
+===========================================-->
+<section class="ft-scope ft-animate">
+  <div class="ft-scope__box">
+
+    <h3>ДЛЯ КОГО ЦЯ ПРОГРАМА</h3>
+<br>
+    <p><strong>Програма для вас, якщо ви:</strong></p>
+
+    <ul class="ft-list-yes">
+      <li>заробляєте значно вище мінімалки, але не можете накопичити</li>
+      <li>працюєте багато, але результат зростає мінімально</li>
+      <li>боїтесь витрачати на себе, навіть маючи гроші</li>
+      <li>вперлись у свою фінансову стелю — доходи є, але вони не тримаються</li>
+      <li>відчуваєте, що можете більше, але щось всередині зупиняє</li>
+      <li>відкладаєте відпустку «на потім», але потім не настає</li>
+      <li>хочете не просто зрозуміти, а реально змінити свою фінансову модель</li>
+      <li>ви готові до глибинної роботи, а не до швидких лайфхаків</li>
+    </ul>
+
+    <p><strong>Програма НЕ для вас, якщо:</strong></p>
+
+    <ul class="ft-list-no">
+      <li>ви шукаєте швидке рішення за 2 тижні</li>
+      <li>ви не готові дивитись на свої страхи і установки</li>
+      <li>ви хочете просто «бюджет в табличці»</li>
+      <li>ви не готові інвестувати в себе</li>
+    </ul>
+
+    <button class="price-btn ft-results__btn"
+        data-send-email="true"
+        data-product="Фінансова трансформація"
+        data-email-template="free"
+        data-price=""
+        data-pay-link=""
+        data-redirect="false"
+        onclick="openPricePopup(event, 'Фінансова трансформація')">
+   ХОЧУ ЗМІНИТИ СВОЮ ФІНАНСОВУ МОДЕЛЬ
+</button>
+
+  </div>
+</section>
+
+<!-- =====================================
+ ПРО МЕНЕ
+===================================== -->
+<section class="ft-about ft-animate">
+  <div class="ft-about__box">
+
+    <div class="ft-about__grid">
+
+      <!-- PHOTO -->
+      <div class="ft-about__photo">
+        <img src="/assets/images/about.png" alt="Про мене">
+      </div>
+
+      <!-- TEXT -->
+      <div class="ft-about__content">
+        <h3>ПРО МЕНЕ</h3>
+
+        <p>20 років роботи фінансовим директором</p>
+
+        <p>
+          22 роки бізнес-консалтингу — побудова фінансових моделей,
+          системи бюджетування, вивід компаній на новий рівень
+        </p>
+
+        <p>
+          Коуч, ментор, діагност, магістр бізнес-адміністрування
+          Executive MBA — <strong>глибока робота з підсвідомими
+          фінансовими установками</strong>, зцілення відносин з
+          грошима на глибинному рівні
+        </p>
+
+        <p>
+          Я бачила сотні разів: коли змінюється внутрішнє —
+          зовнішнє змінюється швидко і назавжди.
+        </p>
+
+        <p>
+          І саме ця комбінація —
+          <strong>фінансова експертиза + глибока робота з підсвідомістю</strong>
+          — дає неймовірні результати.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================
+ ЯК ПРОХОДИТЬ ПРОГРАМА
+===================================== -->
+<section class="ft-process ft-animate">
+  <div class="ft-process__box">
+
+    <h3>ЯК ПРОХОДИТЬ ПРОГРАМА</h3>
+
+    <ul class="ft-process__list">
+      <li>5 індивідуальних сесій (90–120 хв)</li>
+      <li>1 бонусна сесія — підсумкова діагностика змін</li>
+      <li>
+        супровід у Telegram між сесіями
+        (щоденна рефлексія процесів, фіксація змін,
+        інсайтів, навіть найменших проривів +
+        розгорнута відповідь від мене)
+      </li>
+      <li>письмові рефлексії після кожної зустрічі</li>
+      <li>щотижневі фінансові чек-іни</li>
+      <li>персональні практики та завдання</li>
+    </ul>
+
+    <p class="ft-process__duration">
+      <strong>Тривалість:</strong>
+      6 тижнів + бонус: 2 тижні післяпрограмної підтримки
+      для <strong>закріплення фінансових змін</strong>
+    </p>
+
+    <button class="price-btn ft-results__btn"
+        data-send-email="true"
+        data-product="Фінансова трансформація"
+        data-email-template="free"
+        data-price=""
+        data-pay-link=""
+        data-redirect="false"
+        onclick="openPricePopup(event, 'Фінансова трансформація')">
+   ОБГОВОРИТИ ДЕТАЛІ
+</button>
+
+
+  </div>
+</section>
+
+
+<!-- =====================================
+ FINAL CTA — ФІНАНСОВА ТРАНСФОРМАЦІЯ
+===================================== -->
+<section class="ft-final ft-animate">
+  <div class="ft-final__box">
+
+
+
+    <p class="ft-final__title">
+      <strong>«Фінансова трансформація»</strong> — це не про більше працювати
+    </p>
+
+    <p>
+      Це глибока індивідуальна робота, яка змінює основу,
+      на якій стоїть ваш фінансовий рівень.
+    </p>
+
+    <p class="ft-final__accent">
+      Ми не латаємо дірки.<br>
+      <strong>Ми перебудовуємо систему.</strong>
+    </p>
+
+    <button class="price-btn ft-results__btn"
+        data-send-email="true"
+        data-product="Фінансова трансформація"
+        data-email-template="free"
+        data-price=""
+        data-pay-link=""
+        data-redirect="false"
+        onclick="openPricePopup(event, 'Фінансова трансформація')">
+   ХОЧУ ПЕРЕБУДУВАТИ СВОЮ ФІНАНСОВУ СИСТЕМУ
+</button>
+
+
+    <p class="ft-final__note">
+      Кількість місць обмежена. Беру лише <strong>3 людини на місяць</strong>
+      в індивідуальну роботу
+    </p>
+
+  </div>
+</section>
+
+<!--========================================================
+                      FAQ
+   ==========================================================-->
+<!--<section id="faq" class="section ft-animate">
+  <h2 class="products-header ">FAQ</h2>
+  <div class="faq-list ">-->
+<!----------------------- faq-question 1 -------------------------------->
+
+      <!--<div class="faq-item">
+      <div class="faq-question">
+       Для кого програма «Фінансова трансформація»?
+        <img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+       Для тих, хто:
+           <ul style="padding-left:20px;">
+              <li>хоче навести лад у фінансах</li>
+               <li>вийти з постійного фінансового напруження</li>
+               <li>зрозуміти, як працюють гроші саме в його житті/бізнесі</li>
+               <li>змінити фінансові сценарії, а не просто збільшити дохід</li>
+          </ul>
+          Це глибинна робота, а не поверхневі лайфхаки
+      </div>
+    </div>
+
+
+  </div>
+</section>-->
+
+
+
+
+
+
+
+  <!--=======================================
+     кнопка наверх
+     ======================================-->
+  <button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+    <img src="/assets/icons/up-arrow.png" alt="up">
+  </button>
+  <!--=================================================================
+     ФУТЕР И БЛОК С КНОПКОЙ ОФЕРТЫ
+       ==============================================================-->
+<div class="offer-section">
+  <button class="offer-button" onclick="openOfferModal()">Договір оферти</button>
+</div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+    <div class="footer-privacy-stick">
+  <button class="offer-button privacy-button" onclick="openPrivacyModal()">
+    Політика конфіденційності
+  </button>
+</div>
+</footer>
+<!--============================================================
+ МОДАЛЬНОЕ ОКНО КОНТАКТОВ
+ =====================================================-->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+     <button class="modal-x" aria-label="Закрити"onclick="closeContactsModal()">&times;</button>
+
+    <h3>
+      <img src="/assets/icons/phone.png" alt="Телефон" style="height: 28px; margin-right: 8px; vertical-align: middle;">
+      Контакти
+    </h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+
+    <div class="contacts-socials">
+  <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank">
+    <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+    <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+  </a>
+  <a href="https://www.facebook.com/IrenStetsurina" target="_blank">
+    <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+    <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+  </a>
+  <a href="https://t.me/Stec0407" target="_blank">
+    <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+    <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+  </a>
+</div>
+
+
+  </div>
+</div>
+
+<!--===============================================
+   МОДАЛКА ОПЛАТА ТА ПОВЕРНЕННЯ
+   =============================================== -->
+<div id="paymentModal">
+  <div class="payment-modal-content">
+      <button class="modal-x" aria-label="Закрити" onclick="closePaymentModal()">&times;</button>
+
+    <h3>
+      <img src="/assets/icons/wallet.png" alt="Гаманець">
+      <span>Оплата</span>
+    </h3>
+
+    <div class="payment-grid">
+      <div class="payment-icons">
+        <div class="icon-row">
+          <img src="/assets/icons/visa.png" alt="Visa">
+          <img src="/assets/icons/mc.png" alt="Mastercard">
+        </div>
+        <div class="icon-row">
+          <img src="/assets/icons/apple-pay.png" alt="Apple Pay">
+        </div>
+        <div class="icon-row">
+          <img src="/assets/icons/google-pay.png" alt="Google Pay">
+        </div>
+      </div>
+
+      <div class="payment-labels">
+        <div>Оплата карткою</div>
+        <div>Apple Pay</div>
+        <div>Google Pay</div>
+      </div>
+    </div>
+
+    <p class="payment-note">
+      Всі умови оплати зазначені на сторінці продукту<br><br>
+      Повернення- згідно із Законом «Про захист прав споживачів»
+    </p>
+
+
+  </div>
+</div>
+
+<!-- ОФЕРТА -->
+<div id="offerModal" class="offer-modal">
+  <div class="offer-modal-content">
+    <div id="offerContent"></div>
+  </div>
+</div>
+
+<!--==========================================================
+ ФОРМА ЗАПИСИ
+ ================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+      <button class="modal-x" aria-label="Закрити"onclick="closePricePopup()">&times;</button>
+
+    <h3 id="priceTitle"></h3>
+    <p id="priceLabel"></p>
+
+    <form id="bookingForm">
+      <div class="required-field">
+        <input type="text" name="name" placeholder="Ваше ім'я" required>
+      </div>
+
+      <div class="required-field">
+        <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required>
+      </div>
+
+        <div class="required-field">
+  <input type="email" id="emailInput" name="email" placeholder="Email" required>
+</div>
+
+
+      <textarea name="comment" rows="6" placeholder="Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)"></textarea>
+        <input type="hidden" name="send_email" value="true">
+<input type="hidden" name="email_template" value="free">
+<input type="hidden" name="product" value="Фінансова трансформація">
+
+
+      <button type="submit" class="btn btn-main">Відправити заявку</button>
+    </form>
+
+    <div id="popupStatus"></div>
+
+
+  </div>
+</div>
+
+<!--=======================================================
+ УСПЕШНАЯ МОДАЛКА
+==========================================================-->
+<div id="successModal">
+  <div class="popup-content" style="text-align:center; max-width:420px; position:relative;">
+
+    <!-- ✕ КРЕСТИК -->
+    <button class="modal-x"
+            onclick="closeSuccessModal()"
+            aria-label="Закрити"></button>
+
+    <img src="/assets/icons/uspih.png" alt="Успіх"
+         class="success-icon"
+         style="width:120px; height:120px; margin:14px 0;">
+
+    <h3 style="margin:20px 0 12px; color:#222; font-size:24px;">
+      Заявку надіслано
+    </h3>
+
+    <p style="font-size:18px; color:#444; margin-bottom:8px; line-height:1.6;">
+      Я зв’яжусь з вами найближчим часом
+    </p>
+
+  </div>
+</div>
+  <!-- Підключення скрипта -->
+  <script src="/script-safe.js"></script>
+<script src="/finansova-transformaciya/ft-animate.js"></script>
+
+
+<!-- платное -->
+ <script id="email-template-paid" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Для завершення — перейдіть за кнопкою нижче:
+  </p>
+
+  <div style="text-align:center; margin:28px 0 32px;">
+    <a href="{{paylink}}"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Оплатити {{price}}
+    </a>
+  </div>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center;">
+    Якщо виникнуть питання — просто відповідайте на це письмо ❤️<br>
+    або напишіть мені в одну з соцмереж:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+  <!-- фри -->
+ <script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Якщо виникнуть питання — просто відповідайте на це письмо ❤️<br>
+    або напишіть мені в одну з соцмереж:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+  <!-- ехит -->
+ <script id="email-template-exit" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Ваш подарунок готовий 🎁
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Дякуємо, {{name}}!
+    Тримайте ваш <strong>чекліст</strong>
+  </p>
+
+  <div style="text-align:center; margin: 28px 0 32px;">
+    <a href="https://i-s-business-consulting.pp.ua/checklist.pdf"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Завантажити
+    </a>
+  </div>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center;">
+    Якщо виникнуть питання — просто відповідайте на це письмо ❤️<br>
+    або напишіть мені в одну з соцмереж:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+
+</body>
+</html>

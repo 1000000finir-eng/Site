@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ірина Стецуріна — Консалтинг</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/finansova-transformaciya/ft.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+    <link rel="stylesheet" href="/booking/booking.css">
+<script src="/booking/booking.js" defer></script>
+
+
+
+
+
+</head>
+
+
+<!-- ===================== EXIT-INTENT POPUP ===================== -->
+<!--<div id="exitPopup">
+  <div class="exit-popup-content">
+      <button class="modal-x" aria-label="Закрити">&times;</button>
+
+    <img src="assets/images/checklist.png" class="exit-img" alt="Check-list">
+
+    <h3>Зачекай!</h3>
+    <p class="exit-sub">
+      Дарую чек-лист <br>
+      <strong>«5 блоків, які крадуть у тебе +500k грн/місяць»</strong><br>
+      Просто залиш контакти ↓
+    </p>
+
+    <form id="exitForm">
+      <input type="text" name="name" placeholder="Ваше ім’я" required>
+      <input type="text" name="phone" id="exitPhone" placeholder="Телефон" required>
+      <input type="email" name="email" placeholder="Email" required>
+
+      <button type="submit" class="btn btn-main exit-btn">Отримати чек-лист</button>
+    </form>
+
+    <div id="exitStatus"></div>
+  </div>
+</div>-->
+
+<body>
+<!-- =================================================================
+                       topbar
+ =================================================================== -->
+  <div class="topbar">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Лого" />
+    </div>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="menu">
+        <a href="/" onclick="closeMenu()">Головна</a>
+      <a href="/#about" onclick="closeMenu()">Про мене</a>
+  <a href="/#products" onclick="closeMenu()">Продукти</a>
+  <a href="/#faq" onclick="closeMenu()">FAQ</a>
+        <a href="/finansova-transformaciya/">Фінансова трансформація</a>
+
+<!--  <a onclick="openPaymentModal(); closeMenu()">Оплата</a>-->
+  <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+</nav>
+  </div>
+
+<!-- =========================================
+                HERO SECTION
+========================================= -->
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+
+    <img src="assets/images/hero.jpg" alt="" class="hero-cover">
+
+<img src="assets/images/hero-overlay.png" class="hero-overlay" alt="">
+
+    <div class="hero-text">
+  <h1 class="hero-line hero-line-1"><span class="shifted">СИСТЕМНИЙ КОНСАЛТИНГ</span></h1>
+  <h1 class="hero-line hero-line-2">ЩО ДАЄ ПРОРИВИ, А НЕ ІЛЮЗІЮ РУХУ</h1>
+
+  <p class="hero-sub hero-line hero-line-3">
+    Для тих, хто хоче керувати бізнесом, а не бігати за ним
+  </p>
+        <br>
+</div>
+
+
+  </div>
+</section>
+
+
+
+<!-- =================================================================
+                      (ABOUT)
+ =================================================================== -->
+  <!-- <header class="fade-up"></header>-->
+<br><br>
+  <section class="section" id="about">
+    <div class="about-wrapper fade-left">
+      <div class="about-photo-wrapper">
+        <img class="about-photo" src="assets/images/about-photo.jpg" alt="Ірина Стецуріна" />
+        </div>
+      <div class="about-text">
+        <p><strong>ІРИНА СТЕЦУРІНА</strong> <br></p>
+          <p>Системний консультант | Бізнес-тренер | Коуч | MBA</p>
+        <p><strong>Для кого я працюю: </strong></p>
+        <p>Власники малого та середнього бізнесу, експерти, які переросли хаос і готові до системного масштабування без втрати сенсу й якості життя</p>
+          <p><strong>Результати для клієнтів:</strong></p>
+
+        <ul style="margin:10px 0; padding-left:20px;">
+          <li>зрозуміла стратегія та стабільне зростання</li>
+          <li>керовані процеси й підвищена капіталізація</li>
+          <li>бізнес, який працює без постійного «ручного» втручання</li>
+          <li>вихід на нові фінансові рівні</li>
+        </ul>
+
+        <p><strong>Мій фокус </strong>- не «латати проблеми», а <strong>показати новий рівень мислення і дій</strong><br></p>
+        <div class="about-highlights">
+          <div class="about-highlights">
+            <div class="about-card">
+                <img src="assets/images/cert.jpg" alt="">
+            </div>
+
+            <div class="about-card">
+                <img src="assets/images/diploma_LIFT.jpg" alt="">
+            </div>
+
+              <div class="about-card">
+                <img src="assets/images/diploma.jpg" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- =================================================================
+ INTRO MINI-FEATURES
+ ======================================================================= -->
+<section id="intro-features" class="section">
+
+
+  <div class="mini-features-grid">
+
+    <!-- 1 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Практичний досвід</h3>
+    </div>
+      <p><strong>22+ роки професійного тренінгу та консультування!</strong></p>
+        <p>Не теорія з підручників - реальний досвід впровадження систем у бізнесах різних масштабів.</p>
+      <p>Я не просто розробляю рекомендації - я допомагаю їх втілити.</p>
+
+    </div>
+        </div>
+
+    <!-- 2 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Варіанти нашої співпраці</h3>
+    </div>
+      <ul style=" padding-left:20px;">
+        <li>Індивідуальне консультування</li>
+        <li>Коучинг перших осіб компанії</li>
+        <li>Корпоративне консультування</li>
+        <li>Точкові консультації та тренінги</li>
+        <li>Консультаційний супровід процесів </li>
+        <li>Менторинг-програми та супровід власників</li>
+      </ul>
+    </div>
+        </div>
+
+    <!-- 3 -->
+      <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Індивідуальна робота з власниками</h3>
+    </div>
+      <p>У центрі роботи — особистість лідера:</p>
+      <ul style=" padding-left:20px;">
+        <li>мислення і його “точка огляду”</li>
+        <li>емоційна стійкість і здатність тримати навантаження</li>
+        <li>особистий стиль управління</li>
+        <li>відносини з собою, партнерами, грошима</li>
+      </ul>
+    </div>
+        </div>
+
+
+
+      <!-- 4 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Результати нашої співпраці</h3>
+    </div>
+      <ul style=" padding-left:20px;">
+        <li><strong>Системи, що працюють</strong> - не плани, а реально впроваджені інструменти контролю та розвитку</li>
+        <li><strong>Вихід з операційки</strong> - бізнес працює без вас 24/7, ви керуєте стратегічно</li>
+        <li><strong>Передбачуваність </strong>- від "гасіння пожеж" до чіткого контролю цифр та процесів</li>
+        <li><strong>Баланс</strong> - час на життя, а не тільки на роботу. Бізнес дає свободу, а не забирає її</li>
+      </ul>
+    </div>
+        </div>
+
+    <!-- 5 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Консалтинг без шаблонів</h3>
+    </div>
+      <p><strong>Управлінський та фінансовий консалтинг</strong>-
+        це <strong>унікальне рішення під ваш бізнес:</strong></p>
+      <ul style=" padding-left:20px;">
+        <li>Не копіюю "кращі практики" - аналізую, що спрацює саме у вас</li>
+        <li>Не нав'язую готові рішення - розробляю системи під вашу специфіку</li>
+          <li>Не даю універсальні поради - шукаю те, що стане вашою конкурентною перевагою</li>
+      </ul>
+
+    </div>
+        </div>
+
+    <!-- 6 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Мій підхід</h3>
+    </div>
+      <ul style=" padding-left:20px;">
+      <li>Логіка + інтуїція </li>
+          <li>Цифри + сенси</li>
+      <li>Cистемність + глибина</li>
+          <li>Фундамент, а не фасад</li>
+         </ul>
+      <p>Я не даю шаблонів - допомагаю знайти рішення, <strong>що працюють саме для вас</strong></p>
+
+    </div>
+        </div>
+
+  </div>
+</section>
+
+
+  <!--================================================================
+    Products
+    =======================================================================-->
+  <section class="section" id="products">
+    <h2 class="products-header scroll-animate">Мої послуги</h2>
+      <h3 class="products-header products-subtitle fade-up">Індивідуальна робота з вами один на один</h3>
+    <div class="cards">
+    <!--======================== card 1 ========================-->
+ <div class="card scroll-animate"
+ onclick="openModal(this)"
+     data-product="Експрес-консультація"
+     data-price="250 ₴"
+     data-pay-link="https://secure.wayforpay.com/button/bd4b9e4e3e415"
+     data-send-email="true"
+     data-email-template="paid"
+     data-redirect="false">
+        <img src="assets/images/express-consult.jpg" alt="Експрес-консультація" />
+        <div class="card-content">
+          <div class="card-text-content">
+            <h3 class="card-title">ЕКСПРЕС-КОНСУЛЬТАЦІЯ</h3>
+            <p>Швидке рішення. Точний фокус. Чіткий план дій.45 хвилин, які повернуть тебе в рух.</p>
+            <p><strong>Що ми робимо:</strong></p>
+              <ul>
+                  <li>визначаємо твою точку А - де ти зараз і що справді відбувається</li>
+                  <li>формулюємо точку Б - чітку, чесну і твою ціль</li>
+                  <li>прокладаємо маршрут до неї - з позиції, ніби ти вже там, і з цього майбутнього дивимося назад</li>
+              </ul>
+              <div class="full-text" style="display:none;">
+
+            <p>Це формат, який працює швидко й глибоко.<br>Ти виходиш не з «легким натхненням», а з реальним розумінням: ЩО робити завтра, про ЩО чесно говорити з собою і КУДИ рухатись далі.</p>
+            <p><strong>Для кого:</strong><br>
+                Експрес-консультація буде цінною, якщо:</p>
+                <ul>
+                    <li>ти застряг(ла) і не знаєш, куди рухатись далі</li>
+                    <li>в голові багато варіантів, але важко обрати</li>
+                    <li>всередині сумніви, страх або прокрастинація</li>
+                    <li>ти хочеш змін, але не бачиш першого кроку</li>
+                    <li>відчуваєш, що можеш більше, але не уявляєш, яким саме є це «більше»</li>
+                </ul>
+              <p><strong>Результат:</strong><br>
+                  <ul>
+                  <li>Ясність<br> Ти побачиш, ДЕ саме перебуваєш і ЧОГО насправді хочеш</li>
+                  <li>Фокус<br> Ти зрозумієш свою ціль і навіщо вона тобі</li>
+                  <li>План <br>Отримаєш 3-5 чітких кроків, з яких варто почати вже зараз</li>
+                  <li>Опора<br> Замість хаосу зʼявиться відчуття впевненості й внутрішнього спокою</li>
+                  <li>Новий ракурс<br>Ми працюємо не шляхом «зараз → потім», а з майбутнього, де бажане вже досягнуто<br>Це змінює все - рішення, дії, стан, швидкість.</li>
+              </ul>
+              <p><strong>Як проходить</strong><br>🕓 Тривалість: 45 хвилин<br> 📍 Формат: онлайн, Zoom</p>
+              <p>Це перше знайомство, спроба «на смак» моєї експертності. Це як запросити мене на каву й поговорити про найважливіше: твоє життя.</p>
+            </div>
+          </div>
+<div class="card-bottom">
+      <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openBookingModal(event)">
+    🛒
+  </button>
+
+          </div>
+        </div>
+      </div>
+     </div>
+
+<!--======================== card 2 ========================-->
+<div class="card scroll-animate"
+ onclick="openModal(this)"
+     data-product="Стратегічна сесія"
+     data-price="6000 ₴"
+     data-pay-link="https://secure.wayforpay.com/button/b93e5be4236e3"
+     data-send-email="true"
+     data-email-template="paid"
+     data-redirect="false">
+
+        <img src="assets/images/strategy-session.jpg" alt="Стратегічна сесія" />
+        <div class="card-content">
+          <div class="card-text-content">
+            <h3 class="card-title">СТРАТЕГІЧНА СЕСІЯ</h3>
+            <p>Глибинна робота, що перетворює хаос на чітку систему рішень, дій та відповідальностей.</p>
+            <p>Стратегічна сесія - це комплексна робота з власником, де ми розбираємо не лише бізнес як систему, а й вас як лідера. Ви отримуєте не просто стратегію, а чітку карту руху та внутрішню ясність, необхідну для масштабування, стабільності й впевненого управління.</p>
+            <div class="full-text" style="display:none;">
+            <p><strong>Для кого ця сесія</strong><br>
+               Для власників бізнесу, які:</p>
+                <ul>
+                <li>відчувають, що «виросли» зі свого поточного формату управління</li>
+                    <li>втратили ясність, куди рухається компанія</li>
+                    <li>хочуть систематизувати операційку, фінанси, ролі, команди</li>
+                    <li>готові переходити від ручного керування до стратегічного управління</li>
+                    <li>розуміють, що масштаб потребує іншого мислення та інструментів</li>
+                </ul>
+              <p><strong>Що ми опрацьовуємо на сесії</strong><br>
+              Ми працюємо одразу на трьох рівнях:</p>
+                <ol class="ol-custom">
+  <li>
+    <span class="num"></span>
+    <strong>Стратегічний рівень</strong>
+    <ul class="ul-nested">
+      <li>Перевірка актуальності бізнес-моделі</li>
+      <li>Аналіз точки А та потенціалу компанії</li>
+      <li>Формування точки Б: бачення, стратегічні цілі, критерії успіху</li>
+      <li>Визначення фокусів розвитку на найближчі 6–12 місяців</li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="num"></span>
+    <strong>Операційний рівень</strong>
+    <ul class="ul-nested">
+      <li>Аналіз структури управління</li>
+      <li>Виявлення слабких місць і «вузьких горлечок»</li>
+      <li>Перепроєктування ролей та зон відповідальності</li>
+      <li>Систематизація процесів (в тому числі фінансових)</li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="num"></span>
+    <strong>Лідерський рівень</strong>
+    <ul class="ul-nested">
+      <li>Ваша роль як власника</li>
+      <li>Які компетенції й установки зараз обмежують розвиток</li>
+      <li>Які рішення і зміни дадуть прорив</li>
+      <li>Який стиль управління потрібен компанії на новому етапі</li>
+    </ul>
+  </li>
+</ol>
+
+                <p><strong>Результати, які ви отримуєте після сесії</strong></p>
+                <ul>
+                    <li>Чітке бачення і стратегія на найближчі 6–12 місяців</li>
+                    <li>Розуміння, де ви втрачаєте гроші, час, енергію</li>
+                    <li>Оптимізована структура управління</li>
+                    <li>Розподіл ролей і відповідальностей, який знімає хаос</li>
+                    <li>Пріоритети, які приведуть до зростання</li>
+                    <li>Персональні управлінські рекомендації</li>
+                    <li>Перші конкретні кроки, що запускають рух до результату</li>
+                </ul>
+              <p><strong>Формат роботи</strong><br>
+                 🕓 Тривалість: 2–3 години<br>
+                 📍 Формат: онлайн або офлайн<br>
+                 Ви отримуєте: документацію за результатами, карту фокусів, план першочергових дій</p>
+            </div>
+          </div>
+
+            <div class="card-bottom">
+      <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    🛒
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<!--======================== card 3 ========================-->
+<div class="card scroll-animate"
+ onclick="openModal(this)"
+     data-product="Інформаційна консультація"
+     data-price="3500 ₴"
+     data-pay-link="https://secure.wayforpay.com/button/b221e8882d224"
+     data-send-email="true"
+     data-email-template="paid"
+     data-redirect="false">
+  <img src="assets/images/information-consult.jpg" alt="Інформаційна консультація" />
+
+  <div class="card-content">
+    <div class="card-text-content">
+      <h3 class="card-title">ІНФОРМАЦІЙНА КОНСУЛЬТАЦІЯ</h3>
+      <p>Швидкі відповіді. Чіткість. Рішення, які працюють.<br>
+      У кожного є питання, які «висять у повітрі» - і поки вони не отримають чіткої відповіді, вони не дають рухатися далі.<br>
+      Іноді бракує лише одного пазлу, щоб склалася вся картина - у бізнесі, фінансах, стратегії й у власному стані.
+      Якщо хочете швидко прояснити ситуацію, отримати конкретні рекомендації і перестати ходити колом - <strong> цей продукт для вас</strong>.</p>
+        <div class="full-text" style="display:none;">
+        <p><strong>Формат: Питання - Відповідь</strong><br>
+        Ви ставите свої питання - я даю конкретні рішення під вашу ситуацію (не теорію, а дієві кроки).</p>
+        <p><strong>Що відбувається?</strong></p>
+        <ol class="ol-custom">
+            <li><span class="num"></span><span class="text">Ви надсилаєте список питань.<br>Щоби я розуміла, чи потрапляють ваші запити у мою зону компетенцій і чи реально їх закрити за 60 хвилин.</span></li>
+            <li><span class="num"></span><span class="text">Якщо формат підходить - передоплата 2500 грн.</span></li>
+            <li><span class="num"></span><span class="text">Призначаємо онлайн-зустріч у Zoom.<br>Проводимо консультацію. За вашим бажанням — залишається запис.<br>Тривалість зустрічі: 45–60 хвилин.</span></li>
+        </ol>
+
+        <p><strong>Для яких запитів підходить?</strong><br>
+        Питання можуть бути дуже різні - бізнесові, фінансові, стратегічні, особистісні:
+        <ul style="padding-left:20px;">
+          <li>Як порахувати собівартість або ціну продукції/послуги?</li>
+          <li>З чого почати впровадження бюджетування?</li>
+          <li>Які KPI ставити команді?</li>
+          <li>Як оцінити інвестиції?</li>
+          <li>Як розподілити постійні витрати?</li>
+          <li>Як працювати з емоційним вигорянням?</li>
+          <li>Як рахувати особисті витрати й планувати бюджет?</li>
+          <li>Як працювати з обмежуючими переконаннями?</li>
+          <li>Як відновити ресурс і внутрішню опору?</li>
+          <li>Як будувати стратегію бізнесу?</li>
+          <li>Як знайти час і структурувати хаос?</li>
+          <li>І ще десятки запитів, де потрібно швидко «побачити картинку зверху».</li>
+        </ul></p>
+        <p><strong>Що ви отримуєте?</strong></p>
+        <ul style="padding-left:20px;">
+          <li>Чіткі відповіді саме на ваші питання</li>
+          <li>Практичні кроки, які можна впровадити одразу</li>
+          <li>Інше бачення ситуації, нові рішення, ясність</li>
+          <li>Розуміння, що робити далі й у якій послідовності</li>
+          <li>Відповіді без зайвої «води»</li>
+        </ul>
+        <p><strong>Кому підходить:</strong><p>
+            <ul style="padding-left:20px;">
+       <li>Підприємцям</li>
+        <li>Власникам бізнесів</li>
+        <li>Початківцям та досвідченим спеціалістам</li>
+       <li>Тим, хто загубився у рішенні і хоче ясності</li>
+       <li>Тим, хто не хоче чекати місяцями — треба тут і зараз</li>
+          </ul>
+      </div>
+    </div>
+
+<div class="card-bottom">
+      <div class="readmore">Читати далі →</div>
+    <div class="buttons-row">
+       <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    🛒
+  </button>
+
+        
+    </div>
+  </div>
+</div>
+</div>
+<!--================================================-->
+    </div>
+  </section>
+<!--=========================БЛОК УПРАВЛІНСЬКИЙ КОНСАЛТІНГ ========================-->
+<section class="section" id="upravlenie">
+  <h2 class="products-header fade-up">Управлінський консалтинг</h2>
+
+<h3 class="products-header products-subtitle fade-up">
+  Ваш бізнес працює наосліп? Час це змінити!
+</h3>
+
+  <div class="cards">
+
+    <!--======================== card 1 ========================-->
+    <div class="card scroll-animate" onclick="openModal(this)"
+     data-product="Стратегічне планування та розвиток бізнесу"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/strat-plan.jpg" alt="Стратегічне планування та розвиток бізнесу" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">СТРАТЕГІЧНЕ ПЛАНУВАННЯ ТА РОЗВИТОК БІЗНЕСУ</h3>
+        <p><strong>Чому ваш стратегічний план досі в шухляді?</strong><br> Не тому, що він поганий. <br>
+        А тому що:</p>
+              <ul style="padding-left:20px;">
+       <li>Команда його не розуміє (або не вірить)</li>
+        <li>Немає конкретних дій на рівні "що робити завтра"</li>
+        <li>Кожен керівник тягне в свою сторону</li>
+                  </ul>
+        <p><strong>Що я роблю:</strong></p>
+        <div class="full-text" style="display:none;">
+            <ol class="ol-custom">
+                <li><span class="num"></span>
+                    <span class="text">Створюю не просто стратегічний план, а дорожню карту з конкретними кроками, термінами та відповідальними.
+                    План, який команда розуміє і готова втілювати</li>
+                 <li><span class="num"></span>
+                     <span class="text">Формую професійну, мотивовану команду з єдиним баченням. Не просто групу фахівців, а злагоджений механізм, де кожен розуміє свій внесок у загальну мету</span></li>
+                <li><span class="num"></span>
+                    <span class="text">Трансформую стратегічне бачення в конкретні дії кожного керівника. Кожен член команди знає не тільки "куди йдемо",
+                        а й "що робити завтра", щоб зміни відбулися насправді</span></li>
+            </ol>
+            <p><strong>Що отримуєте на виході:</strong></p>
+          <ul style="padding-left:20px;">
+              <li>Стратегічний план прориву - не абстрактний документ, а робочу карту розвитку компанії</li>
+                <li>Команду виконавців - керівників, які не чекають вказівок, а беруть відповідальність</li>
+              <li>Колективне бачення - коли всі в компанії рухаються в одному напрямку з однаковою швидкістю</li>
+              <li>Конкурентний продукт - команда, здатна його створювати і постійно вдосконалювати</li>
+              </ul>
+
+              <p><strong>Результат:</strong></p>
+              <p>Ваша стратегія стає щоденною реальністю компанії, яка зростає системно і передбачувано <br>
+                  Команда перестає чекати вказівок - і починає створювати зміни самостійно</p>
+            <p><strong>Як працюємо:</strong></p>
+
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Передпроектний аудит</strong><br>Розбираємося в ситуації, виявляємо больові точки, оцінюємо складність</span></li>
+                <li><span class="num"></span><span class="text"><strong>Пропозиція</strong></span><br>Формую чітку програму впровадження з термінами та вартістю</li>
+                <li><span class="num"></span><span class="text"><strong>Впровадження</strong></span><br>Розробляємо та налаштовуємо систему під ваш бізнес</li>
+            </ol>
+            <p><strong>Вартість: </strong> індивідуальна, залежить від масштабу та складності.
+
+Але одне гарантую: інвестиція окупиться через підвищення ефективності команди.
+
+Готові обговорити ваш запит? Тисніть кнопку <strong>«ЗАПИСАТИСЯ» </strong> - і почнемо з аудиту</p>
+        </div>
+           </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--======================== card 2 ========================-->
+    <div class="card scroll-animate" onclick="openModal(this)"
+    data-product="Власницький облік і контроль бізнесу"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/oblik-control.jpg" alt="Власницький облік і контроль бізнесу" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">ВЛАСНИЦЬКИЙ ОБЛІК І КОНТРОЛЬ БІЗНЕСУ</h3>
+        <p>Коли ви не знаєте реальних цифр - ви не керуєте бізнесом. Бізнес керує вами!</p>
+              <p><strong>Знайома ситуація?</strong></p>
+              <ul style="padding-left:20px;">
+                <li>Виручка зростає - а грошей немає</li>
+                  <li>Фінансист дає звіти - але ви не розумієте, що з цим робити</li>
+                  <li>Відчуття, що бізнес "живе своїм життям", а ви лише спостерігаєте</li>
+              </ul>
+
+
+        <div class="full-text" style="display:none;">
+            <ul style="padding-left:20px;">
+                <li>Не можете чесно відповісти: "Скільки насправді заробляє моя компанія?"</li>
+            </ul>
+            <p><strong>Проблема не в бухгалтерії. Проблема в системі контролю</strong></p>
+            <p>Бухгалтерський облік - для податкової.</p>
+            <p><strong>Власницький облік - для ВАС:</strong></p>
+            <p>Щоб бачити реальні цифри, приймати швидкі рішення і керувати бізнесом, а не здогадуватись про нього</p>
+            <p><strong>Що я впроваджую:</strong></p>
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Фінансову панель власника</strong><br>5-7 ключових показників, які реально управляють прибутком. Не 20 таблиць — а цифри, які дають ясність і контроль</span></li>
+                <li><span class="num"></span><span class="text"><strong>Систему циклічного управління</strong><br>
+                    <strong>План ➠ Факт ➠ Відхилення ➠ Причина ➠ Рішення ➠ Дія ➠ Аналіз</strong><br>
+                    Замість "чому знову так?!" - передбачуваний процес контролю та корекції</span></li>
+                <li><span class="num"></span><span class="text"><strong>Бізнес, який працює на ваші цілі</strong><br>
+                    Не просто "заробляє гроші", а реалізує ваші фінансові та життєві амбіції. Системно підвищує свою вартість і цінність</span></li>
+            </ol>
+            <p><strong>Результат:</strong></p>
+            <ul style="padding-left:20px;">
+                <li><strong>Прозорість </strong> - ви завжди знаєте, скільки заробляє бізнес і куди йдуть гроші</li>
+                <li><strong>Контроль</strong>  - управляєте цифрами, а не здогадуєтесь про них</li>
+                <li><strong>Зростання вартості </strong> - системна робота автоматично підвищує капіталізацію компанії</li>
+                <li><strong>Свобода</strong>  - бізнес працює на ваші цілі, а не ви на бізнес</li>
+            </ul>
+            <p>Ви стаєте сильним власником, який керує стратегічно - а не тоне в операційці</p>
+            <p><strong>Як почати:</strong></p>
+            <ol class="ol-custom">
+
+                <li><span class="num"></span><span class="text"><strong>Передпроектний аудит </strong>- розбираємося в ситуації (безкоштовна попередня консультація)</span></li>
+                <li><span class="num"></span><span class="text"><strong>Пропозиція </strong>- чітка програма з термінами та вартістю</span></li>
+                <li><span class="num"></span><span class="text"><strong>Впровадження</strong>- налаштовуємо систему під ваш бізнес</span></li>
+            </ol>
+            <p><strong>Вартість:</strong> формується індивідуально, але окупається через ріст ефективності команди</p>
+            <p>Тисніть кнопку <strong>«ЗАПИСАТИСЯ» </strong> - і почнемо з <strong>діагностики</strong> </p>
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--======================== card 3 ========================-->
+    <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Система KPI та мотивації, що працює на прибуток"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/kpi.jpg" alt="Система KPI та мотивації, що працює на прибуток" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">СИСТЕМА KPI ТА МОТИВАЦІЇ, ЩО ПРАЦЮЄ НА ПРИБУТОК</h3>
+       <p><strong>Коли команда працює "як може" - а не "на результат"</strong><br></p>
+       <p>Знайома ситуація?</p>
+              <ul style="padding-left:20px;">
+                  <li>Виплачуєте зарплати та бонуси - але не розумієте, за що саме</li>
+                  <li>Продажі падають - але ви бачите це постфактум, коли вже пізно</li>
+                  <li>Є стратегія компанії - але співробітники не розуміють, як їхня робота на неї впливає</li>
+
+              </ul>
+
+        <div class="full-text" style="display:none;">
+            <ul style="padding-left:20px;">
+                <li>Преміальний фонд з'їдає прибуток - замість того, щоб формуватися з нього</li>
+            </ul>
+            <p><Strong>Проблема не в людях. Проблема в системі</Strong></p>
+            <p><strong>Що я впроваджую:</strong></p>
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>KPI, які реально працюють</strong><br>
+                Не формальні цифри "для галочки", а показники конкретно для <strong>кожного працівника</strong>,
+                на виконання яких вони дійсно впливають і які прямо впливають на продажі та прибуток.
+                    Кожен співробітник знає: що робити, щоб заробити більше. А ви знаєте: <strong>за що платите</strong></span></li>
+                <li><span class="num"></span><span class="text"><strong>Систему раннього попередження</strong><br>
+                    Випереджаючі показники, які сигналять про падіння продажів <strong>до того</strong>, як воно сталося.
+                    Замість "чому минулого місяця не продали?" - "що робимо сьогодні, щоб наступний місяць був успішним"
+                </span></li>
+                <li><span class="num"></span><span class="text"><strong>Мотивацію, що самоокупається</strong><br>
+                    Преміальний фонд формується з додатково <strong>заробленого прибутку</strong>, а не з'їдає базовий.
+                  Співробітники заробляють - компанія заробляє. Win-win,
+                а не перетягування ковдриСпівробітники заробляють - компанія заробляє. Win-win, а не перетягування ковдри
+                </span></li>
+                <li><span class="num"></span><span class="text"><strong>Зв'язок стратегії з щоденною роботою</strong><br>
+                Кожен працівник розуміє, як його конкретні дії впливають на загальні цілі компанії.<br>
+                Стратегія перестає бути абстракцією - і стає частиною щоденної роботи</span></li>
+            </ol>
+            <p><strong>Результат:</strong></p>
+            <ul style="padding-left:20px;">
+                <li><strong>Прозорість </strong>- ви платите за конкретний результат, а не "за присутність"</li>
+                <li><strong>Передбачуваність</strong>- бачите падіння продажів заздалегідь і встигаєте відреагувати</li>
+                <li><strong>Мотивація</strong>- команда зацікавлена в результаті, бо це їхні гроші</li>
+                <li><strong>Прибутковість</strong>- бонуси окупаються з додаткового прибутку, а не з'їдають базовий</li>
+            </ul>
+            <p>Ваша команда починає працювати на результат - бо це вигідно їм і вигідно вам.</p>
+            <p><strong>Як працюємо:</strong></p>
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Передпроектний аудит</strong><br>
+            Розбираємося в ситуації, виявляємо больові точки, оцінюємо складність</span></li>
+                <li><span class="num"></span><span class="text"><strong>Пропозиція</strong><br>
+                Формую чітку програму впровадження з термінами та вартістю</span></li>
+                <li><span class="num"></span><span class="text"><strong>Впровадження</strong><br>
+              Розробляємо та налаштовуємо систему під ваш бізнес</span></li>
+            </ol>
+
+            <p><strong>Вартість:</strong>індивідуальна, залежить від масштабу та складності.<br>
+                Але одне гарантую: інвестиція окупиться через підвищення ефективності команди.
+            </p>
+            <p>Готові обговорити ваш запит? Натисніть кнопку <strong>«ЗАПИСАТИСЯ»</strong> - і почнемо з аудиту</p>
+
+        </div>
+        </div>
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--=========================БЛОК ФІНАНСОВИЙ КОНСАЛТИНГ ========================-->
+<section class="section" id="finkon">
+  <h2 class="products-header scroll-animate">Фінансовий консалтинг</h2>
+    <h3 class="products-header products-subtitle fade-up">Трансформуйте фінансовий хаос у передбачуваність та контроль</h3>
+  <div class="cards">
+
+    <!-------------------------------- Card 1 --------------------------------->
+    <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Управлінський облік під ключ"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/upr-uchet.jpg" alt="Управлінський облік під ключ" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">УПРАВЛІНСЬКИЙ ОБЛІК ПІД КЛЮЧ</h3>
+        <p><strong>"Скільки я заробив минулого місяця?"</strong> - якщо не знаєте відповіді, у вас проблема</p>
+        <p>Ви маєте бухгалтерію, отримуєте бухгалтерські звіти, сплачуєте податки, але ви не розумієте:</p>
+              <ul style="padding-left:20px;">
+                  <li>Скільки насправді заробили</li>
+                  <li>Які витрати окупаються, а які - ні</li>
+                  <li>Що буде через місяць, якщо нічого не змінювати</li>
+                  <li>Які рішення приймати, щоб заробляти більше</li>
+              </ul>
+        <div class="full-text" style="display:none;">
+          <p><strong>Чому бухгалтерські звіти не допомагають приймати рішення?</strong><br></p>
+            <p>Тому що вони показують:</p>
+
+            <ul style="padding-left:20px;">
+                <li><strong>Що БУЛО </strong>- коли вже пізно щось міняти</li>
+                <li><strong>Формальні цифри</strong>- які не відповідають на питання "що робити?"</li>
+                <li><strong>Картинку для податкової</strong>- а не для власника</li>
+            </ul>
+            <p>Три <strong>дорогі помилки</strong>, які ви робите:</p>
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Керуєте "на відчуттях"</strong><br>
+                Немає цифр, які показують реальну картину. Приймаєте рішення інтуїтивно - і помиляєтесь у половині випадків</span></li>
+                <li><span class="num"></span><span class="text"><strong>Дізнаєтесь про проблеми постфактум</strong><br>
+            Витрати зросли, прибуток впав - і ви бачите це через місяць у звіті. Коли вже пізно реагувати</span></li>
+                <li><span class="num"></span><span class="text"><strong>Не знаєте, де економити</strong><br>
+            "Треба скоротити витрати" - але де? Скрізь? А раптом саме ці витрати і приносять прибуток?<br>
+            Щоб їх уникнути, вам потрібен інший облік.<strong>Управлінський</strong>.</span></li>
+            </ol>
+
+            <p><strong>Що я впроваджую</strong>- систему, яка дає відповіді <strong>ДО рішення</strong>, а не <strong>ПІСЛЯ - управлінський облік:</strong></p>
+
+
+            <ol class="ol-custom">
+
+  <li>
+    <span class="num"></span>
+    <strong>Реальна картина бізнесу</strong><br>
+    Бачите за цифрами життя компанії: що працює, що ні, де витрати окупаються, а де - розтрата.
+    Не абстрактні звіти - а конкретні показники, які дають ясність і контроль.<br>
+    Ті 5-7 показників, які реально управляють прибутком. Знаєте їх - керуєте бізнесом. Не знаєте - бізнес керує вами
+  </li>
+
+  <li>
+    <span class="num"></span>
+    <strong>Контроль у реальному часі</strong><br>
+    Не "що було місяць тому", а "що зараз" і "що буде завтра, якщо…".<br>
+    <strong>План ➠ Факт ➠ Відхилення ➠ Причини ➠ Дії</strong><br>
+    Замість "чому знову не так?" - передбачувана система <strong>контролю </strong>та <strong>корекції</strong>. Швидкі рішення замість запізнілих реакцій
+  </li>
+
+  <li>
+    <span class="num"></span>
+    <strong>Відповіді на три головні питання:</strong>
+
+    <ul class="ul-nested" style="padding-left:20px;">
+      <li><strong>Як було?</strong> (які рішення спрацювали)</li>
+      <li><strong>Як є?</strong> (що відбувається зараз)</li>
+      <li><strong>Як буде?</strong> (що станеться, якщо нічого не змінювати)</li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="num"></span>
+    <strong>Дорожня карта оптимізації</strong><br>
+    Не "скоротити скрізь", а системний підхід: де можна економити без втрати результату, а де витрати - це інвестиція
+  </li>
+
+ </ol>
+
+    <strong>Як почати:</strong><br>
+       <ol class="ol-custom">
+        <li><span class="num"></span><span class="text"><strong>Аудит (безкоштовна попередня консультація)</strong><br>
+    З'ясовуємо, яка інформація вам потрібна і чому зараз її немає<br></span></li>
+        <li><span class="num"></span><span class="text"><strong>Індивідуальна пропозиція</strong><br>
+    Програма впровадження з термінами та вартістю<br></span></li>
+        <li><span class="num"></span><span class="text"><strong>Впровадження</strong><br>
+    Налаштовуємо систему обліку під ваші запитання та рішення.<br></span></li>
+      </ol>
+
+            <p>Натисніть кнопку <strong>«ЗАПИСАТИСЯ»</strong>-  і почнемо з діагностики вашої ситуації</p>
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------- card 2 ----------------------------------------------->
+    <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Система управління витратами та собівартістю"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/rashody.jpg" alt="Система управління витратами та собівартістю" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">СИСТЕМА УПРАВЛІННЯ ВИТРАТАМИ ТА СОБІВАРТІСТЮ</h3>
+        <p><strong>Ви продаєте собі в збиток - і навіть не знаєте про це!</strong></p>
+        <p><strong>Чому це відбувається?</strong></p>
+        <p>Тому що ви не знаєте <strong>реальну</strong> собівартість.</p>
+        Є бухгалтерська собівартість - але вона враховує не все<br>
+        Є відчуття "десь витрати зростають" - але не зрозуміло, де саме
+
+        <div class="full-text" style="display:none;">
+          Є загальні цифри - але немає конкретики по продуктах
+          <p><strong>Результат:</strong> ви думаєте, що заробляєте на продукті А - а насправді він їсть прибуток від продукту Б.</p>
+          <p><strong>Три питання, які руйнують бізнес:</strong></p>
+          <p><strong>"Скільки насправді коштує мій продукт?"</strong><br>
+          Не за бухгалтерією, а реально. З усіма прихованими витратами, які "десь розчиняються"
+          </p>
+          <p><strong>"Чому при хорошій маржі немає прибутку?"</strong><br>
+          Ціни встановлені, продажі йдуть - але гроші кудись зникають. І ви не розумієте, куди
+          </p>
+          <p><strong>"Де економити, щоб не вбити бізнес?"</strong><br>
+          Скоротити витрати треба - але які? А раптом саме ці витрати і приносять продажі?
+          </p>
+          <p><strong>Якщо не можете відповісти чітко - у вас немає системи управління витратами</strong></p>
+            <p><strong>Я впроваджую систему, яка показує де ваші гроші і хто за них відповідає:</strong></p>
+
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Реальну собівартість продукту</strong><br>
+            Не бухгалтерську "середню по лікарні", а точний розрахунок по кожному продукту. Знаєте, на чому заробляєте, а що продаєте собі в збиток</span></li>
+                <li><span class="num"></span><span class="text"><strong>Розподіл відповідальності за витрати</strong><br>
+            Кожна стаття витрат має відповідального. Не абстрактні "загальні витрати", а конкретні люди за конкретні цифри</span></li>
+                <li><span class="num"></span><span class="text"><strong>Контроль план-факт</strong><br>
+            <strong>План ➠ Факт ➠ Відхилення ➠ Причини ➠ Рішення</strong><br>
+            Бачите перевитрати одразу, а не в кінці місяця зі звіту</span></li>
+                <li><span class="num"></span><span class="text"><strong>Резерви оптимізації</strong><br>
+            Знаходимо, де можна економити без втрати якості та результату. Де витрати - це інвестиція, а де - розтрата</span></li>
+                <li><span class="num"></span><span class="text"><strong>Системний механізм розвитку</strong><br>
+            Не разове "скорочення витрат", а постійно працююча система оптимізації на всіх етапах - від виробництва до продажу</span></li>
+            </ol>
+
+            <p><strong>Результат:</strong></p>
+            <ul style="padding-left:20px;">
+                <li><strong>Прозорість </strong>- знаєте реальну собівартість кожного продукту</li>
+                <li><strong>Контроль</strong>-бачите, куди йдуть гроші і хто за це відповідає</li>
+                <li><strong>Оптимізація</strong>- знаходите резерви економії без втрати результату</li>
+                <li><strong>Прибутковість</strong>- зменшуєте витрати системно, а не хаотично</li>
+            </ul>
+            <p>Замість "кудись зникають гроші" - чітке розуміння кожної копійки</p>
+            <p><strong>Ви перестаєте здогадуватись про витрати - і починаєте їх контролювати</strong></p>
+            <p><strong>Як працюємо:</strong></p>
+
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Аудит витрат</strong><br>
+            Розбираємося, куди йдуть гроші, які витрати прозорі, а які - "чорна скринька"</span></li>
+                <li><span class="num"></span><span class="text"><strong>Індивідуальна програма</strong><br>
+            Формую систему управління витратами під специфіку вашого бізнесу</span></li>
+                <li><span class="num"></span><span class="text"><strong>Впровадження</strong><br>
+            Налаштовуємо облік, контроль та систему відповідальності за витрати</span></li>
+            </ol>
+
+            <p><strong>Вартість:</strong> залежить від масштабу компанії, формується після аудиту</p>
+            <p><strong>Готові взяти витрати під контроль?</strong> Почнемо з <strong>діагностики</strong></p>
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--------------------------- card 3 ------------------------------->
+    <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Бюджетне управління, яке реально працює"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/budget.jpg" alt="Бюджетне управління, яке реально працює" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">БЮДЖЕТНЕ УПРАВЛІННЯ, ЯКЕ РЕАЛЬНО ПРАЦЮЄ</h3>
+        <p><strong>Ваш бізнес працює наосліп? Час це змінити!</strong></p>
+        <p>Якщо ви не знаєте точно, скільки грошей потрібно на наступний місяць, куди йдуть ресурси
+            і чому прибуток не відповідає очікуванням - у вас немає управління. У вас є надія.</p>
+        <p>Я допоможу замінити надію на систему.</p>
+        <p><strong>Що ви отримаєте:</strong></p>
+
+        <div class="full-text" style="display:none;">
+            <ol class="ol-custom">
+                <li><span class="num"></span><span class="text"><strong>Контроль замість сюрпризів</strong><br>
+          Систему бюджетного управління, яка покаже реальний стан справ - без прикрас і самообману.
+              Ви нарешті побачите, де ваш бізнес заробляє, а де зливає гроші в нікуди.</span></li>
+                <li><span class="num"></span><span class="text"><strong>Цифри замість відчуттів </strong><br>
+          Операційні та підсумкові бюджети, які дають жорсткі відповіді: скільки потрібно грошей, звідки їх взяти,
+              що станеться через 3-6 місяців. Без води - тільки факти.</span></li>
+
+                <li>
+    <span class="num"></span>
+    <strong>Рішення замість гадання<br>Фінансово-економічні інструменти для оцінки кожного кроку:</strong>
+
+    <ul class="ul-nested">
+      <li>Чи варто наймати нову людину?</li>
+      <li>Відкривати напрямок?</li>
+      <li>Інвестувати в обладнання?</li>
+    </ul>
+  </li>
+            </ol>
+
+          <p>Тепер ви знатимете відповідь <strong>ДО того</strong>, як <strong>витратите гроші</strong></p>
+          <p><strong>Вартість:</strong></p>
+           <p>Інвестиція у впровадження визначається індивідуально після передпроектного аудиту та враховує:</p>
+            <ul style="padding-left:20px;">
+                <li>Специфіку вашого бізнесу та рівень викликів</li>
+                <li>Масштаб завдання та бажані терміни</li>
+                <li>Поточний стан фінансових процесів</li>
+            </ul>
+            <p><strong>Перший крок - безкоштовна консультація</strong><br>
+            Обговоримо ваші завдання, оцінимо ситуацію та узгодимо оптимальний формат співпраці, який відповідає вашим можливостям та очікуванням.
+            </p>
+            <p>Готова відповісти на ваші запитання та знайти рішення, яке працюватиме саме для вашого бізнесу.</p>
+            <p>Тисніть на кнопку <strong>«ЗАПИСАТИСЯ»</strong> і обговоримо деталі</p>
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--=========================Менторинг – програми  ========================-->
+<section class="section" id="mentoring">
+  <h2 class="products-header scroll-animate">Менторинг – програми та супровід </h2>
+    <h3 class="products-header products-subtitle fade-up">Для тих, хто готовий перестати бігти і почати жити по-справжньому</h3>
+  <div class="cards">
+
+    <!-------------------------------- Card 1 --------------------------------->
+   <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Фінансова трансформація"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/fintrans.jpg" alt="Фінансова трансформація" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">ФІНАНСОВА ТРАНСФОРМАЦІЯ</h3>
+        <p>для тих, хто готовий вирости за межі своєї фінансової стелі</p>
+        <p><strong>НЕЗАБАРОМ</strong></p>
+        <div class="full-text" style="display:none;">
+
+          полный текст
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------- card 2 ----------------------------------------------->
+   <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Діагностика"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/diagnostika.jpg" alt="Діагностика" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">ДІАГНОСТИКА</h3>
+        <p>Стратегії поведінки, які ви обираєте несвідомо і як вийти з невротичного кола</p>
+        <p><strong>НЕЗАБАРОМ</strong></p>
+        <div class="full-text" style="display:none;">
+
+          полный текст
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--------------------------- card 3 ------------------------------->
+    <div class="card scroll-animate" onclick="openModal(this)"
+         data-product="Менторінг-супровід"
+     data-price=""
+     data-pay-link=""
+     data-send-email="true"
+     data-email-template="free"
+     data-redirect="false">
+      <img src="assets/images/mentoring.jpg" alt="Менторінг-супровід" />
+
+      <div class="card-content">
+          <div class="card-text-content">
+        <h3 class="card-title">МЕНТОРИНГ- СУПРОВІД</h3>
+        <p>Трансформація зсередини: фінанси, стосунки, бізнес — в одному просторі</p>
+        <p><strong>НЕЗАБАРОМ</strong></p>
+        <div class="full-text" style="display:none;">
+
+          полный текст
+
+        </div>
+              </div>
+
+        <div class="card-bottom">
+          <div class="readmore">Читати далі →</div>
+          <div class="buttons-row">
+            <button class="price-btn"
+    onclick="event.stopPropagation(); openPricePopup(event)">
+    Записатися
+  </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!======================================
+                       Відгуки
+  =======================================>
+<section id="testimonials" class="section ft-animate">
+  <h2 class="testimonials-title">Відгуки клієнтів</h2>
+
+  <div class="testimonials-wrapper">
+    <div class="testimonials-track" id="testimonialsTrack">
+
+      <!-- CARD 1 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Після роботи з Іриною ми перестали гасити пожежі й нарешті побачила бізнес як систему.
+          З’явилась ясність по цифрах, відповідальності й пріоритетах. За 4 місяці оборот виріс на 32% без “забігів на виснаження”.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ОК</div>
+          <div>
+            <div class="testimonial-name">Олена Коваль К.</div>
+            <div class="testimonial-role">Власниця логістичної компанії</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Стратегічна сесія з Іриною — це коли тобі одночасно і дуже чесно, і дуже підтримуюче.
+          Ми побачили, де втрачаємо гроші, переглянули ролі в команді й прописали цілі співробітникіа, які наближають до виконання стратегічних та тактичних цілей компанії.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">МЛ</div>
+          <div>
+            <div class="testimonial-name">Максим Лозовий</div>
+            <div class="testimonial-role">Співвласник IT-компанії</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «На експрес-консультації ми за 45 хвилин розклали по поличках те, що я крутила в голові пів року.
+          Вийшла з конкретним планом на 3 місяці і відчуттям, що нарешті керую ситуацією, а не навпаки.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ІС</div>
+          <div>
+            <div class="testimonial-name">Ірина Самохвал</div>
+            <div class="testimonial-role">Підприємиця у сфері послуг</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «На консультації отримала практичні відповіді на питання, що мене цікавили. Великий практичний досвід консультанта дозволяє дати прості зрозумілі 
+          поради щодо побудови системи управління фінансами в компанії.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ТО</div>
+          <div>
+            <div class="testimonial-name">Тамара Олександрівна</div>
+            <div class="testimonial-role">Власниця декількох компаній</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «За час індивідуальної роботи з Іриною у мене змінився не лише бізнес, а й відношення до себе.
+          Стало менше самокритики, більше рішень “з опори”, з’явився баланс між компанією та особистим життям.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">НВ</div>
+          <div>
+            <div class="testimonial-name">Наталія Вакуленко</div>
+            <div class="testimonial-role">Власниця виробничого бізнесу</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 6 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Доступное изложение информации, визуализация, решение практических задач. На индивидуальном тренинге я получила очень подробную информацию по КРІ и ССП. 
+          Тренер информацию передавала интересно и с указанием реальных примеров, которые можно сразу же применить на нашем предприятии.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">АС</div>
+          <div>
+            <div class="testimonial-name">Антипова Снежана</div>
+            <div class="testimonial-role">Инженер по подготовке кадров<br>
+ГП «МТП«Южный»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 7 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «За один день получил выжимку информации по управлению финансами предприятия и управленческому учету. 
+          Много полезных рекомендаций, которые буду внедрять на своем предприятии. Спасибо огромное Ирине! Все очень понравилось!»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ГВ</div>
+          <div>
+            <div class="testimonial-name">Гридасов Виталий</div>
+            <div class="testimonial-role">Учредитель, директор<br>
+ООО «Ариано»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 8 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Сильные стороны: Умение доносить информацию, большой опыт, понимание разных видов бизнеса и быстрое погружение в них. Получен хороший багаж знаний, которые необходимо и уже знаю как внедрять.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ТМ</div>
+          <div>
+            <div class="testimonial-name">Тийдо Марианна</div>
+            <div class="testimonial-role">HR-директор<br>
+ООО «ИНВО ГРУПП»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 9 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Зрозумілий і сучасний виклад, глибоке розуміння теми. Застосування практичних прикладів на базі проєктів нашої компанії. Рекомендації щодо оптимізації діючих моделей»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">СС</div>
+          <div>
+            <div class="testimonial-name">Слабенко Світлана</div>
+            <div class="testimonial-role">Фінансовий директор<br>
+ООО «Корса»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 10 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Сильные стороны тренинга: Возможность задавать вопросы, и более детально их рассмотреть, делать упор на ключевые моменты, которые нужны нам непосредственно. Тренер профессионал, с большим опытом, доброжелательна, внимательна, всегда готова помочь в вопросах»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ПИ</div>
+          <div>
+            <div class="testimonial-name">Петровская Ирина</div>
+            <div class="testimonial-role">Менеджер по KPI<br>
+ ПАО «Бердянские Жатки»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 11 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Дуже докладно і доступно викладена и донесена до слухачів основна інформація.
+Тренер - Професіонал з великої літери!!! Надзвичайно доступно і просто викладає матеріал! Я отримала багато необхідної інформації,
+            зокрема в своїй сфері діяльності, для прийняття необхідних рішень в своїй професіональній роботі.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЗЕ</div>
+          <div>
+            <div class="testimonial-name">Зінько Евгенія</div>
+            <div class="testimonial-role">Економіст-аналітик<br>
+ТОВ «ТБ Сад»
+</div>
+          </div>
+        </div>
+      </article>
+
+     <!-- CARD 12 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Искренняя благодарность за проведенные 2 дня обучения. Конструктивность, внимательность к важным моментам. Предоставление информации в комфортном формате. Ирина,
+            благодарю Вас за помощь нашему коллективу в обучении  и надеюсь на встречу в будущем.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">БМ</div>
+          <div>
+            <div class="testimonial-name">Бородина Марина</div>
+            <div class="testimonial-role">Финансовый менеджер</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 13 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Сильні позитивні емоції, бажання приїхати ще раз. Легкість у спілкуванні, цікава подача інформації,
+            обмін інформацією, бажання тренера відповісти та допомогти у конкретно поставленому питанні»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">КТ</div>
+          <div>
+            <div class="testimonial-name">Казачок Тетяна</div>
+            <div class="testimonial-role">СЕО</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 14 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Индивидуальный подход, систематизация информации. Понятное и интересное изложение информации,
+            рассмотрение практических примеров, обсуждение вопросов на примере предприятия.
+            Тренер - компетентный и профессиональный специалист, открытый и приятный в общении»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЧЕ</div>
+          <div>
+            <div class="testimonial-name">Чиханцова Елена</div>
+            <div class="testimonial-role">Начальник ПЭО<br>
+ООО «МПК Скворцово»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 15 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Занятие с тренером индивидуальное, возможность задать интересующие вопросы (с учетом специфики предприятия).
+            Очень понравился и тренер и тренинг, получила дополнительные знания и планирую применять на практике.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЧИ</div>
+          <div>
+            <div class="testimonial-name">Чернышева Илонна</div>
+            <div class="testimonial-role">Финансовый директор<br>
+ПАО "Севертранс"
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 16 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Тренер обладает глубокими знаниями в области управления финансами, бюджетирования, финансового анализа деятельности компании,
+            подает материал доступным способом, очень интересные примеры из практики. Спасибо за теплую обстановку и комфортные условия. Так держать!»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЕЛ</div>
+          <div>
+            <div class="testimonial-name">Ермоленко Людмила</div>
+            <div class="testimonial-role">Нач. отдела казначейства<br>
+ЧАО «МК «Азовсталь»
+</div>
+          </div>
+        </div>
+      </article>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<!--========================================================
+                      Галерея
+   ==========================================================-->
+<section id="appleGallery" class="section ">
+  <h2 class="gallery-title">Надихаючі моменти</h2>
+
+  <div class="apple-gallery-wrapper">
+
+    <div class="apple-gallery-track">
+      <div class="apple-slide"><img src="assets/gallery/1.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/2.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/3.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/4.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/5.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/6.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/7.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/8.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/9.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/10.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/11.jpg"></div>
+          </div>
+
+    <!-- ТОЧКИ -->
+    <div class="apple-dots"></div>
+  </div>
+</section>
+
+  <!--========================================================
+                      FAQ
+   ==========================================================-->
+<section id="faq" class="section ft-animate">
+  <h2 class="products-header ">FAQ</h2>
+  <div class="faq-list ">
+<!----------------------- faq-question 1 -------------------------------->
+          <div class="faq-item">
+      <div class="faq-question">
+        З чого краще почати, якщо я не розумію, який формат мені підійде?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Почніть з експрес-консультації або інформаційної консультації.
+Ми розберемо ваш запит, контекст і цілі, після чого я підкажу оптимальний формат роботи - без нав’язування і зайвих витрат.
+      </div>
+    </div>
+<!----------------------- faq-question 2 -------------------------------->
+    <div class="faq-item">
+      <div class="faq-question">
+        Як проходить експрес- консультація?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Консультація триває 45–60 хвилин онлайн (Zoom). Ви отримуєте чіткий аналіз ситуації,
+        рекомендації та конкретні кроки для впровадження.
+      </div>
+    </div>
+
+<!----------------------- faq-question 3 -------------------------------->
+    <div class="faq-item">
+      <div class="faq-question">
+        Чим відрізняється експрес-консультація від інформаційної?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+      <u>Експрес-консультація</u>  - це швидка допомога з конкретним питанням як побудувати маршрутну карту від точки А до точки Б,
+          з точки де знаходитесь до точки куди хочете прийти.<br>
+<u>Інформаційна консультація</u> - пояснення, варіанти рішень, логіка дій для вирішення конкретного питання, щоб ви могли самостійно
+          прийняти рішення. Це можуть бути професійні питання або особисті. Наприклад: «Як розподілити постійні витрати?» або «Як відновлювати свій ресурс?»
+      </div>
+    </div>
+
+<!----------------------- faq-question 4 -------------------------------->
+    <div class="faq-item">
+      <div class="faq-question">
+        Коли потрібна стратегічна сесія?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Стратегічна сесія потрібна, якщо:
+          <ul style="padding-left:20px;">
+              <li>немає ясності куди рухається бізнес або ви самі</li>
+              <li>є відчуття хаосу й перевантаження</li>
+              <li>доходи не відповідають зусиллям</li>
+              <li>хочеться системи, а не латання дірок</li>
+          </ul>
+          На виході - чітка картина, фокус і план дій
+      </div>
+    </div>
+
+<!----------------------- faq-question 5 -------------------------------->
+      <div class="faq-item">
+      <div class="faq-question">
+        Чи працюєте ви з малим бізнесом і експертами, а не лише з великими компаніями?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+       Так. Я працюю з:
+          <ul style="padding-left:20px;">
+              <li>підприємцями</li>
+               <li>експертами та консультантами</li>
+               <li>власниками малого та середнього бізнесу</li>
+          </ul>
+          Масштаб не критичний. Важлива готовність мислити системно і брати відповідальність
+      </div>
+    </div>
+
+<!----------------------- faq-question 6 -------------------------------->
+      <div class="faq-item">
+      <div class="faq-question">
+        Чим управлінський консалтинг відрізняється від фінансового?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Фінансовий консалтинг - про гроші, цифри, фінансову модель, прибутковість.
+Управлінський консалтинг - про процеси, ролі, структуру, прийняття рішень.
+Часто ми поєднуємо обидва формати, бо фінанси й управління нерозривні.
+
+      </div>
+    </div>
+
+<!----------------------- faq-question 7 -------------------------------->
+      <div class="faq-item">
+      <div class="faq-question">
+       Як розраховується вартість консалтингових проєктів?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Інвестиція у впровадження визначається індивідуально після передпроектного аудиту та враховує:
+         <ul style="padding-left:20px;">
+              <li>Специфіку вашого бізнесу та рівень викликів</li>
+             <li>Масштаб завдання та бажані терміни</li>
+             <li>Поточний стан фінансових процесів</li>
+          </ul>
+      </div>
+    </div>
+
+<!----------------------- faq-question 8 -------------------------------->
+      <div class="faq-item">
+      <div class="faq-question">
+        Чи можна заплатити з рахунку юрособи?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+       Так, звісно. Напишіть, і ми підготуємо рахунок на ваші реквізити.
+      </div>
+    </div>
+<!----------------------- faq-question 9 -------------------------------->
+      <div class="faq-item">
+      <div class="faq-question">
+       Чи працюєте ви онлайн?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Так, усі формати доступні онлайн, незалежно від вашого міста чи країни
+      </div>
+    </div>
+
+<!----------------------- faq-question 10 -------------------------------->
+      <div class="faq-item">
+      <div class="faq-question">
+        Як записатися і що буде далі?
+        <img class="faq-icon" src="assets/icons/faq-arrow.png" alt="розгорнути">
+      </div>
+      <div class="faq-answer">
+        Ви залишаєте заявку або пишете в Direct.<br>
+Ми уточнюємо запит, формат і домовляємося про час.<br>
+Все просто, прозоро і без тиску.
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+  <!--========================================================
+                       Clients
+   ==========================================================-->
+<section id="clients" class="section ft-animate">
+  <h2 class="clients-title">Мої клієнти</h2>
+
+  <div class="clients-wrapper">
+    <div class="clients-track" id="clientsTrack">
+
+      <div class="logo-box"><img src="assets/clients/client1.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client2.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client3.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client4.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client5.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client6.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client7.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client8.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client9.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client10.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client11.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client12.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client13.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client14.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client15.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client16.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client17.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client18.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client19.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client20.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client21.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client22.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client23.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client24.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client25.png" alt=""></div>
+
+
+    </div>
+  </div>
+</section>
+  <!--=======================================
+     UP button
+     ======================================-->
+  <button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+    <img src="assets/icons/up-arrow.png" alt="up">
+  </button>
+  <!--=================================================================
+     Footer & offer button
+       ==============================================================-->
+  <div class="offer-section">
+  <button class="offer-button" onclick="openOfferModal()">Договір оферти</button>
+</div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+    <div class="footer-privacy-stick">
+  <button class="offer-button privacy-button" onclick="openPrivacyModal()">
+    Політика конфіденційності
+  </button>
+</div>
+</footer>
+
+<!--============================================================
+ МОДАЛЬНОЕ ОКНО КОНТАКТОВ
+ =====================================================-->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+     <button class="modal-x" aria-label="Закрити"onclick="closeContactsModal()">&times;</button>
+
+    <h3>
+      <img src="assets/icons/phone.png" alt="Телефон" style="height: 28px; margin-right: 8px; vertical-align: middle;">
+      Контакти
+    </h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+
+    <div class="contacts-socials">
+  <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank">
+    <img src="assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+    <img src="assets/icons/instagram.png" class="color" alt="Instagram">
+  </a>
+  <a href="https://www.facebook.com/IrenStetsurina" target="_blank">
+    <img src="assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+    <img src="assets/icons/facebook.png" class="color" alt="Facebook">
+  </a>
+  <a href="https://t.me/Stec0407" target="_blank">
+    <img src="assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+    <img src="assets/icons/telegram.png" class="color" alt="Telegram">
+  </a>
+</div>
+
+
+  </div>
+</div>
+
+  <!====================================
+  Модалка карточки продуктов
+  ============================================>
+<div id="cardModal">
+  <div class="modal-card">
+    <img id="modalImg" src="" alt="">
+    <div id="modalContent" class="modal-content"></div>
+  </div>
+</div>
+
+<!--=======================================================
+Succes modal
+==========================================================-->
+<div id="successModal">
+  <div class="popup-content" style="text-align:center; max-width:420px; position:relative;">
+
+    <!-- ✕ КРЕСТИК -->
+    <button class="modal-x"
+            onclick="closeSuccessModal()"
+            aria-label="Закрити"></button>
+
+    <img src="assets/icons/uspih.png" alt="Успіх"
+         class="success-icon"
+         style="width:120px; height:120px; margin:14px 0;">
+
+    <h3 style="margin:20px 0 12px; color:#222; font-size:24px;">
+      Заявку надіслано
+    </h3>
+
+    <p style="font-size:18px; color:#444; margin-bottom:8px; line-height:1.6;">
+      Перевірте пошту, я зв’яжусь з вами найближчим часом
+    </p>
+
+  </div>
+</div>
+
+
+<!--==========================================================
+ ФОРМА ЗАПИСИ
+ ================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+      <button class="modal-x" aria-label="Закрити" onclick="closePricePopup()">&times;</button>
+
+    <h3 id="priceTitle"></h3>
+    <p id="priceLabel"></p>
+
+    <form id="bookingForm">
+      <div class="required-field">
+        <input type="text" name="name" placeholder="Ваше ім'я" required>
+      </div>
+
+      <div class="required-field">
+        <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required>
+      </div>
+
+        <div class="required-field">
+  <input type="email" id="emailInput" name="email" placeholder="Email" required>
+</div>
+
+
+      <textarea name="comment" rows="6" placeholder="Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)"></textarea>
+
+      <button type="submit" class="btn btn-main">Відправити заявку</button>
+    </form>
+
+    <div id="popupStatus"></div>
+
+
+  </div>
+</div>
+
+
+
+  <!--===============================================
+   МОДАЛКА ОПЛАТА ТА ПОВЕРНЕННЯ
+   =============================================== -->
+<div id="paymentModal">
+  <div class="payment-modal-content">
+      <button class="modal-x" aria-label="Закрити" onclick="closePaymentModal()">&times;</button>
+
+    <h3>
+      <img src="assets/icons/wallet.png" alt="Гаманець">
+      <span>Оплата</span>
+    </h3>
+
+    <div class="payment-grid">
+      <div class="payment-icons">
+        <div class="icon-row">
+          <img src="assets/icons/visa.png" alt="Visa">
+          <img src="assets/icons/mc.png" alt="Mastercard">
+        </div>
+        <div class="icon-row">
+          <img src="assets/icons/apple-pay.png" alt="Apple Pay">
+        </div>
+        <div class="icon-row">
+          <img src="assets/icons/google-pay.png" alt="Google Pay">
+        </div>
+      </div>
+
+      <div class="payment-labels">
+        <div>Оплата карткою</div>
+        <div>Apple Pay</div>
+        <div>Google Pay</div>
+      </div>
+    </div>
+
+    <p class="payment-note">
+      Всі умови оплати зазначені на сторінці продукту<br><br>
+      Повернення- згідно із Законом «Про захист прав споживачів»
+    </p>
+
+
+  </div>
+</div>
+
+  <!-- MODAL: DIPLOMA VIEW -->
+<div id="diplomaModal">
+  <img id="diplomaModalImg" src="" alt="">
+</div>
+
+<!-- ===========================
+     BOOKING MODAL
+=========================== -->
+<div id="bookingModal" class="booking-modal">
+  <div class="booking-modal-content">
+
+    <button class="modal-x" aria-label="Закрити" onclick="closeBookingModal()">&times;</button>
+
+    <!-- сюда встраивается наш bookingApp -->
+    <div id="bookingContainer"></div>
+
+  </div>
+</div>
+
+<!-- ОФЕРТА -->
+<div id="offerModal" class="offer-modal">
+  <div class="offer-modal-content">
+    <div id="offerContent"></div>
+  </div>
+</div>
+
+  <!-- Підключення скрипта -->
+  <script src="script-safe.js"></script>
+  <script src="/finansova-transformaciya/ft-animate.js"></script>
+
+  <!-- платное -->
+ <script id="email-template-paid" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Для завершення — перейдіть до оплати кнопкою нижче:
+  </p>
+
+  <div style="text-align:center; margin:28px 0 32px;">
+    <a href="{{paylink}}"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Оплатити {{price}}
+    </a>
+  </div>
+
+    <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+  <!-- фри -->
+ <script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+  <!-- ехит -->
+ <script id="email-template-exit" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Ваш подарунок готовий 🎁
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Дякуємо, {{name}}!
+    Тримайте ваш <strong>чекліст</strong>
+  </p>
+
+  <div style="text-align:center; margin: 28px 0 32px;">
+    <a href="https://i-s-business-consulting.pp.ua/checklist.pdf"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Завантажити
+    </a>
+  </div>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+
+</body>
+</html>
