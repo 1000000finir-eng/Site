@@ -51,21 +51,23 @@
       <span></span>
       <span></span>
     </div>
-    <nav id="menu">
-      <a href="/" onclick="closeMenu()">Головна</a>
-      <a href="/#about" onclick="closeMenu()">Про мене</a>
-      <a href="/#products" onclick="closeMenu()">Продукти</a>
-      <a href="/#faq" onclick="closeMenu()">FAQ</a>
-      <a href="/finansova-transformaciya/">Фінансова трансформація</a>
-      <!--  <a onclick="openPaymentModal(); closeMenu()">Оплата</a>-->
-      <a onclick="openContactsModal(); closeMenu()">Контакти</a>
-      
-    </nav>
-      <!-- CALLBACK BUTTON — після nav, до кінця topbar -->
-    <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
-      <img src="assets/icons/call.png" alt="Дзвінок">
-    </button>
-  </div>
+    <div class="topbar-right">
+        <nav id="menu">
+          <a href="/" onclick="closeMenu()">Головна</a>
+          <a href="/#about" onclick="closeMenu()">Про мене</a>
+          <a href="/#products" onclick="closeMenu()">Продукти</a>
+          <a href="/#faq" onclick="closeMenu()">FAQ</a>
+          <a href="/finansova-transformaciya/">Фінансова трансформація</a>
+          <!--  <a onclick="openPaymentModal(); closeMenu()">Оплата</a>-->
+          <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+
+        </nav>
+          <!-- CALLBACK BUTTON — після nav, до кінця topbar -->
+        <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+          <img src="assets/icons/call.png" alt="Дзвінок">
+        </button>
+      </div>
+    </div>
 
 <!-- =========================================
                 HERO SECTION

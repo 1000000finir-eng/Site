@@ -3439,6 +3439,7 @@ footer {
   opacity: 0.6;
   flex-shrink: 0;
   transition: opacity .3s ease, transform .3s ease;
+
 }
 
 .callback-topbar-btn:hover {
@@ -3457,5 +3458,15 @@ footer {
   .callback-topbar-btn img {
     width: 24px;
     height: 24px;
+  }
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .topbar.open-menu .callback-topbar-btn {
+    display: none;
   }
 }
