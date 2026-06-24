@@ -1180,6 +1180,7 @@ footer .c {
 #cardModal,
 #pricePopup,
 #offerModal,
+#callSuccessModal,
 #successModal {
   display: none;
   position: fixed;
@@ -1731,7 +1732,7 @@ footer .c {
 /* =========================================================
    SUCCESS-MODAL
 =========================================================== */
-
+#callSuccessModal,
 #successModal {
   opacity: 0;
   transform: scale(.88) translateY(30px);
@@ -1750,6 +1751,7 @@ footer .c {
 }
 
 /* === САМО ОКНО — СТЕКЛО, как контакты/payment === */
+#callSuccessModal .popup-content,
 #successModal .popup-content {
   background: var(--glass-bg-soft);      /* стеклянный фон */
   backdrop-filter: blur(14px);

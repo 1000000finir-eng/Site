@@ -1653,7 +1653,7 @@ async function submitCallback() {
     const data = await res.json();
     if (data.status === 'ok') {
       closeCallbackModal();
-      showSuccessModal();
+      showCallSuccessModal();
     } else {
       if (status) status.innerHTML = '<span style="color:red;">Помилка. Спробуйте ще раз.</span>';
     }
@@ -1661,4 +1661,25 @@ async function submitCallback() {
     if (status) status.innerHTML = '<span style="color:red;">Помилка з\'єднання.</span>';
   }
 }
+function showCallSuccessModal() {
+  const modal = $('#callSuccessModal');
+  if (!modal) return;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 
+function closeCallSuccessModal() {
+  const modal = $('#callSuccessModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+on($('#callSuccessModal'), 'click', e => {
+  if (e.target?.id === 'callSuccessModal') closeCallSuccessModal();
+});
+
+on(document, 'keydown', e => {
+  const modal = $('#callSuccessModal');
+  if (e.key === 'Escape' && modal?.classList.contains('active')) closeCallSuccessModal();
+});
