@@ -1,8 +1,3 @@
-/* =========================================================
-   SCRIPT.SAFE.JS — FULL SAFE MIGRATION
-   Part 1/3
-========================================================= */
-
 /* ================= SAFE HELPERS ================= */
 const $  = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -1529,4 +1524,141 @@ function openPrivacyModal() {
   }
 }
 
+function openCallbackModal() {
+  const modal = $('#callbackModal');
+  if (!modal) return;
+
+  // скидаємо поля і статус
+  const name = $('#callbackName');
+  const phone = $('#callbackPhone');
+  const status = $('#callbackStatus');
+
+  if (name) { name.value = ''; name.style.borderColor = ''; name.style.boxShadow = ''; }
+  if (phone) { phone.value = ''; phone.style.borderColor = ''; phone.style.boxShadow = ''; }
+  if (status) status.innerHTML = '';
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCallbackModal() {
+  const modal = $('#callbackModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+on($('#callbackModal'), 'click', e => {
+  if (e.target?.id === 'callbackModal') closeCallbackModal();
+});
+
+on(document, 'keydown', e => {
+  const modal = $('#callbackModal');
+  if (e.key === 'Escape' && modal?.classList.contains('active')) closeCallbackModal();
+});
+(() => {
+  const callbackPhone = $('#callbackPhone');
+  if (!callbackPhone) return;
+
+  function formatCallbackPhone(d) {
+    if (d.length <= 2) return '+' + d;
+    const body = d.slice(2);
+    let out = '+38';
+    if (body.length > 0) out += ' (' + body.substring(0, 3);
+    if (body.length >= 3) out += ')';
+    if (body.length > 3) out += ' ' + body.substring(3, 6);
+    if (body.length > 6) out += ' ' + body.substring(6, 8);
+    if (body.length > 8) out += ' ' + body.substring(8, 10);
+    return out;
+  }
+
+  on(callbackPhone, 'keydown', function(e) {
+    if (e.key === 'Backspace') {
+      const pos = this.selectionStart;
+      const current = this.value;
+      if (current[pos - 1] === ')' || current[pos - 1] === ' ') {
+        e.preventDefault();
+        const digits = current.replace(/\D/g, '').slice(0, -1);
+        this.value = formatCallbackPhone(digits);
+        this.setSelectionRange(this.value.length, this.value.length);
+      }
+    }
+  });
+
+  on(callbackPhone, 'input', function() {
+    let d = this.value.replace(/\D/g, '');
+    if (d.startsWith('8') && d.length > 1) d = '3' + d;
+    d = d.slice(0, 12);
+    this.value = formatCallbackPhone(d);
+    this.setSelectionRange(this.value.length, this.value.length);
+  });
+
+  on(callbackPhone, 'focus', () => {
+    if (!callbackPhone.value) {
+      callbackPhone.value = '+38 ';
+      callbackPhone.setSelectionRange(callbackPhone.value.length, callbackPhone.value.length);
+    }
+  });
+
+  on(callbackPhone, 'blur', () => {
+    if (callbackPhone.value.replace(/\D/g, '').length <= 2) callbackPhone.value = '';
+  });
+})();
+(() => {
+  const nameInput = $('#callbackName');
+  const phoneInput = $('#callbackPhone');
+  if (!nameInput || !phoneInput) return;
+
+  function checkCallback() {
+    const nameVal = nameInput.value.trim();
+    const nameOk = nameVal.length >= 2;
+    nameInput.style.borderColor = nameOk ? '#4caf50' : '#ddd';
+    nameInput.style.boxShadow = nameOk ? '0 0 12px rgba(76,175,80,0.3)' : 'none';
+
+    const phoneDigits = phoneInput.value.replace(/\D/g, '').length;
+    const phoneOk = phoneDigits === 12;
+    phoneInput.style.borderColor = phoneOk ? '#4caf50' : '#ddd';
+    phoneInput.style.boxShadow = phoneOk ? '0 0 12px rgba(76,175,80,0.3)' : 'none';
+  }
+
+  on(nameInput, 'input', checkCallback);
+  on(nameInput, 'blur', checkCallback);
+  on(phoneInput, 'input', checkCallback);
+  on(phoneInput, 'blur', checkCallback);
+})();
+
+async function submitCallback() {
+  const name = $('#callbackName')?.value?.trim() || '';
+  const phone = $('#callbackPhone')?.value || '';
+  const status = $('#callbackStatus');
+
+  const phoneDigits = phone.replace(/\D/g, '');
+  if (name.length < 2) {
+    if (status) status.innerHTML = '<span style="color:red;">Введіть ваше ім\'я</span>';
+    return;
+  }
+  if (phoneDigits.length !== 12) {
+    if (status) status.innerHTML = '<span style="color:red;">Введіть повний номер телефону</span>';
+    return;
+  }
+
+  if (status) status.innerHTML = 'Відправляємо...';
+
+  try {
+    const res = await fetch('https://booking-backend-nz3y.onrender.com/api/callback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone })
+    });
+    const data = await res.json();
+    if (data.status === 'ok') {
+      closeCallbackModal();
+      showSuccessModal();
+    } else {
+      if (status) status.innerHTML = '<span style="color:red;">Помилка. Спробуйте ще раз.</span>';
+    }
+  } catch (err) {
+    if (status) status.innerHTML = '<span style="color:red;">Помилка з\'єднання.</span>';
+  }
+}
 

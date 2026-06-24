@@ -5,46 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ірина Стецуріна — Консалтинг</title>
   <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/finansova-transformaciya/ft.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" href="favicon-32.png">
-<link rel="apple-touch-icon" href="favicon-180.png">
-<link rel="manifest" href="site.webmanifest">
-
-    <link rel="stylesheet" href="/booking/booking.css">
-<script src="/booking/booking.js" defer></script>
-
-
-
-
-
+  <link rel="stylesheet" href="/finansova-transformaciya/ft.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="/booking/booking.css">
+  <script src="/booking/booking.js" defer></script>
 </head>
 
 
 <!-- ===================== EXIT-INTENT POPUP ===================== -->
 <!--<div id="exitPopup">
   <div class="exit-popup-content">
-      <button class="modal-x" aria-label="Закрити">&times;</button>
-
+    <button class="modal-x" aria-label="Закрити">&times;</button>
     <img src="assets/images/checklist.png" class="exit-img" alt="Check-list">
-
     <h3>Зачекай!</h3>
     <p class="exit-sub">
       Дарую чек-лист <br>
       <strong>«5 блоків, які крадуть у тебе +500k грн/місяць»</strong><br>
       Просто залиш контакти ↓
     </p>
-
     <form id="exitForm">
       <input type="text" name="name" placeholder="Ваше ім’я" required>
       <input type="text" name="phone" id="exitPhone" placeholder="Телефон" required>
       <input type="email" name="email" placeholder="Email" required>
-
       <button type="submit" class="btn btn-main exit-btn">Отримати чек-лист</button>
     </form>
-
     <div id="exitStatus"></div>
   </div>
 </div>-->
@@ -63,15 +52,19 @@
       <span></span>
     </div>
     <nav id="menu">
-        <a href="/" onclick="closeMenu()">Головна</a>
+      <a href="/" onclick="closeMenu()">Головна</a>
       <a href="/#about" onclick="closeMenu()">Про мене</a>
-  <a href="/#products" onclick="closeMenu()">Продукти</a>
-  <a href="/#faq" onclick="closeMenu()">FAQ</a>
-        <a href="/finansova-transformaciya/">Фінансова трансформація</a>
-
-<!--  <a onclick="openPaymentModal(); closeMenu()">Оплата</a>-->
-  <a onclick="openContactsModal(); closeMenu()">Контакти</a>
-</nav>
+      <a href="/#products" onclick="closeMenu()">Продукти</a>
+      <a href="/#faq" onclick="closeMenu()">FAQ</a>
+      <a href="/finansova-transformaciya/">Фінансова трансформація</a>
+      <!--  <a onclick="openPaymentModal(); closeMenu()">Оплата</a>-->
+      <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+      
+    </nav>
+      <!-- CALLBACK BUTTON — після nav, до кінця topbar -->
+    <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+      <img src="assets/icons/call.png" alt="Дзвінок">
+    </button>
   </div>
 
 <!-- =========================================
@@ -79,26 +72,19 @@
 ========================================= -->
 <section id="hero" class="fade-up">
   <div class="hero-wrapper">
-
     <img src="assets/images/hero.jpg" alt="" class="hero-cover">
-
-<img src="assets/images/hero-overlay.png" class="hero-overlay" alt="">
+    <img src="assets/images/hero-overlay.png" class="hero-overlay" alt="">
 
     <div class="hero-text">
-  <h1 class="hero-line hero-line-1"><span class="shifted">СИСТЕМНИЙ КОНСАЛТИНГ</span></h1>
-  <h1 class="hero-line hero-line-2">ЩО ДАЄ ПРОРИВИ, А НЕ ІЛЮЗІЮ РУХУ</h1>
-
-  <p class="hero-sub hero-line hero-line-3">
-    Для тих, хто хоче керувати бізнесом, а не бігати за ним
-  </p>
-        <br>
-</div>
-
-
+      <h1 class="hero-line hero-line-1"><span class="shifted">СИСТЕМНИЙ КОНСАЛТИНГ</span></h1>
+      <h1 class="hero-line hero-line-2">ЩО ДАЄ ПРОРИВИ, А НЕ ІЛЮЗІЮ РУХУ</h1>
+      <p class="hero-sub hero-line hero-line-3">
+        Для тих, хто хоче керувати бізнесом, а не бігати за ним
+      </p>
+      <br>
+    </div>
   </div>
 </section>
-
-
 
 <!-- =================================================================
                       (ABOUT)
@@ -1637,6 +1623,7 @@
   <button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
     <img src="assets/icons/up-arrow.png" alt="up">
   </button>
+  
   <!--=================================================================
      Footer & offer button
        ==============================================================-->
@@ -1843,99 +1830,35 @@ Succes modal
     <div id="offerContent"></div>
   </div>
 </div>
-
+<!--===============================================
+   МОДАЛКА дзвінки
+   =============================================== -->
+<div id="callbackModal">
+  <div class="popup-content" style="position:relative;">
+    <button class="modal-x" onclick="closeCallbackModal()" aria-label="Закрити">&times;</button>
+    <h3>Зворотній дзвінок</h3>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:20px;">
+      Залиште контакти — передзвоню вам
+    </p>
+    <div class="required-field">
+      <input type="text" id="callbackName" placeholder="Ваше ім'я" required>
+    </div>
+    <div class="required-field">
+      <input type="text" id="callbackPhone" placeholder="Телефон" required>
+    </div>
+    <button class="btn btn-main" onclick="submitCallback()"
+            style="width:100%; margin-top:12px;">
+      Замовити дзвінок
+    </button>
+    <div id="callbackStatus" style="min-height:36px; text-align:center;
+         font-weight:600; padding:10px 0;"></div>
+  </div>
+</div>
   <!-- Підключення скрипта -->
   <script src="script-safe.js"></script>
   <script src="/finansova-transformaciya/ft-animate.js"></script>
 
-  <!-- платное -->
- <script id="email-template-paid" type="text/template">
-<div style="font-family: Manrope, Arial, sans-serif;
-            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
 
-  <div style="text-align:center; margin-bottom: 25px;">
-    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
-      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
-           style="width:160px; height:auto;">
-    </a>
-  </div>
-
-  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
-    Вітаю, {{name}}!
-  </h2>
-
-  <p style="font-size:17px; line-height:1.6; color:#444;">
-    Ви залишили заявку на <strong>{{product}}</strong>.
-  </p>
-
-  <p style="font-size:16px; line-height:1.6; color:#444;">
-    Для завершення — перейдіть до оплати кнопкою нижче:
-  </p>
-
-  <div style="text-align:center; margin:28px 0 32px;">
-    <a href="{{paylink}}"
-       style="padding:14px 28px; background:#f7c843; color:#000;
-              border-radius:14px; font-size:18px; font-weight:600;
-              text-decoration:none; display:inline-block;">
-      Оплатити {{price}}
-    </a>
-  </div>
-
-    <p style="font-size:16px; line-height:1.6; color:#444;">
-    Я зв’яжусь із вами найближчим часом.
-  </p>
-
-  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
-    Не відповідайте на це письмо<br>
-    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
-  </p>
-
-  <div style="text-align:center; margin-top:18px;">
-    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
-    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
-    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
-  </div>
-
-</div>
-</script>
-
-  <!-- фри -->
- <script id="email-template-free" type="text/template">
-<div style="font-family: Manrope, Arial, sans-serif;
-            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
-
-  <div style="text-align:center; margin-bottom: 25px;">
-    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
-      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
-           style="width:160px; height:auto;">
-    </a>
-  </div>
-
-  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
-    Вітаю, {{name}}!
-  </h2>
-
-  <p style="font-size:17px; line-height:1.6; color:#444;">
-    Ви залишили заявку на <strong>{{product}}</strong>.
-  </p>
-
-  <p style="font-size:16px; line-height:1.6; color:#444;">
-    Я зв’яжусь із вами найближчим часом.
-  </p>
-
-  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
-    Не відповідайте на це письмо<br>
-    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
-  </p>
-
-  <div style="text-align:center; margin-top:18px;">
-    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
-    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
-    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
-  </div>
-
-</div>
-</script>
   <!-- ехит -->
  <script id="email-template-exit" type="text/template">
 <div style="font-family: Manrope, Arial, sans-serif;
