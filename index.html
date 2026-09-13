@@ -1883,7 +1883,94 @@ CALLSucces modal
   <script src="script-safe.js"></script>
   <script src="/finansova-transformaciya/ft-animate.js"></script>
 
+  <!-- платное -->
+ <script id="email-template-paid" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
 
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Для завершення — перейдіть до оплати кнопкою нижче:
+  </p>
+
+  <div style="text-align:center; margin:28px 0 32px;">
+    <a href="{{paylink}}"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Оплатити {{price}}
+    </a>
+  </div>
+
+    <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+  <!-- фри -->
+ <script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
   <!-- ехит -->
  <script id="email-template-exit" type="text/template">
 <div style="font-family: Manrope, Arial, sans-serif;
