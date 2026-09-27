@@ -107,7 +107,15 @@
 .ec-how__grid div { padding:24px; border-top:2px solid var(--burgundy); }
 .ec-how__grid span { font:700 25px/1 "Plus Jakarta Sans",sans-serif; color:var(--burgundy); }
 .ec-how__grid p { margin-top:18px; font-size:15.5px; line-height:1.65; }
-.ec-coffee-note { max-width:820px; margin:28px auto 0; text-align:center; font-size:16px; line-height:1.75; color:#555; }
+.ec-coffee-note {
+  max-width: none;
+  width: 100%;
+  margin: 28px 0 0;
+  text-align: center; /* або left — як зручніше */
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+}
 
 /* FAQ использует именно классы главной страницы и faq-arrow.png из проекта. */
 #faq { max-width:1200px; margin:82px auto; padding:0 24px; }
@@ -317,6 +325,22 @@
   }
 }
 
+
+
+/* Точна типографіка заголовків-лейблів секцій: усі на рівні «РЕЗУЛЬТАТ». */
+.ec-kicker { font-size:16px; }
+
+/* Заголовки «ФОКУСОВАНИЙ ФОРМАТ» та «ЗАПИС» знаходяться всередині рамки. */
+.ec-detail__single > .ec-section-heading { max-width:none; margin-bottom:30px; }
+.ec-detail__single > .ec-section-heading h2 { margin-bottom:0; }
+
+/* FAQ-список розтягується на всю ширину секції та вирівнюється ліворуч. */
+#faq .faq-list { max-width:none; margin:0; }
+
+/* Фінальний блок: фраза-акцент тепер має розмір колишнього великого h2,
+   а основна фраза — розмір заголовка «РЕЗУЛЬТАТ». */
+.ec-final h2 { font-size:16px; max-width:900px; margin:0 auto 16px; }
+.ec-final__box > p:not(.ec-kicker) { font-size:clamp(30px,4vw,46px); line-height:1.18; font-family:"Plus Jakarta Sans",sans-serif; font-weight:700; letter-spacing:-.7px; color:#fff; }
 
 /* =========================================================
    EXPRESS PAGE — scroll reveal
