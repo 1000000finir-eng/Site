@@ -341,7 +341,9 @@
 .ec-result__grid {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: 50px;
+  column-gap: 50px;
+  row-gap: 20px;
+  align-items: start;
   padding: 44px 48px;
   background: rgba(255, 255, 255, 0.38);
   border: 1.5px solid rgba(0, 0, 0, 0.2);
@@ -366,6 +368,11 @@
 .ec-result-list > div {
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ec-result-list > div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .ec-result-list h3 {
@@ -407,8 +414,9 @@
 }
 
 .ec-result-note {
-  margin: 14px 0 0;
-  padding-top: 0;
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 4px;
   text-align: left;
   font-size: 17px;
   line-height: 1.75;
