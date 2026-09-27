@@ -143,6 +143,21 @@ on(window, 'scroll', () => {
         if (!topbar2) return;
         const headerHeight2 = topbar2.offsetHeight;
         document.documentElement.style.scrollPaddingTop = (headerHeight2 + 20) + 'px';
+
+        // При переході з внутрішньої сторінки на /#about, /#products тощо
+        // браузер може виконати hash-scroll раніше, ніж буде відома висота sticky-header.
+        // Після завантаження точно позиціонуємо ціль нижче header.
+        if (window.location.hash) {
+          const hashId = decodeURIComponent(window.location.hash.slice(1));
+          const target = document.getElementById(hashId);
+          if (target) {
+            const targetY = target.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: Math.max(0, targetY - headerHeight2 - 20),
+              behavior: 'instant'
+            });
+          }
+        }
       }, 150);
     }, 50);
   });
