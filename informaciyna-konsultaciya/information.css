@@ -407,8 +407,7 @@
 }
 
 .ec-result-note {
-  grid-column: 1 / -1;
-  margin: 12px 0 0;
+  margin: 14px 0 0;
   padding-top: 0;
   text-align: left;
   font-size: 17px;
