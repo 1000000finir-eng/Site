@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Інформаційна консультація онлайн — відповіді на питання | Ірина Стецуріна</title>
+  <meta name="description" content="Інформаційна консультація онлайн: відповіді на конкретні питання щодо бізнесу, фінансів, управління, стратегії та особистої ефективності. 60 хвилин, Zoom, 3500 грн." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://i-s-business-consulting.pp.ua/informaciyna-konsultaciya/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://i-s-business-consulting.pp.ua/informaciyna-konsultaciya/" />
+  <meta property="og:title" content="Інформаційна консультація онлайн — відповіді на питання | Ірина Стецуріна" />
+  <meta property="og:description" content="Індивідуальна онлайн-консультація: конкретні питання, професійні пояснення, практичні рекомендації та розуміння подальших дій." />
+  <meta property="og:image" content="https://i-s-business-consulting.pp.ua/assets/images/information-consult.jpg" />
+  <meta property="og:locale" content="uk_UA" />
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="information.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Інформаційна консультація онлайн",
+  "description": "Індивідуальна онлайн-консультація тривалістю 60 хвилин: відповіді на конкретні питання щодо бізнесу, фінансів, управління, стратегії та особистої ефективності.",
+  "url": "https://i-s-business-consulting.pp.ua/informaciyna-konsultaciya/",
+  "image": "https://i-s-business-consulting.pp.ua/assets/images/information-consult.jpg",
+  "provider": {
+    "@type": "Person",
+    "name": "Ірина Стецуріна",
+    "url": "https://i-s-business-consulting.pp.ua/"
+  },
+  "areaServed": "UA",
+  "serviceType": "Індивідуальна консультація онлайн",
+  "offers": {
+    "@type": "Offer",
+    "price": "3500",
+    "priceCurrency": "UAH",
+    "url": "https://i-s-business-consulting.pp.ua/informaciyna-konsultaciya/"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Скільки триває інформаційна консультація?",
+      "acceptedAnswer": {"@type": "Answer", "text": "60 хвилин."}
+    },
+    {
+      "@type": "Question",
+      "name": "Скільки коштує інформаційна консультація?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Вартість індивідуальної онлайн-консультації — 3500 грн."}
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна поставити кілька питань за одну консультацію?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Так. Кількість питань залежить від їхньої складності. До зустрічі ви надсилаєте перелік запитів, щоб визначити обсяг роботи."}
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна отримати консультацію онлайн?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Так, консультація проходить онлайн у Zoom."}
+    },
+    {
+      "@type": "Question",
+      "name": "Чи отримаю я запис консультації?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Так, за вашою згодою зустріч записується, і ви отримуєте її запис."}
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна прийти з питанням, яке не стосується бізнесу?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Так, якщо питання належить до сфери моєї професійної компетентності. Саме тому перелік питань надсилається до консультації."}
+    }
+  ]
+}
+</script>
+
+</head>
+<body>
+<!-- =========================================================
+     TOPBAR
+========================================================= -->
+<div class="topbar">
+  <div class="logo">
+    <img src="/assets/images/logo.png" alt="Ірина Стецуріна — консалтинг">
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="topbar-right">
+    <nav id="menu">
+      <a href="/" onclick="closeMenu()">Головна</a>
+      <a href="/#about" onclick="closeMenu()">Про мене</a>
+      <a href="/#products" onclick="closeMenu()">Продукти</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+    </nav>
+
+    <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+      <img src="/assets/icons/call.png" alt="Дзвінок">
+    </button>
+  </div>
+</div>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+    <img src="/assets/images/hero.jpg"
+         alt="Інформаційна консультація онлайн з Іриною Стецуріною"
+         class="hero-cover">
+
+    <div class="hero-text ec-hero__text">
+      <h1 class="hero-line hero-line-1">
+        <span class="shifted">ІНФОРМАЦІЙНА КОНСУЛЬТАЦІЯ</span>
+      </h1>
+      <h1 class="hero-line hero-line-2">
+        ВІДПОВІДІ НА КОНКРЕТНІ ПИТАННЯ
+      </h1>
+      <p class="hero-sub hero-line hero-line-3">
+        Практичні рекомендації. Чітке розуміння, що робити далі
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="ec-breadcrumb" aria-label="Хлібні крихти">
+  <a href="/">Головна</a>
+  <span>→</span>
+  <span>Інформаційна консультація онлайн</span>
+</nav>
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+<section class="ec-intro ec-animate">
+  <div class="ec-intro__grid">
+    <div class="ec-intro__media">
+      <img src="/assets/images/information-consult.jpg"
+           alt="Інформаційна консультація онлайн — Ірина Стецуріна">
+    </div>
+
+    <div class="ec-intro__content">
+      <p class="ec-kicker">ІНФОРМАЦІЙНА КОНСУЛЬТАЦІЯ</p>
+      <h2>ВІДПОВІДІ НА КОНКРЕТНІ ПИТАННЯ. ПРАКТИЧНІ РЕКОМЕНДАЦІЇ</h2>
+
+      <p>Іноді для вирішення проблеми не потрібен тривалий супровід, навчання чи серія консультацій</p>
+      <p>Потрібна одна розмова з експертом, який допоможе розібратися у конкретному питанні, побачити ситуацію ширше та знайти практичне рішення</p>
+      <p>Саме для цього я створила <b>інформаційну консультацію</b> — формат «питання–відповіді», під час якого ми працюємо з вашими конкретними запитами</p>
+      <p>У вас є питання щодо бізнесу, фінансів, управління, стратегії, особистої ефективності чи власного розвитку?</p>
+      <p>Вам не вистачає одного «пазлу», щоб склалася загальна картина?</p>
+      <p><b>Не обов'язково шукати відповідь самостійно. Її можна знайти разом</b></p>
+
+      <div class="ec-product-meta">
+        <div><span>Формат</span><strong>Онлайн · Zoom</strong></div>
+        <div><span>Тривалість</span><strong>60 хвилин</strong></div>
+        <div><span>Вартість</span><strong>3500 грн</strong></div>
+      </div>
+
+      <div class="ec-booking-card card"
+           data-product="Інформаційна консультація"
+           data-price="3500 ₴"
+           data-pay-link="https://secure.wayforpay.com/button/b221e8882d224"
+           data-send-email="true"
+           data-email-template="paid"
+           data-redirect="false">
+        <button class="ec-main-btn"
+                onclick="openPricePopup(event)">
+          ЗАПИСАТИСЯ НА ІНФОРМАЦІЙНУ КОНСУЛЬТАЦІЮ
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     WHAT
+========================================================= -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">ЩО ЦЕ</p>
+      <h2>Що таке інформаційна консультація?</h2>
+    </div>
+
+    <p>Інформаційна консультація — це <b>індивідуальна онлайн-консультація тривалістю 60 хвилин</b>, під час якої ви можете поставити конкретні питання та отримати професійні відповіді, пояснення й рекомендації щодо вашої ситуації</p>
+    <p>Це не лекція і не загальна теоретична інформація</p>
+    <p>Ми розглядаємо саме ваш випадок, аналізуємо ситуацію та визначаємо, що можна зробити далі</p>
+    <p>Я пояснюю складні речі просто і зрозуміло, допомагаю побачити взаємозв'язки та перевести інформацію у практичні дії</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     QUESTIONS
+========================================================= -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">ЗАПИТИ</p>
+    <h2>З якими питаннями можна прийти?</h2>
+    <p class="ec-section-intro">Запит може стосуватися бізнесу, фінансів, управління, стратегії, особистої ефективності або розвитку</p>
+
+    <div class="info-question-grid">
+      <article>
+        <h3>Бізнес та управління</h3>
+        <ul class="ec-check-list">
+          <li>З чого почати розробку стратегії бізнесу?</li>
+          <li>Які показники використовувати для оцінки роботи компанії?</li>
+          <li>Які KPI встановити для відділу продажів або іншого підрозділу?</li>
+          <li>Які звіти мають надавати співробітники керівнику?</li>
+          <li>Чи потрібен власнику управлінський облік і що він дасть бізнесу?</li>
+          <li>З чого почати побудову системи бюджетування?</li>
+          <li>Як побудувати систему управління, щоб власник не був залучений у все особисто?</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Фінанси та управлінський облік</h3>
+        <ul class="ec-check-list">
+          <li>Як правильно порахувати собівартість товару або послуги?</li>
+          <li>Як визначити вартість власних послуг?</li>
+          <li>Як розподіляти витрати між продуктами?</li>
+          <li>Як оцінити ефективність інвестиційного проєкту?</li>
+          <li>Які фінансові показники важливо контролювати власнику?</li>
+          <li>Як вести бюджет руху грошових коштів?</li>
+          <li>Як зрозуміти, куди зникають гроші з бізнесу?</li>
+          <li>Як організувати управлінський облік у компанії?</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Особисті фінанси та ефективність</h3>
+        <ul class="ec-check-list">
+          <li>Як порахувати власні витрати?</li>
+          <li>Як вести особистий бюджет?</li>
+          <li>Як планувати особисті фінанси?</li>
+          <li>Як знайти час на все важливе?</li>
+          <li>Як поєднувати бізнес, роботу та особисте життя?</li>
+          <li>Як не втрачати себе, коли багато професійних завдань?</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Особистий розвиток</h3>
+        <ul class="ec-check-list">
+          <li>Як виявити власні обмежуючі переконання?</li>
+          <li>Як працювати з внутрішнім критиком?</li>
+          <li>Як домовитися зі своїм внутрішнім «самозванцем»?</li>
+          <li>Як відновлювати ресурс?</li>
+          <li>Як краще зрозуміти, що саме заважає рухатися вперед?</li>
+          <li>З чого почати зміни, якщо старі підходи більше не працюють?</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="info-note"><b>Питання можуть бути зовсім іншими</b><br>
+    Не існує «дурних» або «незначних» питань. Якщо питання виникло — значить, вам важливо отримати на нього відповідь</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     RESULT
+========================================================= -->
+<section class="ec-result ec-animate">
+  <div class="ec-result__grid">
+    <div class="ec-result__content">
+      <p class="ec-kicker">РЕЗУЛЬТАТ</p>
+      <h2>Що ви отримаєте на консультації?</h2>
+
+      <div class="ec-result-list">
+        <div><h3>ВІДПОВІДІ</h3><p>Відповіді на конкретні питання саме у вашому контексті</p></div>
+        <div><h3>РОЗУМІННЯ</h3><p>Професійне пояснення складних моментів і взаємозв'язків</p></div>
+        <div><h3>АНАЛІЗ</h3><p>Аналіз вашої ситуації, а не абстрактна теорія</p></div>
+        <div><h3>РЕКОМЕНДАЦІЇ</h3><p>Практичні рекомендації та можливі варіанти вирішення проблеми</p></div>
+        <div><h3>НАПРЯМ</h3><p>Розуміння, з чого почати, та орієнтири для подальших дій</p></div>
+      </div>
+    </div>
+
+    <div class="ec-result__quote">
+      <div><span>60</span><strong>хвилин індивідуальної роботи</strong></div>
+      <div><span>1</span><strong>конкретний запит</strong></div>
+      <div><span>→</span><strong>практичні наступні кроки</strong></div>
+    </div>
+
+    <p class="ec-result-note">
+      Моя задача — не просто дати вам інформацію<br>
+      Мені важливо, щоб після консультації ви розуміли, як використати отримані знання саме у своїй ситуації
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+     HOW
+========================================================= -->
+<section class="ec-how ec-animate">
+  <div class="ec-section-heading">
+    <p class="ec-kicker">ЯК ЦЕ ПРАЦЮЄ</p>
+    <h2>Як проходить інформаційна консультація?</h2>
+  </div>
+
+  <div class="ec-how__grid">
+    <div><span>1</span><p><strong>Ви надсилаєте свої питання.</strong><br>Перед консультацією ви надсилаєте перелік питань або описуєте ситуацію, яка вас цікавить</p></div>
+    <div><span>2</span><p><strong>Я переглядаю запит.</strong><br>Визначаю, чи входить він до моєї компетенції та чи можна розібрати його протягом однієї консультації</p></div>
+    <div><span>3</span><p><strong>Ви вносите оплату.</strong><br>Вартість консультації — 3500 грн. Тривалість — 60 хвилин</p></div>
+    <div><span>4</span><p><strong>Проводимо онлайн-зустріч.</strong><br>Зустрічаємося онлайн у Zoom у зручний для обох час. За вашою згодою зустріч записується</p></div>
+  </div>
+
+  <div class="ec-coffee-note">
+    Якщо я бачу, що ваш запит потребує іншого формату, я скажу про це <b>до оплати</b>
+  </div>
+</section>
+
+<!-- =========================================================
+     WHO
+========================================================= -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">ДЛЯ КОГО</p>
+    <h2>Кому підійде інформаційна консультація?</h2>
+    <p class="ec-section-intro">Цей формат підійде вам, якщо:</p>
+    <ul class="ec-check-list ec-wide-list">
+      <li>у вас є конкретне питання, але немає відповіді</li>
+      <li>ви хочете отримати думку незалежного експерта</li>
+      <li>вам потрібно швидко розібратися в ситуації</li>
+      <li>ви не хочете одразу починати довгострокову програму</li>
+      <li>вам потрібно зрозуміти, що робити далі</li>
+      <li>ви відчуваєте, що вам не вистачає одного важливого елемента для прийняття рішення</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================
+     WHY
+========================================================= -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">ЕКСПЕРТИЗА</p>
+      <h2>Чому я?</h2>
+    </div>
+
+    <p>Я поєдную досвід <b>системного бізнес-консультанта, фінансового директора, бізнес-тренера, executive коуча</b></p>
+    <p>У роботі я дивлюся не лише на окрему проблему, а на систему в цілому: бізнес, фінанси, управління, власник та його рішення</p>
+    <p>Моя сильна сторона — пояснювати складне просто, знаходити суть питання та допомагати побачити практичний шлях вирішення</p>
+    <p><b>Тому іноді одна година правильної розмови може дати більше ясності, ніж тижні самостійних пошуків інформації</b></p>
+  </div>
+</section>
+
+<!-- =========================================================
+     FORMAT
+========================================================= -->
+<section class="ec-how ec-animate">
+  <div class="ec-section-heading">
+    <p class="ec-kicker">ФОРМАТ РОБОТИ</p>
+    <h2>Вартість та формат консультації</h2>
+  </div>
+
+  <div class="ec-how__grid">
+    <div><span>1</span><p><strong>Формат:</strong> індивідуальна онлайн-консультація</p></div>
+    <div><span>2</span><p><strong>Тривалість:</strong> 60 хвилин</p></div>
+    <div><span>3</span><p><strong>Платформа:</strong> Zoom</p></div>
+    <div><span>4</span><p><strong>Вартість:</strong> 3500 грн</p></div>
+  </div>
+
+  <div class="ec-coffee-note">
+    <b>Запис зустрічі — за вашою згодою</b><br>
+    Напишіть мені, коротко опишіть свій запит і перелік питань. Разом визначимо, чи можна вирішити його в межах однієї інформаційної консультації
+  </div>
+</section>
+
+<!-- =========================================================
+     BOOKING
+========================================================= -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">ЗАПИС</p>
+      <h2>Записатися на інформаційну консультацію</h2>
+    </div>
+
+    <p>Маєте питання, яке давно не дає спокою?</p>
+    <p>Натисніть кнопку <b>«Записатися»</b>, коротко опишіть свій запит і перелік питань</p>
+    <p>Разом визначимо, чи можна вирішити його в межах однієї інформаційної консультації</p>
+
+    <div class="ec-inline-cta">
+      <div class="ec-booking-card card"
+           data-product="Інформаційна консультація"
+           data-price="3500 ₴"
+           data-pay-link="https://secure.wayforpay.com/button/b221e8882d224"
+           data-send-email="true"
+           data-email-template="paid"
+           data-redirect="false">
+        <button class="ec-main-btn"
+                onclick="openPricePopup(event)">
+          ЗАПИСАТИСЯ · 3500 ₴
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+<section id="faq" class="ec-animate">
+  <div class="ec-section-heading">
+    <p class="ec-kicker">FAQ</p>
+    <h2>Часті питання про інформаційну консультацію</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">Скільки триває інформаційна консультація?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">60 хвилин</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Скільки коштує інформаційна консультація?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Вартість індивідуальної онлайн-консультації — 3500 грн</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чи можна поставити кілька питань за одну консультацію?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Так. Кількість питань залежить від їхньої складності. До зустрічі ви надсилаєте перелік запитів, щоб визначити обсяг роботи</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чи можна отримати консультацію онлайн?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Так, консультація проходить онлайн у Zoom</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чи отримаю я запис консультації?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Так, за вашою згодою зустріч записується, і ви отримуєте її запис</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чи можна прийти з питанням, яке не стосується бізнесу?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Так, якщо питання належить до сфери моєї професійної компетентності. Саме тому перелік питань надсилається до консультації</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+<section class="ec-final ec-animate">
+  <div class="ec-final__box">
+    <h2>Не обов'язково шукати відповідь самостійно</h2>
+    <p>Іноді достатньо однієї розмови, щоб побачити ситуацію ширше та зрозуміти, що робити далі</p>
+
+    <div class="ec-booking-card card"
+           data-product="Інформаційна консультація"
+           data-price="3500 ₴"
+           data-pay-link="https://secure.wayforpay.com/button/b221e8882d224"
+           data-send-email="true"
+           data-email-template="paid"
+           data-redirect="false">
+      <button class="ec-main-btn ec-main-btn--light"
+              onclick="openPricePopup(event)">
+        ЗАПИСАТИСЯ · 3500 ₴
+      </button>
+    </div>
+  </div>
+</section>
+<div id="successModal">
+  <div class="popup-content" style="text-align:center; max-width:420px; position:relative;">
+
+    <!-- ✕ КРЕСТИК -->
+    <button class="modal-x"
+            onclick="closeSuccessModal()"
+            aria-label="Закрити"></button>
+
+    <img src="/assets/icons/uspih.png" alt="Успіх"
+         class="success-icon"
+         style="width:120px; height:120px; margin:14px 0;">
+
+    <h3 style="margin:20px 0 12px; color:#222; font-size:24px;">
+      Заявку надіслано
+    </h3>
+
+    <p style="font-size:18px; color:#444; margin-bottom:8px; line-height:1.6;">
+      Перевірте пошту, я зв’яжусь з вами найближчим часом
+    </p>
+
+  </div>
+</div>
+
+<!--=======================================================
+CALLSucces modal
+==========================================================-->
+<div id="callSuccessModal">
+  <div class="popup-content" style="text-align:center; max-width:420px; position:relative;">
+
+    <button class="modal-x"
+            onclick="closeCallSuccessModal()"
+            aria-label="Закрити"></button>
+
+    <img src="/assets/icons/uscall.png" alt="Успіх"
+         class="success-icon"
+         style="width:120px; height:120px; margin:14px 0;">
+
+    <h3 style="margin:20px 0 12px; color:#222; font-size:24px;">
+      Дякую!
+    </h3>
+
+    <p style="font-size:18px; color:#444; margin-bottom:8px; line-height:1.6;">
+      Я зателефоную вам найближчим часом
+    </p>
+
+  </div>
+</div>
+<!--==========================================================
+ ФОРМА ЗАПИСИ
+ ================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+      <button class="modal-x" aria-label="Закрити" onclick="closePricePopup()">&times;</button>
+
+    <h3 id="priceTitle"></h3>
+    <p id="priceLabel"></p>
+
+    <form id="bookingForm">
+      <div class="required-field">
+        <input type="text" name="name" placeholder="Ваше ім'я" required>
+      </div>
+
+      <div class="required-field">
+        <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required>
+      </div>
+
+        <div class="required-field">
+  <input type="email" id="emailInput" name="email" placeholder="Email" required>
+</div>
+
+
+      <textarea name="comment" rows="6" placeholder="Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)"></textarea>
+
+      <button type="submit" class="btn btn-main">Відправити заявку</button>
+    </form>
+
+    <div id="popupStatus"></div>
+
+
+  </div>
+</div>
+
+
+
+  
+
+  <!--=======================================
+       UP button — як на головній
+       ======================================-->
+  <button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+    <img src="/assets/icons/up-arrow.png" alt="up">
+  </button>
+
+  <!--=================================================================
+     Footer & offer button
+       ==============================================================-->
+  <div class="offer-section">
+  <button class="offer-button" onclick="openOfferModal()">Договір оферти</button>
+</div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+    <div class="footer-privacy-stick">
+  <button class="offer-button privacy-button" onclick="openPrivacyModal()">
+    Політика конфіденційності
+  </button>
+</div>
+</footer>
+
+
+<!-- =========================================================
+     CONTACTS MODAL
+========================================================= -->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeContactsModal()">&times;</button>
+    <h3>
+      <img src="/assets/icons/phone.png" alt="Телефон">
+      Контакти
+    </h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+
+    <div class="contacts-socials">
+      <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank" rel="noopener">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/IrenStetsurina" target="_blank" rel="noopener">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank" rel="noopener">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALLBACK MODAL
+========================================================= -->
+<div id="callbackModal">
+  <div class="popup-content" style="position:relative;">
+    <button class="modal-x" onclick="closeCallbackModal()" aria-label="Закрити">&times;</button>
+    <h3 style="text-align:center;">Зворотній дзвінок</h3>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:20px;">
+      Залиште контакти і я вам передзвоню
+    </p>
+    <div class="required-field">
+      <input type="text" id="callbackName" placeholder="Ваше ім'я" required>
+    </div>
+    <div class="required-field">
+      <input type="text" id="callbackPhone" placeholder="Телефон" required>
+    </div>
+    <button class="btn btn-main" onclick="submitCallback()" style="width:100%; margin-top:12px;">
+      Замовити дзвінок
+    </button>
+    <div id="callbackStatus" style="min-height:36px; text-align:center; font-weight:600; padding:10px 0;"></div>
+  </div>
+</div>
+
+<!-- =========================================================
+     PRIVACY
+========================================================= -->
+<div id="offerModal" class="offer-modal">
+  <div class="offer-modal-content">
+    <div id="offerContent"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function initInformationReveal() {
+    const blocks = document.querySelectorAll('.ec-animate');
+    if (!blocks.length || !('IntersectionObserver' in window)) {
+      blocks.forEach(b => b.classList.add('ec-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const block = entry.target;
+        block.classList.add('ec-visible');
+
+        const heading = block.querySelector('.ec-section-heading');
+        if (heading) heading.classList.add('ec-content-visible');
+
+        const children = Array.from(block.children)
+          .filter(el => !el.classList.contains('ec-section-heading'));
+
+        children.forEach((el, index) => {
+          setTimeout(() => el.classList.add('ec-content-visible'), 140 + index * 120);
+        });
+
+        obs.unobserve(block);
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -8%' });
+
+    blocks.forEach(block => observer.observe(block));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initInformationReveal);
+  } else {
+    initInformationReveal();
+  }
+})();
+</script>
+
+<script src="/script-safe.js"></script>
+<script id="email-template-paid" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Для завершення — перейдіть до оплати кнопкою нижче:
+  </p>
+
+  <div style="text-align:center; margin:28px 0 32px;">
+    <a href="{{paylink}}"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Оплатити {{price}}
+    </a>
+  </div>
+
+    <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+</body>
+</html>
