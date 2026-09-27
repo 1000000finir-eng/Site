@@ -268,7 +268,7 @@ nav a::after {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: var(--yellow);
+  background: var(--burgundy);
   transition: width .55s cubic-bezier(.22,1,.36,1);
   border-radius: 2px;
 }
@@ -806,7 +806,7 @@ header p {
 /* Читати далі */
 
 .readmore {
-  color: var(--yellow);
+  color: var(--burgundy);   /* було var(--yellow) */
   font-weight: 700;
   font-size: 15.5px;
   margin: 6px 0 12px;
@@ -821,7 +821,7 @@ header p {
   bottom: -3px;
   width: 0;
   height: 2px;
-  background: var(--yellow);
+  background: var(--burgundy);  /* було var(--yellow) */
   transition: width 0.68s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -830,8 +830,8 @@ header p {
 }
 
 .card:hover .readmore {
-  color: #e8b82e;
-  text-shadow: 0 0 8px rgba(247,200,67,0.3);
+  color: var(--burgundy);   /* було #e8b82e */
+  text-shadow: none;        /* жовте світіння прибрати */
 }
 
 /* Кнопки */
@@ -885,10 +885,10 @@ header p {
 }
 
 .price-btn:hover {
-  background: var(--black);
+  background: var(--burgundy);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(54,69,79,0.35);
 }
 
 /* Блик на кнопках */

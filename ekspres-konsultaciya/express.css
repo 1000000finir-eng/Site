@@ -452,3 +452,50 @@
 @media (max-width: 1023px) {
   #hero .hero-text { padding-top: 0; }
 }
+
+/* =========================================================
+   EXPRESS PAGE — requested visual adjustments
+   Local to this page only.
+========================================================= */
+
+/* 1. Buttons: yellow -> burgundy on hover, white -> yellow.
+      Existing shine/highlight animation is preserved. */
+.ec-main-btn:hover {
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.ec-main-btn--light:hover {
+  background: var(--yellow);
+  color: #171717;
+}
+
+/* 2. Intro service meta cards: centered content + stronger burgundy labels. */
+.ec-product-meta > div {
+  text-align: center;
+}
+
+.ec-product-meta span {
+  color: var(--burgundy);
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.ec-product-meta strong {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* 3. Process cards: numbers centered and slightly larger. */
+.ec-step__num {
+  text-align: center;
+  font-size: 32px;
+}
+
+@media (max-width: 680px) {
+  .ec-step__num {
+    font-size: 30px;
+  }
+}
