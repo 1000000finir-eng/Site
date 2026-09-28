@@ -190,6 +190,48 @@ h1, h2, h3,
   height: 40px;
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.callback-topbar-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  flex-shrink: 0;
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.callback-topbar-btn:hover {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.callback-topbar-btn img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .callback-topbar-btn img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .topbar.open-menu .callback-topbar-btn {
+    display: none;
+  }
+}
+
+
 /* === КОГДА МЕНЮ ОТКРЫТО (МОБИЛКА) === */
 .topbar.open-menu {
   padding-bottom: 22px;
@@ -204,7 +246,6 @@ h1, h2, h3,
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-
 
 
 /* ===== BURGER ===== */
@@ -477,7 +518,6 @@ header p {
 }
 
 
-
 /* ================== ПАРАЛЛАКС УБРАТЬ — ОСТАВЛЕН ТОЛЬКО БЛИК ================== */
 
 .about-photo-wrapper {
@@ -537,7 +577,6 @@ header p {
     transform: none;
   }
 }
-
 
 
 /* =========================================
@@ -859,6 +898,9 @@ header p {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  background: var(--yellow);
+  color: var(--black);
+  border-color: rgba(0,0,0,0.15);
   transition:
     background 0.38s,
     color 0.38s,
@@ -869,12 +911,6 @@ header p {
 .btn-main {
   background: var(--black);
   color: #fff;
-}
-
-.price-btn {
-  background: var(--yellow);
-  color: var(--black);
-  border-color: rgba(0,0,0,0.15);
 }
 
 .btn-main:hover {
@@ -932,7 +968,6 @@ header p {
 }
 
 
-
 /* =================================================
                 КНОПКА НАВЕРХ
  ================================================== */
@@ -979,14 +1014,14 @@ header p {
   ====================================================== */
 
 footer {
-  background: #fdfbf7; /* как было, не трогаем */
+  background: #fdfbf7;
   padding: 40px 0 60px;
   color: #666;
   font-size: 14px;
   text-align: center;
-
-  /* УБИРАЕМ ЛЮБУЮ ПОЛОСКУ — она НЕ должна быть в футере */
   border-top: none !important;
+  opacity: 1;
+  visibility: visible;
 }
 
 footer .c {
@@ -999,21 +1034,24 @@ footer .c {
   padding: 0 24px;
 }
 
-/* Соцсети в футере и в модалке контактов */
-
+/* Соцмережі у футері та модалці контактів */
 .social,
 .contacts-socials {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 40px;
 }
 
 .social a,
 .contacts-socials a {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 48px;
   height: 48px;
+  flex-shrink: 0;
   overflow: hidden;
   border-radius: 50%;
   transition: transform .35s ease;
@@ -1026,28 +1064,35 @@ footer .c {
 
 .social a img,
 .contacts-socials a img {
-  width: 100%;
-  height: 100%;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  transition: opacity .4s ease;
+  transition: opacity .35s ease;
+  pointer-events: none;
 }
 
+/* Сіра іконка — завжди видима за замовчуванням */
 .social a img.gray,
 .contacts-socials a img.gray {
-  opacity: 1;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 1;
 }
 
+/* Кольорова — тільки на hover */
 .social a img.color,
 .contacts-socials a img.color {
   opacity: 0;
+  z-index: 2;
 }
 
 .social a:hover img.gray,
 .contacts-socials a:hover img.gray {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 .social a:hover img.color,
@@ -1059,12 +1104,12 @@ footer .c {
   footer .social {
     gap: 32px;
   }
-  footer .social a {
+  footer .social a,
+  footer .social a img {
     width: 50px;
     height: 50px;
   }
 }
-
 
 
 /* =====================================================
@@ -1172,12 +1217,10 @@ footer .c {
 }
 
 
-
 /* ===========================================================
                    ОБЩИЙ ОВЕРЛЕЙ ДЛЯ МОДАЛОК
 =========================================================== */
 
-#cardModal,
 #pricePopup,
 #offerModal,
 #callSuccessModal,
@@ -1214,27 +1257,32 @@ footer .c {
 }
 
 /* Активные */
-#cardModal.active,
 #pricePopup.active,
 #calendlyModal.active,
 #offerModal.active,
 #paymentModal.active,
 #contactsModal.active,
-#successModal.active {
+#successModal.active,
+#callSuccessModal.active {
   display: flex !important;
 }
 
 
-/* ============================================================
-      CARD MODAL — GLASS + SOFT POP
-============================================================ */
+/* ==========================================================================
+   CARD MODAL — ПОВНИЙ ТЕКСТ КАРТКИ (#cardModal / .modal-card)
+   --------------------------------------------------------------------------
+   ⚠️ ТИМЧАСОВИЙ БЛОК: коли всі продуктові сторінки готові і модалку
+   з повним текстом картки прибереш — ВИДАЛИ ВЕСЬ ЦЕЙ БЛОК ЦІЛКОМ
+   (від цього коментаря до маркера END CARD MODAL нижче).
+   Також можна буде прибрати #cardModal з index.html і openModal() з JS.
+   ========================================================================== */
 
 #cardModal {
   display: none;
   position: fixed;
   inset: 0;
 
-  background: rgba(0,0,0,0.18);       /* светлое стеклянное затемнение */
+  background: rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
@@ -1256,11 +1304,8 @@ footer .c {
   transform: scale(1);
 }
 
-
-/* ==== САМА КАРТОЧКА ==== */
-
 .modal-card {
-  background: rgba(255,255,255,0.72);     /* СТЕКЛО как в контактах 0.62*/
+  background: rgba(255,255,255,0.72);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
@@ -1276,6 +1321,9 @@ footer .c {
   opacity: 0;
   transform: scale(.92);
   animation: cardSoftPop .55s cubic-bezier(.16,1,.3,1) forwards;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.25) transparent;
 }
 
 @keyframes cardSoftPop {
@@ -1283,9 +1331,38 @@ footer .c {
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* Текст внутри оставляем НЕпрозрачным */
+.modal-card::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-card::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 32px;
+  margin: 16px 0;
+}
+
+.modal-card::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.22);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.modal-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.35);
+  background-clip: content-box;
+}
+
+@media (max-width: 768px) {
+  .modal-card::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+}
+
+/* Текст усередині модалки */
 .modal-content {
-  background: none; /* НЕ трогаем */
+  background: none;
   padding: 0;
 }
 
@@ -1294,12 +1371,37 @@ footer .c {
   color: var(--text-main);
   line-height: 1.65;
 }
+
 .modal-content h3 {
   text-align: center;
 }
 
+.modal-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
 
+.modal-content ul li {
+  position: relative;
+  padding-left: 34px;
+  margin-bottom: 2px;
+  line-height: 1.6;
+}
 
+.modal-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #b73752, #750525);
+  box-shadow: 0 0 0 2px rgba(117, 5, 37, 0.18);
+}
+
+/* === END CARD MODAL — видаляй до цього маркера включно === */
 
 
 /* ===============================================
@@ -1369,8 +1471,6 @@ footer .c {
 }
 
 
-
-
 /* ===========================================================
                МОДАЛКА КОНТАКТОВ
   =========================================================== */
@@ -1420,7 +1520,6 @@ footer .c {
   opacity: 0;
   transform: scale(.92);
 }
-
 
 
 @keyframes contactsSoftPop {
@@ -1502,9 +1601,6 @@ footer .c {
     height: 48px !important;
   }
 }
-
-
-
 
 
 /* ====================================================================
@@ -1745,7 +1841,8 @@ footer .c {
   -webkit-backdrop-filter: blur(6px);
 }
 
-#successModal.active {
+#successModal.active,
+#callSuccessModal.active {
   opacity: 1;
   transform: scale(1) translateY(0);
 }
@@ -1773,6 +1870,44 @@ footer .c {
   0% { opacity: 0; transform: translateY(26px) scale(.9); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* =========================================================
+   CALLBACK MODAL
+========================================================= */
+#callbackModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  opacity: 0;
+  transform: scale(.88) translateY(30px);
+  transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+#callbackModal.active {
+  display: flex !important;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+#callbackModal .popup-content {
+  background: var(--glass-bg-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 32px;
+  padding: 44px 48px 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.28);
+  animation: pricePopupShow .65s cubic-bezier(.16,1,.3,1) forwards;
+}
+
 
 /* --- ICON (не трогаем) --- */
 .success-icon {
@@ -2030,25 +2165,21 @@ canvas.confetti-canvas {
 }
 
 
-
 /* ===================================================
                     СКРОЛЛБАР ДЛЯ МОДАЛОК
 ====================================================== */
 
-.modal-card,
 .offer-modal-content,
 .calendly-modal-content {
   scrollbar-width: thin;
   scrollbar-color: rgba(0,0,0,0.25) transparent;
 }
 
-.modal-card::-webkit-scrollbar,
 .offer-modal-content::-webkit-scrollbar,
 .calendly-modal-content::-webkit-scrollbar {
   width: 10px;
 }
 
-.modal-card::-webkit-scrollbar-track,
 .offer-modal-content::-webkit-scrollbar-track,
 .calendly-modal-content::-webkit-scrollbar-track {
   background: transparent;
@@ -2056,7 +2187,6 @@ canvas.confetti-canvas {
   margin: 16px 0;
 }
 
-.modal-card::-webkit-scrollbar-thumb,
 .offer-modal-content::-webkit-scrollbar-thumb,
 .calendly-modal-content::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.22);
@@ -2065,14 +2195,12 @@ canvas.confetti-canvas {
   background-clip: content-box;
 }
 
-.modal-card::-webkit-scrollbar-thumb:hover,
 .offer-modal-content::-webkit-scrollbar-thumb:hover {
   background: rgba(0,0,0,0.35);
   background-clip: content-box;
 }
 
 @media (max-width: 768px) {
-  .modal-card::-webkit-scrollbar,
   .offer-modal-content::-webkit-scrollbar {
     width: 0;
     display: none;
@@ -2443,8 +2571,8 @@ canvas.confetti-canvas {
   pointer-events: none;
 
   transition:
-    opacity .45s cubic-bezier(0.16,1,.3,1),
-    visibility .45s cubic-bezier(0.16,1,.3,1);
+    opacity .55s cubic-bezier(.16,1,.3,1),
+    visibility .55s cubic-bezier(.16,1,.3,1);
   z-index: 99999;
 }
 
@@ -2464,17 +2592,20 @@ canvas.confetti-canvas {
   opacity: 0;
 
   transition:
-    transform .55s cubic-bezier(0.16,1,.3,1),
-    opacity .55s cubic-bezier(0.16,1,.3,1);
+    transform .55s cubic-bezier(.16,1,.3,1),
+    opacity .55s cubic-bezier(.16,1,.3,1);
 }
 
-/* Когда активна */
 #diplomaModal.active #diplomaModalImg {
   transform: scale(1);
   opacity: 1;
 }
 
-/* Мобилка */
+#diplomaModal:not(.active) #diplomaModalImg {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
 @media (max-width: 600px) {
   #diplomaModalImg {
     max-width: 100vw;
@@ -2482,25 +2613,10 @@ canvas.confetti-canvas {
     border-radius: 0;
   }
 }
-#diplomaModal {
-  transition:
-    opacity .55s cubic-bezier(.16,1,.3,1),
-    visibility .55s cubic-bezier(.16,1,.3,1);
-}
 
-#diplomaModalImg {
-  transition:
-    transform .55s cubic-bezier(.16,1,.3,1),
-    opacity .55s cubic-bezier(.16,1,.3,1);
-}
-
-#diplomaModal:not(.active) #diplomaModalImg {
-  transform: scale(0.9);
-  opacity: 0;
-}
 .payment-modal-content h3,
 .contacts-modal-content h3 {
-  line-height: 1;     /* убивает лишнюю высоту строки */
+  line-height: 1;
 }
 
 /* ======================================
@@ -2832,6 +2948,7 @@ canvas.confetti-canvas {
 #hero {
   padding: 0;
   margin: 0;
+  margin-top: -72px;
   position: relative;
   overflow: hidden;
   height: 420px;
@@ -2842,7 +2959,6 @@ canvas.confetti-canvas {
   height: 100%;
 }
 
-/* БОЛЬШАЯ КРАСИВАЯ КАРТИНКА */
 .hero-cover {
   width: 100%;
   height: 100%;
@@ -2852,17 +2968,17 @@ canvas.confetti-canvas {
   transition: opacity .5s ease, transform .5s ease;
 }
 
-/* ТЕКСТ поверх картинки — выравниваем по контентной сетке */
 .hero-text {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1400px;       /* <<< КРИТИЧЕСКИЙ ФИКС: теперь текст не убегает на широких экранах */
-  padding: 0 40px;
+  max-width: 1400px;
+  padding: 72px 40px 0 140px;
   color: #000;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .hero-text h1 {
@@ -2875,7 +2991,11 @@ canvas.confetti-canvas {
   font-size: 22px;
 }
 
-/* ------- SCROLL SHRINK EFFECT ------- */
+.hero-line-1 .shifted {
+  color: #750525;
+}
+
+/* SCROLL SHRINK */
 #hero.shrink .hero-cover {
   opacity: 0;
   transform: scale(1.1) translateY(-40px);
@@ -2884,21 +3004,6 @@ canvas.confetti-canvas {
 #hero.shrink .hero-text {
   opacity: 0;
   transform: translateX(-50%) translateY(-60px);
-}
-
-#hero {
-  padding: 0;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-
-  height: 420px;
-
-  /* 🔥 ключевой момент */
-  margin-top: -72px;
-}
-.hero-text {
-  padding-top: 72px;
 }
 
 
@@ -2939,44 +3044,31 @@ canvas.confetti-canvas {
   line-height: 1.18;
 }
 
-/* ===== FINAL DESKTOP ALIGNMENT FIX ===== */
+/* Desktop hero alignment */
 @media (min-width: 1024px) {
-
-  /* Центрируем ВЕСЬ блок */
   .hero-text {
-    text-align: left;      /* ← строки левосторонние */
-    max-width: 900px;      /* ← ширина как в ABOUT */
-    margin: 0 auto;        /* ← центрируем блок */
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
     left: 50%;
     transform: translateX(-50%);
   }
 
-  /* Первая строка — обычная, без смещений */
-  .hero-line-1 {
-    display: block;
-  }
-
-  /* Вторая строка — точно под первой */
+  .hero-line-1,
   .hero-line-2,
   .hero-line-3 {
     display: block;
   }
 
-  /* УДАЛЯЕМ ЛЮБЫЕ translateX, indent, смещения */
   .hero-line-1 .shifted {
     transform: none !important;
   }
-}
-  /* ===== DESKTOP HERO SECOND LINE SIZE ===== */
-@media (min-width: 1024px) {
+
   .hero-line-2 {
     font-size: 34px !important;
     line-height: 1.12 !important;
   }
 }
-
-
-
 
 
 /* ===================== HERO MOBILE FIX ===================== */
@@ -3204,7 +3296,6 @@ canvas.confetti-canvas {
 }
 
 
-
 .hero-overlay {
   position: absolute;
   bottom: 0;                 /* ⬅ якорь от низа hero */
@@ -3236,21 +3327,6 @@ canvas.confetti-canvas {
   }
 }
 
-/* HERO — сдвиг текста вправо */
-.hero-text {
-  padding-left: 140px;
-}
-
-/* на мобилке меньше, чтобы не вылазило */
-@media (max-width: 768px) {
-  .hero-text {
-    padding-left: 16px;
-  }
-}
-/* HERO — акцентный заголовок */
-.hero-line-1 .shifted {
-  color: #750525;
-}
 /* PRODUCTS — красим ТОЛЬКО h2 внутри продуктовых секций */
 #products .products-header:not(.products-subtitle),
 #upravlenie .products-header:not(.products-subtitle),
@@ -3309,23 +3385,21 @@ footer {
    ОБЫЧНЫЕ UL — КАК РАНЬШЕ
 ========================================================= */
 
-.card-text-content ul,
-.modal-content ul {
+/* Списки всередині карток каталогу (модалка карток — у блоці CARD MODAL вище) */
+.card-text-content ul {
   list-style: none;
   padding-left: 0;
   margin: 10px 0;
 }
 
-.card-text-content ul li,
-.modal-content ul li {
+.card-text-content ul li {
   position: relative;
   padding-left: 34px;
   margin-bottom: 2px;
   line-height: 1.6;
 }
 
-.card-text-content ul li::before,
-.modal-content ul li::before {
+.card-text-content ul li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -3383,8 +3457,7 @@ footer {
   box-shadow: 0 0 0 2px rgba(117, 5, 37, 0.18);
 }
 
-/* ===== ВОЗВРАЩАЕМ ЦИФРЫ В КРУЖКАХ ===== */
-
+/* Цифри в кружках для .ol-custom */
 .ol-custom {
   counter-reset: step;
 }
@@ -3395,85 +3468,4 @@ footer {
 
 .ol-custom .num::before {
   content: counter(step);
-}
-
-#callbackModal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.18);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 16px;
-  opacity: 0;
-  transform: scale(.88) translateY(30px);
-  transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
-}
-
-#callbackModal.active {
-  display: flex !important;
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-#callbackModal .popup-content {
-  background: var(--glass-bg-soft);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 32px;
-  padding: 44px 48px 20px;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.28);
-  animation: pricePopupShow .65s cubic-bezier(.16,1,.3,1) forwards;
-}
-.callback-topbar-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.6;
-  flex-shrink: 0;
-  transition: opacity .3s ease, transform .3s ease;
-
-}
-
-.callback-topbar-btn:hover {
-  opacity: 1;
-  transform: scale(1.12);
-}
-
-.callback-topbar-btn img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-/* На мобілці трохи менша */
-@media (max-width: 768px) {
-  .callback-topbar-btn img {
-    width: 24px;
-    height: 24px;
-  }
-}
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-@media (max-width: 768px) {
-  .topbar.open-menu .callback-topbar-btn {
-    display: none;
-  }
-}
-#callSuccessModal.active {
-  display: flex !important;
-  opacity: 1;
-  transform: scale(1) translateY(0);
 }
