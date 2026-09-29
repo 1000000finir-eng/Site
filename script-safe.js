@@ -626,6 +626,7 @@ function openPricePopup(e) {
   window.bookingCard = card;
   window.bookingProduct = product;
   window.bookingPrice = price;
+  window.bookingPayLink = card?.dataset?.payLink || btn?.dataset?.payLink || window.bookingPayLink || '';
 
   // UI
   priceTitle.textContent = product;
@@ -736,6 +737,7 @@ on($('#bookingForm'), 'submit', async function(e) {
           action: "new_booking",
           product: window.bookingProduct || title || '',
           price: price,            // 🔥 ГАРАНТИРОВАННО НЕ ПУСТО
+          pay_link: pay_link || window.bookingPayLink || '',
           name,
           phone,
           email,
