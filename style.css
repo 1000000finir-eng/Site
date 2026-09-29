@@ -1908,6 +1908,19 @@ footer .c {
   animation: pricePopupShow .65s cubic-bezier(.16,1,.3,1) forwards;
 }
 
+#callbackModal .btn-main {
+  background: var(--yellow);
+  color: var(--black);
+  border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+#callbackModal .btn-main:hover {
+  background: var(--burgundy);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
 
 /* --- ICON (не трогаем) --- */
 .success-icon {
@@ -2099,10 +2112,10 @@ canvas.confetti-canvas {
 }
 
 #pricePopup .btn-main:hover {
-  background: var(--black) !important;
+  background: var(--burgundy) !important;
   color: #fff !important;
   border-color: transparent !important;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* =========================STATUS==================================== */
