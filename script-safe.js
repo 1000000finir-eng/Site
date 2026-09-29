@@ -626,7 +626,7 @@ function openPricePopup(e) {
   window.bookingCard = card;
   window.bookingProduct = product;
   window.bookingPrice = price;
-  window.bookingPayLink = card?.dataset?.payLink || btn?.dataset?.payLink || window.bookingPayLink || '';
+  window.bookingPayLink = (card?.dataset?.payLink ?? btn?.dataset?.payLink ?? '').trim();
 
   // UI
   priceTitle.textContent = product;
@@ -712,7 +712,7 @@ on($('#bookingForm'), 'submit', async function(e) {
 
   const send_email = card?.dataset?.sendEmail === "true";
   const email_template = card?.dataset?.emailTemplate || "";
-  const pay_link = card?.dataset?.payLink || "";
+  const pay_link = (card?.dataset?.payLink || window.bookingPayLink || '').trim();
 
   // EMAIL HTML
   let email_html = "";
@@ -737,7 +737,7 @@ on($('#bookingForm'), 'submit', async function(e) {
           action: "new_booking",
           product: window.bookingProduct || title || '',
           price: price,            // 🔥 ГАРАНТИРОВАННО НЕ ПУСТО
-          pay_link: pay_link || window.bookingPayLink || '',
+          pay_link: pay_link,
           name,
           phone,
           email,
