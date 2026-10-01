@@ -474,8 +474,30 @@ on($('.payment-modal-content'), 'click', e => {
   // ❌ если телефон внутри booking — выходим
   if (phoneInput.closest('#bookingModal')) return;
 
+  function normalizePhoneDigits(raw) {
+    let d = (raw || '').replace(/\D/g, '');
+    // Вже повний UA: 380XXXXXXXXX
+    if (d.startsWith('380')) {
+      // ok
+    }
+    // Локальний з 0: 0XXXXXXXXX → 380XXXXXXXXX
+    else if (d.startsWith('0')) {
+      d = '38' + d;
+    }
+    // 80... → 380...
+    else if (d.startsWith('80')) {
+      d = '3' + d;
+    }
+    // Без коду країни: дописуємо 38 (як у booking.js)
+    else if (!d.startsWith('38')) {
+      d = '38' + d.replace(/^0+/, '');
+    }
+    return d.slice(0, 12);
+  }
+
   function formatPhone(d) {
-    if (d.length <= 2) return '+' + d;
+    d = normalizePhoneDigits(d);
+    if (d.length <= 2) return d ? '+' + d : '';
     const body = d.slice(2);
     let out = '+38';
     if (body.length > 0) out += ' (' + body.substring(0, 3);
@@ -504,10 +526,7 @@ on($('.payment-modal-content'), 'click', e => {
   });
 
   on(phoneInput, 'input', function () {
-    let d = this.value.replace(/\D/g, '');
-    if (d.startsWith('8') && d.length > 1) d = '3' + d;
-    d = d.slice(0, 12);
-    this.value = formatPhone(d);
+    this.value = formatPhone(this.value);
     this.setSelectionRange(this.value.length, this.value.length);
   });
 
