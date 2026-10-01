@@ -532,6 +532,11 @@
   color: #555;
 }
 
+.ec-section-heading + .ec-coffee-note {
+  margin-top: -8px;
+  margin-bottom: 28px;
+}
+
 /* ---------- FAQ ---------- */
 #faq {
   max-width: 1200px;
