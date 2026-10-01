@@ -724,14 +724,27 @@ on($('#bookingForm'), 'submit', async function(e) {
 
   status.innerHTML = "";
 
+  if (name.length < 2) {
+    status.innerHTML = '<span class="modal-error">Введіть ваше ім\'я</span>';
+    return;
+  }
+
+  const phoneDigits = phone.replace(/\D/g, '');
+  if (phoneDigits.length !== 12) {
+    status.innerHTML = '<span class="modal-error">Введіть повний номер телефону</span>';
+    return;
+  }
+
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
-    status.innerHTML = '<span style="color:red;">Введіть коректний email!</span>';
+    status.innerHTML = '<span class="modal-error">Введіть коректний email!</span>';
     return;
   }
 
   if (!phone.startsWith("+38")) {
-    phone = "+38" + phone.replace(/\D/g, '');
+    phone = "+38" + phoneDigits;
+  } else {
+    phone = "+" + phoneDigits;
   }
 
   // 🔑 КАРТОЧКА-ИСТОЧНИК
@@ -794,11 +807,11 @@ on($('#bookingForm'), 'submit', async function(e) {
         }, 700);
       }
     } else {
-      status.innerHTML = '<span style="color:red;">Помилка. Спробуйте ще раз.</span>';
+      status.innerHTML = '<span class="modal-error">Помилка. Спробуйте ще раз.</span>';
     }
   } catch (err) {
     console.error(err);
-    status.innerHTML = '<span style="color:red;">Помилка з’єднання. Спробуйте ще раз.</span>';
+    status.innerHTML = '<span class="modal-error">Помилка з\'єднання. Спробуйте ще раз.</span>';
   }
 });
 
@@ -1707,15 +1720,15 @@ async function submitCallback() {
 
   const phoneDigits = phone.replace(/\D/g, '');
   if (name.length < 2) {
-    if (status) status.innerHTML = '<span style="color:red;">Введіть ваше ім\'я</span>';
+    if (status) status.innerHTML = '<span class="modal-error">Введіть ваше ім\'я</span>';
     return;
   }
   if (phoneDigits.length !== 12) {
-    if (status) status.innerHTML = '<span style="color:red;">Введіть повний номер телефону</span>';
+    if (status) status.innerHTML = '<span class="modal-error">Введіть повний номер телефону</span>';
     return;
   }
 
-  if (status) status.innerHTML = 'Відправляємо...';
+  if (status) status.innerHTML = '<span class="modal-status">Відправляємо...</span>';
 
   try {
     const res = await fetch('https://booking-backend-nz3y.onrender.com/api/callback', {
@@ -1728,10 +1741,10 @@ async function submitCallback() {
       closeCallbackModal();
       showCallSuccessModal();
     } else {
-      if (status) status.innerHTML = '<span style="color:red;">Помилка. Спробуйте ще раз.</span>';
+      if (status) status.innerHTML = '<span class="modal-error">Помилка. Спробуйте ще раз.</span>';
     }
   } catch (err) {
-    if (status) status.innerHTML = '<span style="color:red;">Помилка з\'єднання.</span>';
+    if (status) status.innerHTML = '<span class="modal-error">Помилка з\'єднання.</span>';
   }
 }
 
