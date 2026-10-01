@@ -622,12 +622,10 @@ function openPricePopup(e) {
 
   const price = priceRaw?.trim() || 'індивідуальна';
 
-  // 🔑 PLACEHOLDER для textarea (з data-placeholder на картці / кнопці)
-  const defaultCommentPlaceholder =
-    "Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)";
+  // 🔑 PLACEHOLDER — тільки якщо є data-placeholder на картці/кнопці.
+  // Інакше лишається дефолт з HTML цієї сторінки.
   const commentPlaceholder =
-    (card?.dataset?.placeholder || btn?.dataset?.placeholder || '').trim() ||
-    defaultCommentPlaceholder;
+    (card?.dataset?.placeholder || btn?.dataset?.placeholder || '').trim();
 
   // сохраняем глобально
   window.bookingCard = card;
@@ -647,7 +645,13 @@ function openPricePopup(e) {
   status.innerHTML = '';
 
   const commentField = form.querySelector('textarea[name="comment"]');
-  if (commentField) commentField.placeholder = commentPlaceholder;
+  if (commentField) {
+    // зберігаємо оригінальний placeholder з HTML сторінки (один раз)
+    if (commentField.dataset.defaultPlaceholder === undefined) {
+      commentField.dataset.defaultPlaceholder = commentField.placeholder || '';
+    }
+    commentField.placeholder = commentPlaceholder || commentField.dataset.defaultPlaceholder;
+  }
 
   resetFormHighlights();
 
