@@ -622,6 +622,13 @@ function openPricePopup(e) {
 
   const price = priceRaw?.trim() || 'індивідуальна';
 
+  // 🔑 PLACEHOLDER для textarea (з data-placeholder на картці / кнопці)
+  const defaultCommentPlaceholder =
+    "Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)";
+  const commentPlaceholder =
+    (card?.dataset?.placeholder || btn?.dataset?.placeholder || '').trim() ||
+    defaultCommentPlaceholder;
+
   // сохраняем глобально
   window.bookingCard = card;
   window.bookingProduct = product;
@@ -638,6 +645,9 @@ function openPricePopup(e) {
   form.reset();
   if (phone) phone.value = '';
   status.innerHTML = '';
+
+  const commentField = form.querySelector('textarea[name="comment"]');
+  if (commentField) commentField.placeholder = commentPlaceholder;
 
   resetFormHighlights();
 
