@@ -2592,17 +2592,17 @@ canvas.confetti-canvas {
                     СКРОЛЛБАР ДЛЯ МОДАЛОК
 ====================================================== */
 
+/* Скрол не доходить до верхнього/нижнього закруглення */
+.offer-modal-content::-webkit-scrollbar-track,
+.modal-card::-webkit-scrollbar-track {
+  margin: 35px 0;
+}
+
 @media (max-width: 768px) {
   .offer-modal-content::-webkit-scrollbar {
     width: 0;
     display: none;
   }
-}
-
-/* чтобы fade-up не убивал hover-увеличение мини-карточек */
-.mini-feature.fade-up.visible:hover {
-  transform: scale(1.04) !important;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.18);
 }
 /* =======================================================
                      КЛИЕНТЫ
