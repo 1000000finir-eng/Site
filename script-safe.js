@@ -547,12 +547,24 @@ on($('.payment-modal-content'), 'click', e => {
 /* =========================================================
    SUCCESS MODAL + CONFETTI — SAFE
 ========================================================= */
+
+function restartSuccessSvg(wrap) {
+  if (!wrap) return;
+  wrap.classList.remove('done');
+  const svg = wrap.innerHTML;
+  wrap.innerHTML = '';
+  void wrap.offsetWidth;
+  wrap.innerHTML = svg;
+  setTimeout(() => wrap.classList.add('done'), 1200);
+}
+
 function showSuccessModal() {
   const modal = $('#successModal');
   if (!modal) return;
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+  restartSuccessSvg($('#checkWrap'));
 
   // confetti может быть не подключен на некоторых страницах
   if (typeof confetti === 'function') {
@@ -1616,6 +1628,7 @@ function showCallSuccessModal() {
   if (!modal) return;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+  restartSuccessSvg($('#phoneWrap'));
 }
 
 function closeCallSuccessModal() {

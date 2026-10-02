@@ -296,7 +296,19 @@ window.initBookingApp = async function () {
         // 1️⃣ закрываем booking modal
         document.getElementById('bookingModal')?.classList.remove('active');
         // 2️⃣ открываем success modal
-        document.getElementById('successModal')?.classList.add('active');
+        const sm = document.getElementById('successModal');
+        if (sm) {
+          sm.classList.add('active');
+          const wrap = document.getElementById('checkWrap');
+          if (wrap) {
+            wrap.classList.remove('done');
+            const svg = wrap.innerHTML;
+            wrap.innerHTML = '';
+            void wrap.offsetWidth;
+            wrap.innerHTML = svg;
+            setTimeout(() => wrap.classList.add('done'), 1200);
+          }
+        }
         // 3️⃣ сбрасываем форму
         form.reset();
         repaint();

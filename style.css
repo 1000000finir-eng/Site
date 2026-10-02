@@ -4,6 +4,7 @@
   --bg: #f5f1ea;
   --gray: #36454f;
   --burgundy: #8b1d1d; /* твой фирменный бордовый */
+  --success-green: #2e7d32;
   --text-main: #2b2b2b;
   --text-dark: #222;
   --text-muted: #444;
@@ -1837,7 +1838,7 @@ footer .c {
 }
 
 /* =========================================================
-   SUCCESS-MODAL
+   SUCCESS-MODAL (redesign from 1.html)
 =========================================================== */
 #callSuccessModal,
 #successModal {
@@ -1847,7 +1848,7 @@ footer .c {
     opacity .55s cubic-bezier(.16,1,.3,1),
     transform .55s cubic-bezier(.16,1,.3,1);
 
-  background: rgba(0,0,0,0.18);   /* тот же фон, что у контактов */
+  background: rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -1858,28 +1859,208 @@ footer .c {
   transform: scale(1) translateY(0);
 }
 
-/* === САМО ОКНО — СТЕКЛО, как контакты/payment === */
+/* === САМО ОКНО — скло + бордова рамка === */
 #callSuccessModal .popup-content,
 #successModal .popup-content {
-  background: var(--glass-bg-soft);      /* стеклянный фон */
+  position: relative;
+  background: var(--glass-bg-soft);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
+  border: 1.5px solid var(--burgundy);
   border-radius: 32px;
-  padding: 40px 36px;
+  padding: 44px 36px 36px;
   max-width: 420px;
   width: 100%;
   text-align: center;
   box-shadow: 0 30px 80px rgba(0,0,0,0.20);
-
   opacity: 0;
   transform: translateY(26px) scale(.9);
   animation: successSoftPop .55s cubic-bezier(.16,1,.3,1) forwards;
 }
 
 @keyframes successSoftPop {
-  0% { opacity: 0; transform: translateY(26px) scale(.9); }
+  0%   { opacity: 0; transform: translateY(26px) scale(.9); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Kicker */
+.success-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 12px;
+}
+.success-kicker::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  background: var(--burgundy);
+  border-radius: 2px;
+}
+
+/* Title */
+.success-title {
+  font-family: "Plus Jakarta Sans", "Manrope", system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin: 0 0 28px;
+  line-height: 1.2;
+}
+
+/* SVG wrap */
+.success-svg-wrap {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+.success-svg-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SUCCESS: заявка — зелена галочка */
+#successModal .success-svg-wrap { color: var(--success-green); }
+
+#successModal .success-circle {
+  fill: none;
+  stroke: var(--success-green);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: circleDraw .6s cubic-bezier(.16,1,.3,1) .15s forwards;
+}
+
+#successModal .success-circle-bg {
+  fill: rgba(46, 125, 50, 0.10);
+  opacity: 0;
+  animation: successFadeIn .4s ease .1s forwards;
+}
+
+#successModal .success-check {
+  fill: none;
+  stroke: var(--success-green);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkDraw .45s cubic-bezier(.16,1,.3,1) .55s forwards;
+}
+
+/* CALLBACK: бордовий телефон */
+#callSuccessModal .success-svg-wrap { color: var(--burgundy); }
+
+#callSuccessModal .phone-body {
+  fill: rgba(139, 29, 29, 0.25);
+  stroke: var(--burgundy);
+}
+
+@keyframes circleDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes checkDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes successFadeIn {
+  to { opacity: 1; }
+}
+
+.success-svg-wrap.done {
+  animation: softPulse 2.4s ease-in-out 1.1s infinite;
+}
+@keyframes softPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+/* Text */
+.success-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 28px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Кнопка «Закрити» + блик */
+.success-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 260px;
+  padding: 14px 24px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 14px;
+  border: 2px solid rgba(0,0,0,0.1);
+  background: var(--yellow);
+  color: var(--black);
+  cursor: pointer;
+  transition: all .35s cubic-bezier(.16,1,.3,1);
+  z-index: 1;
+}
+
+.success-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(247,200,67,0.3) 44%,
+    rgba(255,255,255,0.85) 50%,
+    rgba(247,200,67,0.3) 56%,
+    transparent 70%
+  );
+  transform: skewX(-20deg);
+  transition: left 1.4s cubic-bezier(0.16,1,0.3,1);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+}
+
+.success-btn:hover {
+  background: var(--burgundy);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 25px rgba(139, 29, 29, 0.3);
+}
+
+.success-btn:hover::before {
+  left: 120%;
+  opacity: 1;
+}
+
+/* legacy text overrides (keep harmless) */
+#successModal .popup-content h3,
+#callSuccessModal .popup-content h3 {
+  color: var(--text-dark);
+}
+
+#successModal .popup-content p,
+#callSuccessModal .popup-content p {
+  color: var(--text-muted);
 }
 
 /* =========================================================
@@ -2106,47 +2287,10 @@ footer .c {
 }
 
 
-/* --- ICON (не трогаем) --- */
-.success-icon {
-  opacity: 0;
-  transform: translateX(-40px);
-  animation:
-    fadeLeft .9s cubic-bezier(.16,1,.3,1) .1s forwards,
-    wiggleSoft 3s ease-in-out 1s infinite;
-}
-
-@keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes wiggleSoft {
-  0%   { transform: translateX(0) rotate(0deg); }
-  25%  { transform: translateX(-2px) rotate(-2deg); }
+25%  { transform: translateX(-2px) rotate(-2deg); }
   50%  { transform: translateX(2px) rotate(2deg); }
   75%  { transform: translateX(-1px) rotate(-1deg); }
   100% { transform: translateX(0) rotate(0deg); }
-}
-
-/* Text */
-#successModal .popup-content h3 {
-  color: var(--text-dark);
-  font-size: 24px;
-  margin: 20px 0 12px;
-}
-
-#successModal .popup-content p {
-  color: var(--text-muted);
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* Закрыть */
-#successModal .modal-close {
-  margin-top: 24px;
-  color: #888;
-  cursor: pointer;
-  font-size: 16px;
 }
 
 /* Confetti */
