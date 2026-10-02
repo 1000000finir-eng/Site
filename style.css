@@ -1333,9 +1333,6 @@ footer .c {
   opacity: 0;
   transform: scale(.92);
   animation: cardSoftPop .55s cubic-bezier(.16,1,.3,1) forwards;
-
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.25) transparent;
 }
 
 @keyframes cardSoftPop {
@@ -1343,34 +1340,7 @@ footer .c {
   100% { opacity: 1; transform: scale(1); }
 }
 
-.modal-card::-webkit-scrollbar {
-  width: 10px;
-}
 
-.modal-card::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 32px;
-  margin: 16px 0;
-}
-
-.modal-card::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.22);
-  border-radius: 10px;
-  border: 3px solid transparent;
-  background-clip: content-box;
-}
-
-.modal-card::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,0.35);
-  background-clip: content-box;
-}
-
-@media (max-width: 768px) {
-  .modal-card::-webkit-scrollbar {
-    width: 0;
-    display: none;
-  }
-}
 
 /* Текст усередині модалки */
 .modal-content {
@@ -1668,9 +1638,8 @@ footer .c {
   font-weight: 700;
   text-align: center;
   margin-bottom: 12px;
-  color: var(--black);
+  color: var(--burgundy);
 }
-
 .offer-subtitle-center {
   font-size: 18px;
   text-align: center;
@@ -1682,6 +1651,12 @@ footer .c {
   font-size: 16px;
   font-weight: 700;
   margin: 16px 0;
+  color: var(--burgundy);
+}
+
+.offer-hl {
+  color: var(--burgundy);
+  font-weight: 700;
 }
 
 .offer-item {
@@ -1710,15 +1685,6 @@ footer .c {
   border: none !important;
   margin-top: 0 !important;
   padding-top: 0 !important;
-}
-
-/* Скроллбар оставляем */
-.offer-modal-content::-webkit-scrollbar {
-  width: 10px;
-}
-.offer-modal-content::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.22);
-  border-radius: 10px;
 }
 
 
@@ -2625,37 +2591,6 @@ canvas.confetti-canvas {
 /* ===================================================
                     СКРОЛЛБАР ДЛЯ МОДАЛОК
 ====================================================== */
-
-.offer-modal-content,
-.calendly-modal-content {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.25) transparent;
-}
-
-.offer-modal-content::-webkit-scrollbar,
-.calendly-modal-content::-webkit-scrollbar {
-  width: 10px;
-}
-
-.offer-modal-content::-webkit-scrollbar-track,
-.calendly-modal-content::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 32px;
-  margin: 16px 0;
-}
-
-.offer-modal-content::-webkit-scrollbar-thumb,
-.calendly-modal-content::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.22);
-  border-radius: 10px;
-  border: 3px solid transparent;
-  background-clip: content-box;
-}
-
-.offer-modal-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,0.35);
-  background-clip: content-box;
-}
 
 @media (max-width: 768px) {
   .offer-modal-content::-webkit-scrollbar {
@@ -3879,4 +3814,16 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(139, 29, 29, 0.95);
   background-clip: content-box;
+}
+
+/* Прибираємо стрілочки-кнопки зверху/знизу */
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Прибираємо «кутки» між вертикальним і горизонтальним скролом */
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
