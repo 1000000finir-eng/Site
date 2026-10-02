@@ -572,14 +572,15 @@ function showSuccessModal() {
       particleCount: 180,
       spread: 76,
       origin: { y: 0.58 },
-      colors: ['#f7c843', '#ffffff', '#333333'],
+      colors: ['#8b1d1d', '#b73752', '#f7c843', '#36454f'],
       scalar: 1.3
     });
 
     setTimeout(() => {
-      confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.6 } });
-      confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.6 } });
-    }, 200);
+  const colors = ['#8b1d1d', '#b73752', '#f7c843', '#36454f'];
+  confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors });
+  confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors });
+}, 200);
 
     setTimeout(() => {
       const canvas = $('canvas');
