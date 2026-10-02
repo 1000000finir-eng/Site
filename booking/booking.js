@@ -26,10 +26,19 @@ function setStep(root, cls) {
   root.querySelector(cls)?.classList.add('active');
 }
 
+function formatHumanDate(iso) {
+  if (!iso || typeof iso !== 'string') return '';
+  const parts = iso.split('-');
+  if (parts.length !== 3) return iso;
+  const [y, m, d] = parts;
+  return `${d}-${m}-${y}`;
+}
+
 function updateMeta(root) {
+  const human = formatHumanDate(state.selectedDate);
   const txt =
-    state.selectedDate && state.selectedTime ? `Обрано: ${state.selectedDate} • ${state.selectedTime}` :
-    state.selectedDate ? `Обрано: ${state.selectedDate}` : '';
+    human && state.selectedTime ? `Обрано: ${human} • ${state.selectedTime}` :
+    human ? `Обрано: ${human}` : '';
 
   root.querySelectorAll('.selected-meta').forEach(el => el.textContent = txt);
 }
@@ -58,10 +67,11 @@ function renderCalendar(root) {
   const y = state.currentMonth.getFullYear();
   const m = state.currentMonth.getMonth();
 
-  label.textContent = state.currentMonth.toLocaleString('uk-UA', {
-    month: 'long',
-    year: 'numeric'
-  });
+  // uk-UA often adds " р." after year — strip it
+  label.textContent = state.currentMonth
+    .toLocaleString('uk-UA', { month: 'long', year: 'numeric' })
+    .replace(/\s*р\.?$/i, '')
+    .trim();
 
   const firstDay = new Date(y, m, 1);
   const offset = (firstDay.getDay() + 6) % 7;
