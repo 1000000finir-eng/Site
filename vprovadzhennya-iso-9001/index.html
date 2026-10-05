@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Впровадження ISO 9001 — система управління якістю | Консалтинг</title>
+  <meta name="description" content="Консалтинг з впровадження ДСТУ ISO 9001:2018. Діагностика, розробка СУЯ, документація, навчання, внутрішній аудит та підготовка до сертифікації ISO 9001." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://i-s-business-consulting.pp.ua/vprovadzhennya-iso-9001/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://i-s-business-consulting.pp.ua/vprovadzhennya-iso-9001/" />
+  <meta property="og:title" content="Впровадження ISO 9001 — система управління якістю | Консалтинг" />
+  <meta property="og:description" content="Консалтинг з впровадження ДСТУ ISO 9001:2018. Діагностика, розробка СУЯ, документація, навчання, внутрішній аудит та підготовка до сертифікації ISO 9001." />
+  <meta property="og:image" content="https://i-s-business-consulting.pp.ua/assets/images/cert.jpg" />
+  <meta property="og:locale" content="uk_UA" />
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="iso.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Впровадження ДСТУ ISO 9001:2018 — система управління якістю",
+        "description": "Консалтинг з впровадження системи управління якістю ISO 9001: діагностика, проєктування СУЯ, розробка документації, навчання, внутрішній аудит та підготовка до сертифікації.",
+        "url": "https://i-s-business-consulting.pp.ua/vprovadzhennya-iso-9001/",
+        "image": "https://i-s-business-consulting.pp.ua/assets/images/cert.jpg",
+        "provider": {
+          "@type": "Person",
+          "name": "Ірина Стецуріна",
+          "url": "https://i-s-business-consulting.pp.ua/"
+        },
+        "areaServed": "UA",
+        "serviceType": "Консалтинг з впровадження ISO 9001"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Головна", "item": "https://i-s-business-consulting.pp.ua/"},
+          {"@type": "ListItem", "position": 2, "name": "Впровадження ISO 9001", "item": "https://i-s-business-consulting.pp.ua/vprovadzhennya-iso-9001/"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Ірина Стецуріна",
+        "url": "https://i-s-business-consulting.pp.ua/",
+        "jobTitle": "Executive Coach, бізнес-тренер, системний консультант, ментор"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Скільки часу займає впровадження ISO 9001?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Залежить від розміру компанії та зрілості процесів. Після діагностики формуємо план з реалістичними термінами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна впровадити ISO 9001, якщо вже є своя система управління?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так. СУЯ інтегрується в існуючу систему управління, а не створюється як окрема «паралельна реальність»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чим впровадження відрізняється від «пакету документів» для сертифікації?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Документи «для галочки» дають сертифікат, але не працюючу систему. Впровадження означає, що процеси, відповідальність і ризики стають частиною щоденного управління."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи допомагаєте підготуватися до сертифікаційного аудиту?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так. Оцінюємо готовність, готуємо персонал, організовуємо документи. За потреби супроводжуємо під час аудиту."
+      }
+    }
+  ]
+}}
+</script>
+</head>
+<body>
+
+<!-- =========================================================
+     TOPBAR
+========================================================= -->
+<div class="topbar">
+  <div class="logo">
+    <img src="/assets/images/logo.png" alt="Ірина Стецуріна — консалтинг">
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="topbar-right">
+    <nav id="menu">
+      <a href="/" onclick="closeMenu()">Головна</a>
+      <a href="/#about" onclick="closeMenu()">Про мене</a>
+      <a href="/#products" onclick="closeMenu()">Продукти</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+    </nav>
+
+    <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </button>
+  </div>
+</div>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+    <img src="/assets/images/hero.jpg"
+         alt="Впровадження ISO 9001 — система управління якістю"
+         class="hero-cover">
+
+    <div class="hero-text ec-hero__text">
+      <h1 class="hero-line hero-line-1">
+        <span class="shifted">ВПРОВАДЖЕННЯ ISO 9001</span>
+      </h1>
+      <div class="hero-line hero-line-2">
+        СИСТЕМА УПРАВЛІННЯ ЯКІСТЮ, ЯКА ПРАЦЮЄ
+      </div>
+      <p class="hero-sub hero-line hero-line-3">
+        Від діагностики до готової СУЯ — без зайвої бюрократії та документів «для галочки»
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     BREADCRUMB
+========================================================= -->
+<nav class="ec-breadcrumb" aria-label="Хлібні крихти">
+  <a href="/">Головна</a>
+  <span>→</span>
+  <span>Впровадження ISO 9001</span>
+</nav>
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+<section class="ec-intro ec-animate">
+  <div class="ec-intro__grid">
+    <div class="ec-intro__media">
+      <img src="/assets/images/ISO_1.jpg"
+           alt="Впровадження ДСТУ ISO 9001:2018 — система управління якістю">
+    </div>
+
+    <div class="ec-intro__content">
+      <p class="ec-kicker">ДСТУ ISO 9001:2018</p>
+      <h2>НЕ ПРОСТО СЕРТИФІКАТ.<br> СИСТЕМА, ЯКА РЕАЛЬНО ПРАЦЮЄ</h2>
+
+      <p><b>Впровадження ДСТУ ISO 9001:2018 / ISO 9001:2015</b> — це не одноразова підготовка документів перед сертифікаційним аудитом.</p>
+      <p>Ми будуємо <b>систему управління якістю</b> так, щоб вона стала частиною щоденного управління компанією: допомагала контролювати процеси, відповідальність, ризики, якість роботи та постійне вдосконалення.</p>
+      <p>СУЯ інтегрується у вже існуючу систему управління, а не створюється як окрема «паралельна реальність».</p>
+
+      <div class="ec-product-meta">
+        <div><span>Формат</span><strong>Консалтинг для бізнесу</strong></div>
+        <div><span>Підхід</span><strong>Під вашу компанію</strong></div>
+        <div><span>Результат</span><strong>Працююча СУЯ</strong></div>
+      </div>
+
+      <div class="ec-booking-card card">
+        <button class="ec-main-btn" onclick="openPricePopup(event)">
+          ЗАЛИШИТИ ЗАЯВКУ НА ВПРОВАДЖЕННЯ ISO 9001
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PHILOSOPHY
+========================================================= -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">ПІДХІД</p>
+      <h2>Без зайвої бюрократії та документів «для галочки»</h2>
+    </div>
+
+    <p>Багато компаній купують «пакет документів» і отримують сертифікат. Але система не працює: процеси на папері, відповідальність розмита, ризики не управляються, а співробітники не розуміють свою роль.</p>
+    <p>Ми робимо інакше. <b>Будуємо систему не за шаблоном, а під вашу компанію</b> — процесну модель, взаємодію процесів, політику та цілі у сфері якості, підходи до управління ризиками та покращення.</p>
+    <p>Головне — <b>впроваджуємо інструменти у реальну роботу</b>: навчаємо керівників і працівників розуміти свою роль у СУЯ та використовувати її щодня.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     PROCESS — 5 ЕТАПІВ
+========================================================= -->
+<section class="ec-process ec-animate">
+  <div class="ec-section-heading">
+    <p class="ec-kicker">ЕТАПИ ВПРОВАДЖЕННЯ</p>
+    <h2>5 кроків від діагностики до сертифікації</h2>
+  </div>
+
+  <div class="iso-stages">
+
+    <article class="iso-stage">
+      <div class="iso-stage__head">
+        <span class="iso-stage__num" aria-hidden="true">1</span>
+        <h3>Діагностика</h3>
+      </div>
+      <div class="iso-stage__body">
+<p class="iso-stage__lead">Спочатку розбираємося, що у вас уже є</p>
+        <p>Аналізуємо процеси, структуру управління, документообіг, відповідальність та наявні практики управління якістю.</p>
+        <p>Порівнюємо фактичний стан із вимогами <b>ДСТУ ISO 9001:2018</b> та визначаємо:</p>
+        <ul class="ec-check-list">
+          <li>що вже відповідає вимогам стандарту</li>
+          <li>де є невідповідності та прогалини</li>
+          <li>які процеси потребують доопрацювання</li>
+          <li>які ризики можуть вплинути на результат</li>
+          <li>що необхідно зробити для підготовки до сертифікації</li>
+        </ul>
+        <p class="iso-stage__result"><span>Результат</span> зрозуміла картина поточного стану та конкретний план дій</p>
+      </div>
+    </article>
+
+    <article class="iso-stage">
+      <div class="iso-stage__head">
+        <span class="iso-stage__num" aria-hidden="true">2</span>
+        <h3>Проєктування системи управління якістю</h3>
+      </div>
+      <div class="iso-stage__body">
+<p class="iso-stage__lead">Будуємо систему не за шаблоном, а під вашу компанію</p>
+        <p>На основі діагностики формуємо архітектуру <b>системи управління якістю (СУЯ)</b>: процесну модель, взаємодію процесів, відповідальність, політику та цілі у сфері якості, підходи до управління ризиками та покращення.</p>
+        <p>СУЯ інтегрується у вже існуючу систему управління компанією, а не створюється як окрема «паралельна реальність».</p>
+        <p class="iso-stage__result"><span>Результат</span> логічна модель системи, зрозуміла керівникам і працівникам</p>
+      </div>
+    </article>
+
+    <article class="iso-stage">
+      <div class="iso-stage__head">
+        <span class="iso-stage__num" aria-hidden="true">3</span>
+        <h3>Розробка документації та впровадження</h3>
+      </div>
+      <div class="iso-stage__body">
+<p class="iso-stage__lead">Перетворюємо вимоги стандарту на робочі правила та інструменти</p>
+        <p>Розробляємо та актуалізуємо необхідну документацію системи управління якістю:</p>
+        <ul class="ec-check-list">
+          <li>положення та процедури</li>
+          <li>регламенти й робочі інструкції</li>
+          <li>форми та записи</li>
+          <li>реєстри</li>
+          <li>документи щодо ризиків і можливостей</li>
+          <li>показники та інструменти контролю процесів</li>
+        </ul>
+        <p>Але головне — <b>впроваджуємо їх у реальну роботу</b>.</p>
+        <p>Навчаємо керівників і працівників розуміти свою роль у СУЯ та використовувати її інструменти у щоденній діяльності.</p>
+        <p class="iso-stage__result"><span>Результат</span> система працює не тільки в документах, а й у процесах</p>
+      </div>
+    </article>
+
+    <article class="iso-stage">
+      <div class="iso-stage__head">
+        <span class="iso-stage__num" aria-hidden="true">4</span>
+        <h3>Внутрішній аудит та усунення невідповідностей</h3>
+      </div>
+      <div class="iso-stage__body">
+<p class="iso-stage__lead">Перевіряємо систему до того, як її перевірить сертифікаційний аудитор</p>
+        <p>Проводимо <b>внутрішній аудит ISO 9001</b>, оцінюємо відповідність вимогам стандарту та фактичне виконання встановлених процесів.</p>
+        <p>Виявляємо невідповідності, аналізуємо їх причини та визначаємо коригувальні дії.</p>
+        <p>Не просто «закриваємо» невідповідність, а шукаємо <b>першопричину</b>, щоб проблема не повторювалася.</p>
+        <p class="iso-stage__result"><span>Результат</span> система перевірена на практиці та підготовлена до сертифікаційного аудиту</p>
+      </div>
+    </article>
+
+    <article class="iso-stage">
+      <div class="iso-stage__head">
+        <span class="iso-stage__num" aria-hidden="true">5</span>
+        <h3>Підготовка та супровід сертифікації</h3>
+      </div>
+      <div class="iso-stage__body">
+<p class="iso-stage__lead">Допомагаємо пройти фінальний етап без зайвого стресу</p>
+        <p>Проводимо фінальну оцінку готовності компанії до <b>сертифікаційного аудиту ISO 9001</b>, готуємо персонал до роботи з аудиторами та допомагаємо організувати необхідні документи й записи.</p>
+        <p>За потреби супроводжуємо компанію під час аудиту та допомагаємо опрацювати зауваження і невідповідності за його результатами.</p>
+        <p class="iso-stage__result"><span>Результат</span> компанія підготовлена до проходження сертифікаційного аудиту та подальшого підтримання СУЯ</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     RESULT
+========================================================= -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">РЕЗУЛЬТАТ</p>
+    <h2>Що ви отримуєте в результаті</h2>
+    <p class="ec-section-intro">Не просто сертифікат ISO 9001.<br>Ви отримуєте <b>систему управління якістю, вбудовану у вашу систему управління бізнесом</b>:</p>
+    <ul class="ec-check-list ec-wide-list ec-check-list--ticks">
+      <li>зрозумілі та керовані бізнес-процеси</li>
+      <li>визначену відповідальність і повноваження</li>
+      <li>управління ризиками та можливостями</li>
+      <li>контроль результативності процесів</li>
+      <li>системний підхід до невідповідностей і коригувальних дій</li>
+      <li>інструменти для постійного вдосконалення</li>
+      <li>підготовлених до роботи в СУЯ працівників</li>
+      <li>готовність до сертифікаційного аудиту</li>
+    </ul>
+    <p class="ec-result-closing">І головне — <b>система, яка допомагає керувати якістю, а не створює додаткову бюрократію</b></p>
+  </div>
+</section>
+
+<!-- =========================================================
+     КОМУ ПОТРІБНЕ
+========================================================= -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">ДЛЯ КОГО</p>
+    <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; line-height: 1.25; letter-spacing: -0.5px; color: var(--text-dark); margin: 0 0 20px;">Кому потрібне впровадження ISO 9001</h2>
+    <p class="ec-section-intro">Впровадження системи управління якістю ISO 9001 підходить підприємствам і компаніям, які хочуть:</p>
+    <ul class="ec-check-list ec-wide-list">
+      <li>систематизувати управління процесами</li>
+      <li>підвищити стабільність якості продукції чи послуг</li>
+      <li>зменшити кількість помилок і невідповідностей</li>
+      <li>підготуватися до сертифікації ISO 9001</li>
+      <li>виконати вимоги клієнтів, партнерів чи тендерної документації</li>
+      <li>вбудувати СУЯ у вже існуючу систему управління, а не створювати паралельну бюрократію</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================
+     ЩО ВХОДИТЬ
+========================================================= -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">СКЛАД КОНСАЛТИНГУ</p>
+      <h2>Що входить у консалтинг ISO 9001</h2>
+    </div>
+    <p>Повний цикл від діагностики до готовності до сертифікації:</p>
+    <ul class="ec-check-list">
+      <li><b>Діагностика</b> — аналіз поточного стану процесів і управління</li>
+      <li><b>GAP-аналіз</b> — порівняння з вимогами ДСТУ ISO 9001:2018</li>
+      <li><b>Процесна модель</b> — архітектура СУЯ під вашу компанію</li>
+      <li><b>Ризики та можливості</b> — підходи до управління</li>
+      <li><b>Документація</b> — положення, процедури, інструкції, форми, реєстри</li>
+      <li><b>Навчання</b> — керівників і працівників роботі в СУЯ</li>
+      <li><b>Внутрішній аудит</b> — перевірка системи до сертифікаційного аудиту</li>
+      <li><b>Коригувальні дії</b> — усунення невідповідностей за першопричинами</li>
+      <li><b>Підготовка до сертифікації</b> — супровід фінального етапу</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+<section id="faq" class="ec-animate">
+  <div class="ec-section-heading">
+    <p class="ec-kicker">FAQ</p>
+    <h2>Часті питання про впровадження ISO 9001</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-question">Скільки часу займає впровадження ISO 9001?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div><div class="faq-answer">Залежить від розміру компанії та зрілості процесів. Після діагностики формуємо план з реалістичними термінами</div></div>
+    <div class="faq-item"><div class="faq-question">Чи можна впровадити ISO 9001, якщо вже є своя система управління?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div><div class="faq-answer">Так. СУЯ інтегрується в існуючу систему управління, а не створюється як окрема «паралельна реальність»</div></div>
+    <div class="faq-item"><div class="faq-question">Чим впровадження відрізняється від «пакету документів» для сертифікації?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div><div class="faq-answer">Документи «для галочки» дають сертифікат, але не працюючу систему. Впровадження означає, що процеси, відповідальність і ризики стають частиною щоденного управління</div></div>
+    <div class="faq-item"><div class="faq-question">Чи допомагаєте підготуватися до сертифікаційного аудиту?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div><div class="faq-answer">Так. Оцінюємо готовність, готуємо персонал, організовуємо документи. За потреби супроводжуємо під час аудиту</div></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+<section class="ec-final ec-animate">
+  <div class="ec-final__box">
+    <h2>ЗАЯВКА НА ВПРОВАДЖЕННЯ ISO 9001</h2>
+    <p>Якщо вам потрібна не просто сертифікація, а <b>система управління якістю, яка допомагає керувати бізнесом</b> — без зайвої бюрократії та документів «для галочки».</p>
+    <p class="diagnostic-final-small">Залиште заявку — обговоримо вашу ситуацію, поточний стан процесів і можливий план впровадження ДСТУ ISO 9001:2018.</p>
+
+    <div class="ec-booking-card card">
+      <button class="ec-main-btn ec-main-btn--light" onclick="openPricePopup(event)">
+        ЗАЛИШИТИ ЗАЯВКУ
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SUCCESS MODAL
+========================================================= -->
+<div id="successModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Заявку надіслано</h3>
+
+    <div class="success-svg-wrap" id="checkWrap">
+      <svg viewBox="0 0 52 52" aria-hidden="true">
+        <circle class="success-circle-bg" cx="26" cy="26" r="24"/>
+        <circle class="success-circle" cx="26" cy="26" r="24"/>
+        <path class="success-check" d="M14.5 27.5 L22 35 L37.5 18"/>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Перевірте пошту — я зв’яжусь з вами найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALL SUCCESS MODAL
+========================================================= -->
+<div id="callSuccessModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Запит надіслано</h3>
+
+    <div class="success-svg-wrap" id="phoneWrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+          <path class="phone-body" stroke-dasharray="62"
+            d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z">
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/>
+            <animateTransform attributeName="transform" dur="2.7s"
+              keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1"
+              repeatCount="indefinite" type="rotate"
+              values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/>
+          </path>
+          <g fill="none">
+            <path stroke-dasharray="6" stroke-dashoffset="6"
+              d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72">
+              <animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/>
+            </path>
+            <path stroke-dasharray="8" stroke-dashoffset="8"
+              d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65">
+              <animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/>
+            </path>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Я зателефоную вам найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeCallSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!-- =========================================================
+     PRICE POPUP / FORM
+========================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closePricePopup()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <div class="popup-kicker">Заявка</div>
+      <h3 id="priceTitle"></h3>
+      <div class="price-pill" id="priceLabel"></div>
+    </div>
+
+    <div class="popup-body">
+      <form id="bookingForm">
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+          </span>
+          <input type="text" name="name" placeholder="Ваше ім'я" required autocomplete="name">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+          </span>
+          <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required autocomplete="tel">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none"><path fill="currentColor" d="m3 5l7.586 7.586a2 2 0 0 0 2.828 0L21 5v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" opacity=".16"/><path fill="currentColor" d="M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 5l9 9l9-9"/></g></svg>
+          </span>
+          <input type="email" id="emailInput" name="email" placeholder="Email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <textarea name="comment" rows="5" placeholder="Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-main">Відправити заявку</button>
+      </form>
+
+      <p class="popup-note">Відповім особисто протягом <span>1 робочого дня</span></p>
+      <div id="popupStatus"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCROLL TOP
+========================================================= -->
+<button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх"><img src="/assets/icons/up-arrow.png" alt="up"></button>
+
+<!-- =========================================================
+     FOOTER & OFFER
+========================================================= -->
+<div class="offer-section"><button class="offer-button" onclick="openOfferModal()">Договір оферти</button></div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank"><img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram"><img src="/assets/icons/instagram.png" class="color" alt="Instagram"></a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank"><img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook"><img src="/assets/icons/facebook.png" class="color" alt="Facebook"></a>
+      <a href="https://t.me/Stec0407" target="_blank"><img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram"><img src="/assets/icons/telegram.png" class="color" alt="Telegram"></a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+  <div class="footer-privacy-stick"><button class="offer-button privacy-button" onclick="openPrivacyModal()">Політика конфіденційності</button></div>
+</footer>
+
+<!-- =========================================================
+     CONTACTS MODAL
+========================================================= -->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeContactsModal()"><span>&times;</span></button>
+    <h3><img src="/assets/icons/phone.png" alt="Телефон">Контакти</h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+    <div class="contacts-socials">
+      <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank" rel="noopener"><img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram"><img src="/assets/icons/instagram.png" class="color" alt="Instagram"></a>
+      <a href="https://www.facebook.com/IrenStetsurina" target="_blank" rel="noopener"><img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook"><img src="/assets/icons/facebook.png" class="color" alt="Facebook"></a>
+      <a href="https://t.me/Stec0407" target="_blank" rel="noopener"><img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram"><img src="/assets/icons/telegram.png" class="color" alt="Telegram"></a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALLBACK MODAL
+========================================================= -->
+<div id="callbackModal">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeCallbackModal()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <h3 class="callback-title">
+        <span class="callback-title-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        Зворотній дзвінок
+      </h3>
+      <p class="callback-subtitle">Залиште контакти і я вам передзвоню</p>
+    </div>
+
+    <div class="popup-body">
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+        </span>
+        <input type="text" id="callbackName" placeholder="Ваше ім'я" required autocomplete="name">
+      </div>
+
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        <input type="text" id="callbackPhone" placeholder="Телефон" required autocomplete="tel">
+      </div>
+
+      <button class="btn btn-main" onclick="submitCallback()">
+        Замовити дзвінок
+      </button>
+
+      <div id="callbackStatus"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     OFFER / PRIVACY MODAL
+========================================================= -->
+<div id="offerModal" class="offer-modal"><div class="offer-modal-content"><div id="offerContent"></div></div></div>
+
+<script>
+(function () {
+  function initDiagnosticReveal() {
+    const blocks = document.querySelectorAll('.ec-animate');
+    if (!blocks.length || !('IntersectionObserver' in window)) {
+      blocks.forEach(b => b.classList.add('ec-visible'));
+      blocks.forEach(b => {
+        const heading = b.querySelector('.ec-section-heading');
+        if (heading) heading.classList.add('ec-content-visible');
+        Array.from(b.children).forEach(el => el.classList.add('ec-content-visible'));
+      });
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const block = entry.target;
+        block.classList.add('ec-visible');
+        const heading = block.querySelector('.ec-section-heading');
+        if (heading) heading.classList.add('ec-content-visible');
+        const children = Array.from(block.children).filter(el => !el.classList.contains('ec-section-heading'));
+        children.forEach((el, index) => setTimeout(() => el.classList.add('ec-content-visible'), 140 + index * 120));
+        obs.unobserve(block);
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -8%' });
+    blocks.forEach(block => observer.observe(block));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initDiagnosticReveal);
+  else initDiagnosticReveal();
+})();
+</script>
+
+<script>
+window.PAGE_PRODUCT = {
+  product: "Впровадження ISO 9001",
+  price: "за запитом",
+  payLink: "",
+  sendEmail: "true",
+  emailTemplate: "free",
+  redirect: "false"
+};
+
+(function applyProductData() {
+  const cfg = window.PAGE_PRODUCT;
+  if (!cfg) return;
+  document.querySelectorAll(".ec-booking-card.card").forEach(card => {
+    card.dataset.product = cfg.product;
+    card.dataset.price = cfg.price;
+    card.dataset.payLink = cfg.payLink;
+    card.dataset.sendEmail = cfg.sendEmail;
+    card.dataset.emailTemplate = cfg.emailTemplate;
+    card.dataset.redirect = cfg.redirect;
+  });
+})();
+</script>
+<script src="/script-safe.js"></script>
+
+<script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+  <div style="text-align:center; margin-bottom:25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank"><img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua" style="width:160px; height:auto;"></a>
+  </div>
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">Вітаю, {{name}}!</h2>
+  <p style="font-size:17px; line-height:1.6; color:#444;">Ви залишили заявку на <strong>{{product}}</strong>.</p>
+  <p style="font-size:16px; line-height:1.6; color:#444;"><strong>Вартість:</strong> {{price}}</p>
+  <p style="font-size:16px; line-height:1.6; color:#444;">Я зв’яжусь із вами найближчим часом.</p>
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">Не відповідайте на це письмо<br>Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:</p>
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+</div>
+</script>
+
+</body>
+</html>

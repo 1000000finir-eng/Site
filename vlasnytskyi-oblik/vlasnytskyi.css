@@ -1,5 +1,5 @@
 /* =========================================================
-   ЕКСПРЕС-КОНСУЛЬТАЦІЯ — стилі тільки під поточну сторінку
+   ВЛАСНИЦЬКИЙ КОНТРОЛЬ БІЗНЕСУ — стилі сторінки
 ========================================================= */
 
 /* ---------- HERO ---------- */
@@ -94,14 +94,18 @@
 }
 
 .ec-intro__media {
-  min-height: 540px;
+  position: relative;
+  min-height: 0;
   overflow: hidden;
   border-radius: 18px;
   border: 1.5px solid rgba(0, 0, 0, 0.18);
   background: rgba(255, 255, 255, 0.28);
+  /* высота берётся от правой колонки через align-items: stretch */
 }
 
 .ec-intro__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -340,8 +344,7 @@
 /* ---------- Results ---------- */
 .ec-result__grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 50px;
+  grid-template-columns: 1fr;
   padding: 44px 48px;
   background: rgba(255, 255, 255, 0.38);
   border: 1.5px solid rgba(0, 0, 0, 0.2);
@@ -357,24 +360,32 @@
   margin-bottom: 20px;
 }
 
+.ec-result__main {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  column-gap: 40px;
+  align-items: center;
+  margin-top: 8px;
+}
+
 .ec-result-list {
   display: grid;
-  gap: 18px;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 0;
 }
 
 .ec-result-list > div {
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .ec-result-list > div:last-child {
-  border-bottom: none;
+  border-bottom: 0;
   padding-bottom: 0;
 }
 
 .ec-result-list h3 {
-  margin: 0 0 5px;
+  margin: 0 0 4px;
   font-size: 19px;
   line-height: 1.35;
   color: var(--burgundy);
@@ -388,13 +399,12 @@
 }
 
 .ec-result__quote {
-  align-self: center;
   display: grid;
   gap: 10px;
 }
 
 .ec-result__quote div {
-  padding: 19px;
+  padding: 22px 20px;
   border-radius: 14px;
   background: var(--burgundy);
   color: #fff;
@@ -402,16 +412,105 @@
 
 .ec-result__quote span {
   display: block;
-  font: 700 30px/1 "Plus Jakarta Sans", sans-serif;
-  margin-bottom: 5px;
+  text-align: center;
+  font: 700 26px/1.15 "Plus Jakarta Sans", sans-serif;
+  margin-bottom: 8px;
 }
 
 .ec-result__quote strong {
+  display: block;
   font-size: 14px;
   font-weight: 600;
+  line-height: 1.55;
+}
+
+.ec-result-notes {
+  margin-top: 18px;
+  padding-top: 0;               /* убираем отступ сверху, он был нужен под линию */
+  border-top: 0;                /* убираем саму серую линию */
+  display: grid;
+  gap: 6px;
+}
+
+.ec-result-notes .ec-coffee-note {
+  margin: 0;
+  text-align: center;           /* центруем по горизонтали */
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-dark);
+}
+
+/* Step list inside process cards */
+.ec-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 12px;
+}
+
+.ec-step-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 4px;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+
+.ec-step-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--burgundy);
+}
+
+.ec-result-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 4px;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-dark);
+  font-weight: 500;
 }
 
 /* ---------- Detail (framed blocks) ---------- */
+.ec-detail__expertise {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.ec-detail__expertise .ec-detail__single {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.ec-detail__photo {
+  position: relative;
+  min-height: 0;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.ec-detail__photo img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .ec-detail__single {
   width: 100%;
   max-width: none;
@@ -454,7 +553,7 @@
 /* ---------- How / coffee note ---------- */
 .ec-how__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
@@ -482,6 +581,12 @@
   font-size: 16px;
   line-height: 1.75;
   color: #555;
+  grid-column: 1 / -1;
+}
+
+.ec-section-heading + .ec-coffee-note {
+  margin-top: -8px;
+  margin-bottom: 28px;
 }
 
 /* ---------- FAQ ---------- */
@@ -669,13 +774,17 @@
     font-size: clamp(24px, 5vw, 36px);
   }
 
-  .ec-intro__grid,
-  .ec-result__grid {
+  .ec-intro__grid {
     grid-template-columns: 1fr;
   }
 
+  .ec-result__main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
   .ec-intro__media {
-    min-height: 380px;
+    min-height: 380px; /* в одну колонку stretch не от чего брать — фиксируем высоту */
   }
 
   .ec-steps,
@@ -683,12 +792,29 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ec-result__quote {
-    grid-template-columns: repeat(3, 1fr);
+  .ec-result__main {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
+  .ec-detail__expertise {
+    grid-template-columns: 1fr;
+  }
+
+  .ec-detail__photo {
+    position: relative;
+    height: 360px;
+    min-height: 0;
+  }
+
+  .ec-detail__photo img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    min-height: 0;
+  }
+
   .ec-intro__content h2,
   .ec-wide h2,
   .ec-section-heading h2,
@@ -703,6 +829,7 @@
   .ec-intro__content p:not(.ec-kicker),
   .ec-step p,
   .ec-result-list p,
+  .ec-result-note,
   .ec-detail__single p,
   .ec-coffee-note,
   .ec-how__grid p,
@@ -779,9 +906,8 @@
     gap: 30px;
   }
 
-  .ec-result__quote {
-    grid-template-columns: 1fr;
-  }
+
+
 
   .ec-detail__single {
     padding: 24px 20px;
@@ -797,5 +923,377 @@
 
   .ec-final__box > p {
     font-size: 24px;
+  }
+}
+
+
+/* =========================================================
+   ІНФОРМАЦІЙНА КОНСУЛЬТАЦІЯ — додаткові стилі
+   Базове оформлення повністю наслідує ekspres-konsultaciya.
+========================================================= */
+
+.info-question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 48px;
+  margin-top: 30px;
+}
+
+.info-question-grid article {
+  padding: 26px 0 4px;
+  border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.info-question-grid h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  color: var(--text-dark);
+}
+
+.info-question-grid .ec-check-list {
+  margin: 0;
+}
+
+.info-question-grid .ec-check-list li {
+  margin-bottom: 10px;
+}
+
+.info-note {
+  margin: 34px 0 0;
+  padding-top: 25px;
+  border-top: 1px solid rgba(0,0,0,.12);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .info-question-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .info-question-grid h3 {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   ДІАГНОСТИЧНА КОНСУЛЬТАЦІЯ — додаткові блоки
+========================================================= */
+
+@media (min-width: 1024px) {
+  .ec-hero__text .hero-line-2 {
+    white-space: normal;
+    max-width: 1000px;
+  }
+}
+
+.diagnostic-card-grid,
+.diagnostic-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.diagnostic-card-grid article,
+.diagnostic-method-grid article {
+  padding: 25px 26px;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.34);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.diagnostic-card-grid article:hover,
+.diagnostic-method-grid article:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.diagnostic-card-grid h3,
+.diagnostic-method-grid h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  line-height: 1.35;
+  color: var(--burgundy);
+}
+
+.diagnostic-card-grid p,
+.diagnostic-method-grid p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.diagnostic-question-list {
+  columns: 2;
+  column-gap: 55px;
+}
+
+.diagnostic-question-list li {
+  break-inside: avoid;
+}
+
+.diagnostic-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.diagnostic-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.diagnostic-table th,
+.diagnostic-table td {
+  padding: 17px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  text-align: left;
+  vertical-align: top;
+}
+
+.diagnostic-table th {
+  color: var(--burgundy);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.diagnostic-table td:first-child {
+  width: 34%;
+  font-weight: 700;
+}
+
+.diagnostic-note {
+  margin-top: 24px !important;
+}
+
+.diagnostic-inline-link {
+  color: var(--burgundy);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.diagnostic-not-for {
+  border-color: rgba(117, 5, 37, 0.28);
+}
+
+.diagnostic-final-small {
+  max-width: 850px;
+  margin: 0 auto 18px !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+  font-family: "Manrope", sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.ec-final .diagnostic-final-small + .diagnostic-final-small {
+  margin-top: 4px !important;
+}
+
+@media (max-width: 950px) {
+  .diagnostic-question-list {
+    columns: 1;
+  }
+}
+
+@media (max-width: 680px) {
+  .diagnostic-card-grid,
+  .diagnostic-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagnostic-card-grid article,
+  .diagnostic-method-grid article {
+    padding: 22px 20px;
+  }
+
+  .diagnostic-table {
+    font-size: 15px;
+  }
+
+  .diagnostic-table th,
+  .diagnostic-table td {
+    padding: 14px;
+  }
+
+  .diagnostic-final-small {
+    font-size: 15.5px !important;
+  }
+}
+
+/* =========================================================
+   ВЛАСНИЦЬКИЙ КОНТРОЛЬ — додаткові стилі
+========================================================= */
+
+/* Hero: довгий заголовок може переноситися */
+.ec-hero__text .hero-line-1 .shifted {
+  white-space: normal;
+  line-height: 1.15;
+}
+
+.ec-hero__text .hero-line-2 {
+  white-space: normal;
+  font-size: clamp(22px, 2.6vw, 40px);
+}
+
+/* Картки «Що впроваджую» — по одній в ряд */
+.vc-implement-grid {
+  grid-template-columns: 1fr !important;
+}
+
+.vc-flow {
+  font-size: 14.5px !important;
+  line-height: 1.55 !important;
+  color: var(--gray) !important;
+  background: rgba(139, 29, 29, 0.06);
+  border-left: 3px solid var(--burgundy);
+  padding: 10px 14px;
+  margin: 12px 0 8px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Benefits grid tweaks */
+.vc-benefits h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18px;
+  margin: 8px 0 6px;
+  color: var(--text-dark);
+}
+
+.vc-benefits p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+@media (max-width: 680px) {
+  .ec-hero__text .hero-line-1 .shifted {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+}
+
+
+/* ---------- Stages (vertical, як ЕТАПИ ISO) ---------- */
+.iso-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.iso-stage {
+  padding: 28px 32px 30px;
+  background: rgba(255, 255, 255, 0.38);
+  border: 1.5px solid rgba(0, 0, 0, 0.16);
+  border-radius: 18px;
+  border-left: 4px solid rgba(117, 5, 37, 0.22);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.iso-stage:hover {
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  border-left-color: var(--burgundy);
+}
+
+.iso-stage__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.iso-stage__num {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--burgundy);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.iso-stage__head h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.iso-stage__lead {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: var(--text-dark) !important;
+  margin: 0 0 14px !important;
+  line-height: 1.45 !important;
+}
+
+.iso-stage__body p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+  color: #333;
+}
+
+.iso-stage__body p:last-child {
+  margin-bottom: 0;
+}
+
+.iso-stage__body .ec-check-list {
+  margin: 8px 0 18px;
+}
+
+/* Виділений блок «Результат» — додайте в етап:
+   <p class="iso-stage__result"><span>Результат</span> текст…</p> */
+.iso-stage__result {
+  margin: 18px 0 0 !important;
+  padding: 14px 18px;
+  background: rgba(117, 5, 37, 0.06);
+  border-radius: 12px;
+  border: 1px solid rgba(117, 5, 37, 0.12);
+  font-size: 15.5px !important;
+  line-height: 1.55 !important;
+  color: #333 !important;
+}
+
+.iso-stage__result span {
+  display: inline-block;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-right: 10px;
+}
+
+@media (max-width: 680px) {
+  .iso-stage {
+    padding: 22px 18px 24px;
+  }
+
+  .iso-stage__head {
+    gap: 10px;
+  }
+
+  .iso-stage__num {
+    font-size: 19px;
+  }
+
+  .iso-stage__head h3 {
+    font-size: 18px;
+  }
+
+  .iso-stage__lead {
+    font-size: 16px !important;
   }
 }
