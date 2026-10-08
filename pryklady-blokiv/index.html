@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бібліотека блоків — демо | Ірина Стецуріна</title>
+  <meta name="description" content="Демо-сторінка перевикористовуваних блоків сайту для збірки продукт-сторінок." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://i-s-business-consulting.pp.ua/pryklady-blokiv/" />
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="demo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <img src="/assets/images/logo.png" alt="Ірина Стецуріна — консалтинг">
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="topbar-right">
+    <nav id="menu">
+      <a href="/" onclick="closeMenu()">Головна</a>
+      <a href="/#about" onclick="closeMenu()">Про мене</a>
+      <a href="/#products" onclick="closeMenu()">Продукти</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+    </nav>
+
+    <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </button>
+  </div>
+</div>
+
+
+
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+    <img src="/assets/images/hero.jpg" alt="Бібліотека блоків сайту" class="hero-cover">
+    <div class="hero-text ec-hero__text">
+      <h1 class="hero-line hero-line-1">
+        <span class="shifted">БІБЛІОТЕКА БЛОКІВ</span>
+      </h1>
+      <div class="hero-line hero-line-2">
+        Готові патерни для збірки сторінок
+      </div>
+      <p class="hero-sub hero-line hero-line-3">
+        xp · st · cf · … · ps · cg · rs · ex · is · vc · rc · cmp
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="ec-breadcrumb" aria-label="Хлібні крихти">
+  <a href="/">Головна</a>
+  <span>→</span>
+  <span>Приклади блоків</span>
+</nav>
+
+<!-- 02 INTRO -->
+<section class="ec-intro ec-animate">
+  <div class="ec-intro__grid">
+    <div class="ec-intro__media">
+      <img src="/assets/images/oblik-control_2.jpg" alt="Intro блок">
+    </div>
+    <div class="ec-intro__content">
+      <span class="demo-label">02 · ec-intro · з «Власницький контроль»</span>
+      <p class="ec-kicker">ДЕМО</p>
+      <h2>Сторінка-конструктор блоків</h2>
+      <p><b>Готові типи секцій</b> під дизайн сайту. Кожен має свій префікс класів і секцію в <code>demo.css</code> з коментарями — щоб збирати продукт-сторінки без конфліктів стилів.</p>
+      <p>Intro взято з <b>власницького контролю</b>: фото розтягується на висоту тексту до кнопки, meta — три картки, кнопка на всю ширину.</p>
+      <p>Копіюй HTML + відповідний шматок CSS на нову сторінку.</p>
+      <div class="ec-product-meta">
+        <div><span>Формат</span><strong>Онлайн</strong></div>
+        <div><span>Старт</span><strong>Знайомство</strong></div>
+        <div><span>Стилі</span><strong>demo.css</strong></div>
+      </div>
+      <div class="ec-booking-card card">
+        <button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИСАТИСЯ НА ПОПЕРЕДНЮ КОНСУЛЬТАЦІЮ</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 HL -->
+<div class="demo-section-gap">
+  <span class="demo-label">03 · hl-block</span>
+  <h2>Акцентна смуга</h2>
+  <p>Блідо-бордова заливка, без лівої смуги</p>
+</div>
+<div class="hl-block ec-animate">
+  <p class="hl-block__text">Не просто знати цифри. А <b>розуміти</b>, що вони означають для бізнесу і які рішення потрібно приймати.</p>
+</div>
+
+<!-- 04 CF -->
+<div class="demo-section-gap">
+  <span class="demo-label">04 · cf-block</span>
+  <h2>Порівняння двох колонок</h2>
+  <p>Було / потрібно, бух vs упр</p>
+</div>
+<section class="cf-block ec-animate">
+  <div class="cf-block__heading">
+    <p class="ec-kicker">РІЗНІ ЗАВДАННЯ</p>
+    <h2>Бухгалтерський vs управлінський облік</h2>
+    <p class="cf-block__lead">Різні цілі — різна інформація для власника.</p>
+  </div>
+  <div class="cf-block__grid">
+    <div class="cf-block__col">
+      <h3>Бухгалтерський</h3>
+      <ul class="cf-block__list">
+        <li>Що вже відбулося</li>
+        <li>Податкова звітність</li>
+        <li>Фіксація операцій</li>
+      </ul>
+    </div>
+    <div class="cf-block__col cf-block__col--accent">
+      <h3>Управлінський</h3>
+      <ul class="cf-block__list">
+        <li>Що відбувається зараз</li>
+        <li>Чому і що буде далі</li>
+        <li>Яке рішення прийняти</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TG -->
+<div class="demo-section-gap">
+  <span class="demo-label">05 · tg-block</span>
+  <h2>Три часові картки</h2>
+  <p>Як було / як є / як буде</p>
+</div>
+<section class="tg-block ec-animate">
+  <div class="tg-block__heading">
+    <p class="ec-kicker">ЗВІТНІСТЬ</p>
+    <h2>Три питання власника</h2>
+  </div>
+  <div class="tg-block__grid">
+    <article class="tg-card">
+      <span class="tg-card__label">Минуле</span>
+      <h3>Як було?</h3>
+      <p>Що спрацювало за період і де виникли проблеми.</p>
+    </article>
+    <article class="tg-card">
+      <span class="tg-card__label">Сьогодні</span>
+      <h3>Як є?</h3>
+      <p>Динаміка доходів, витрат і прибутку зараз.</p>
+    </article>
+    <article class="tg-card">
+      <span class="tg-card__label">Майбутнє</span>
+      <h3>Як буде?</h3>
+      <p>Що станеться, якщо тенденція збережеться.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 06 NR -->
+<div class="demo-section-gap">
+  <span class="demo-label">06 · nr-block</span>
+  <h2>Нумеровані результати</h2>
+  <p>«Що ви отримаєте» списком 1…N</p>
+</div>
+<section class="nr-block ec-animate">
+  <div class="nr-block__heading">
+    <p class="ec-kicker">РЕЗУЛЬТАТ</p>
+    <h2>Три опори системи</h2>
+  </div>
+  <div class="nr-list">
+    <article class="nr-item">
+      <div class="nr-item__num">1</div>
+      <div class="nr-item__body">
+        <h3>Реальна фінансова картина</h3>
+        <p>Виручка, собівартість, маржа, прибуток — без здогадок.</p>
+      </div>
+    </article>
+    <article class="nr-item">
+      <div class="nr-item__num">2</div>
+      <div class="nr-item__body">
+        <h3>План → Факт → Дії</h3>
+        <p>Відхилення з причинами, а не просто «цифри в таблиці».</p>
+      </div>
+    </article>
+    <article class="nr-item">
+      <div class="nr-item__num">3</div>
+      <div class="nr-item__body">
+        <h3>5–7 ключових показників</h3>
+        <p>Ті, що реально впливають на прибуток саме вашого бізнесу.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 07 FL -->
+<div class="demo-section-gap">
+  <span class="demo-label">07 · fl-block</span>
+  <h2>Flow-ланцюжок</h2>
+  <p>Короткий огляд етапів над детальними кроками</p>
+</div>
+<div class="fl-block ec-animate">
+  <div class="fl-block__track">
+    <span class="fl-block__node">Знайомство</span>
+    <span class="fl-block__sep">→</span>
+    <span class="fl-block__node">Аудит</span>
+    <span class="fl-block__sep">→</span>
+    <span class="fl-block__node">Пропозиція</span>
+    <span class="fl-block__sep">→</span>
+    <span class="fl-block__node">Впровадження</span>
+  </div>
+</div>
+
+<!-- 09 ST -->
+<div class="demo-section-gap">
+  <span class="demo-label">09 · st-block</span>
+  <h2>Етапи впровадження</h2>
+  <p>Інтро без рамки + кроки; «Результат» опційний</p>
+</div>
+<section class="st-block ec-animate">
+  <div class="st-block__heading">
+    <p class="ec-kicker">ЕТАПИ</p>
+    <h2>Як проходить проєкт</h2>
+  </div>
+  <div class="st-block__intro">
+    <h3 class="st-block__intro-title">Перша зустріч — знайомство <span>(безкоштовно)</span></h3>
+    <p>Обговорюємо бізнес і запит — без зобов’язань.</p>
+  </div>
+  <div class="st-steps">
+    <article class="st-step">
+      <div class="st-step__head">
+        <span class="st-step__num">1</span>
+        <h3>Аудит</h3>
+      </div>
+      <div class="st-step__body">
+        <p>Дивимось, що вже є:</p>
+        <ul class="st-step__list">
+          <li>облік і звітність</li>
+          <li>прогалини для управління</li>
+          <li>потреби власника</li>
+        </ul>
+        <p class="st-step__result"><span>Результат</span> зрозумілий обсяг робіт</p>
+      </div>
+    </article>
+    <article class="st-step">
+      <div class="st-step__head">
+        <span class="st-step__num">2</span>
+        <h3>Впровадження</h3>
+      </div>
+      <div class="st-step__body">
+        <p>Будуємо систему під ваш бізнес і передаємо команді.</p>
+        <!-- без Результат — без зайвого відступу -->
+      </div>
+    </article>
+  </div>
+  <div class="st-block__cta">
+    <div class="ec-booking-card card">
+      <button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ МІЙ БІЗНЕС</button>
+    </div>
+  </div>
+</section>
+
+<!-- 10 IC NEW -->
+<div class="demo-section-gap">
+  <span class="demo-label">10 · ic-block · НОВИЙ</span>
+  <h2>Іконкові картки</h2>
+  <p>4 опори / переваги в сітці</p>
+</div>
+<section class="ic-block ec-animate">
+  <div class="ic-block__heading">
+    <p class="ec-kicker">ОПОРИ</p>
+    <h2>На чому тримається система</h2>
+  </div>
+  <div class="ic-grid">
+    <article class="ic-card">
+      <div class="ic-card__mark">01</div>
+      <h3>Прозорість</h3>
+      <p>Реальна структура доходів і витрат без «сірих зон».</p>
+    </article>
+    <article class="ic-card">
+      <div class="ic-card__mark">02</div>
+      <h3>Контроль</h3>
+      <p>План-факт і відповідальні за ключові статті.</p>
+    </article>
+    <article class="ic-card">
+      <div class="ic-card__mark">03</div>
+      <h3>Рішення</h3>
+      <p>Цифри, з яких зрозуміло, що робити далі.</p>
+    </article>
+    <article class="ic-card">
+      <div class="ic-card__mark">04</div>
+      <h3>Масштаб</h3>
+      <p>Система росте разом із бізнесом, а не ламається.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 11 QZ NEW -->
+<div class="demo-section-gap">
+  <span class="demo-label">11 · qz-block · НОВИЙ</span>
+  <h2>Цитата / принцип</h2>
+  <p>Центральний акцент між секціями</p>
+</div>
+<div class="qz-block ec-animate">
+  <div class="qz-block__inner">
+    <p class="qz-block__quote">Цифри потрібні не для красивих звітів. <b>Цифри потрібні, щоб власник міг краще керувати бізнесом.</b></p>
+    <p class="qz-block__author">Принцип роботи</p>
+  </div>
+</div>
+
+<!-- 12 MX NEW -->
+<div class="demo-section-gap">
+  <span class="demo-label">12 · mx-block · НОВИЙ</span>
+  <h2>Текст + панель зі списком</h2>
+  <p>Пояснення зліва, конкретний список справа</p>
+</div>
+<section class="mx-block ec-animate">
+  <div class="mx-block__grid">
+    <div class="mx-block__text">
+      <p class="ec-kicker">АНАЛІЗ</p>
+      <h2>Прибутковість у потрібних розрізах</h2>
+      <p>Управлінський облік показує фінансовий результат там, де ви приймаєте рішення — не лише «загалом по компанії».</p>
+      <p>Це допомагає спрямувати ресурси туди, де бізнес справді заробляє.</p>
+    </div>
+    <div class="mx-block__panel">
+      <h3>Типові розрізи</h3>
+      <ul>
+        <li>напрями та продукти</li>
+        <li>проєкти та клієнти</li>
+        <li>підрозділи</li>
+        <li>канали продажів</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 13 SW NEW -->
+<div class="demo-section-gap">
+  <span class="demo-label">13 · sw-block · НОВИЙ</span>
+  <h2>Було → стало</h2>
+  <p>Контраст змін після впровадження</p>
+</div>
+<section class="sw-block ec-animate">
+  <div class="sw-block__heading">
+    <p class="ec-kicker">ЗМІНА</p>
+    <h2>Від відчуттів до системи</h2>
+  </div>
+  <div class="sw-pair">
+    <div class="sw-col sw-col--was">
+      <span class="sw-col__label">Було</span>
+      <p>«Здається, у нас усе нормально» — рішення на інтуїції, прибуток з’ясовується постфактум.</p>
+    </div>
+    <div class="sw-arrow" aria-hidden="true">→</div>
+    <div class="sw-col sw-col--now">
+      <span class="sw-col__label">Стало</span>
+      <p>Ви бачите відхилення, розумієте причини і знаєте, яке рішення прийняти зараз.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 TB NEW -->
+<div class="demo-section-gap">
+  <span class="demo-label">14 · tb-block · НОВИЙ</span>
+  <h2>Рядки мітка / значення</h2>
+  <p>Формат, старт, інструменти — без таблиці</p>
+</div>
+<section class="tb-block ec-animate">
+  <div class="tb-block__heading">
+    <p class="ec-kicker">ФОРМАТ</p>
+    <h2>Параметри проєкту</h2>
+  </div>
+  <div class="tb-row">
+    <div class="tb-label">Формат</div>
+    <div class="tb-value">Онлайн-консалтинг, робота з вашими даними та командою</div>
+  </div>
+  <div class="tb-row">
+    <div class="tb-label">Старт</div>
+    <div class="tb-value">Безкоштовна попередня зустріч-знайомство</div>
+  </div>
+  <div class="tb-row">
+    <div class="tb-label">Вартість</div>
+    <div class="tb-value">Індивідуально — після передпроєктного аудиту</div>
+  </div>
+  <div class="tb-row">
+    <div class="tb-label">Інструменти</div>
+    <div class="tb-value">Excel / Sheets або інтеграція з наявними системами</div>
+  </div>
+</section>
+
+<!-- 15 CT NEW -->
+<div class="demo-section-gap">
+  <span class="demo-label">15 · ct-strip · НОВИЙ</span>
+  <h2>Вузький CTA-рядок</h2>
+  <p>Текст + кнопка в один ряд</p>
+</div>
+<div class="ct-strip ec-animate">
+  <p>Готові зібрати сторінку з цих блоків під ваш продукт?</p>
+  <div class="ec-booking-card card">
+    <button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ</button>
+  </div>
+</div>
+
+<!-- 08 XP -->
+<div class="demo-section-gap">
+  <span class="demo-label">08 · xp-block</span>
+  <h2>Експертиза</h2>
+  <p>Фото = висота ліда, далі текст на всю ширину</p>
+</div>
+<section class="xp-block ec-animate">
+  <div class="xp-block__inner">
+    <div class="xp-block__top">
+      <div class="xp-block__lead">
+        <p class="ec-kicker">ЕКСПЕРТИЗА</p>
+        <h2 class="xp-block__title">Я допомагаю власнику побачити бізнес за цифрами</h2>
+        <p class="xp-block__roles"><b>Бізнес-консультант · Executive Coach · системний консультант</b></p>
+        <p class="xp-block__hook">Проблема часто <b>не там</b>, де її спочатку шукають.</p>
+      </div>
+      <div class="xp-block__photo">
+        <img src="/assets/images/me.jpg" alt="Ірина Стецуріна">
+      </div>
+    </div>
+    <div class="xp-block__body">
+      <p>Моя сильна сторона — побачити бізнес як систему і перевести фінансову інформацію в управлінські рішення.</p>
+      <p>Більше — на сторінці <a class="diagnostic-inline-link" href="/#about">«Про мене»</a>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     LEGACY VARIANTS (однакові теги на сайті → різні префікси тут)
+========================================================= -->
+
+<div class="demo-section-gap">
+  <span class="demo-label">17 · ps-grid · з сайту (.ec-step)</span>
+  <h2>Горизонтальні кроки</h2>
+  <p>Як на діагностичній консультації — 4 картки в ряд</p>
+</div>
+<section class="ps-grid-wrap ec-animate">
+  <div class="ps-grid-wrap__heading">
+    <p class="ec-kicker">ЯК ПРОХОДИТЬ</p>
+    <h2>Чотири кроки формату</h2>
+  </div>
+  <div class="ps-grid">
+    <article class="ps-card">
+      <div class="ps-card__num">1</div>
+      <h3>Заявка</h3>
+      <p>Коротко фіксуємо запит і зручний час зустрічі</p>
+    </article>
+    <article class="ps-card">
+      <div class="ps-card__num">2</div>
+      <h3>Перша зустріч</h3>
+      <p>Досліджуємо ситуацію, історію та актуальний запит</p>
+    </article>
+    <article class="ps-card">
+      <div class="ps-card__num">3</div>
+      <h3>Аналіз</h3>
+      <p>Систематизую інформацію між зустрічами</p>
+    </article>
+    <article class="ps-card">
+      <div class="ps-card__num">4</div>
+      <h3>Друга зустріч</h3>
+      <p>Розбираємо висновки та наступні кроки</p>
+    </article>
+  </div>
+  <p class="cn-note">У результаті — <b>цілісніше бачення ситуації</b>, а не просто «ще одна розмова»</p>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">18 · cg-grid · з сайту (.diagnostic-card-grid)</span>
+  <h2>Сітка карток 2×N</h2>
+  <p>h3 бордовий, hover підйом — як на mentoring / strategy</p>
+</div>
+<section class="cg-wrap ec-animate">
+  <div class="cg-wrap__heading">
+    <p class="ec-kicker">ЩО ВХОДИТЬ</p>
+    <h2>Формати роботи</h2>
+  </div>
+  <div class="cg-grid">
+    <article class="cg-card">
+      <h3>Індивідуальні сесії</h3>
+      <p>Робота один на один з фокусом на ваш запит і реальні рішення.</p>
+    </article>
+    <article class="cg-card">
+      <h3>Супровід між зустрічами</h3>
+      <p>Підтримка в месенджері, щоб не губити темп між сесіями.</p>
+    </article>
+    <article class="cg-card">
+      <h3>Робота з системою</h3>
+      <p>Не лише «поради», а зміни в управлінні, процесах і цифрах.</p>
+    </article>
+    <article class="cg-card">
+      <h3>Передача команді</h3>
+      <p>Щоб система жила після проєкту, а не залишалась у файлах.</p>
+    </article>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">19 · rs-block · з сайту (.ec-result)</span>
+  <h2>Результат «було / стало»</h2>
+  <p>Рамка + quote — як на product-сторінках</p>
+</div>
+<section class="rs-block ec-animate">
+  <div class="rs-block__inner">
+    <div class="rs-block__heading">
+      <p class="ec-kicker">РЕЗУЛЬТАТ</p>
+      <h2>Ви переходите від:</h2>
+    </div>
+    <div class="rs-pair">
+      <div class="rs-col">
+        <h3>Було</h3>
+        <p>«Я думаю, що у нас усе нормально»</p>
+      </div>
+      <div class="rs-col">
+        <h3>Стало</h3>
+        <p>«Я бачу відхилення і розумію, що потрібно зробити»</p>
+      </div>
+    </div>
+    <div class="rs-quote">
+      <span>Ключова зміна</span>
+      <strong>Від «тримати все в голові» — до ролі власника, який бачить систему і керує нею.</strong>
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">20 · ex-frame · з сайту (.ec-detail__expertise)</span>
+  <h2>Експертиза в спільній рамці</h2>
+  <p>На відміну від xp-block: текст і фото в одній рамці, без окремого body</p>
+</div>
+<section class="ex-frame-wrap ec-animate">
+  <div class="ex-frame">
+    <div class="ex-frame__text">
+      <p class="ec-kicker">ЕКСПЕРТИЗА</p>
+      <h2>Чому я працюю саме з власниками</h2>
+      <p><b>Бізнес-тренер · Executive Coach · системний консультант</b></p>
+      <p>Бізнес і власник — взаємопов’язана система. Не зупиняємось на зовнішньому прояві проблеми.</p>
+      <p>Більше — на сторінці <a class="diagnostic-inline-link" href="/#about">«Про мене»</a>.</p>
+    </div>
+    <div class="ex-frame__photo">
+      <img src="/assets/images/me.jpg" alt="Ірина Стецуріна">
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">21 · is-stages · з сайту (.iso-stage)</span>
+  <h2>Етапи ISO-стилю</h2>
+  <p>З lead-рядком і блоком «Результат» — як на ISO / власницький облік</p>
+</div>
+<section class="is-wrap ec-animate">
+  <div class="is-wrap__heading">
+    <p class="ec-kicker">ЕТАПИ</p>
+    <h2>Від діагностики до запуску</h2>
+  </div>
+  <div class="is-stages">
+    <article class="is-stage">
+      <div class="is-stage__head">
+        <span class="is-stage__num">1</span>
+        <h3>Діагностика</h3>
+      </div>
+      <div class="is-stage__body">
+        <p class="is-stage__lead">Спочатку розбираємося, що у вас уже є</p>
+        <p>Аналізуємо процеси, облік, звітність і точки втрат.</p>
+        <p class="is-stage__result"><span>Результат</span> картина стану та план дій</p>
+      </div>
+    </article>
+    <article class="is-stage">
+      <div class="is-stage__head">
+        <span class="is-stage__num">2</span>
+        <h3>Впровадження</h3>
+      </div>
+      <div class="is-stage__body">
+        <p class="is-stage__lead">Будуємо систему під компанію, не за шаблоном</p>
+        <p>Налаштовуємо показники, звіти та відповідальність.</p>
+        <p class="is-stage__result"><span>Результат</span> робоча система в щоденному управлінні</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">22 · vc-cards · з сайту (.vc-implement-grid)</span>
+  <h2>Картки з flow-рядком</h2>
+  <p>Як «що впроваджую» на власницькому обліку</p>
+</div>
+<section class="vc-wrap ec-animate">
+  <div class="vc-wrap__heading">
+    <p class="ec-kicker">ЩО ВПРОВАДЖУЮ</p>
+    <h2>Система контролю для власника</h2>
+  </div>
+  <div class="vc-cards">
+    <article>
+      <h3>Фінансова панель</h3>
+      <p>5–7 ключових показників замість десятків таблиць.</p>
+      <p class="vc-flow"><b>виручка → витрати → прибуток → грошовий потік → відхилення</b></p>
+      <p>Показники, з яких можна приймати рішення.</p>
+    </article>
+    <article>
+      <h3>План-факт контроль</h3>
+      <p class="vc-flow"><b>ПЛАН → ФАКТ → ВІДХИЛЕННЯ → ПРИЧИНА → РІШЕННЯ</b></p>
+      <p>Замість «чому знову не так?» — системний процес.</p>
+    </article>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">23 · rc-grid · з сайту (.ssb-result-card)</span>
+  <h2>Картки зі списками всередині</h2>
+  <p>Як результати стратегічної сесії для бізнесу</p>
+</div>
+<section class="rc-wrap ec-animate">
+  <div class="rc-wrap__heading">
+    <p class="ec-kicker">РЕЗУЛЬТАТИ СЕСІЇ</p>
+    <h2>Що забираєте з собою</h2>
+  </div>
+  <div class="rc-grid">
+    <article class="rc-card">
+      <h3>Стратегія</h3>
+      <ul>
+        <li>узгоджені пріоритети</li>
+        <li>фокус на 3–6 місяців</li>
+        <li>критерії успіху</li>
+      </ul>
+    </article>
+    <article class="rc-card">
+      <h3>Команда</h3>
+      <ul>
+        <li>спільне розуміння цілей</li>
+        <li>зони відповідальності</li>
+        <li>правила взаємодії</li>
+      </ul>
+    </article>
+    <article class="rc-card">
+      <h3>План дій</h3>
+      <ul>
+        <li>конкретні наступні кроки</li>
+        <li>терміни та власники задач</li>
+        <li>точки контролю</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">24 · cmp-table · з сайту (.diagnostic-table)</span>
+  <h2>Порівняльна таблиця</h2>
+  <p>Як «менторинг vs консультація» на mentoring</p>
+</div>
+<section class="cmp-wrap ec-animate">
+  <div class="cmp-wrap__heading">
+    <p class="ec-kicker">ПОРІВНЯННЯ</p>
+    <h2>Разова консультація vs супровід</h2>
+  </div>
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Разова консультація</th>
+          <th>Супровід / проєкт</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фокус</td>
+          <td>Одне конкретне питання</td>
+          <td>Система і послідовні зміни</td>
+        </tr>
+        <tr>
+          <td>Глибина</td>
+          <td>Швидкий розбір</td>
+          <td>Діагностика → впровадження → передача</td>
+        </tr>
+        <tr>
+          <td>Результат</td>
+          <td>Розуміння й рекомендації</td>
+          <td>Працююча система в бізнесі</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">25 · cn-note · з сайту (.ec-coffee-note)</span>
+  <h2>Примітка під блоком</h2>
+  <p>Центральний «м’який» коментар</p>
+</div>
+<p class="cn-note ec-animate">Попередня консультація — <b>безкоштовна</b>. Вартість проєкту формується індивідуально після діагностики.</p>
+
+
+<!-- =========================================================
+     NEW BLOCKS 26–32
+========================================================= -->
+
+<div class="demo-section-gap">
+  <span class="demo-label">26 · xp-round · НОВИЙ</span>
+  <h2>Експертиза з круглим фото</h2>
+  <p>Варіант xp: кругле фото справа, лід зліва, body під ними</p>
+</div>
+<section class="xp-round ec-animate">
+  <div class="xp-round__grid">
+    <div class="xp-round__lead">
+      <p class="ec-kicker">ЕКСПЕРТИЗА</p>
+      <h2>Бачити бізнес за цифрами</h2>
+      <p class="xp-round__roles"><b>Бізнес-консультант · Executive Coach · системний консультант</b></p>
+      <p class="xp-round__hook">Проблема часто <b>не там</b>, де її спочатку шукають.</p>
+    </div>
+    <div class="xp-round__photo">
+      <img src="/assets/images/me.jpg" alt="Ірина Стецуріна">
+    </div>
+  </div>
+  <div class="xp-round__body">
+    <p>Моя сильна сторона — побачити бізнес як систему і перевести фінансову інформацію в зрозумілі управлінські рішення.</p>
+    <p>Цифри потрібні не для звітів. Вони потрібні, щоб власник міг <b>краще керувати</b>.</p>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">27 · bn-strip · НОВИЙ</span>
+  <h2>Бордова смуга з CTA</h2>
+  <p>Яскравий акцент між секціями</p>
+</div>
+<div class="bn-strip ec-animate">
+  <div class="bn-strip__inner">
+    <div class="bn-strip__text">
+      <h2>Готові обговорити ваш бізнес?</h2>
+      <p>Попередня зустріч — безкоштовно, без зобов’язань</p>
+    </div>
+    <button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИСАТИСЯ</button>
+  </div>
+</div>
+
+<div class="demo-section-gap">
+  <span class="demo-label">28 · st-h · НОВИЙ</span>
+  <h2>Горизонтальні етапи зі стрілками</h2>
+  <p>Короткий шлях проєкту в 4 кроки</p>
+</div>
+<section class="st-h ec-animate">
+  <div class="st-h__heading">
+    <p class="ec-kicker">ШЛЯХ</p>
+    <h2>Від знайомства до системи</h2>
+  </div>
+  <div class="st-h__track">
+    <div class="st-h__item">
+      <div class="st-h__num">1</div>
+      <h3>Знайомство</h3>
+      <p>Обговорюємо ситуацію і запит</p>
+    </div>
+    <div class="st-h__item">
+      <div class="st-h__num">2</div>
+      <h3>Аудит</h3>
+      <p>Дивимось, що вже є і чого бракує</p>
+    </div>
+    <div class="st-h__item">
+      <div class="st-h__num">3</div>
+      <h3>Впровадження</h3>
+      <p>Будуємо систему під ваш бізнес</p>
+    </div>
+    <div class="st-h__item">
+      <div class="st-h__num">4</div>
+      <h3>Передача</h3>
+      <p>Команда працює самостійно</p>
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">29 · feat-row · НОВИЙ</span>
+  <h2>Фічі з великим номером</h2>
+  <p>Список переваг «повітрям», без важких карток</p>
+</div>
+<section class="feat-wrap ec-animate">
+  <div class="feat-wrap__heading">
+    <p class="ec-kicker">ПЕРЕВАГИ</p>
+    <h2>Чому саме системний підхід</h2>
+  </div>
+  <div class="feat-list">
+    <div class="feat-row">
+      <div class="feat-row__num">01</div>
+      <div class="feat-row__body">
+        <h3>Не шаблон, а під ваш бізнес</h3>
+        <p>Спочатку рішення, які потрібно приймати — потім система цифр під них.</p>
+      </div>
+    </div>
+    <div class="feat-row">
+      <div class="feat-row__num">02</div>
+      <div class="feat-row__body">
+        <h3>Відчутний результат, не «таблиці заради таблиць»</h3>
+        <p>Власник бачить прибуток, відхилення і наступний крок.</p>
+      </div>
+    </div>
+    <div class="feat-row">
+      <div class="feat-row__num">03</div>
+      <div class="feat-row__body">
+        <h3>Система лишається після проєкту</h3>
+        <p>Навчання команди і правила роботи — щоб не залежати від консультанта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">30 · split-cta · НОВИЙ</span>
+  <h2>Два CTA поруч</h2>
+  <p>Різні наступні кроки: консультація / проєкт</p>
+</div>
+<div class="split-cta ec-animate">
+  <div class="split-cta__card">
+    <h3>Попередня зустріч</h3>
+    <p>Обговоримо ситуацію і визначимо, чи потрібен проєкт саме вам.</p>
+    <button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИСАТИСЯ</button>
+  </div>
+  <div class="split-cta__card split-cta__card--accent">
+    <h3>Повний проєкт</h3>
+    <p>Аудит → система → впровадження → передача команді.</p>
+    <button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ ПРОЄКТ</button>
+  </div>
+</div>
+
+<div class="demo-section-gap">
+  <span class="demo-label">31 · stat-row · НОВИЙ</span>
+  <h2>Рядок метрик</h2>
+  <p>Цифри досвіду / формату — для довіри</p>
+</div>
+<section class="stat-wrap ec-animate">
+  <div class="stat-row">
+    <div class="stat-item">
+      <div class="stat-item__value">20+</div>
+      <div class="stat-item__label">років з бізнесом і фінансами</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-item__value">5–7</div>
+      <div class="stat-item__label">ключових показників для власника</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-item__value">1</div>
+      <div class="stat-item__label">безкоштовна зустріч на старті</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-item__value">100%</div>
+      <div class="stat-item__label">система під ваш бізнес</div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">32 · timeline · НОВИЙ</span>
+  <h2>Вертикальний timeline</h2>
+  <p>Хронологія з лінією і точками</p>
+</div>
+<section class="tl-wrap ec-animate">
+  <div class="tl-wrap__heading">
+    <p class="ec-kicker">ХРОНОЛОГІЯ</p>
+    <h2>Як виглядає типовий проєкт</h2>
+  </div>
+  <div class="tl-list">
+    <div class="tl-item">
+      <div class="tl-item__dot"></div>
+      <div class="tl-item__body">
+        <span class="tl-item__meta">Тиждень 0</span>
+        <h3>Знайомство</h3>
+        <p>Безкоштовна зустріч: ситуація, запит, доцільність роботи.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-item__dot"></div>
+      <div class="tl-item__body">
+        <span class="tl-item__meta">Тижні 1–2</span>
+        <h3>Аудит і пропозиція</h3>
+        <p>Аналіз обліку, обсяг робіт, терміни та вартість.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-item__dot"></div>
+      <div class="tl-item__body">
+        <span class="tl-item__meta">Далі</span>
+        <h3>Впровадження і передача</h3>
+        <p>Система, звіти, навчання команди — щоб працювало без консультанта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     FROM LIVE PAGES: format / важно / final burgundy / запис
+========================================================= -->
+
+<div class="demo-section-gap">
+  <span class="demo-label">33 · fw-block · з strategichna-sesiya (.ec-how)</span>
+  <h2>Формат роботи</h2>
+  <p>4 комірки з номером і бордовою смугою зверху + кнопка</p>
+</div>
+<section class="fw-block ec-animate">
+  <div class="fw-block__heading">
+    <p class="ec-kicker">ФОРМАТ РОБОТИ</p>
+    <h2>Формат та вартість стратегічної сесії</h2>
+  </div>
+  <div class="fw-grid">
+    <div class="fw-cell"><span>1</span><p><strong>Тривалість:</strong> 2 години</p></div>
+    <div class="fw-cell"><span>2</span><p><strong>Формат:</strong> онлайн або офлайн</p></div>
+    <div class="fw-cell"><span>3</span><p><strong>Вартість:</strong> 6000 грн</p></div>
+    <div class="fw-cell"><span>4</span><p><strong>Результат:</strong> ціль, напрямок, стратегія, план дій</p></div>
+  </div>
+  <div class="fw-block__cta">
+    <div class="ec-booking-card card">
+      <button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИСАТИСЯ · 6000 ₴</button>
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">35 · vz-block · «ВАЖЛИВО» (diagnostic / mentoring)</span>
+  <h2>Застереження / кому не підійде</h2>
+  <p>На strategy окремого ВАЖЛИВО немає — взято з діагностики (той самий патерн)</p>
+</div>
+<section class="vz-block ec-animate">
+  <div class="vz-block__box">
+    <div class="vz-block__heading">
+      <p class="ec-kicker">ВАЖЛИВО</p>
+      <h2>Кому цей формат може не підійти?</h2>
+    </div>
+    <p>Якщо ви шукаєте швидку пораду <b>«що мені робити?»</b> без готовності досліджувати себе, свої рішення та звичні моделі поведінки.</p>
+    <p>Це формат для людини, яка готова <b>чесно подивитися на себе і взяти відповідальність за подальші зміни.</b></p>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">36 · bk-block · з ekspres-konsultaciya (ЗАПИС)</span>
+  <h2>Як записатися</h2>
+  <p>Текстова рамка + кнопка по центру</p>
+</div>
+<section class="bk-block ec-animate">
+  <div class="bk-block__box">
+    <div class="bk-block__heading">
+      <p class="ec-kicker">ЗАПИС</p>
+      <h2>Як записатися на консультацію</h2>
+    </div>
+    <p><b>Натисніть кнопку «Записатися»</b> або напишіть мені слово <b>«КОНСУЛЬТАЦІЯ»</b></p>
+    <p>Я зв'яжуся з вами та запропоную зручний час для онлайн-зустрічі</p>
+    <p><b>Іноді для наступного кроку не потрібен готовий план. Потрібно просто зупинитися й чесно подивитися, куди ви хочете прийти</b></p>
+    <div class="bk-block__cta">
+      <div class="ec-booking-card card">
+        <button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИСАТИСЯ · 250 ₴</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-section-gap">
+  <span class="demo-label">34 · fn-burgundy · з strategichna-sesiya (.ec-final)</span>
+  <h2>Нижній бордовий блок з кнопкою</h2>
+  <p>Фінальний CTA як на стратегічній сесії</p>
+</div>
+<section class="fn-burgundy ec-animate">
+  <div class="fn-burgundy__box">
+    <p class="fn-burgundy__kicker">ЗАПИС НА СТРАТЕГІЧНУ СЕСІЮ</p>
+    <p class="fn-burgundy__lead">Можливо, вам зараз не потрібна ще одна готова відповідь</p>
+    <p class="fn-burgundy__small">Можливо, вам потрібен простір, у якому можна поставити <b>правильні запитання — і знайти власні відповіді</b></p>
+    <p class="fn-burgundy__small">Запишіться на стратегічну сесію, якщо відчуваєте, що настав час визначити свій наступний крок</p>
+    <div class="ec-booking-card card">
+      <button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИСАТИСЯ · 6000 ₴</button>
+    </div>
+  </div>
+</section>
+
+<section class="ec-final ec-animate">
+  <div class="ec-final__box">
+    <h2>Бібліотека готова до збірки</h2>
+    <p>Префікси: <b>… + fw-block, fn-burgundy, vz-block, bk-block</b> — див. коментарі в demo.css</p>
+    <div class="ec-booking-card card" style="margin-top:20px;">
+      <button class="ec-main-btn ec-main-btn--light" onclick="openPricePopup(event)">ЗАПИСАТИСЯ НА ЗУСТРІЧ</button>
+    </div>
+  </div>
+</section>
+
+<div id="successModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Заявку надіслано</h3>
+
+    <div class="success-svg-wrap" id="checkWrap">
+      <svg viewBox="0 0 52 52" aria-hidden="true">
+        <circle class="success-circle-bg" cx="26" cy="26" r="24"/>
+        <circle class="success-circle" cx="26" cy="26" r="24"/>
+        <path class="success-check" d="M14.5 27.5 L22 35 L37.5 18"/>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Перевірте пошту — я зв’яжусь з вами найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALL SUCCESS MODAL
+========================================================= -->
+<div id="callSuccessModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Запит надіслано</h3>
+
+    <div class="success-svg-wrap" id="phoneWrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+          <path class="phone-body" stroke-dasharray="62"
+            d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z">
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/>
+            <animateTransform attributeName="transform" dur="2.7s"
+              keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1"
+              repeatCount="indefinite" type="rotate"
+              values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/>
+          </path>
+          <g fill="none">
+            <path stroke-dasharray="6" stroke-dashoffset="6"
+              d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72">
+              <animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/>
+            </path>
+            <path stroke-dasharray="8" stroke-dashoffset="8"
+              d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65">
+              <animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/>
+            </path>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Я зателефоную вам найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeCallSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!-- =========================================================
+     PRICE POPUP / FORM
+========================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closePricePopup()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <div class="popup-kicker">Заявка</div>
+      <h3 id="priceTitle"></h3>
+      <div class="price-pill" id="priceLabel"></div>
+    </div>
+
+    <div class="popup-body">
+      <form id="bookingForm">
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+          </span>
+          <input type="text" name="name" placeholder="Ваше ім'я" required autocomplete="name">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+          </span>
+          <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required autocomplete="tel">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none"><path fill="currentColor" d="m3 5l7.586 7.586a2 2 0 0 0 2.828 0L21 5v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" opacity=".16"/><path fill="currentColor" d="M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 5l9 9l9-9"/></g></svg>
+          </span>
+          <input type="email" id="emailInput" name="email" placeholder="Email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <textarea name="comment" rows="5" placeholder="Коротко про ваш бізнес і запит (не обов’язково). Можна написати «ВЛАСНИЦЬКИЙ КОНТРОЛЬ»."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-main">Відправити заявку</button>
+      </form>
+
+      <p class="popup-note">Відповім особисто протягом <span>1 робочого дня</span></p>
+      <div id="popupStatus"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCROLL TOP
+========================================================= -->
+<button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+  <img src="/assets/icons/up-arrow.png" alt="up">
+</button>
+
+<!-- =========================================================
+     FOOTER & OFFER
+========================================================= -->
+<div class="offer-section">
+  <button class="offer-button" onclick="openOfferModal()">Договір оферти</button>
+</div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+  <div class="footer-privacy-stick">
+    <button class="offer-button privacy-button" onclick="openPrivacyModal()">Політика конфіденційності</button>
+  </div>
+</footer>
+
+<!-- =========================================================
+     CONTACTS MODAL
+========================================================= -->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeContactsModal()"><span>&times;</span></button>
+    <h3><img src="/assets/icons/phone.png" alt="Телефон">Контакти</h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+    <div class="contacts-socials">
+      <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank" rel="noopener">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/IrenStetsurina" target="_blank" rel="noopener">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank" rel="noopener">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALLBACK MODAL
+========================================================= -->
+<div id="callbackModal">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeCallbackModal()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <h3 class="callback-title">
+        <span class="callback-title-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        Зворотній дзвінок
+      </h3>
+      <p class="callback-subtitle">Залиште контакти і я вам передзвоню</p>
+    </div>
+
+    <div class="popup-body">
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+        </span>
+        <input type="text" id="callbackName" placeholder="Ваше ім'я" required autocomplete="name">
+      </div>
+
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        <input type="text" id="callbackPhone" placeholder="Телефон" required autocomplete="tel">
+      </div>
+
+      <button class="btn btn-main" onclick="submitCallback()">
+        Замовити дзвінок
+      </button>
+
+      <div id="callbackStatus"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     OFFER / PRIVACY MODAL
+========================================================= -->
+<div id="offerModal" class="offer-modal">
+  <div class="offer-modal-content">
+    <div id="offerContent"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function initReveal() {
+    const blocks = document.querySelectorAll('.ec-animate');
+    if (!blocks.length || !('IntersectionObserver' in window)) {
+      blocks.forEach(b => b.classList.add('ec-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const block = entry.target;
+        block.classList.add('ec-visible');
+        const heading = block.querySelector('.ec-section-heading');
+        if (heading) heading.classList.add('ec-content-visible');
+        const children = Array.from(block.children).filter(el => !el.classList.contains('ec-section-heading'));
+        children.forEach((el, index) => setTimeout(() => el.classList.add('ec-content-visible'), 140 + index * 120));
+        obs.unobserve(block);
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -8%' });
+    blocks.forEach(block => observer.observe(block));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReveal);
+  else initReveal();
+})();
+</script>
+
+<script>
+window.PAGE_PRODUCT = {
+  product: "Демо блоків — консультація",
+  price: "безкоштовна консультація",
+  payLink: "",
+  sendEmail: "true",
+  emailTemplate: "free",
+  redirect: "false"
+};
+
+(function applyProductData() {
+  const cfg = window.PAGE_PRODUCT;
+  if (!cfg) return;
+  document.querySelectorAll(".ec-booking-card.card").forEach(card => {
+    card.dataset.product = cfg.product;
+    card.dataset.price = cfg.price;
+    card.dataset.payLink = cfg.payLink;
+    card.dataset.sendEmail = cfg.sendEmail;
+    card.dataset.emailTemplate = cfg.emailTemplate;
+    card.dataset.redirect = cfg.redirect;
+  });
+})();
+</script>
+<script src="/script-safe.js"></script>
+
+<!-- фри -->
+<script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Дякую за вашу заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я отримала ваш запит і найближчим часом зв’яжуся з вами, щоб уточнити деталі та узгодити зручний час зустрічі.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Якщо у вас виникнуть питання до нашої розмови — можете написати мені в
+    <a href="https://t.me/Stec0407" style="color:#8b1d1d; text-decoration:underline;">Telegram</a>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    До зустрічі!
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444; margin-bottom:6px;">
+    <strong>Ірина Стецуріна</strong>
+  </p>
+
+  <p style="font-size:14px; line-height:1.5; color:#777; margin-top:0;">
+    Executive Coach | бізнес-тренер | системний консультант
+  </p>
+
+  <p style="font-size:14px; color:#888; line-height:1.6; text-align:center; margin-top:32px;">
+    Будь ласка, не відповідайте на цей автоматичний лист.<br>
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+
+</body>
+</html>
