@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Управлінський облік для бізнесу — впровадження під ключ | Ірина Стецуріна</title>
+  <meta name="description" content="Управлінський облік під ключ для бізнесу: впровадження управлінської звітності, бюджетування, план-факт аналізу, контролю витрат і прибутковості. Консалтинг для власників." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://i-s-business-consulting.pp.ua/upravlinskiy-oblik/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://i-s-business-consulting.pp.ua/upravlinskiy-oblik/" />
+  <meta property="og:title" content="Управлінський облік для бізнесу — впровадження під ключ" />
+  <meta property="og:description" content="Управлінський облік під ключ: управлінська звітність, бюджетування, план-факт аналіз, контроль витрат і прибутковості." />
+  <meta property="og:image" content="https://i-s-business-consulting.pp.ua/assets/images/hero.jpg" />
+  <meta property="og:locale" content="uk_UA" />
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="upravlinskiy.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <img src="/assets/images/logo.png" alt="Ірина Стецуріна — консалтинг">
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="topbar-right">
+    <nav id="menu">
+      <a href="/" onclick="closeMenu()">Головна</a>
+      <a href="/#about" onclick="closeMenu()">Про мене</a>
+      <a href="/#products" onclick="closeMenu()">Продукти</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+    </nav>
+
+    <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </button>
+  </div>
+</div>
+
+
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+    <img src="/assets/images/hero.jpg" alt="Управлінський облік під ключ для бізнесу" class="hero-cover">
+    <div class="hero-text ec-hero__text">
+      <h1 class="hero-line hero-line-1">
+        <span class="shifted">УПРАВЛІНСЬКИЙ ОБЛІК ПІД КЛЮЧ</span>
+      </h1>
+      <div class="hero-line hero-line-2">
+        Бачити прибуток • Контролювати • Вирішувати
+      </div>
+      <p class="hero-sub hero-line hero-line-3">
+        Система управлінського обліку для власника бізнесу
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="ec-breadcrumb" aria-label="Хлібні крихти">
+  <a href="/">Головна</a>
+  <span>→</span>
+  <span>Управлінський облік під ключ</span>
+</nav>
+
+<!-- INTRO -->
+<section class="ec-intro ec-animate">
+  <div class="ec-intro__grid">
+    <div class="ec-intro__media">
+      <img src="/assets/images/oblik-control_2.jpg" alt="Управлінський облік під ключ">
+    </div>
+    <div class="ec-intro__content">
+      <p class="ec-kicker">УПРАВЛІНСЬКИЙ ОБЛІК</p>
+      <h2>Не просто знати цифри. А розуміти, що вони означають</h2>
+      <p><b>Скільки насправді заробив ваш бізнес минулого місяця?</b> Не виручив. Не отримав на рахунок. Не показав у бухгалтерському звіті. А саме <b>заробив — після всіх витрат?</b></p>
+      <p>Якщо ви не можете швидко відповісти — вам потрібна <b>система управлінського обліку</b>, яка показує реальну фінансову картину і допомагає приймати рішення вчасно.</p>
+      <div class="ec-product-meta">
+        <div><span>Формат</span><strong>Онлайн</strong></div>
+        <div><span>Старт</span><strong>Попередня консультація</strong></div>
+        <div><span>Вартість</span><strong>Після аудиту</strong></div>
+      </div>
+      <div class="ec-booking-card card">
+        <button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ МІЙ БІЗНЕС</button>
+      </div>
+      <p style="margin-top:14px;font-size:14px;color:#666;line-height:1.5;">Попередня консультація-знайомство — щоб обговорити ситуацію та визначити, чим я можу бути корисна</p>
+    </div>
+  </div>
+</section>
+
+<!-- HL -->
+<div class="hl-block ec-animate">
+  <p class="hl-block__text">Побудую систему управлінського обліку <b>під ваш бізнес</b>, щоб ви розуміли реальний фінансовий результат, бачили причини відхилень і могли <b>керувати прибутком</b>, а не констатувати його постфактум.</p>
+</div>
+
+<!-- PROBLEM LIST -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">ЗНАЙОМА СИТУАЦІЯ?</p>
+    <h2>Бухгалтерський облік є. А зрозумілої картини бізнесу — немає?</h2>
+    <p class="ec-section-intro">Ви отримуєте бухгалтерські звіти, сплачуєте податки, бачите оборот, але не завжди розумієте:</p>
+    <ul class="ec-check-list ec-wide-list">
+      <li>скільки насправді заробляє бізнес</li>
+      <li>які продукти або напрями приносять прибуток</li>
+      <li>куди йдуть гроші</li>
+      <li>які витрати окупаються, а які знижують прибуток</li>
+      <li>чому виручка зростає, а грошей більше не стає</li>
+      <li>скільки потрібно продати, щоб вийти на бажаний прибуток</li>
+      <li>чи виконується план і де виникають фінансові втрати</li>
+    </ul>
+    <p style="margin-top:18px;">У результаті рішення доводиться приймати <b>на основі досвіду, інтуїції та відчуттів</b>. Зі зростанням компанії ціна помилки стає дедалі вищою.</p>
+  </div>
+</section>
+
+<!-- CF: accounting vs management -->
+<section class="cf-block ec-animate">
+  <div class="cf-block__heading">
+    <p class="ec-kicker">РІЗНІ ЗАВДАННЯ</p>
+    <h2>Чому бухгалтерського обліку недостатньо для управління</h2>
+    <p class="cf-block__lead">Бухгалтерський облік відповідає на питання «що вже відбулося?». Власнику потрібно більше.</p>
+  </div>
+  <div class="cf-block__grid">
+    <div class="cf-block__col">
+      <h3>Бухгалтерський облік</h3>
+      <ul class="cf-block__list">
+        <li>Що вже відбулося?</li>
+        <li>Офіційна та податкова звітність</li>
+        <li>Фіксація господарських операцій</li>
+      </ul>
+    </div>
+    <div class="cf-block__col cf-block__col--accent">
+      <h3>Управлінський облік</h3>
+      <ul class="cf-block__list">
+        <li>Що відбувається зараз?</li>
+        <li>Чому це відбувається?</li>
+        <li>Що буде далі?</li>
+        <li>Що мені потрібно зробити?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">СУТЬ</p>
+      <h2>Що таке управлінський облік?</h2>
+    </div>
+    <p><b>Управлінський облік</b> — система збору, структурування та аналізу фінансової й операційної інформації для обґрунтованих управлінських рішень.</p>
+    <p>Його завдання — не просто показати цифри, а <b>показати зв’язок між цифрами та рішеннями</b>.</p>
+    <ul class="ec-check-list">
+      <li>Продажі зросли. Але чи зріс прибуток?</li>
+      <li>Витрати збільшилися. Але чи створили вони результат?</li>
+      <li>Новий напрям приносить виручку. Але чи є він прибутковим?</li>
+      <li>Прибуток є. Але чому немає грошей?</li>
+    </ul>
+  </div>
+</section>
+
+<div class="hl-block ec-animate">
+  <p class="hl-block__text">Управлінський облік під ключ — <b>не просто таблиці</b>. Спочатку: які рішення вам потрібно приймати? Потім: яка інформація для них потрібна? І лише після цього — система обліку, показників і звітності.</p>
+</div>
+
+<!-- NR: what you get -->
+<section class="nr-block ec-animate">
+  <div class="nr-block__heading">
+    <p class="ec-kicker">ЩО ВИ ОТРИМАЄТЕ</p>
+    <h2>П’ять опор системи управлінського обліку</h2>
+  </div>
+  <div class="nr-list">
+    <article class="nr-item">
+      <div class="nr-item__num">1</div>
+      <div class="nr-item__body">
+        <h3>Реальну фінансову картину бізнесу</h3>
+        <p>Виручка, собівартість, маржинальність, прибуток, постійні й змінні витрати, прибутковість напрямів і продуктів. Ви перестаєте здогадуватися, <b>де заробляєте, а де втрачаєте</b>.</p>
+      </div>
+    </article>
+    <article class="nr-item">
+      <div class="nr-item__num">2</div>
+      <div class="nr-item__body">
+        <h3>Систему «План → Факт → Відхилення → Причини → Дії»</h3>
+        <p>Регулярно бачите: що планували → що отримали → де відхилення → чому → що робимо. Від запізнілої реакції — до системного фінансового контролю.</p>
+      </div>
+    </article>
+    <article class="nr-item">
+      <div class="nr-item__num">3</div>
+      <div class="nr-item__body">
+        <h3>Ключові показники для управління</h3>
+        <p>Не десятки метрик, а <b>5–7 показників</b>, які впливають на прибуток саме вашого бізнесу: що контролювати, як часто, що означає зміна і яке рішення може знадобитися.</p>
+      </div>
+    </article>
+    <article class="nr-item">
+      <div class="nr-item__num">4</div>
+      <div class="nr-item__body">
+        <h3>Розуміння не лише минулого, а й майбутнього</h3>
+        <p>Моделювання «що буде, якщо…»: зміна ціни, продажів, витрат, нового напряму чи найму — оцінка впливу на виручку, витрати та прибуток <b>до</b> реалізації рішення.</p>
+      </div>
+    </article>
+    <article class="nr-item">
+      <div class="nr-item__num">5</div>
+      <div class="nr-item__body">
+        <h3>Контроль і оптимізацію витрат</h3>
+        <p>Не універсальне «економити на всьому», а дорожня карта: де зайві витрати, що оптимізувати, які витрати критичні, які створюють прибуток.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- TG: було / є / буде -->
+<section class="tg-block ec-animate">
+  <div class="tg-block__heading">
+    <p class="ec-kicker">УПРАВЛІНСЬКА ЗВІТНІСТЬ</p>
+    <h2>Як працює система звітності</h2>
+    <p class="tg-block__intro">Регулярні відповіді на три ключові питання — інструмент управління майбутнім, а не лише «звіт за минулий місяць».</p>
+  </div>
+  <div class="tg-block__grid">
+    <article class="tg-card">
+      <span class="tg-card__label">Минуле</span>
+      <h3>Як було?</h3>
+      <p>Що відбулося за період?</p>
+      <p>Які рішення спрацювали?</p>
+      <p>Де виникли проблеми?</p>
+    </article>
+    <article class="tg-card">
+      <span class="tg-card__label">Сьогодні</span>
+      <h3>Як є?</h3>
+      <p>Що відбувається з бізнесом зараз?</p>
+      <p>Яка динаміка доходів, витрат і прибутку?</p>
+    </article>
+    <article class="tg-card">
+      <span class="tg-card__label">Майбутнє</span>
+      <h3>Як буде?</h3>
+      <p>Що станеться, якщо тенденція збережеться?</p>
+      <p>Які рішення потрібно прийняти вже зараз?</p>
+    </article>
+  </div>
+</section>
+
+<!-- Budgeting detail -->
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">ПЛАНУВАННЯ</p>
+      <h2>Бюджетування та планування прибутку</h2>
+    </div>
+    <p>Прибуток не повинен бути випадковим результатом наприкінці місяця. Через управлінський облік визначаються: обсяг продажів, план доходів і витрат, маржинальність, точка беззбитковості, цільовий прибуток, допустимий рівень витрат.</p>
+    <p>Замість <b>«подивимося, скільки заробили»</b> — <b>«який результат ми хочемо і що для цього потрібно зробити»</b>.</p>
+  </div>
+</section>
+
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">АНАЛІЗ</p>
+    <h2>Доходи, витрати і прибутковість у потрібних розрізах</h2>
+    <p class="ec-section-intro">Фінансовий результат можна бачити:</p>
+    <ul class="ec-check-list ec-wide-list">
+      <li>за напрямами, продуктами, проєктами</li>
+      <li>за клієнтами, підрозділами, каналами продажів</li>
+    </ul>
+    <p style="margin-top:16px;">Це відповідає на питання: що формує прибуток, що його знижує, де заробляємо найбільше, куди спрямувати ресурси.</p>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section class="st-block ec-animate" id="etapy">
+  <div class="st-block__heading">
+    <p class="ec-kicker">ЕТАПИ ВПРОВАДЖЕННЯ</p>
+    <h2>Як відбувається впровадження</h2>
+  </div>
+
+  <div class="fl-block" style="padding:0;margin:0 0 24px;">
+    <div class="fl-block__track">
+      <span class="fl-block__node">Знайомство</span>
+      <span class="fl-block__sep">→</span>
+      <span class="fl-block__node">Аудит</span>
+      <span class="fl-block__sep">→</span>
+      <span class="fl-block__node">Пропозиція</span>
+      <span class="fl-block__sep">→</span>
+      <span class="fl-block__node">Впровадження</span>
+      <span class="fl-block__sep">→</span>
+      <span class="fl-block__node">Передача</span>
+    </div>
+  </div>
+
+  <div class="st-block__intro">
+    <h3 class="st-block__intro-title">Перша зустріч — знайомство та обговорення ситуації <span>(безкоштовно)</span></h3>
+    <p>Проводимо попередню консультацію, щоб познайомитися, зрозуміти ваш бізнес і обговорити питання, які потребують вирішення. Визначаємо, як організований облік, яку інформацію ви отримуєте, чого не вистачає для управління і які рішення хочете приймати на основі цифр.</p>
+  </div>
+
+  <div class="st-steps">
+    <article class="st-step">
+      <div class="st-step__head">
+        <span class="st-step__num" aria-hidden="true">1</span>
+        <h3>Передпроєктний аудит</h3>
+      </div>
+      <div class="st-step__body">
+        <p>Аналізую наявну систему обліку, фінансову інформацію, звітність, структуру доходів і витрат та потреби власника й команди.</p>
+        <ul class="st-step__list">
+          <li>що вже працює</li>
+          <li>де прогалини та проблеми</li>
+          <li>яку інформацію потрібно бачити власнику</li>
+          <li>які звіти та показники необхідні</li>
+          <li>що потрібно побудувати або змінити</li>
+        </ul>
+        <p class="st-step__result"><span>Результат</span> розуміння системи саме для вашого бізнесу та обсягу майбутнього проєкту. Конкретний склад робіт — після аудиту</p>
+      </div>
+    </article>
+
+    <article class="st-step">
+      <div class="st-step__head">
+        <span class="st-step__num" aria-hidden="true">2</span>
+        <h3>Пропозиція та вартість</h3>
+      </div>
+      <div class="st-step__body">
+        <p>Обговорюємо результати аудиту й формуємо індивідуальну пропозицію: що буде зроблено, етапи, результат, терміни та <b>вартість проєкту</b>. Вартість — після розуміння ситуації та обсягу роботи, не за універсальним тарифом.</p>
+      </div>
+    </article>
+
+    <article class="st-step">
+      <div class="st-step__head">
+        <span class="st-step__num" aria-hidden="true">3</span>
+        <h3>Побудова та впровадження системи</h3>
+      </div>
+      <div class="st-step__body">
+        <p>Будуємо систему під специфіку бізнесу, налаштовуємо звітність, показники та правила роботи з фінансовою інформацією:</p>
+        <ul class="st-step__list">
+          <li>структура доходів і витрат</li>
+          <li>центри фінансової відповідальності</li>
+          <li>статті управлінського обліку</li>
+          <li>необхідні звіти та ключові показники</li>
+          <li>правила збору даних, планування, «План/Факт»</li>
+        </ul>
+        <p class="st-step__result"><span>Результат</span> система, яка допомагає бачити цифри, розуміти їх і приймати рішення — не просто таблиці</p>
+      </div>
+    </article>
+
+    <article class="st-step">
+      <div class="st-step__head">
+        <span class="st-step__num" aria-hidden="true">4</span>
+        <h3>Навчання та передача системи</h3>
+      </div>
+      <div class="st-step__body">
+        <p>Власник і команда розуміють: як працює система, хто які дані подає, як формуються звіти, як читати показники, аналізувати відхилення й використовувати цифри для рішень.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="st-block__cta">
+    <div class="ec-booking-card card">
+      <button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ МІЙ БІЗНЕС</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">ДЛЯ КОГО</p>
+    <h2>Кому підійде цей проєкт</h2>
+    <p class="ec-section-intro">Власникам і керівникам, які хочуть перейти від управління «на відчуттях» до системного управління на основі цифр. Особливо якщо:</p>
+    <ul class="ec-check-list ec-wide-list">
+      <li>оборот зростає, а прибуток залишається незрозумілим</li>
+      <li>є бухгалтерія, але немає управлінської звітності</li>
+      <li>немає повної фінансової картини та контролю витрат</li>
+      <li>кілька напрямів або продуктів — незрозуміло, що приносить прибуток</li>
+      <li>рішення щодо розвитку без достатньої кількості даних</li>
+      <li>потрібні бюджетування та план-факт контроль</li>
+      <li>бізнес на новому рівні — ручного контролю вже недостатньо</li>
+    </ul>
+  </div>
+</section>
+
+<section class="ec-detail ec-animate">
+  <div class="ec-detail__single">
+    <div class="ec-section-heading">
+      <p class="ec-kicker">ІНСТРУМЕНТИ</p>
+      <h2>Чи потрібна спеціальна програма?</h2>
+    </div>
+    <p><b>Не обов’язково.</b> Спочатку будуємо систему: показники, правила обліку, звіти, потреби власника. Для одного бізнесу достатньо Excel або Google Sheets, для іншого — спеціалізована програма чи інтеграція з наявними системами.</p>
+    <p><b>Програма — інструмент. Головне — правильно побудована система управління цифрами.</b></p>
+  </div>
+</section>
+
+<!-- XP expertise -->
+<section class="xp-block ec-animate" id="expertise">
+  <div class="xp-block__inner">
+    <div class="xp-block__top">
+      <div class="xp-block__lead">
+        <p class="ec-kicker">ЧОМУ Я</p>
+        <h2 class="xp-block__title">Більше 20 років з бізнесом, фінансами та системами</h2>
+        <p class="xp-block__roles"><b>Фінанси · управлінський облік · бюджетування · витрати · KPI · стратегія · систематизація</b></p>
+        <p class="xp-block__hook">Мій підхід — <b>не поставити облік заради обліку</b>. Бізнес — цілісна система, де фінанси пов’язані зі стратегією, процесами, людьми та рішеннями.</p>
+      </div>
+      <div class="xp-block__photo">
+        <img src="/assets/images/me.jpg" alt="Ірина Стецуріна — управлінський облік під ключ">
+      </div>
+    </div>
+    <div class="xp-block__body">
+      <p>Тому ми не починаємо з таблиці. <b>Ми починаємо з бізнесу та питань, на які власнику потрібно отримувати відповіді.</b> А вже потім будуємо систему цифр, яка ці відповіді дає.</p>
+      <p>Більше про досвід і спеціалізацію — на сторінці <a class="diagnostic-inline-link" href="/#about">«Про мене»</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="ec-wide ec-animate">
+  <div class="ec-wide__box">
+    <p class="ec-kicker">РЕЗУЛЬТАТ</p>
+    <h2>Система фінансової інформації для управління бізнесом</h2>
+    <p class="ec-section-intro">Після впровадження ви краще розумієте:</p>
+    <ul class="ec-check-list ec-wide-list">
+      <li>скільки насправді заробляє бізнес</li>
+      <li>що формує прибуток і де виникають втрати</li>
+      <li>які витрати потрібно оптимізувати</li>
+      <li>чи виконується план</li>
+      <li>що відбувається зараз і що може статись далі</li>
+      <li>які рішення варто приймати</li>
+    </ul>
+    <p style="margin-top:18px;"><b>Цифри перестають бути просто звітністю. Вони стають інструментом управління бізнесом.</b></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="ec-animate">
+  <div class="ec-section-heading">
+    <p class="ec-kicker">FAQ</p>
+    <h2>Найчастіші запитання про управлінський облік</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">Що таке управлінський облік і навіщо він потрібен бізнесу?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Система збору та аналізу фінансової й операційної інформації для управлінських рішень. Допомагає розуміти прибутковість, контролювати доходи й витрати, аналізувати відхилення та прогнозувати наслідки рішень.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чим управлінський облік відрізняється від бухгалтерського?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Бухгалтерський облік — для офіційної та податкової звітності. Управлінський створюється для власника й керівництва: показує економіку бізнесу і які рішення потрібно приймати.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Що входить у впровадження управлінського обліку?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Залежно від потреб: аналіз існуючого обліку, структурування доходів і витрат, управлінська звітність, ключові показники, бюджетування, план-факт, контроль відхилень, аналіз прибутковості, навчання команди.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Що таке план-факт аналіз?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Порівняння запланованих і фактичних показників з аналізом причин відхилень. Логіка: План → Факт → Відхилення → Причини → Дії.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чи потрібна спеціальна програма?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Не обов’язково. Спочатку — система та логіка, потім інструмент: Excel, Google Sheets, спеціалізоване ПЗ або інтеграція з наявними системами.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Чи можна впровадити, якщо бухгалтерія вже ведеться?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Так. Управлінський облік доповнює бухгалтерський і формує інформацію саме для управління бізнесом.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Який результат дає впровадження?<img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути"></div>
+      <div class="faq-answer">Зрозуміла система фінансової інформації: реальний результат, прибутковість напрямів, доходи й витрати, відхилення від плану, точки оптимізації. Цифри стають основою рішень.</div>
+    </div>
+  </div>
+</section>
+
+<section class="ec-final ec-animate">
+  <div class="ec-final__box">
+    <h2>Готові керувати бізнесом, а не вгадувати?</h2>
+    <p>Почнемо з попередньої консультації: якої інформації не вистачає, де виникають проблеми і якою має бути система управлінського обліку саме у вашій компанії.</p>
+    <div class="ec-booking-card card" style="margin-top:20px;">
+      <button class="ec-main-btn ec-main-btn--light" onclick="openPricePopup(event)">ЗАПИСАТИСЯ НА ПОПЕРЕДНЮ ЗУСТРІЧ</button>
+    </div>
+  </div>
+</section>
+
+<div id="successModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Заявку надіслано</h3>
+
+    <div class="success-svg-wrap" id="checkWrap">
+      <svg viewBox="0 0 52 52" aria-hidden="true">
+        <circle class="success-circle-bg" cx="26" cy="26" r="24"/>
+        <circle class="success-circle" cx="26" cy="26" r="24"/>
+        <path class="success-check" d="M14.5 27.5 L22 35 L37.5 18"/>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Перевірте пошту — я зв’яжусь з вами найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALL SUCCESS MODAL
+========================================================= -->
+<div id="callSuccessModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Запит надіслано</h3>
+
+    <div class="success-svg-wrap" id="phoneWrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+          <path class="phone-body" stroke-dasharray="62"
+            d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z">
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/>
+            <animateTransform attributeName="transform" dur="2.7s"
+              keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1"
+              repeatCount="indefinite" type="rotate"
+              values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/>
+          </path>
+          <g fill="none">
+            <path stroke-dasharray="6" stroke-dashoffset="6"
+              d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72">
+              <animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/>
+            </path>
+            <path stroke-dasharray="8" stroke-dashoffset="8"
+              d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65">
+              <animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/>
+            </path>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Я зателефоную вам найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeCallSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!-- =========================================================
+     PRICE POPUP / FORM
+========================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closePricePopup()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <div class="popup-kicker">Заявка</div>
+      <h3 id="priceTitle"></h3>
+      <div class="price-pill" id="priceLabel"></div>
+    </div>
+
+    <div class="popup-body">
+      <form id="bookingForm">
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+          </span>
+          <input type="text" name="name" placeholder="Ваше ім'я" required autocomplete="name">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+          </span>
+          <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required autocomplete="tel">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none"><path fill="currentColor" d="m3 5l7.586 7.586a2 2 0 0 0 2.828 0L21 5v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" opacity=".16"/><path fill="currentColor" d="M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 5l9 9l9-9"/></g></svg>
+          </span>
+          <input type="email" id="emailInput" name="email" placeholder="Email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <textarea name="comment" rows="5" placeholder="Коротко про ваш бізнес і запит (не обов’язково). Можна написати «ВЛАСНИЦЬКИЙ КОНТРОЛЬ»."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-main">Відправити заявку</button>
+      </form>
+
+      <p class="popup-note">Відповім особисто протягом <span>1 робочого дня</span></p>
+      <div id="popupStatus"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCROLL TOP
+========================================================= -->
+<button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+  <img src="/assets/icons/up-arrow.png" alt="up">
+</button>
+
+<!-- =========================================================
+     FOOTER & OFFER
+========================================================= -->
+<div class="offer-section">
+  <button class="offer-button" onclick="openOfferModal()">Договір оферти</button>
+</div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+  <div class="footer-privacy-stick">
+    <button class="offer-button privacy-button" onclick="openPrivacyModal()">Політика конфіденційності</button>
+  </div>
+</footer>
+
+<!-- =========================================================
+     CONTACTS MODAL
+========================================================= -->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeContactsModal()"><span>&times;</span></button>
+    <h3><img src="/assets/icons/phone.png" alt="Телефон">Контакти</h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+    <div class="contacts-socials">
+      <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank" rel="noopener">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/IrenStetsurina" target="_blank" rel="noopener">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank" rel="noopener">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALLBACK MODAL
+========================================================= -->
+<div id="callbackModal">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeCallbackModal()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <h3 class="callback-title">
+        <span class="callback-title-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        Зворотній дзвінок
+      </h3>
+      <p class="callback-subtitle">Залиште контакти і я вам передзвоню</p>
+    </div>
+
+    <div class="popup-body">
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+        </span>
+        <input type="text" id="callbackName" placeholder="Ваше ім'я" required autocomplete="name">
+      </div>
+
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        <input type="text" id="callbackPhone" placeholder="Телефон" required autocomplete="tel">
+      </div>
+
+      <button class="btn btn-main" onclick="submitCallback()">
+        Замовити дзвінок
+      </button>
+
+      <div id="callbackStatus"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     OFFER / PRIVACY MODAL
+========================================================= -->
+<div id="offerModal" class="offer-modal">
+  <div class="offer-modal-content">
+    <div id="offerContent"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function initReveal() {
+    const blocks = document.querySelectorAll('.ec-animate');
+    if (!blocks.length || !('IntersectionObserver' in window)) {
+      blocks.forEach(b => b.classList.add('ec-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const block = entry.target;
+        block.classList.add('ec-visible');
+        const heading = block.querySelector('.ec-section-heading');
+        if (heading) heading.classList.add('ec-content-visible');
+        const children = Array.from(block.children).filter(el => !el.classList.contains('ec-section-heading'));
+        children.forEach((el, index) => setTimeout(() => el.classList.add('ec-content-visible'), 140 + index * 120));
+        obs.unobserve(block);
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -8%' });
+    blocks.forEach(block => observer.observe(block));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReveal);
+  else initReveal();
+})();
+</script>
+
+<script>
+window.PAGE_PRODUCT = {
+  product: "Управлінський облік під ключ — попередня консультація",
+  price: "безкоштовна консультація",
+  payLink: "",
+  sendEmail: "true",
+  emailTemplate: "free",
+  redirect: "false"
+};
+
+(function applyProductData() {
+  const cfg = window.PAGE_PRODUCT;
+  if (!cfg) return;
+  document.querySelectorAll(".ec-booking-card.card").forEach(card => {
+    card.dataset.product = cfg.product;
+    card.dataset.price = cfg.price;
+    card.dataset.payLink = cfg.payLink;
+    card.dataset.sendEmail = cfg.sendEmail;
+    card.dataset.emailTemplate = cfg.emailTemplate;
+    card.dataset.redirect = cfg.redirect;
+  });
+})();
+</script>
+<script src="/script-safe.js"></script>
+
+<!-- фри -->
+<script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Дякую за вашу заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я отримала ваш запит і найближчим часом зв’яжуся з вами, щоб уточнити деталі та узгодити зручний час зустрічі.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Якщо у вас виникнуть питання до нашої розмови — можете написати мені в
+    <a href="https://t.me/Stec0407" style="color:#8b1d1d; text-decoration:underline;">Telegram</a>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    До зустрічі!
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444; margin-bottom:6px;">
+    <strong>Ірина Стецуріна</strong>
+  </p>
+
+  <p style="font-size:14px; line-height:1.5; color:#777; margin-top:0;">
+    Executive Coach | бізнес-тренер | системний консультант
+  </p>
+
+  <p style="font-size:14px; color:#888; line-height:1.6; text-align:center; margin-top:32px;">
+    Будь ласка, не відповідайте на цей автоматичний лист.<br>
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+
+</body>
+</html>
