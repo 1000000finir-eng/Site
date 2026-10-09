@@ -90,143 +90,278 @@
 </section>
 
 
+
 <!-- =========================================================
      ██  РОЗДІЛ A: ВСТАВКИ (внутрішні елементи)
 ========================================================= -->
 <div class="demo-section-gap" id="inserts">
   <span class="demo-label">РОЗДІЛ · ВСТАВКИ</span>
   <h2>Елементи всередину секцій</h2>
-  <p>Клади в detail, stage, wide, card — не самостійні секції сторінки</p>
+  <p>Клади в detail, stage, wide, card — не самостійні секції сторінки. У кожної — свій тег-клас.</p>
 </div>
 
-<section class="ec-animate" style="max-width:1200px;margin:24px auto 48px;padding:0 24px;">
-  <div class="vz-block__box">
+<section class="ec-animate" style="max-width:1200px;margin:24px auto 16px;padding:0 24px;">
+  <div class="vz-block__box" style="display:flex;flex-direction:column;gap:28px;">
 
-    <p class="ec-kicker" style="margin-bottom:8px;">ТЕГИ · ЧІПИ · META</p>
-    <ul class="chips">
-      <li class="chip">управлінський облік</li>
-      <li class="chip chip--accent">план-факт</li>
-      <li class="chip">KPI</li>
-      <li class="chip">бюджет</li>
-    </ul>
-    <div class="pill-meta">
-      <div class="pill-meta__item"><span>Формат</span><strong>Онлайн</strong></div>
-      <div class="pill-meta__item"><span>Старт</span><strong>Знайомство</strong></div>
-      <div class="pill-meta__item"><span>Тривалість</span><strong>2 год</strong></div>
-    </div>
-    <div class="label-row">
-      <span class="label-row__tag">Онлайн</span>
-      <span>Zoom, без виїзду</span>
-    </div>
-    <div class="label-row">
-      <span class="label-row__tag label-row__tag--soft">Опція</span>
-      <span>Офлайн за домовленістю</span>
-    </div>
-    <div class="split-inline">
-      <span>Аудит</span><span class="split-inline__sep">·</span>
-      <span>Система</span><span class="split-inline__sep">·</span>
-      <span>Передача</span>
+    <!-- chips -->
+    <div>
+      <span class="demo-label">chips · chip · chip--accent</span>
+      <ul class="chips" style="margin-top:10px;">
+        <li class="chip">управлінський облік</li>
+        <li class="chip chip--accent">план-факт</li>
+        <li class="chip">KPI</li>
+        <li class="chip">бюджет</li>
+      </ul>
     </div>
 
-    <hr class="hr-soft">
-
-    <p class="ec-kicker" style="margin-bottom:8px;">ВИНОСКИ · АКЦЕНТИ</p>
-    <div class="call-out"><p><b>Call-out:</b> важлива думка всередині тексту.</p></div>
-    <div class="call-out call-out--soft"><p>М’який варіант без бордового фону.</p></div>
-    <div class="call-out call-out--warn"><p><b>Увага:</b> жовтий акцент для умови або обмеження.</p></div>
-    <div class="note-line">Однорядкова примітка з маркером «i».</div>
-    <div class="soft-box">
-      <p><b>Soft-box</b> — ледь помітна підкладка під абзац або групу речень.</p>
-      <p>Зручно для вторинного тексту без важкої рамки.</p>
-    </div>
-    <span class="highlight-line">Highlight-line — один акцентний рядок з підкресленням</span>
-    <p>У реченні можна виділити <span class="accent-word">ключове слово</span> бордовим.</p>
-    <blockquote class="quote-inline">
-      Цифри потрібні не для звітів — для рішень.
-      <cite>— принцип</cite>
-    </blockquote>
-
-    <hr class="hr-soft">
-
-    <p class="ec-kicker" style="margin-bottom:8px;">СПИСКИ</p>
-    <ul class="star-list">
-      <li>Star-list — пункти з зірочкою</li>
-      <li>Для коротких «що важливо»</li>
-    </ul>
-    <ul class="arrow-list">
-      <li>Arrow-list — кроки зі стрілкою</li>
-      <li>Логіка «далі → далі»</li>
-    </ul>
-    <ul class="bullet-tight">
-      <li>Bullet-tight — щільний список</li>
-      <li>Мінімум повітря між рядками</li>
-      <li>Зручно в картках і stage</li>
-    </ul>
-    <ul class="icon-list">
-      <li><span class="icon-list__mark">A</span><span>Icon-list — маркер-літера або цифра</span></li>
-      <li><span class="icon-list__mark">B</span><span>Варіанти / пріоритети</span></li>
-      <li><span class="icon-list__mark">1</span><span>Можна мішати літери й цифри</span></li>
-    </ul>
-
-    <hr class="hr-soft">
-
-    <p class="ec-kicker" style="margin-bottom:8px;">КЛЮЧ → ЗНАЧЕННЯ · ЦІНА · НОМЕРИ</p>
-    <div class="kv-list">
-      <div class="kv-row"><div class="kv-key">Тривалість</div><div class="kv-val">2–2,5 години</div></div>
-      <div class="kv-row"><div class="kv-key">Формат</div><div class="kv-val">Онлайн</div></div>
-      <div class="kv-row"><div class="kv-key">Результат</div><div class="kv-val">План на 3–5 кроків</div></div>
-    </div>
-    <p style="margin-top:14px;"><span class="tag-pair"><b>Старт:</b> попередня зустріч</span> · <span class="tag-pair"><b>Оплата:</b> після аудиту</span></p>
-    <div class="price-tag">
-      <div class="price-tag__value">6 000 ₴</div>
-      <div class="price-tag__note">приклад ціни · 2 години</div>
-    </div>
-    <div class="step-num">
-      <div class="step-num__n">1</div>
-      <div class="step-num__t"><strong>Step-num:</strong> номер у квадраті + текст у ряд.</div>
-    </div>
-    <div class="step-num">
-      <div class="step-num__n">2</div>
-      <div class="step-num__t">Кілька підряд всередині detail / stage.</div>
-    </div>
-    <p><span class="num-inline">1</span> Num-inline у реченні · <span class="num-inline">2</span> без окремого рядка</p>
-    <span class="time-stamp">Тиждень 1–2</span>
-    <p style="margin:0;">Time-stamp над абзацом етапу</p>
-
-    <hr class="hr-soft">
-
-    <p class="ec-kicker" style="margin-bottom:8px;">МЕТРИКИ · АВАТАРИ · ПОСИЛАННЯ · КОЛОНКИ</p>
-    <div class="metric-pill-row">
-      <div class="metric-pill"><div class="metric-pill__n">20+</div><div class="metric-pill__l">років досвіду</div></div>
-      <div class="metric-pill"><div class="metric-pill__n">5–7</div><div class="metric-pill__l">KPI</div></div>
-      <div class="metric-pill"><div class="metric-pill__n">1</div><div class="metric-pill__l">старт-зустріч</div></div>
-    </div>
-    <div class="avatar-row">
-      <div class="avatar-row__faces">
-        <img src="/assets/images/me.jpg" alt="">
-        <img src="/assets/images/me.jpg" alt="">
-        <img src="/assets/images/me.jpg" alt="">
+    <!-- pill-meta -->
+    <div>
+      <span class="demo-label">pill-meta · pill-meta__item</span>
+      <div class="pill-meta">
+        <div class="pill-meta__item"><span>Формат</span><strong>Онлайн</strong></div>
+        <div class="pill-meta__item"><span>Старт</span><strong>Знайомство</strong></div>
+        <div class="pill-meta__item"><span>Тривалість</span><strong>2 год</strong></div>
       </div>
-      <div class="avatar-row__text"><b>Власник + команда</b><br>передача системи, не «файл і до побачення»</div>
     </div>
-    <ul class="link-row">
-      <li><a href="/upravlinskiy-oblik/">Управлінський облік</a></li>
-      <li><a href="/upravlinnya-vytratamy/">Витрати</a></li>
-      <li><a href="/vlasnytskyi-oblik/">Власницький контроль</a></li>
-    </ul>
-    <div class="text-cols">
-      <p><b>Ліва колонка.</b> Text-cols — два абзаци поруч усередині секції, без окремих карток.</p>
-      <p><b>Права колонка.</b> Зручно для короткого порівняння або двох тез.</p>
-    </div>
-    <p class="caption">Caption — підпис під зображенням або прикладом</p>
 
-    <hr class="hr-soft">
-
-    <div class="badge-title">
-      <span class="badge">badge</span>
-      <h3 style="font-size:20px;">Badge над заголовком</h3>
+    <!-- label-row -->
+    <div>
+      <span class="demo-label">label-row · label-row__tag · label-row__tag--soft</span>
+      <div class="label-row" style="margin-top:10px;">
+        <span class="label-row__tag">Онлайн</span>
+        <span>Zoom, без виїзду</span>
+      </div>
+      <div class="label-row">
+        <span class="label-row__tag label-row__tag--soft">Опція</span>
+        <span>Офлайн за домовленістю</span>
+      </div>
     </div>
-    <div class="divider-label"><span>роздільник з підписом</span></div>
+
+    <!-- split-inline -->
+    <div>
+      <span class="demo-label">split-inline · split-inline__sep</span>
+      <div class="split-inline">
+        <span>Аудит</span><span class="split-inline__sep">·</span>
+        <span>Система</span><span class="split-inline__sep">·</span>
+        <span>Передача</span>
+      </div>
+    </div>
+
+    <!-- call-out -->
+    <div>
+      <span class="demo-label">call-out</span>
+      <div class="call-out" style="margin-top:10px;"><p><b>Call-out:</b> важлива думка всередині тексту.</p></div>
+    </div>
+    <div>
+      <span class="demo-label">call-out call-out--soft</span>
+      <div class="call-out call-out--soft" style="margin-top:10px;"><p>М’який варіант без бордового фону.</p></div>
+    </div>
+    <div>
+      <span class="demo-label">call-out call-out--warn</span>
+      <div class="call-out call-out--warn" style="margin-top:10px;"><p><b>Увага:</b> жовтий акцент для умови або обмеження.</p></div>
+    </div>
+
+    <!-- note-line -->
+    <div>
+      <span class="demo-label">note-line</span>
+      <div class="note-line" style="margin-top:10px;">Однорядкова примітка з маркером «i».</div>
+    </div>
+
+    <!-- soft-box -->
+    <div>
+      <span class="demo-label">soft-box</span>
+      <div class="soft-box" style="margin-top:10px;">
+        <p><b>Soft-box</b> — ледь помітна підкладка під абзац або групу речень.</p>
+        <p>Зручно для вторинного тексту без важкої рамки.</p>
+      </div>
+    </div>
+
+    <!-- highlight-line -->
+    <div>
+      <span class="demo-label">highlight-line</span>
+      <span class="highlight-line" style="margin-top:10px;">Highlight-line — один акцентний рядок з підкресленням</span>
+    </div>
+
+    <!-- accent-word -->
+    <div>
+      <span class="demo-label">accent-word</span>
+      <p style="margin:10px 0 0;">У реченні можна виділити <span class="accent-word">ключове слово</span> бордовим.</p>
+    </div>
+
+    <!-- quote-inline -->
+    <div>
+      <span class="demo-label">quote-inline</span>
+      <blockquote class="quote-inline" style="margin-top:10px;">
+        Цифри потрібні не для звітів — для рішень.
+        <cite>— принцип</cite>
+      </blockquote>
+    </div>
+
+    <!-- star-list -->
+    <div>
+      <span class="demo-label">star-list</span>
+      <ul class="star-list">
+        <li>Star-list — пункти з зірочкою</li>
+        <li>Для коротких «що важливо»</li>
+      </ul>
+    </div>
+
+    <!-- arrow-list -->
+    <div>
+      <span class="demo-label">arrow-list</span>
+      <ul class="arrow-list">
+        <li>Arrow-list — кроки зі стрілкою</li>
+        <li>Логіка «далі → далі»</li>
+      </ul>
+    </div>
+
+    <!-- bullet-tight -->
+    <div>
+      <span class="demo-label">bullet-tight</span>
+      <ul class="bullet-tight">
+        <li>Bullet-tight — щільний список</li>
+        <li>Мінімум повітря між рядками</li>
+        <li>Зручно в картках і stage</li>
+      </ul>
+    </div>
+
+    <!-- icon-list -->
+    <div>
+      <span class="demo-label">icon-list · icon-list__mark</span>
+      <ul class="icon-list">
+        <li><span class="icon-list__mark">A</span><span>Icon-list — маркер-літера або цифра</span></li>
+        <li><span class="icon-list__mark">B</span><span>Варіанти / пріоритети</span></li>
+        <li><span class="icon-list__mark">1</span><span>Можна мішати літери й цифри</span></li>
+      </ul>
+    </div>
+
+    <!-- kv-list -->
+    <div>
+      <span class="demo-label">kv-list · kv-row · kv-key · kv-val</span>
+      <div class="kv-list">
+        <div class="kv-row"><div class="kv-key">Тривалість</div><div class="kv-val">2–2,5 години</div></div>
+        <div class="kv-row"><div class="kv-key">Формат</div><div class="kv-val">Онлайн</div></div>
+        <div class="kv-row"><div class="kv-key">Результат</div><div class="kv-val">План на 3–5 кроків</div></div>
+      </div>
+    </div>
+
+    <!-- tag-pair -->
+    <div>
+      <span class="demo-label">tag-pair</span>
+      <p style="margin:10px 0 0;"><span class="tag-pair"><b>Старт:</b> попередня зустріч</span> · <span class="tag-pair"><b>Оплата:</b> після аудиту</span></p>
+    </div>
+
+    <!-- price-tag -->
+    <div>
+      <span class="demo-label">price-tag · price-tag__value · price-tag__note</span>
+      <div class="price-tag">
+        <div class="price-tag__value">6 000 ₴</div>
+        <div class="price-tag__note">приклад ціни · 2 години</div>
+      </div>
+    </div>
+
+    <!-- step-num -->
+    <div>
+      <span class="demo-label">step-num · step-num__n · step-num__t</span>
+      <div class="step-num">
+        <div class="step-num__n">1</div>
+        <div class="step-num__t"><strong>Step-num:</strong> номер у квадраті + текст у ряд.</div>
+      </div>
+      <div class="step-num">
+        <div class="step-num__n">2</div>
+        <div class="step-num__t">Кілька підряд всередині detail / stage.</div>
+      </div>
+    </div>
+
+    <!-- num-inline -->
+    <div>
+      <span class="demo-label">num-inline</span>
+      <p style="margin:10px 0 0;"><span class="num-inline">1</span> Num-inline у реченні · <span class="num-inline">2</span> без окремого рядка</p>
+    </div>
+
+    <!-- time-stamp -->
+    <div>
+      <span class="demo-label">time-stamp</span>
+      <div style="margin-top:10px;">
+        <span class="time-stamp">Тиждень 1–2</span>
+        <p style="margin:0;">Time-stamp над абзацом етапу</p>
+      </div>
+    </div>
+
+    <!-- metric-pill -->
+    <div>
+      <span class="demo-label">metric-pill · metric-pill-row · metric-pill__n · metric-pill__l</span>
+      <div class="metric-pill-row">
+        <div class="metric-pill"><div class="metric-pill__n">20+</div><div class="metric-pill__l">років досвіду</div></div>
+        <div class="metric-pill"><div class="metric-pill__n">5–7</div><div class="metric-pill__l">KPI</div></div>
+        <div class="metric-pill"><div class="metric-pill__n">1</div><div class="metric-pill__l">старт-зустріч</div></div>
+      </div>
+    </div>
+
+    <!-- avatar-row -->
+    <div>
+      <span class="demo-label">avatar-row · avatar-row__faces · avatar-row__text</span>
+      <div class="avatar-row">
+        <div class="avatar-row__faces">
+          <img src="/assets/images/me.jpg" alt="">
+          <img src="/assets/images/me.jpg" alt="">
+          <img src="/assets/images/me.jpg" alt="">
+        </div>
+        <div class="avatar-row__text"><b>Власник + команда</b><br>передача системи, не «файл і до побачення»</div>
+      </div>
+    </div>
+
+    <!-- link-row -->
+    <div>
+      <span class="demo-label">link-row</span>
+      <ul class="link-row">
+        <li><a href="/upravlinskiy-oblik/">Управлінський облік</a></li>
+        <li><a href="/upravlinnya-vytratamy/">Витрати</a></li>
+        <li><a href="/vlasnytskyi-oblik/">Власницький контроль</a></li>
+      </ul>
+    </div>
+
+    <!-- text-cols -->
+    <div>
+      <span class="demo-label">text-cols</span>
+      <div class="text-cols">
+        <p><b>Ліва колонка.</b> Два абзаци поруч усередині секції, без окремих карток.</p>
+        <p><b>Права колонка.</b> Зручно для короткого порівняння або двох тез.</p>
+      </div>
+    </div>
+
+    <!-- caption -->
+    <div>
+      <span class="demo-label">caption</span>
+      <p class="caption">Caption — підпис під зображенням або прикладом</p>
+    </div>
+
+    <!-- badge-title -->
+    <div>
+      <span class="demo-label">badge-title · badge · badge--yellow</span>
+      <div class="badge-title" style="margin-top:10px;">
+        <span class="badge">badge</span>
+        <h3 style="font-size:20px;">Badge над заголовком</h3>
+      </div>
+      <div class="badge-title">
+        <span class="badge badge--yellow">badge--yellow</span>
+        <h3 style="font-size:18px;">Жовтий варіант бейджа</h3>
+      </div>
+    </div>
+
+    <!-- divider-label -->
+    <div>
+      <span class="demo-label">divider-label</span>
+      <div class="divider-label"><span>роздільник з підписом</span></div>
+    </div>
+
+    <!-- hr-soft -->
+    <div>
+      <span class="demo-label">hr-soft</span>
+      <hr class="hr-soft">
+      <p style="margin:0;font-size:14px;color:#888;">↑ м’яка лінія-роздільник</p>
+    </div>
+
   </div>
 </section>
 
@@ -241,12 +376,12 @@
 
 <!-- intro already above; showcase key blocks compactly -->
 
-<div class="demo-section-gap"><span class="demo-label">hl-block</span><h2>Акцентна смуга</h2></div>
+<div class="demo-section-gap"><span class="demo-label">03 · hl-block</span><h2>Акцентна смуга</h2></div>
 <div class="hl-block ec-animate">
   <p class="hl-block__text">Не просто знати цифри. А <b>розуміти</b>, що вони означають для бізнесу.</p>
 </div>
 
-<div class="demo-section-gap"><span class="demo-label">cf-block</span><h2>Порівняння 2 колонок</h2></div>
+<div class="demo-section-gap"><span class="demo-label">04 · cf-block · cf-block__col</span><h2>Порівняння 2 колонок</h2></div>
 <section class="cf-block ec-animate">
   <div class="cf-block__heading">
     <p class="ec-kicker">ПОРІВНЯННЯ</p>
@@ -258,7 +393,7 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">tg-block</span><h2>Три картки</h2></div>
+<div class="demo-section-gap"><span class="demo-label">05 · tg-block · tg-card</span><h2>Три картки</h2></div>
 <section class="tg-block ec-animate">
   <div class="tg-block__heading"><p class="ec-kicker">ЗВІТНІСТЬ</p><h2>Було / є / буде</h2></div>
   <div class="tg-block__grid">
@@ -268,7 +403,7 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">nr-block</span><h2>Нумеровані результати</h2></div>
+<div class="demo-section-gap"><span class="demo-label">06 · nr-block · nr-item</span><h2>Нумеровані результати</h2></div>
 <section class="nr-block ec-animate">
   <div class="nr-block__heading"><p class="ec-kicker">РЕЗУЛЬТАТ</p><h2>Три опори</h2></div>
   <div class="nr-list">
@@ -278,7 +413,7 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">fl-block</span><h2>Flow-ланцюжок</h2></div>
+<div class="demo-section-gap"><span class="demo-label">07 · fl-block · fl-block__node</span><h2>Flow-ланцюжок</h2></div>
 <div class="fl-block ec-animate">
   <div class="fl-block__track">
     <span class="fl-block__node">Знайомство</span><span class="fl-block__sep">→</span>
@@ -288,7 +423,7 @@
   </div>
 </div>
 
-<div class="demo-section-gap"><span class="demo-label">st-block</span><h2>Етапи (вертикальні)</h2></div>
+<div class="demo-section-gap"><span class="demo-label">09 · st-block · st-step · st-step__result</span><h2>Етапи (вертикальні)</h2></div>
 <section class="st-block ec-animate">
   <div class="st-block__heading"><p class="ec-kicker">ЕТАПИ</p><h2>Як проходить проєкт</h2></div>
   <div class="st-block__intro">
@@ -310,7 +445,7 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">st-h</span><h2>Етапи горизонтальні</h2></div>
+<div class="demo-section-gap"><span class="demo-label">28 · st-h · st-h__item</span><h2>Етапи горизонтальні</h2></div>
 <section class="st-h ec-animate">
   <div class="st-h__heading"><p class="ec-kicker">ШЛЯХ</p><h2>4 кроки</h2></div>
   <div class="st-h__track">
@@ -321,7 +456,7 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">ic-block · ps-grid · cg-grid</span><h2>Сітки карток</h2></div>
+<div class="demo-section-gap"><span class="demo-label">10 · ic-block · 17 · ps-grid · 18 · cg-grid</span><h2>Сітки карток</h2></div>
 <section class="ic-block ec-animate">
   <div class="ic-block__heading"><p class="ec-kicker">ОПОРИ</p><h2>Іконкові картки</h2></div>
   <div class="ic-grid">
@@ -332,6 +467,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">17 · ps-grid · ps-card</span></div>
 <section class="ps-grid-wrap ec-animate">
   <div class="ps-grid-wrap__heading"><p class="ec-kicker">КРОКИ</p><h2>Горизонтальні ps-картки</h2></div>
   <div class="ps-grid">
@@ -342,6 +478,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">18 · cg-grid · cg-card</span></div>
 <section class="cg-wrap ec-animate">
   <div class="cg-wrap__heading"><p class="ec-kicker">ФОРМАТИ</p><h2>Сітка 2×N</h2></div>
   <div class="cg-grid">
@@ -350,7 +487,8 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">xp / xp-round / ex-frame</span><h2>Експертиза — 3 варіанти</h2></div>
+<div class="demo-section-gap"><span class="demo-label">08 · xp-block · 26 · xp-round · 20 · ex-frame</span><h2>Експертиза — 3 варіанти</h2></div>
+<div class="demo-section-gap"><span class="demo-label">08 · xp-block · xp-block__photo · xp-block__body</span></div>
 <section class="xp-block ec-animate">
   <div class="xp-block__inner">
     <div class="xp-block__top">
@@ -366,6 +504,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">26 · xp-round · xp-round__photo</span></div>
 <section class="xp-round ec-animate">
   <div class="xp-round__grid">
     <div class="xp-round__lead">
@@ -378,6 +517,7 @@
   <div class="xp-round__body"><p>Body під лідом і фото.</p></div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">20 · ex-frame · ex-frame__photo</span></div>
 <section class="ex-frame-wrap ec-animate">
   <div class="ex-frame">
     <div class="ex-frame__text">
@@ -389,7 +529,8 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">qz · ab · sw · rs</span><h2>Цитати / було-стало</h2></div>
+<div class="demo-section-gap"><span class="demo-label">11 · qz-block · 45 · ab-card · 13 · sw-block · 19 · rs-block</span><h2>Цитати / було-стало</h2></div>
+<div class="demo-section-gap"><span class="demo-label">11 · qz-block · qz-block__quote</span></div>
 <div class="qz-block ec-animate">
   <div class="qz-block__inner">
     <p class="qz-block__quote">Цифри потрібні, щоб <b>керувати</b> бізнесом.</p>
@@ -397,6 +538,7 @@
   </div>
 </div>
 
+<div class="demo-section-gap"><span class="demo-label">45 · ab-card · ab-card__was · ab-card__now</span></div>
 <section class="ab-wrap ec-animate">
   <div class="ab-wrap__heading"><p class="ec-kicker">AB-CARD</p><h2>До / Після</h2></div>
   <div class="ab-card">
@@ -405,6 +547,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">13 · sw-block · sw-col · sw-arrow</span></div>
 <section class="sw-block ec-animate">
   <div class="sw-block__heading"><p class="ec-kicker">SW-BLOCK</p><h2>Було → стало (зі стрілкою)</h2></div>
   <div class="sw-pair">
@@ -414,6 +557,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">19 · rs-block · rs-quote</span></div>
 <section class="rs-block ec-animate">
   <div class="rs-block__inner">
     <div class="rs-block__heading"><p class="ec-kicker">RS-BLOCK</p><h2>Результат з quote</h2></div>
@@ -425,7 +569,8 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">mx · vc · rc · check-cols · stack</span><h2>Контент-сітки</h2></div>
+<div class="demo-section-gap"><span class="demo-label">12 · mx-block · 22 · vc-cards · 23 · rc-grid · 48 · check-cols · 59 · stack-cards</span><h2>Контент-сітки</h2></div>
+<div class="demo-section-gap"><span class="demo-label">12 · mx-block · mx-block__panel</span></div>
 <section class="mx-block ec-animate">
   <div class="mx-block__grid">
     <div class="mx-block__text">
@@ -440,6 +585,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">22 · vc-cards · vc-flow</span></div>
 <section class="vc-wrap ec-animate">
   <div class="vc-wrap__heading"><p class="ec-kicker">VC-CARDS</p><h2>Картки з flow</h2></div>
   <div class="vc-cards">
@@ -451,6 +597,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">23 · rc-grid · rc-card</span></div>
 <section class="rc-wrap ec-animate">
   <div class="rc-wrap__heading"><p class="ec-kicker">RC-GRID</p><h2>Картки зі списками</h2></div>
   <div class="rc-grid">
@@ -460,6 +607,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">48 · check-cols · check-col</span></div>
 <section class="check-cols-wrap ec-animate">
   <div class="check-cols-wrap__heading"><p class="ec-kicker">CHECK-COLS</p><h2>Три колонки списків</h2></div>
   <div class="check-cols">
@@ -469,6 +617,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">59 · stack-cards · stack-card</span></div>
 <section class="stack-wrap ec-animate">
   <div class="stack-wrap__heading"><p class="ec-kicker">STACK-CARDS</p><h2>Картки з тінню</h2></div>
   <div class="stack-cards">
@@ -478,7 +627,8 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">fw · tb · cmp · feat · progress · timeline</span><h2>Формат / таблиці / ряди</h2></div>
+<div class="demo-section-gap"><span class="demo-label">33 · fw-block · 14 · tb-block · 24 · cmp-table · 29 · feat-row · 49 · progress · 32 · timeline</span><h2>Формат / таблиці / ряди</h2></div>
+<div class="demo-section-gap"><span class="demo-label">33 · fw-block · fw-cell</span></div>
 <section class="fw-block ec-animate">
   <div class="fw-block__heading"><p class="ec-kicker">FW-BLOCK</p><h2>Формат роботи</h2></div>
   <div class="fw-grid">
@@ -489,12 +639,14 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">14 · tb-block · tb-row</span></div>
 <section class="tb-block ec-animate">
   <div class="tb-block__heading"><p class="ec-kicker">TB-BLOCK</p><h2>Мітка / значення</h2></div>
   <div class="tb-row"><div class="tb-label">Формат</div><div class="tb-value">Онлайн</div></div>
   <div class="tb-row"><div class="tb-label">Старт</div><div class="tb-value">Знайомство</div></div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">24 · cmp-table</span></div>
 <section class="cmp-wrap ec-animate">
   <div class="cmp-wrap__heading"><p class="ec-kicker">CMP-TABLE</p><h2>Порівняльна таблиця</h2></div>
   <div class="cmp-table-wrap">
@@ -508,6 +660,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">29 · feat-row · feat-row__num</span></div>
 <section class="feat-wrap ec-animate">
   <div class="feat-wrap__heading"><p class="ec-kicker">FEAT-ROW</p><h2>Фічі з номером</h2></div>
   <div class="feat-list">
@@ -516,6 +669,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">49 · progress · progress-bar</span></div>
 <section class="progress-wrap ec-animate">
   <div class="progress-list">
     <div class="progress-item"><label>Фокус на прибутку <span>високий</span></label><div class="progress-bar"><span style="width:90%"></span></div></div>
@@ -523,6 +677,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">32 · timeline · tl-item</span></div>
 <section class="tl-wrap ec-animate">
   <div class="tl-wrap__heading"><p class="ec-kicker">TIMELINE</p><h2>Вертикальна лінія</h2></div>
   <div class="tl-list">
@@ -531,12 +686,14 @@
   </div>
 </section>
 
-<div class="demo-section-gap"><span class="demo-label">CTA · final · booking</span><h2>Заклики до дії</h2></div>
+<div class="demo-section-gap"><span class="demo-label">15 · ct-strip · 27 · bn-strip · 30 · split-cta · 60 · hero-mini · 36 · bk-block · 35 · vz-block · 34 · fn-burgundy</span><h2>Заклики до дії</h2></div>
+<div class="demo-section-gap"><span class="demo-label">15 · ct-strip</span></div>
 <div class="ct-strip ec-animate">
   <p>Вузький CTA-рядок: текст + кнопка</p>
   <div class="ec-booking-card card"><button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ</button></div>
 </div>
 
+<div class="demo-section-gap"><span class="demo-label">27 · bn-strip</span></div>
 <div class="bn-strip ec-animate">
   <div class="bn-strip__inner">
     <div class="bn-strip__text"><h2>Бордова смуга</h2><p>Яскравий акцент між секціями</p></div>
@@ -544,11 +701,13 @@
   </div>
 </div>
 
+<div class="demo-section-gap"><span class="demo-label">30 · split-cta · split-cta__card</span></div>
 <div class="split-cta ec-animate">
   <div class="split-cta__card"><h3>Зустріч</h3><p>Без зобов’язань.</p><button class="ec-main-btn" onclick="openPricePopup(event)">ЗАПИС</button></div>
   <div class="split-cta__card split-cta__card--accent"><h3>Проєкт</h3><p>Під ключ.</p><button class="ec-main-btn" onclick="openPricePopup(event)">ОБГОВОРИТИ</button></div>
 </div>
 
+<div class="demo-section-gap"><span class="demo-label">60 · hero-mini</span></div>
 <div class="hero-mini ec-animate">
   <div class="hero-mini__inner">
     <h2>Міні-банер без фото</h2>
@@ -557,6 +716,7 @@
   </div>
 </div>
 
+<div class="demo-section-gap"><span class="demo-label">36 · bk-block</span></div>
 <section class="bk-block ec-animate">
   <div class="bk-block__box">
     <div class="bk-block__heading"><p class="ec-kicker">BK-BLOCK</p><h2>Як записатися</h2></div>
@@ -565,6 +725,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">35 · vz-block</span></div>
 <section class="vz-block ec-animate">
   <div class="vz-block__box">
     <div class="vz-block__heading"><p class="ec-kicker">VZ-BLOCK</p><h2>Важливо / кому не підійде</h2></div>
@@ -572,6 +733,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">34 · fn-burgundy</span></div>
 <section class="fn-burgundy ec-animate">
   <div class="fn-burgundy__box">
     <p class="fn-burgundy__kicker">FN-BURGUNDY</p>
@@ -581,6 +743,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">31 · stat-row · stat-item</span></div>
 <section class="stat-wrap ec-animate">
   <div class="stat-row">
     <div class="stat-item"><div class="stat-item__value">20+</div><div class="stat-item__label">років</div></div>
@@ -590,6 +753,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">61 · side-note</span></div>
 <section class="side-note ec-animate">
   <div class="side-note__main">
     <p class="ec-kicker">SIDE-NOTE</p>
@@ -599,6 +763,7 @@
   <aside class="side-note__aside"><strong>На практиці</strong>Часто справа не в «більше продажів», а в собівартості.</aside>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">62 · checklist-box</span></div>
 <section class="checklist-box ec-animate">
   <div class="checklist-box__inner">
     <h2>Checklist-box</h2>
@@ -609,6 +774,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">47 · media-text</span></div>
 <section class="media-text ec-animate">
   <div class="media-text__img"><img src="/assets/images/me.jpg" alt=""></div>
   <div class="media-text__body">
@@ -618,6 +784,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">46 · faq-mini</span></div>
 <section class="faq-mini-wrap ec-animate">
   <div class="faq-mini-wrap__heading"><p class="ec-kicker">FAQ-MINI</p><h2>Питання без акордеону</h2></div>
   <div class="faq-mini">
@@ -626,6 +793,7 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">51 · toggle-pair (JS)</span></div>
 <section class="toggle-pair-wrap ec-animate" data-toggle-pair>
   <div class="toggle-pair-wrap__heading"><p class="ec-kicker">TOGGLE-PAIR</p><h2>Вкладки (з JS)</h2></div>
   <div class="toggle-tabs" role="tablist">
@@ -640,11 +808,13 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">58 · two-quote</span></div>
 <div class="two-quote ec-animate">
   <div class="two-quote__item"><p>«Розуміти цифри, а не лише бачити»</p><span>ідея</span></div>
   <div class="two-quote__item"><p>«Система — щоб керувати»</p><span>підхід</span></div>
 </div>
 
+<div class="demo-section-gap"><span class="demo-label">21 · is-stages · is-stage</span></div>
 <section class="is-wrap ec-animate">
   <div class="is-wrap__heading"><p class="ec-kicker">IS-STAGES</p><h2>Етапи ISO-стилю</h2></div>
   <div class="is-stages">
@@ -658,6 +828,8 @@
   </div>
 </section>
 
+<div class="demo-section-gap"><span class="demo-label">25 · cn-note</span></div>
+<p class="cn-note
 <p class="cn-note ec-animate">CN-NOTE — м’яка примітка під секцією. <b>Без рамки.</b></p>
 
 <section class="ec-final ec-animate">
