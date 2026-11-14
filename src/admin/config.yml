@@ -1,0 +1,3974 @@
+backend:
+  name: github
+  repo: OWNER/REPO
+  branch: main
+media_folder: src/assets/images
+public_folder: /assets/images
+locale: uk
+collections:
+- name: home
+  label: Головна сторінка
+  files:
+  - name: sections
+    label: Розділи та картки
+    file: src/_data/home.json
+    format: json
+    fields:
+    - label: Розділи
+      name: sections
+      widget: list
+      label_singular: розділ
+      summary: '{{fields.title}}'
+      fields:
+      - label: 'ID розділу (латиницею, для якоря #id)'
+        name: id
+        widget: string
+      - label: Заголовок розділу
+        name: title
+        widget: string
+      - label: Підзаголовок
+        name: subtitle
+        widget: string
+        required: false
+      - label: Картки
+        name: cards
+        widget: list
+        label_singular: картку
+        summary: '{{fields.title}}'
+        fields:
+        - label: Назва (також іде в заявку/лист)
+          name: title
+          widget: string
+        - label: Заголовок на картці (якщо інший, ніж назва)
+          name: heading
+          widget: string
+          required: false
+        - label: Картинка
+          name: image
+          widget: image
+        - label: Короткий опис
+          name: description
+          widget: markdown
+          buttons:
+          - bold
+          - italic
+          - bulleted-list
+          editor_components: []
+          modes:
+          - rich_text
+        - label: Сторінка продукту (напр. /ekspres-konsultaciya/)
+          name: link
+          widget: string
+          required: false
+        - label: Кнопка на картці
+          name: button_action
+          widget: select
+          options:
+          - label: Форма запису/оплати
+            value: price
+          - label: Календар бронювання
+            value: booking
+          - label: Без кнопки
+            value: none
+          default: price
+        - label: Текст кнопки
+          name: button_label
+          widget: string
+          default: Записатися
+          required: false
+        - label: Ціна (напр. 250 ₴, порожньо якщо договірна)
+          name: price
+          widget: string
+          required: false
+        - label: Посилання на оплату WayForPay
+          name: pay_link
+          widget: string
+          required: false
+        - label: Шаблон листа
+          name: email_template
+          widget: select
+          options:
+          - label: Безкоштовний
+            value: free
+          - label: Платний
+            value: paid
+          default: free
+        - label: Надсилати лист
+          name: send_email
+          widget: boolean
+          default: true
+        - label: Перенаправляти після відправки
+          name: redirect
+          widget: boolean
+          default: false
+- name: pages
+  label: Сторінки продуктів
+  label_singular: сторінку
+  folder: src/_content/pages
+  extension: json
+  format: json
+  create: true
+  slug: '{{fields.slug}}'
+  summary: '{{title}}'
+  fields:
+  - label: Адреса сторінки (латиницею, напр. ekspres-konsultaciya)
+    name: slug
+    widget: string
+  - label: Заголовок (title для Google)
+    name: title
+    widget: string
+  - label: Опис для Google
+    name: description
+    widget: text
+  - label: Заголовок для соцмереж
+    name: og_title
+    widget: string
+    required: false
+  - label: Опис для соцмереж
+    name: og_description
+    widget: text
+    required: false
+  - label: Картинка для соцмереж
+    name: og_image
+    widget: image
+    required: false
+  - label: Файл стилів (/css/new-pages.css — для нових сторінок)
+    name: css
+    widget: string
+    default: /css/new-pages.css
+  - label: Верхній екран (hero)
+    name: hero
+    widget: object
+    fields:
+    - label: Картинка
+      name: image
+      widget: image
+    - label: Alt картинки
+      name: alt
+      widget: string
+      required: false
+    - label: Назва
+      name: title
+      widget: string
+    - label: Другий рядок
+      name: headline
+      widget: string
+      required: false
+    - label: Тег другого рядка
+      name: headline_tag
+      widget: select
+      options:
+      - h1
+      - div
+      default: h1
+    - label: Підзаголовок
+      name: sub
+      widget: string
+      required: false
+    - label: Порожній рядок знизу (br)
+      name: br
+      widget: boolean
+      default: true
+  - label: Хлібні крихти (остання ланка)
+    name: breadcrumb
+    widget: string
+  - label: Дані заявки (йдуть на бекенд)
+    name: booking
+    widget: object
+    fields:
+    - label: Назва продукту
+      name: product
+      widget: string
+      required: false
+    - label: Ціна
+      name: price
+      widget: string
+      required: false
+    - label: Посилання на оплату
+      name: pay_link
+      widget: string
+      required: false
+    - label: Шаблон листа
+      name: email_template
+      widget: select
+      options:
+      - label: Безкоштовний
+        value: free
+      - label: Платний
+        value: paid
+      default: free
+    - label: Надсилати лист
+      name: send_email
+      widget: boolean
+      default: true
+    - label: Перенаправляти після відправки
+      name: redirect
+      widget: boolean
+      default: false
+  - label: Дані для Google (Service)
+    name: service
+    widget: object
+    required: false
+    fields:
+    - label: Короткий опис послуги
+      name: description
+      widget: text
+      required: false
+    - label: Картинка послуги
+      name: image
+      widget: image
+      required: false
+    - label: Ціна числом (напр. 250)
+      name: price_number
+      widget: string
+      required: false
+    - label: Тип послуги
+      name: service_type
+      widget: string
+      required: false
+  - name: jsonld_head
+    widget: hidden
+    required: false
+  - name: bottom_file
+    widget: hidden
+    required: false
+  - name: booking_css
+    widget: hidden
+    required: false
+  - name: cta
+    widget: hidden
+    required: false
+  - label: Блоки сторінки (додайте, перетягніть, видаліть)
+    name: blocks
+    widget: list
+    label_singular: блок
+    summary: '{{fields.type}}: {{fields.title}}'
+    types:
+    - label: Вступ (фото + текст + кнопка)
+      name: intro
+      widget: object
+      summary: '{{fields.title}}'
+      fields:
+      - label: Картинка
+        name: image
+        widget: image
+      - label: Підпис до картинки (для Google)
+        name: image_alt
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Текст
+        name: body
+        widget: markdown
+        required: false
+        buttons: &id004
+        - bold
+        - italic
+        - bulleted-list
+        modes: &id005
+        - rich_text
+        editor_components: &id006 []
+      - label: Дані під текстом (формат, тривалість…)
+        name: meta
+        widget: list
+        required: false
+        fields:
+        - label: Назва
+          name: label
+          widget: string
+        - label: Значення
+          name: value
+          widget: string
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+      - name: elements
+        widget: hidden
+        required: false
+      - name: after
+        widget: hidden
+        required: false
+      - name: text
+        widget: hidden
+        required: false
+      - name: cta_action
+        widget: hidden
+        required: false
+      - name: cta_attrs
+        widget: hidden
+        required: false
+      - name: cta_style
+        widget: hidden
+        required: false
+    - label: ★ Етапи проєкту (кроки з результатом)
+      name: st
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ЕТАПИ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Як проходить проєкт
+      - label: Схема етапів зверху (кожен пункт — один етап; необов’язково)
+        name: flow
+        widget: list
+        required: false
+        field:
+          label: Етап
+          name: item
+          widget: string
+      - label: Знак між пунктами схеми (за замовчуванням →)
+        name: flow_sep
+        widget: string
+        required: false
+        default: →
+      - label: Вступний етап — заголовок
+        name: intro_title
+        widget: markdown
+        buttons: &id001
+        - bold
+        - italic
+        modes: &id002
+        - rich_text
+        editor_components: &id003 []
+        required: false
+        default: Перша зустріч
+      - label: Позначка в заголовку (напр. «(безкоштовно)»)
+        name: intro_tag
+        widget: string
+        required: false
+        default: (безкоштовно)
+      - label: Вступний етап — текст
+        name: intro_text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Обговорюємо бізнес і запит.
+      - label: Етапи
+        name: steps
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Опис етапу (абзаци та список)
+          name: text
+          widget: markdown
+          hint: Жирний — кнопка B. Список — кнопка зі списком.
+          buttons: *id004
+          modes: *id005
+          editor_components: *id006
+        - label: Вставки (додаткові елементи в цьому блоці)
+          name: inserts
+          widget: list
+          required: false
+          label_singular: вставку
+          add_to: bottom
+          hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+          types: &id007
+          - label: ＋ chips · chip · chip--accent
+            name: chips
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              fields:
+              - label: Вигляд
+                name: variant
+                widget: select
+                default: chip
+                options:
+                - label: Звичайний
+                  value: chip
+                - label: Варіант accent
+                  value: chip chip--accent
+              - label: Текст
+                name: _
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+              summary: '{{fields._}}'
+              default:
+              - variant: chip
+                _: управлінський облік
+              - variant: chip chip--accent
+                _: план-факт
+              - variant: chip
+                _: KPI
+              - variant: chip
+                _: бюджет
+          - label: ＋ pill-meta · pill-meta__item
+            name: pill_meta
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - <span>Формат</span>**Онлайн**
+              - <span>Старт</span>**Знайомство**
+              - <span>Тривалість</span>**2 год**
+          - label: ＋ label-row · label-row__tag · label-row__tag--soft
+            name: label_row
+            widget: object
+            summary: '{{fields.label_row}}'
+            fields:
+            - label: Текст (label row)
+              name: label_row
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: <span class="label-row__tag">Онлайн</span> <span>Zoom, без виїзду</span>
+          - label: ＋ split-inline · split-inline__sep
+            name: split_inline
+            widget: object
+            summary: '{{fields.split_inline}}'
+            fields:
+            - label: Текст (split inline)
+              name: split_inline
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: <span>Аудит</span><span class="split-inline__sep">·</span> <span>Система</span><span class="split-inline__sep">·</span> <span>Передача</span>
+          - label: ＋ call-out
+            name: call_out
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Вигляд
+              name: variant
+              widget: select
+              default: call-out
+              options:
+              - label: Звичайний
+                value: call-out
+              - label: Варіант soft
+                value: call-out call-out--soft
+              - label: Варіант warn
+                value: call-out call-out--warn
+            - label: Текст
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: '**Call-out:** важлива думка всередині тексту.'
+          - label: ＋ note-line
+            name: note_line
+            widget: object
+            summary: '{{fields.note_line}}'
+            fields:
+            - label: Текст (note line)
+              name: note_line
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: Однорядкова примітка з маркером «i».
+          - label: ＋ soft-box
+            name: soft_box
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - '**Soft-box** — ледь помітна підкладка під абзац або групу речень.'
+              - Зручно для вторинного тексту без важкої рамки.
+          - label: ＋ highlight-line
+            name: highlight_line
+            widget: object
+            summary: '{{fields.highlight_line}}'
+            fields:
+            - label: Текст (highlight line)
+              name: highlight_line
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: Highlight-line — один акцентний рядок з підкресленням
+          - label: ＋ star-list
+            name: star_list
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - Star-list — пункти з зірочкою
+              - Для коротких «що важливо»
+          - label: ＋ arrow-list
+            name: arrow_list
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - Arrow-list — кроки зі стрілкою
+              - Логіка «далі → далі»
+          - label: ＋ bullet-tight
+            name: bullet_tight
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - Bullet-tight — щільний список
+              - Мінімум повітря між рядками
+              - Зручно в картках і stage
+          - label: ＋ icon-list · icon-list__mark
+            name: icon_list
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - <span class="icon-list__mark">A</span><span>Icon-list — маркер-літера або цифра</span>
+              - <span class="icon-list__mark">B</span><span>Варіанти / пріоритети</span>
+              - <span class="icon-list__mark">1</span><span>Можна мішати літери й цифри</span>
+          - label: ＋ kv-list · kv-row · kv-key · kv-val
+            name: kv_list
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              fields:
+              - label: Текст (kv key)
+                name: kv_key
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+              - label: Текст (kv val)
+                name: kv_val
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+              summary: '{{fields.kv_key}}'
+              default:
+              - kv_key: Тривалість
+                kv_val: 2–2,5 години
+              - kv_key: Формат
+                kv_val: Онлайн
+              - kv_key: Результат
+                kv_val: План на 3–5 кроків
+          - label: ＋ price-tag · price-tag__value · price-tag__note
+            name: price_tag
+            widget: object
+            summary: '{{fields.value}}'
+            fields:
+            - label: Значення
+              name: value
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: 6 000 ₴
+            - label: Примітка
+              name: note
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: приклад ціни · 2 години
+          - label: ＋ step-num · step-num__n · step-num__t
+            name: step_num
+            widget: object
+            summary: '{{fields.n}}'
+            fields:
+            - label: Номер
+              name: n
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: '1'
+            - label: Текст (t)
+              name: t
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: '**Step-num:** номер у квадраті + текст у ряд.'
+          - label: ＋ metric-pill · metric-pill-row · metric-pill__n · metric-pill__l
+            name: metric_pill_row
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              fields:
+              - label: Номер
+                name: n
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+              - label: Підпис
+                name: l
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+              summary: '{{fields.n}}'
+              default:
+              - n: 20+
+                l: років досвіду
+              - n: 5–7
+                l: KPI
+              - n: '1'
+                l: старт-зустріч
+          - label: ＋ avatar-row · avatar-row__faces · avatar-row__text
+            name: avatar_row
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              fields:
+              - label: Фото
+                name: photo
+                widget: image
+                required: false
+              - label: Підпис до фото (для Google)
+                name: photo_alt
+                widget: string
+                required: false
+              summary: '{{fields.photo_alt}}'
+              default:
+              - photo: /assets/images/me.jpg
+                photo_alt: ''
+              - photo: /assets/images/me.jpg
+                photo_alt: ''
+              - photo: /assets/images/me.jpg
+                photo_alt: ''
+            - label: Текст
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: "**Власник + команда**  \nпередача системи, не «файл і до побачення»"
+          - label: ＋ link-row
+            name: link_row
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - <a href="/upravlinskiy-oblik/">Управлінський облік</a>
+              - <a href="/upravlinnya-vytratamy/">Витрати</a>
+              - <a href="/vlasnytskyi-oblik/">Власницький контроль</a>
+          - label: ＋ text-cols
+            name: text_cols
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Елементи
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - '**Ліва колонка.** Два абзаци поруч усередині секції, без окремих карток.'
+              - '**Права колонка.** Зручно для короткого порівняння або двох тез.'
+          - label: ＋ caption
+            name: caption
+            widget: object
+            summary: '{{fields.caption}}'
+            fields:
+            - label: Текст (caption)
+              name: caption
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: Caption — підпис під зображенням або прикладом
+          - label: ＋ badge-title · badge · badge--yellow
+            name: badge_title
+            widget: object
+            summary: '{{fields.badge}}'
+            fields:
+            - label: Текст (badge)
+              name: badge
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: badge
+            - label: Заголовок
+              name: title
+              widget: string
+              hint: Для переносу рядка напишіть <br>
+              default: Badge над заголовком
+          - label: ＋ divider-label
+            name: divider_label
+            widget: object
+            summary: '{{fields.divider_label}}'
+            fields:
+            - label: Текст (divider label)
+              name: divider_label
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: <span>роздільник з підписом</span>
+          - label: ＋ hr-soft
+            name: hr_soft
+            widget: object
+            summary: '{{fields.title}}'
+            fields: []
+          - label: ＋ Схема кроків (А → Б → В)
+            name: flow_track
+            widget: object
+            summary: '{{fields.flow_sep}}'
+            fields:
+            - label: Кроки схеми (кожен — окремий пункт)
+              name: flow
+              widget: list
+              required: false
+              field:
+                label: Етап
+                name: item
+                widget: string
+            - label: Знак між пунктами схеми (за замовчуванням →)
+              name: flow_sep
+              widget: string
+              required: false
+              default: →
+          - label: ＋ Таблиця
+            name: table
+            widget: object
+            summary: '{{fields.head}}'
+            fields:
+            - label: Заголовки стовпців
+              name: head
+              widget: list
+              field:
+                label: Стовпець
+                name: item
+                widget: string
+            - label: Рядки таблиці
+              name: rows
+              widget: list
+              summary: '{{fields.cells}}'
+              fields:
+              - label: Клітинки рядка (по порядку стовпців)
+                name: cells
+                widget: list
+                field:
+                  label: Клітинка
+                  name: item
+                  widget: string
+            hint: 'Заголовки стовпців, далі рядки: клітинки по порядку стовпців.'
+          - label: ＋ Формула (А → Б → В жирним)
+            name: formula_line
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Формула
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+          - label: ＋ Примітка-абзац (під таблицею)
+            name: note_para
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Текст
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+          - label: '＋ Рядок «Результат: …»'
+            name: result_line
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Результат
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+        - label: Результат етапу
+          name: result
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Аудит
+          text: '- облік і звітність
+
+            - прогалини'
+          inserts:
+          - type: result_line
+            text: обсяг робіт
+        - title: Впровадження
+          text: Система під ваш бізнес.
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+      - label: Текст кнопки (порожньо — без кнопки)
+        name: cta_text
+        widget: string
+        required: false
+    - label: ★ Акцентна смуга
+      name: hl
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Не просто знати цифри. А **розуміти**, що вони означають для бізнесу.
+      hint: Одне речення. Виділіть головне слово жирним.
+    - label: ★ Порівняння 2 колонок
+      name: cf
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ПОРІВНЯННЯ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Бухгалтерський vs управлінський
+      - label: Вступ під заголовком
+        name: lead
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Ліва колонка — заголовок
+        name: col1_title
+        widget: string
+        required: false
+        default: Бухгалтерський
+      - label: Ліва колонка — пункти
+        name: col1_items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - Що вже відбулося
+        - Податкова звітність
+      - label: Права колонка (виділена) — заголовок
+        name: col2_title
+        widget: string
+        required: false
+        default: Управлінський
+      - label: Права колонка — пункти
+        name: col2_items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - Що зараз і чому
+        - Яке рішення прийняти
+    - label: ★ Три картки з міткою
+      name: tg
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ЗВІТНІСТЬ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Було / є / буде
+      - label: Вступ під заголовком
+        name: intro
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Мітка (напр. «Минуле»)
+          name: label
+          widget: string
+          required: false
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст картки
+          name: text
+          widget: markdown
+          hint: Жирний — кнопка B. Список — кнопка зі списком.
+          buttons: *id004
+          modes: *id005
+          editor_components: *id006
+        summary: '{{fields.label}}'
+        default:
+        - label: Минуле
+          title: Як було?
+          text: Що спрацювало за період.
+        - label: Сьогодні
+          title: Як є?
+          text: Динаміка зараз.
+        - label: Майбутнє
+          title: Як буде?
+          text: Що, якщо тенденція збережеться.
+    - label: ★ Нумеровані результати
+      name: nr
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: РЕЗУЛЬТАТ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Три опори
+      - label: Пункти
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Фінансова картина
+          text: Виручка, маржа, прибуток.
+        - title: План → Факт
+          text: Відхилення з причинами.
+        - title: 5–7 KPI
+          text: Ті, що впливають на прибуток.
+    - label: ★ Картки з номерами 01, 02…
+      name: ic
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ОПОРИ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Іконкові картки
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Прозорість
+          text: Структура доходів і витрат.
+        - title: Контроль
+          text: План-факт.
+        - title: Рішення
+          text: Що робити далі.
+        - title: Масштаб
+          text: Росте з бізнесом.
+    - label: ★ Цифри в рядок
+      name: stat
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Цифри
+        name: items
+        widget: list
+        fields:
+        - label: Цифра (напр. 20+)
+          name: value
+          widget: string
+          required: false
+        - label: Підпис
+          name: label
+          widget: string
+          required: false
+        summary: '{{fields.value}}'
+        default:
+        - value: 20+
+          label: років
+        - value: 5–7
+          label: KPI
+        - value: '1'
+          label: старт
+        - value: 100%
+          label: під бізнес
+    - label: ★ Цитата
+      name: qz
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Цитата
+        name: quote
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Цифри потрібні, щоб **керувати** бізнесом.
+      - label: Підпис (необов’язково)
+        name: author
+        widget: string
+        required: false
+        default: Принцип
+    - label: ★ Вузький заклик з кнопкою
+      name: ct
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: 'Вузький CTA-рядок: текст + кнопка'
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+        default: ОБГОВОРИТИ
+    - label: ★ Бордова смуга з кнопкою
+      name: bn
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        default: Бордова смуга
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Яскравий акцент між секціями
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+        default: ЗАПИСАТИСЯ
+    - label: ★ Болі власника (список)
+      name: pain
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ЗНАЙОМО?
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Типові ситуації
+      - label: Ситуації
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - '**Виручка росте** — а вільних грошей не більше.'
+        - '**Звіти є** — але з них незрозуміло, що робити наступного тижня.'
+        - '**Кілька напрямів** — і неясно, який тягне прибуток, а який з’їдає ресурс.'
+        - '**Рішення «на відчуттях»** — ціна помилки зі зростанням бізнесу стає вищою.'
+      hint: Початок речення виділіть жирним — так і задумано.
+    - label: ★ Для кого (ролі)
+      name: who
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ДЛЯ КОГО
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Кому це потрібно
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Роль (напр. «Власник»)
+          name: role
+          widget: string
+          required: false
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.role}}'
+        default:
+        - role: Власник
+          title: Бачити бізнес за цифрами
+          text: Коли оборот є, а прибуток і «куди йдуть гроші» — ні.
+        - role: Керівник
+          title: Керувати на фактах
+          text: План-факт, відповідальні, зрозумілі показники для команди.
+        - role: На етапі росту
+          title: Система замість ручного контролю
+          text: Коли «тримати все в голові» вже не працює.
+    - label: ★ Що отримаєте (картки)
+      name: outcome
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: РЕЗУЛЬТАТ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Після впровадження
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Реальна картина
+          text: Виручка, собівартість, маржа, прибуток — без здогадок.
+        - title: Контроль відхилень
+          text: План → факт → причина → дія, а не «чому знову не так».
+        - title: Рішення наперед
+          text: Моделювання «що буде, якщо…» до того, як витратити ресурс.
+        - title: Система в команді
+          text: Правила й відповідальність — щоб працювало після проєкту.
+    - label: ★ Вільний текст (без рамки)
+      name: tx
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Вигляд
+        name: variant
+        widget: select
+        default: tx-block ec-animate
+        options:
+        - label: Звичайний
+          value: tx-block ec-animate
+        - label: Вужчий
+          value: tx-block tx-block--narrow ec-animate
+        - label: По центру
+          value: tx-block tx-block--center ec-animate
+        - label: З лінією зверху
+          value: tx-block tx-block--rule ec-animate
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ПІДХІД
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Що ми робимо в проєкті
+      - label: Текст
+        name: body
+        widget: markdown
+        hint: Жирний — кнопка B. Список — кнопка зі списком.
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+        default: 'Я допомагаю подивитися на бізнес **не через одну проблему, а як на цілісну систему**.
+
+
+          Стратегія, фінанси, управління, процеси, команда, KPI і роль власника розглядаються разом — тому план не закінчується красивою фразою в презентації.'
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+    - label: ★ ланцюжок
+      name: fl_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Текст (track)
+        name: track
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: <span class="fl-block__node">Знайомство</span><span class="fl-block__sep">→</span> <span class="fl-block__node">Аудит</span><span class="fl-block__sep">→</span>
+          <span class="fl-block__node">Впровадження</span><span class="fl-block__sep">→</span> <span class="fl-block__node">Передача</span>
+    - label: ★ Етапи горизонтальні
+      name: st_h
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: ШЛЯХ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: 4 кроки
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Знайомство
+          text: Запит
+        - title: Аудит
+          text: Що є
+        - title: Система
+          text: Побудова
+        - title: Передача
+          text: Команда
+    - label: ★ Ps grid wrap
+      name: ps_grid_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: КРОКИ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Горизонтальні ps-картки
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Заявка
+          text: Фіксуємо запит
+        - title: Зустріч
+          text: Розбір ситуації
+        - title: Аналіз
+          text: Між зустрічами
+        - title: Висновки
+          text: Наступні кроки
+    - label: ★ Cg wrap
+      name: cg_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: ФОРМАТИ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Сітка 2×N
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Індивідуально
+          text: Один на один з фокусом на запит.
+        - title: Супровід
+          text: Підтримка між сесіями.
+    - label: ★ Xp block
+      name: xp_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: XP-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Лід + прямокутне фото
+      - label: Текст (roles)
+        name: roles
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: '**Консультант · Coach**'
+      - label: Текст (hook)
+        name: hook
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Фото = висота ліда.
+      - label: Фото
+        name: photo
+        widget: image
+        required: false
+        default: /assets/images/me.jpg
+      - label: Підпис до фото (для Google)
+        name: photo_alt
+        widget: string
+        required: false
+        default: ''
+      - label: Текст під фото (абзаци)
+        name: body
+        widget: markdown
+        hint: Жирний — кнопка B. Список — кнопка зі списком.
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+    - label: ★ Xp round
+      name: xp_round
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: XP-ROUND
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Кругле фото
+      - label: Текст (hook)
+        name: hook
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Компактніший варіант експертизи.
+      - label: Фото
+        name: photo
+        widget: image
+        required: false
+        default: /assets/images/me.jpg
+      - label: Підпис до фото (для Google)
+        name: photo_alt
+        widget: string
+        required: false
+        default: ''
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Body під лідом і фото.
+    - label: ★ Ex frame wrap
+      name: ex_frame_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: EX-FRAME
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Спільна рамка з фото
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Текст і фото в одному блоці (старий mentoring-стиль).
+      - label: Фото
+        name: photo
+        widget: image
+        required: false
+        default: /assets/images/me.jpg
+      - label: Підпис до фото (для Google)
+        name: photo_alt
+        widget: string
+        required: false
+        default: ''
+    - label: ★ Ab wrap
+      name: ab_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: AB-CARD
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: До / Після
+      - label: Підпис
+        name: label
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Було
+      - label: Заголовок 2
+        name: title2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: На відчуттях
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Неясно, де прибуток.
+      - label: Підпис 2
+        name: label2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Стало
+      - label: Заголовок 3
+        name: title3
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: На цифрах
+      - label: Текст 2
+        name: text2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Видно відхилення і крок.
+    - label: ★ Sw block
+      name: sw_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: SW-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Було → стало (зі стрілкою)
+      - label: Підпис
+        name: label
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Було
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Інтуїція замість системи.
+      - label: Текст (sw arrow)
+        name: sw_arrow
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: →
+      - label: Підпис 2
+        name: label2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Стало
+      - label: Текст 2
+        name: text2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Рішення на основі цифр.
+    - label: ★ Rs block
+      name: rs_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: RS-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Результат з quote
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Було
+          text: «Здається, нормально»
+        - title: Стало
+          text: «Бачу, що змінити»
+      - label: Текст (rs quote)
+        name: rs_quote
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: <span>Ключ</span>**Від хаосу в голові — до системи в управлінні.**
+    - label: ★ Mx block
+      name: mx_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: MX-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Текст + панель
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Пояснення зліва, список справа.
+      - label: Заголовок 2
+        name: title2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Розрізи
+      - label: Елементи
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - продукти
+        - напрями
+        - клієнти
+    - label: ★ Vc wrap
+      name: vc_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: VC-CARDS
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Картки з flow
+      - label: Заголовок 2
+        name: title2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Панель власника
+      - label: Текст (vc flow)
+        name: vc_flow
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: '**виручка → витрати → прибуток**'
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: 5–7 показників для рішень.
+    - label: ★ Rc wrap
+      name: rc_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: RC-GRID
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Картки зі списками
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Елементи
+          name: items
+          widget: list
+          field:
+            label: Пункт
+            widget: markdown
+            buttons: *id001
+            modes: *id002
+            editor_components: *id003
+            required: false
+            name: item
+        summary: '{{fields.title}}'
+        default:
+        - title: Стратегія
+          items:
+          - пріоритети
+          - фокус
+        - title: Команда
+          items:
+          - ролі
+          - відповідальність
+        - title: План
+          items:
+          - кроки
+          - контроль
+    - label: ★ Check cols wrap
+      name: check_cols_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: CHECK-COLS
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Три колонки списків
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Елементи
+          name: items
+          widget: list
+          field:
+            label: Пункт
+            widget: markdown
+            buttons: *id001
+            modes: *id002
+            editor_components: *id003
+            required: false
+            name: item
+        summary: '{{fields.title}}'
+        default:
+        - title: Аналіз
+          items:
+          - аудит
+          - витрати
+        - title: Система
+          items:
+          - KPI
+          - звіти
+        - title: Передача
+          items:
+          - навчання
+          - правила
+    - label: ★ Stack wrap
+      name: stack_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: STACK-CARDS
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Картки з тінню
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Зустріч
+          text: Запит і доцільність.
+        - title: Система
+          text: Під структуру бізнесу.
+        - title: Передача
+          text: Команда працює сама.
+    - label: ★ Fw block
+      name: fw_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: FW-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Формат роботи
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.text}}'
+        default:
+        - text: '**Тривалість:** 2 год'
+        - text: '**Формат:** онлайн'
+        - text: '**Вартість:** індивід.'
+        - text: '**Результат:** план'
+    - label: ★ Tb block
+      name: tb_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: TB-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Мітка / значення
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Текст (tb label)
+          name: tb_label
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Текст (tb value)
+          name: tb_value
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.tb_label}}'
+        default:
+        - tb_label: Формат
+          tb_value: Онлайн
+        - tb_label: Старт
+          tb_value: Знайомство
+    - label: ★ Feat wrap
+      name: feat_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: FEAT-ROW
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Фічі з номером
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Під ваш бізнес
+          text: Не шаблон.
+        - title: З передачею
+          text: Команда веде далі.
+    - label: ★ Tl wrap
+      name: tl_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: TIMELINE
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Вертикальна лінія
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Текст (meta)
+          name: meta
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.meta}}'
+        default:
+        - meta: Старт
+          title: Знайомство
+          text: Запит і доцільність.
+        - meta: Крок 2
+          title: Діагностика
+          text: Точка А і вузькі місця.
+        - meta: Крок 3
+          title: Впровадження
+          text: Система в роботу.
+        - meta: Фініш
+          title: Передача
+          text: Команда користується сама.
+    - label: ★ Split cta
+      name: split_cta
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Вигляд
+          name: variant
+          widget: select
+          default: split-cta__card
+          options:
+          - label: Звичайний
+            value: split-cta__card
+          - label: Варіант accent
+            value: split-cta__card split-cta__card--accent
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Текст кнопки
+          name: cta_text
+          widget: string
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - variant: split-cta__card
+          title: Зустріч
+          text: Без зобов’язань.
+          cta_text: ЗАПИС
+        - variant: split-cta__card split-cta__card--accent
+          title: Проєкт
+          text: Під ключ.
+          cta_text: ОБГОВОРИТИ
+    - label: ★ Hero mini
+      name: hero_mini
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Міні-банер без фото
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Короткий заклик по центру.
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+        default: ОБГОВОРИТИ
+    - label: ★ Bk block
+      name: bk_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: BK-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Як записатися
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: '**Натисніть кнопку** або напишіть «КОНСУЛЬТАЦІЯ».'
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+        default: ЗАПИСАТИСЯ
+    - label: ★ Vz block
+      name: vz_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: VZ-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Важливо / кому не підійде
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Формат для тих, хто готовий **дивитися в систему**, а не лише на симптоми.
+    - label: ★ Fn burgundy
+      name: fn_burgundy
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: FN-BURGUNDY
+      - label: Текст (lead)
+        name: lead
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Нижній бордовий блок з кнопкою
+      - label: Текст (small)
+        name: small
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Фінальний акцент сторінки
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+        default: ЗАПИСАТИСЯ
+    - label: ★ Side note
+      name: side_note
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: SIDE-NOTE
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Текст + бічна виноска
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Спочатку рішення власника — потім система цифр.
+      - label: Текст (aside)
+        name: aside
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: '**На практиці**Часто справа не в «більше продажів», а в собівартості.'
+    - label: ★ Checklist box
+      name: checklist_box
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Checklist-box
+      - label: Елементи
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - дані
+        - план-факт
+        - напрями
+        - відповідальність
+        - що бачить власник
+        - контроль
+    - label: ★ Media text
+      name: media_text
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Фото
+        name: photo
+        widget: image
+        required: false
+        default: /assets/images/me.jpg
+      - label: Підпис до фото (для Google)
+        name: photo_alt
+        widget: string
+        required: false
+        default: ''
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: MEDIA-TEXT
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Квадратне фото + текст
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Компактний блок «обличчя + теза».
+    - label: ★ Faq mini wrap
+      name: faq_mini_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: FAQ-MINI
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Питання без акордеону
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Скільки триває старт?
+          text: 1–2 тижні на аудит після зустрічі.
+        - title: Чи потрібна програма?
+          text: Не обов’язково — спочатку логіка.
+    - label: ★ Two quote
+      name: two_quote
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Текст 2
+          name: text2
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.text}}'
+        default:
+        - text: «Розуміти цифри, а не лише бачити»
+          text2: ідея
+        - text: «Система — щоб керувати»
+          text2: підхід
+    - label: ★ Is wrap
+      name: is_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: IS-STAGES
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Етапи ISO-стилю
+      - label: Номер
+        name: num
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: '1'
+      - label: Заголовок 2
+        name: title2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Діагностика
+      - label: Текст (lead)
+        name: lead
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Що вже є
+      - label: Текст (result)
+        name: result
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: <span>Результат</span> план дій
+    - label: ★ Діагностичні питання
+      name: dq_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: ДІАГНОСТИКА
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Питання, з яких починається робота
+      - label: Елементи
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - <span class="diag-q__mark">?</span><span>Що власник хоче бачити щотижня / щомісяця, щоб керувати?</span>
+        - <span class="diag-q__mark">?</span><span>Які рішення відкладаються через відсутність зрозумілих цифр?</span>
+        - '<span class="diag-q__mark">?</span><span>Де зараз «сірі зони»: витрати, собівартість, напрями, відповідальність?</span>'
+        - <span class="diag-q__mark">?</span><span>Що вже працює в обліку — і чого бракує саме для управління?</span>
+    - label: ★ Порядок сесії
+      name: agenda_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: ЯК ПРОХОДИТЬ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Порядок стратегічної / консультаційної зустрічі
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Час
+          name: time
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.time}}'
+        default:
+        - time: 0–15 хв
+          title: Точка А
+          text: Ситуація, запит, що вже пробували
+        - time: 15–50 хв
+          title: Розбір
+          text: Причини, обмеження, варіанти, пріоритети
+        - time: 50–end
+          title: Наступні кроки
+          text: 3–5 конкретних дій і точки контролю
+    - label: ★ Принципи роботи
+      name: principle_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: ПІДХІД
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Як я працюю з бізнесом
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Спочатку бізнес, потім таблиці
+          text: Які рішення потрібні власнику — така й система цифр.
+        - title: Не облік заради обліку
+          text: Показники, якими реально користуються в управлінні.
+        - title: Система залишається з вами
+          text: Передача команді, а не залежність від консультанта.
+        - title: Без універсальних тарифів
+          text: Обсяг і вартість — після розуміння ситуації.
+    - label: ★ Що здаємо (артефакти)
+      name: deliverable_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: АРТЕФАКТИ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Що залишається після проєкту
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Структура обліку
+          text: Доходи, витрати, центри відповідальності
+        - title: Набір звітів
+          text: Те, що відкриває власник, а не «ще одна таблиця»
+        - title: 5–7 KPI
+          text: Показники під ваш бізнес і ритм контролю
+        - title: Правила роботи
+          text: Хто що подає, як читати відхилення, що робити далі
+    - label: ★ Tx lead
+      name: tx_lead
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: СУТЬ
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Стратегія потрібна не для папки. Вона потрібна, щоб бізнес **рухався в потрібному напрямку**.
+    - label: ★ Дві колонки без карток
+      name: tx_split
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Елементи
+          name: items
+          widget: list
+          field:
+            label: Пункт
+            widget: markdown
+            buttons: *id001
+            modes: *id002
+            editor_components: *id003
+            required: false
+            name: item
+        summary: '{{fields.title}}'
+        default:
+        - title: Що змінюємо
+          items:
+          - Пріоритети, роль власника, зв’язок цілей із фінансами та KPI.
+          - Без універсального шаблону — під структуру вашого бізнесу.
+        - title: Що не робимо
+          items:
+          - Не пишемо «стратегію для звіту» і не залишаємо документ без плану дій.
+          - Мета — рішення, якими можна користуватися в управлінні.
+    - label: ★ Стек підзаголовків без рамок
+      name: tx_stack
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: СКЛАД
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Три шари роботи
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Кожен пункт — лише лінія-роздільник, без карток.
+      - label: Елементи
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Діагностика
+          text: Точка А, вузькі місця, що стримує розвиток.
+        - title: Стратегія
+          text: Точка Б, цілі, напрямки, пріоритети.
+        - title: План і KPI
+          text: Дорожня карта, відповідальні, показники контролю.
+    - label: ★ Tx pull
+      name: tx_pull
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Ви перестаєте лише реагувати — і починаєте **керувати розвитком**.
+    - label: ★ пігулки
+      name: tx_meta
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: ФОРМАТ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Як стартуємо
+      - label: Текст
+        name: text
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+        default: Спочатку зустріч без зобов’язань — щоб зрозуміти запит і чи потрібен саме цей формат.
+      - label: Елементи
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - <span>Формат</span>**Онлайн**
+        - <span>Старт</span>**Перша зустріч**
+        - <span>Вартість</span>**Після аудиту**
+    - label: ▪ Текст (з рамкою)
+      name: text
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Вигляд
+        name: variant
+        widget: select
+        default: ec-detail__single
+        options:
+        - label: Звичайний
+          value: ec-detail__single
+        - label: Виділений («кому не підійде»)
+          value: ec-detail__single diagnostic-not-for
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Текст
+        name: body
+        widget: markdown
+        hint: Жирний — кнопка B. Список — кнопка зі списком.
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+      - label: Продовження тексту (після вставок)
+        name: body_more
+        widget: markdown
+        hint: Жирний — кнопка B. Список — кнопка зі списком.
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+      - label: Текст кнопки (залиште порожнім, якщо кнопка не потрібна)
+        name: cta_text
+        widget: string
+        required: false
+      hint: Абзаци та списки з галочками. Виділяйте слова жирним кнопкою B.
+    - label: ▪ Текст + фото експерта
+      name: text_photo
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Текст
+        name: body
+        widget: markdown
+        hint: Жирний — кнопка B. Список — кнопка зі списком.
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+      - label: Фото
+        name: photo
+        widget: image
+        required: false
+      - label: Підпис до фото (для Google)
+        name: photo_alt
+        widget: string
+        required: false
+    - label: ▪ Список з галочками
+      name: checklist
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Вступ над списком
+        name: intro
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Вигляд списку
+        name: list_style
+        widget: select
+        default: ec-check-list ec-wide-list
+        options:
+        - label: Галочки
+          value: ec-check-list ec-wide-list
+        - label: Галочки (великі)
+          value: ec-check-list ec-wide-list ec-check-list--ticks
+        - label: Питання
+          value: ec-check-list ec-wide-list diagnostic-question-list
+      - label: Пункти списку
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+      - label: Вигляд тексту під списком
+        name: closing_style
+        widget: select
+        default: info-note
+        options:
+        - label: Примітка
+          value: info-note
+        - label: Підсумок
+          value: ec-result-closing
+        - label: Звичайний абзац
+          value: _plain
+      - label: Текст під списком
+        name: closing
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+      - label: Текст кнопки (порожньо — без кнопки)
+        name: cta_text
+        widget: string
+        required: false
+    - label: ▪ Картки з заголовками
+      name: cards
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Вступ над картками
+        name: intro
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Вигляд сітки
+        name: grid
+        widget: select
+        default: diagnostic-card-grid
+        options:
+        - label: Картки (великі)
+          value: diagnostic-card-grid
+        - label: Картки (методи)
+          value: diagnostic-method-grid
+        - label: Картки-питання
+          value: info-question-grid
+        - label: Картки (впровадження)
+          value: diagnostic-card-grid vc-implement-grid
+      - label: Картки
+        name: cards
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст картки
+          name: body
+          widget: markdown
+          hint: Жирний — кнопка B. Список — кнопка зі списком.
+          buttons: *id004
+          modes: *id005
+          editor_components: *id006
+        - label: Вставки (додаткові елементи в цьому блоці)
+          name: inserts
+          widget: list
+          required: false
+          label_singular: вставку
+          add_to: bottom
+          hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+          types: *id007
+        - label: Продовження тексту картки (після вставки)
+          name: body_more
+          widget: markdown
+          hint: Жирний — кнопка B. Список — кнопка зі списком.
+          buttons: *id004
+          modes: *id005
+          editor_components: *id006
+        summary: '{{fields.title}}'
+      - label: Вигляд примітки
+        name: note_style
+        widget: select
+        default: info-note
+        options:
+        - label: Примітка
+          value: info-note
+        - label: Примітка (кава)
+          value: ec-coffee-note
+      - label: Примітка під картками
+        name: note
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+      - label: Текст кнопки (порожньо — без кнопки)
+        name: cta_text
+        widget: string
+        required: false
+    - label: ▪ Кроки (1, 2, 3…)
+      name: steps
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Вступ
+        name: intro
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Примітка перед кроками
+        name: note_before
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Кроки
+        name: steps
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+      - label: Примітка після кроків
+        name: note_after
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+    - label: ▪ Нумерований перелік
+      name: numbered
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Вступ
+        name: intro
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Другий абзац вступу
+        name: intro2
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Пункти
+        name: items
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+      - label: Примітка
+        name: note
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+      - label: Текст кнопки (порожньо — без кнопки)
+        name: cta_text
+        widget: string
+        required: false
+    - label: ▪ Результат (список + цифри)
+      name: result
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Результати
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+      - label: Цифри справа
+        name: stats
+        widget: list
+        fields:
+        - label: Цифра / значок
+          name: value
+          widget: string
+          required: false
+        - label: Підпис
+          name: label
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.value}}'
+      - label: Текст під блоком
+        name: note
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
+    - label: ▪ Етапи зі вступом і списком
+      name: stages
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Етапи
+        name: stages
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Головна фраза етапу
+          name: lead
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Опис етапу (абзаци та список)
+          name: text
+          widget: markdown
+          hint: Жирний — кнопка B. Список — кнопка зі списком.
+          buttons: *id004
+          modes: *id005
+          editor_components: *id006
+        - label: Вставки (додаткові елементи в цьому блоці)
+          name: inserts
+          widget: list
+          required: false
+          label_singular: вставку
+          add_to: bottom
+          hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+          types: *id007
+        - label: Результат етапу
+          name: result
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+    - label: Питання і відповіді (FAQ)
+      name: faq
+      widget: object
+      summary: '{{fields.title}}'
+      fields:
+      - label: Надзаголовок
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+      - label: Питання
+        name: items
+        widget: list
+        summary: '{{fields.question}}'
+        fields:
+        - label: Питання
+          name: question
+          widget: string
+        - label: Відповідь
+          name: answer
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+    - label: Завершення (заклик + кнопка)
+      name: final
+      widget: object
+      summary: '{{fields.title}}'
+      fields:
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+      - label: Текст
+        name: body
+        widget: markdown
+        required: false
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+      - label: Текст кнопки
+        name: cta_text
+        widget: string
+        required: false
+      - name: elements
+        widget: hidden
+        required: false
+      - name: text
+        widget: hidden
+        required: false
+      - name: cta_action
+        widget: hidden
+        required: false
+      - name: cta_attrs
+        widget: hidden
+        required: false
+      - name: cta_style
+        widget: hidden
+        required: false
+    - label: ⚠ Особливий блок (складний — краще не чіпати структуру)
+      name: section
+      widget: object
+      fields:
+      - label: CSS-класи секції (напр. 'ec-detail ec-animate')
+        name: cls
+        widget: string
+      - label: ID (якір)
+        name: id
+        widget: string
+        required: false
+      - label: Обгортка
+        name: wrap
+        widget: string
+        required: false
+      - label: Клас внутрішнього блоку (expertise)
+        name: single_cls
+        widget: string
+        required: false
+      - label: Фото (expertise)
+        name: photo
+        widget: image
+        required: false
+      - label: Alt фото
+        name: photo_alt
+        widget: string
+        required: false
+      - label: Вид заголовка
+        name: heading
+        widget: select
+        options:
+        - block
+        - inline
+        - none
+        default: block
+      - label: Надзаголовок
+        name: kicker
+        widget: string
+        required: false
+      - label: Заголовок
+        name: title
+        widget: string
+        required: false
+      - label: Стиль блоку заголовка
+        name: heading_style
+        widget: string
+        required: false
+      - label: Стиль h2
+        name: title_style
+        widget: string
+        required: false
+      - label: Вміст
+        name: elements
+        widget: list
+        required: false
+        label_singular: елемент
+        summary: '{{fields.t}}: {{fields.md}}{{fields.title}}'
+        typeKey: t
+        types:
+        - label: Абзац
+          name: p
+          widget: object
+          fields:
+          - label: Текст (**жирний**)
+            name: md
+            widget: text
+          - label: CSS-клас
+            name: cls
+            widget: string
+            required: false
+          - label: Inline-стиль
+            name: style
+            widget: string
+            required: false
+        - label: Список з галочками
+          name: ul
+          widget: object
+          fields:
+          - label: Пункти (**жирний**)
+            name: items
+            widget: list
+            field:
+              label: Пункт
+              name: item
+              widget: text
+          - label: CSS-клас
+            name: cls
+            widget: string
+            required: false
+          - label: Inline-стиль
+            name: style
+            widget: string
+            required: false
+        - label: Примітка
+          name: note
+          widget: object
+          fields:
+          - label: Текст
+            name: md
+            widget: text
+          - label: CSS-клас
+            name: cls
+            widget: string
+            default: ec-coffee-note
+          - label: Inline-стиль
+            name: style
+            widget: string
+            required: false
+        - label: Кнопка запису
+          name: cta
+          widget: object
+          fields:
+          - label: Текст кнопки
+            name: text
+            widget: string
+          - label: В окремому блоці (inline)
+            name: inline
+            widget: boolean
+            default: false
+          - label: Дія
+            name: action
+            widget: select
+            options:
+            - label: Форма заявки
+              value: price
+            - label: Календар бронювання
+              value: booking
+            default: price
+          - label: З data-атрибутами продукту
+            name: attrs
+            widget: boolean
+            default: true
+          - label: Світла кнопка
+            name: light
+            widget: boolean
+            default: false
+          - label: Inline-стиль обгортки
+            name: style
+            widget: string
+            required: false
+        - label: Кроки
+          name: steps
+          widget: object
+          fields:
+          - label: Кроки
+            name: items
+            widget: list
+            fields:
+            - label: Заголовок
+              name: title
+              widget: string
+            - label: Текст
+              name: text
+              widget: text
+        - label: Нумерований перелік
+          name: how
+          widget: object
+          fields:
+          - label: Пункти
+            name: items
+            widget: list
+            field:
+              label: Пункт
+              name: item
+              widget: text
+        - label: Сітка карток
+          name: cards
+          widget: object
+          fields:
+          - label: Вид сітки (CSS-клас)
+            name: cls
+            widget: select
+            options:
+            - diagnostic-card-grid
+            - diagnostic-method-grid
+            - info-question-grid
+            - diagnostic-card-grid vc-implement-grid
+          - label: Inline-стиль
+            name: style
+            widget: string
+            required: false
+          - label: Картки
+            name: cards
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+            - label: Заголовок
+              name: title
+              widget: string
+            - label: CSS-клас картки
+              name: cls
+              widget: string
+              required: false
+            - label: Вміст картки
+              name: elements
+              widget: list
+              required: false
+              typeKey: t
+              types:
+              - label: Абзац
+                name: p
+                widget: object
+                fields:
+                - label: Текст
+                  name: md
+                  widget: text
+                - label: CSS-клас
+                  name: cls
+                  widget: string
+                  required: false
+                - label: Inline-стиль
+                  name: style
+                  widget: string
+                  required: false
+              - label: Список
+                name: ul
+                widget: object
+                fields:
+                - label: Пункти
+                  name: items
+                  widget: list
+                  field:
+                    label: Пункт
+                    name: item
+                    widget: text
+                - label: CSS-клас
+                  name: cls
+                  widget: string
+                  required: false
+                - label: Inline-стиль
+                  name: style
+                  widget: string
+                  required: false
+              - label: Свій HTML
+                name: raw
+                widget: object
+                fields:
+                - label: HTML
+                  name: html
+                  widget: text
+        - label: Свій HTML (обережно)
+          name: raw
+          widget: object
+          fields:
+          - label: HTML
+            name: html
+            widget: text
+    - label: ⚠ Свій HTML (для розробника)
+      name: raw
+      widget: object
+      fields:
+      - label: HTML
+        name: html
+        widget: text
+    add_to: bottom

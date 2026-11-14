@@ -1,0 +1,19 @@
+{
+  "name": "i-s-business-consulting",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "node tools/build-library-css.mjs",
+    "build:admin": "node tools/build-preview.mjs",
+    "build": "npm run build:css && npm run build:admin && eleventy",
+    "start": "npm run build:css && npm run build:admin && eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "@sveltia/cms": "^0.256.1",
+    "esbuild": "^0.28.2",
+    "markdown-it": "^15.0.3",
+    "postcss": "^8.5.32"
+  }
+}
