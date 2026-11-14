@@ -1,8 +1,9 @@
 // Єдиний стан застосунку (Svelte 5 runes).
-import { readText, writeText, listDir, exists, join, removeFile } from "./api.js";
+import { readText, writeText, listDir, exists, join, copyFile, removeFile } from "./api.js";
 import { clone } from "./schema.js";
-import { changedFiles } from "./git.js";
+import { aheadCount, changedFiles, describeChange } from "./git.js";
 import { clearCache } from "./preview-assets.js";
+import { backupPages, newBackupDir, writeManifest } from "./backup.js";
 
 export const app = $state({
   repo: localStorage.getItem("repo") || "",
@@ -20,12 +21,16 @@ export const app = $state({
   canUndo: false,
   canRedo: false,
   changes: 0,
+  ahead: 0, // локальні коміти, ще не відправлені на GitHub
   gotoTarget: null,
   gotoTick: 0,
   picker: null, // { mode: "block" | "insert", target }
   sub: null, // вставка, що редагується окремо
   focusCard: null,
   phone: false,
+  changeList: [], // [{ code, path, label }] — що саме буде опубліковано
+  lastDeleted: null, // { slug, title, backup, removedCards } — для кнопки «Повернути»
+  lastMigration: null, // { total, backup, pages } — для скасування масової міграції
 });
 
 export function select(i, scroll = true) {
@@ -170,9 +175,17 @@ function applySnapshot(snap) {
 
 export async function refreshChanges() {
   try {
-    app.changes = (await changedFiles(app.repo)).length;
+    const [lines, ahead] = await Promise.all([
+      changedFiles(app.repo),
+      aheadCount(app.repo),
+    ]);
+    app.changes = lines.length;
+    app.changeList = lines.map(describeChange);
+    app.ahead = ahead;
   } catch {
     app.changes = 0;
+    app.changeList = [];
+    app.ahead = 0;
   }
 }
 
@@ -199,25 +212,89 @@ export async function countHomeCards(slug) {
   return h.sections.reduce((n, s) => n + (s.cards || []).filter((c) => c.link === `/${slug}/`).length, 0);
 }
 
-/** Видаляє сторінку, її «низ» (якщо є) і картки на головній, що на неї вели. Повертає кількість прибраних карток. */
+/**
+ * Видаляє сторінку, її «низ» (якщо є) і картки на головній, що на неї вели.
+ * Спочатку робить резервну копію в .constructor-backup, тож сторінку можна повернути.
+ * Повертає кількість прибраних карток.
+ */
 export async function deletePage(slug) {
   await flush();
   const page = JSON.parse(await readText(pagePath(slug)));
   const home = JSON.parse(await readText(homePath()));
-  let removed = 0;
-  for (const s of home.sections) {
-    const before = (s.cards || []).length;
-    s.cards = (s.cards || []).filter((c) => c.link !== `/${slug}/`);
-    removed += before - s.cards.length;
+  const dir = newBackupDir(app.repo, "delete", slug);
+  await backupPages(app.repo, dir, [slug]);
+  await copyFile(homePath(), join(dir, "home.json"));
+
+  const bottom = page.bottom_file ? join(app.repo, "src/_content/bottoms", page.bottom_file) : null;
+  const hasBottom = bottom ? await exists(bottom) : false;
+  if (hasBottom) await copyFile(bottom, join(dir, "bottoms", page.bottom_file));
+
+  // Запам’ятовуємо, звідки які картки прибрали, щоб повернути їх на ті самі місця.
+  const removedCards = [];
+  home.sections.forEach((s, si) => {
+    (s.cards || []).forEach((card, ci) => {
+      if (card.link === `/${slug}/`) removedCards.push({ si, ci, card });
+    });
+  });
+  if (removedCards.length) {
+    for (const s of home.sections) s.cards = (s.cards || []).filter((c) => c.link !== `/${slug}/`);
+    await writeText(homePath(), fmt(home));
   }
-  if (removed) await writeText(homePath(), fmt(home));
-  if (page.bottom_file) {
-    const b = join(app.repo, "src/_content/bottoms", page.bottom_file);
-    if (await exists(b)) await removeFile(b);
-  }
+
+  await writeManifest(dir, {
+    created: new Date().toISOString(),
+    kind: "delete-page",
+    slug,
+    title: page.breadcrumb || page.title || slug,
+    bottom_file: hasBottom ? page.bottom_file : null,
+    removedHomeCards: removedCards.length,
+    note: "Щоб повернути сторінку вручну: скопіюйте pages/*.json у src/_content/pages, bottoms/* — у src/_content/bottoms, home.json — у src/_data.",
+  });
+
+  if (hasBottom) await removeFile(bottom);
   await removeFile(pagePath(slug));
+
+  app.lastDeleted = {
+    slug,
+    title: page.breadcrumb || page.title || slug,
+    backup: dir,
+    bottom_file: hasBottom ? page.bottom_file : null,
+    removedCards,
+  };
+
   await loadPages();
   await openHome();
   await refreshChanges();
-  return removed;
+  return removedCards.length;
+}
+
+/** Повертає останню видалену сторінку разом з її «низом» і картками на головній. */
+export async function undoDeletePage() {
+  const d = app.lastDeleted;
+  if (!d) return false;
+  await flush();
+
+  await copyFile(join(d.backup, "pages", `${d.slug}.json`), pagePath(d.slug));
+  if (d.bottom_file) {
+    await copyFile(
+      join(d.backup, "bottoms", d.bottom_file),
+      join(app.repo, "src/_content/bottoms", d.bottom_file)
+    );
+  }
+  if (d.removedCards?.length) {
+    const home = JSON.parse(await readText(homePath()));
+    for (const r of d.removedCards) {
+      const s = home.sections[r.si];
+      if (!s) continue;
+      s.cards ||= [];
+      s.cards.splice(Math.min(r.ci, s.cards.length), 0, r.card);
+    }
+    await writeText(homePath(), fmt(home));
+  }
+
+  app.lastDeleted = null;
+  await loadPages();
+  await openPage(d.slug);
+  await refreshChanges();
+  return true;
 }

@@ -1,10 +1,11 @@
 // Дії над сторінкою — спільні для бічної панелі й кнопок у перегляді.
-import { app, select, flush, refreshChanges } from "./store.svelte.js";
+import { app, select, flush, refreshChanges, openPage } from "./store.svelte.js";
 import { moveItem, removeItem, duplicateItem } from "./model.js";
 import { confirmAsk, readText, writeText, join } from "./api.js";
 import { fieldsOf } from "./schema.js";
 import { arr } from "./ensure.js";
 import { blockToFree, canFree } from "./convert.js";
+import { backupPages, newBackupDir, restorePages, writeManifest } from "./backup.js";
 
 export function moveBlock(i, d) {
   const j = moveItem(app.data.blocks, i, d);
@@ -87,24 +88,70 @@ export async function delCard(si, ci) {
   removeItem(app.data.sections[si].cards, ci);
 }
 
-/** Розібрати особливі блоки в усіх сторінках. Повертає кількість розібраних блоків. */
+/**
+ * Розібрати особливі блоки в усіх сторінках. Спершу робить резервну копію,
+ * тож масову міграцію можна скасувати кнопкою в бічній панелі.
+ * Повертає { total, backup, pages }.
+ */
 export async function migrateAllSpecial() {
   await flush();
-  let total = 0;
+  const current = app.kind === "page" && app.data ? app.slug : null;
+
+  // 1. Знаходимо сторінки, які справді потребують міграції.
+  const targets = [];
   for (const p of app.pages) {
-    if (app.kind === "page" && app.slug === p.slug && app.data) {
+    if (p.slug === current) {
+      if (hasSpecial(app.data)) targets.push({ slug: p.slug, data: null, current: true });
+      continue;
+    }
+    const d = JSON.parse(await readText(join(app.repo, "src/_content/pages", p.slug + ".json")));
+    if (hasSpecial(d)) targets.push({ slug: p.slug, data: d, current: false });
+  }
+  if (!targets.length) {
+    app.lastMigration = null;
+    return { total: 0, backup: null, pages: [] };
+  }
+
+  // 2. Резервна копія ДО будь-яких змін.
+  const dir = newBackupDir(app.repo, "migrate");
+  const saved = await backupPages(app.repo, dir, targets.map((t) => t.slug));
+
+  // 3. Міграція.
+  let total = 0;
+  for (const t of targets) {
+    if (t.current) {
       total += convertSpecial(app.data);
       continue;
     }
-    const path = join(app.repo, "src/_content/pages", p.slug + ".json");
-    const d = JSON.parse(await readText(path));
-    const n = convertSpecial(d);
+    const n = convertSpecial(t.data);
     if (n) {
-      await writeText(path, JSON.stringify(d, null, 2) + "\n");
+      await writeText(join(app.repo, "src/_content/pages", t.slug + ".json"), JSON.stringify(t.data, null, 2) + "\n");
       total += n;
     }
   }
+
+  await writeManifest(dir, {
+    created: new Date().toISOString(),
+    kind: "migrate-special",
+    pages: saved,
+    convertedBlocks: total,
+    note: "Щоб повернути сторінки вручну: скопіюйте pages/*.json у src/_content/pages.",
+  });
+
+  app.lastMigration = { total, backup: dir, pages: saved };
   await flush();
   await refreshChanges();
-  return total;
+  return { total, backup: dir, pages: saved };
+}
+
+/** Скасувати останню масову міграцію: повертає сторінки з резервної копії. */
+export async function undoMigration() {
+  const m = app.lastMigration;
+  if (!m?.backup) return 0;
+  await flush();
+  const n = await restorePages(app.repo, m.backup, m.pages || []);
+  app.lastMigration = null;
+  if (app.kind === "page" && (m.pages || []).includes(app.slug)) await openPage(app.slug);
+  await refreshChanges();
+  return n;
 }

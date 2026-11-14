@@ -1,9 +1,9 @@
 <script>
-  import { app, openPage, openHome, select, deletePage, countHomeCards } from "../lib/store.svelte.js";
+  import { app, openPage, openHome, select, deletePage, undoDeletePage, countHomeCards } from "../lib/store.svelte.js";
   import { typeLabel, blockTitle } from "../lib/schema.js";
   import { moveItem, removeItem, duplicateItem, newHomeSection } from "../lib/model.js";
   import { confirmAsk } from "../lib/api.js";
-  import { addBlockAt, hasSpecial, convertSpecial, migrateAllSpecial } from "../lib/actions.js";
+  import { addBlockAt, hasSpecial, convertSpecial, migrateAllSpecial, undoMigration } from "../lib/actions.js";
 
   const items = $derived(app.kind === "home" ? app.data?.sections || [] : app.data?.blocks || []);
   const current = $derived(app.kind === "home" ? "__home" : app.slug);
@@ -40,8 +40,8 @@
   async function removePage() {
     const slug = app.slug;
     const n = await countHomeCards(slug);
-    const extra = n ? `\n\nТакож буде видалено ${n} ${n === 1 ? "картку" : "карток"} на головній, що веде на цю сторінку.` : "";
-    if (!(await confirmAsk(`Видалити сторінку «${app.data?.breadcrumb || slug}» назавжди?${extra}`))) return;
+    const extra = n ? `\n\nТакож буде прибрано ${n} ${n === 1 ? "картку" : "карток"} на головній, що веде на цю сторінку.` : "";
+    if (!(await confirmAsk(`Видалити сторінку «${app.data?.breadcrumb || slug}»?\n\nКопію буде збережено в .constructor-backup — сторінку можна повернути кнопкою в бічній панелі.${extra}`))) return;
     try {
       await deletePage(slug);
     } catch (e) {
@@ -56,16 +56,30 @@
   async function convertAll() {
     migrating = true;
     try {
-      const n = await migrateAllSpecial();
+      const r = await migrateAllSpecial();
       app.error = "";
-      alertDone(n);
+      if (!r.total) app.lastMigration = null;
     } catch (e) {
       app.error = "Не вдалося розібрати: " + (e?.message || e);
     } finally {
       migrating = false;
     }
   }
-  const alertDone = (n) => confirmAsk(`Готово: розібрано блоків — ${n}. Їх тепер можна редагувати повністю (скасувати на поточній сторінці: Ctrl+Z).`);
+  async function undoDelete() {
+    try {
+      await undoDeletePage();
+    } catch (e) {
+      app.error = "Не вдалося повернути сторінку: " + (e?.message || e);
+    }
+  }
+  async function undoMigrate() {
+    try {
+      await undoMigration();
+      app.error = "";
+    } catch (e) {
+      app.error = "Не вдалося скасувати міграцію: " + (e?.message || e);
+    }
+  }
   const label = (b) => (app.kind === "home" ? "Розділ" : typeLabel(b.type));
   const sub = (b) => (app.kind === "home" ? b.title : blockTitle(b));
 </script>
@@ -84,6 +98,27 @@
       {#if app.kind === "page"}<button class="btn small danger" title="Видалити цю сторінку" onclick={removePage}>🗑 Видалити</button>{/if}
     </div>
   </div>
+
+  {#if app.lastDeleted}
+    <div class="notice ok side-note">
+      <b>Сторінку «{app.lastDeleted.title}» видалено.</b>
+      Копію збережено в .constructor-backup.
+      <div class="row">
+        <button class="btn small" onclick={undoDelete}>Повернути</button>
+        <button class="btn small ghost" onclick={() => (app.lastDeleted = null)}>Закрити</button>
+      </div>
+    </div>
+  {/if}
+  {#if app.lastMigration}
+    <div class="notice ok side-note">
+      <b>Розібрано блоків: {app.lastMigration.total}.</b>
+      Копії сторінок збережено в .constructor-backup.
+      <div class="row">
+        <button class="btn small" onclick={undoMigrate}>Скасувати міграцію</button>
+        <button class="btn small ghost" onclick={() => (app.lastMigration = null)}>Закрити</button>
+      </div>
+    </div>
+  {/if}
 
   {#if app.kind === "page"}
     <button class="side-item settings" class:active={app.selected === "hero"} onclick={() => select("hero")}>

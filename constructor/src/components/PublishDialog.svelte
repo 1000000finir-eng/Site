@@ -46,6 +46,27 @@
     <div class="modal-head"><h3>Опублікувати на сайт</h3><button class="btn ghost" disabled={busy} onclick={() => (app.modal = null)}>✕</button></div>
     <div class="modal-body">
       <p>Змін, ще не відправлених на сайт: <b>{app.changes}</b>. Після публікації сайт оновиться за 1–2 хвилини.</p>
+      {#if app.ahead}
+        <div class="notice warn">
+          Уже збережених локально, але ще не відправлених версій: <b>{app.ahead}</b>.
+          Натисніть «Опублікувати», щоб відправити їх на GitHub.
+        </div>
+      {/if}
+      {#if app.changeList?.length}
+        <div class="filelist">
+          <div class="filelist-title">Буде опубліковано лише ці файли сайту:</div>
+          <ul>
+            {#each app.changeList as c (c.path)}
+              <li>
+                <span class="filetag" class:new={c.label === "Новий" || c.label === "Додано"} class:del={c.label === "Видалено"}>{c.label}</span>
+                <span class="filepath">{c.path}</span>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      {:else if !busy && !done && !app.ahead}
+        <div class="notice warn">Немає змін у вмісті сайту. Можна опублікувати, щоб перевірити синхронізацію з GitHub.</div>
+      {/if}
       <label class="f">Короткий опис змін (необов’язково)<input type="text" bind:value={message} /></label>
       {#if log.length}<ul class="log">{#each log as l}<li>{l}</li>{/each}</ul>{/if}
       {#if done}<div class="notice ok">✔ Опубліковано. Сайт оновиться за 1–2 хвилини.</div>{/if}

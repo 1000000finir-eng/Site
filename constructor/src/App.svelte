@@ -1,6 +1,8 @@
 <script>
   import { onMount, untrack } from "svelte";
+  import { getCurrentWindow } from "@tauri-apps/api/window";
   import { app, onChange, openRepo, undo, redo, flush, refreshChanges } from "./lib/store.svelte.js";
+  import { confirmAsk } from "./lib/api.js";
   import Welcome from "./components/Welcome.svelte";
   import Sidebar from "./components/Sidebar.svelte";
   import Preview from "./components/Preview.svelte";
@@ -53,18 +55,46 @@
     window.addEventListener("pointerup", onUp);
   }
 
-  onMount(async () => {
-    if (app.repo) {
-      try {
-        await openRepo(app.repo);
-      } catch {
-        app.screen = "welcome";
+  onMount(() => {
+    let alive = true;
+    let unlistenClose;
+    const beforeUnload = () => flush();
+
+    (async () => {
+      if (app.repo) {
+        try {
+          await openRepo(app.repo);
+        } catch {
+          app.screen = "welcome";
+        }
       }
-    }
-    booting = false;
+      if (!alive) return;
+      booting = false;
+
+      // Гарантоване збереження перед закриттям вікна: Tauri чекає на цей обробник.
+      try {
+        const win = getCurrentWindow();
+        const un = await win.onCloseRequested(async (event) => {
+          await flush();
+          if (app.dirty && !(await confirmAsk("Не вдалося зберегти останні зміни. Закрити без збереження?"))) {
+            event.preventDefault();
+          }
+        });
+        if (alive) unlistenClose = un;
+        else un();
+      } catch {
+        // У звичайному браузері (vite dev) Tauri-вікна немає — лишається beforeunload.
+      }
+    })();
+
     window.addEventListener("keydown", onKey);
-    window.addEventListener("beforeunload", () => flush());
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => {
+      alive = false;
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("beforeunload", beforeUnload);
+      unlistenClose?.();
+    };
   });
 
   $effect(() => {
@@ -133,7 +163,7 @@
             app.modal = "publish";
           }}
         >
-          Опублікувати на сайт{#if app.changes}<span class="badge">{app.changes}</span>{/if}
+          Опублікувати на сайт{#if app.changes}<span class="badge">{app.changes}</span>{:else if app.ahead}<span class="badge" title="Є локальні версії, не відправлені на GitHub">↑{app.ahead}</span>{/if}
         </button>
       </div>
     </header>

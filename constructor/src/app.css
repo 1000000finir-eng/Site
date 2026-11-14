@@ -181,6 +181,14 @@ textarea.code { font-family: Consolas, "Courier New", monospace; font-size: 12.5
 .notice.warn { background: #fff4de; color: var(--warn); }
 .notice.ok { background: #e6f5ec; color: var(--ok); }
 .log { margin: 0; padding-left: 18px; font-size: 13px; color: var(--muted); display: grid; gap: 3px; }
+.filelist { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.filelist-title { padding: 8px 12px; background: #faf8f6; font-size: 12.5px; color: var(--muted); border-bottom: 1px solid var(--line); }
+.filelist ul { margin: 0; padding: 6px 0; list-style: none; max-height: 220px; overflow: auto; display: grid; gap: 2px; }
+.filelist li { display: flex; gap: 8px; align-items: center; padding: 3px 12px; font-size: 12.5px; }
+.filetag { flex: none; min-width: 66px; text-align: center; border-radius: 999px; padding: 2px 7px; background: #fff4de; color: var(--warn); font-size: 11px; font-weight: 700; }
+.filetag.new { background: #e6f5ec; color: var(--ok); }
+.filetag.del { background: #fdecea; color: #7a1812; }
+.filepath { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--muted); word-break: break-all; }
 
 /* вітання */
 .welcome { min-height: 100%; display: grid; place-items: center; padding: 30px; }
