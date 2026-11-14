@@ -1,0 +1,5307 @@
+[
+ {
+  "name": "text",
+  "label": "Текст (з рамкою)",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-detail ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "{variant}",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "ec-section-heading",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "text": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        }
+       ]
+      },
+      {
+       "body": "body",
+       "ulcls": "ec-check-list"
+      },
+      {
+       "inserts": "inserts"
+      },
+      {
+       "body": "body_more",
+       "ulcls": "ec-check-list",
+       "opt": "body_more"
+      },
+      {
+       "tag": "div",
+       "cls": "ec-inline-cta",
+       "kids": [
+        {
+         "cta": "cta_text"
+        }
+       ],
+       "opt": "cta_text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {
+   "variant": [
+    [
+     "ec-detail__single",
+     "Звичайний"
+    ],
+    [
+     "ec-detail__single diagnostic-not-for",
+     "Виділений («кому не підійде»)"
+    ]
+   ]
+  },
+  "labels": {
+   "body": "Текст",
+   "body_more": "Продовження тексту (після вставок)",
+   "variant": "Вигляд",
+   "cta_text": "Текст кнопки (залиште порожнім, якщо кнопка не потрібна)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "Абзаци та списки з галочками. Виділяйте слова жирним кнопкою B."
+ },
+ {
+  "name": "text_photo",
+  "label": "Текст + фото експерта",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-detail ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-detail__expertise",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "ec-detail__single",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "ec-section-heading",
+         "kids": [
+          {
+           "tag": "p",
+           "cls": "ec-kicker",
+           "text": "kicker",
+           "opt": "kicker"
+          },
+          {
+           "tag": "h2",
+           "md": "title"
+          }
+         ]
+        },
+        {
+         "body": "body",
+         "ulcls": "ec-check-list"
+        },
+        {
+         "inserts": "inserts"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "ec-detail__photo",
+       "kids": [
+        {
+         "tag": "img",
+         "af": {
+          "src": "photo",
+          "alt": "photo_alt"
+         },
+         "void": true
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "body": "Текст",
+   "photo": "Фото",
+   "photo_alt": "Підпис до фото (для Google)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "checklist",
+  "label": "Список з галочками",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-wide ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-wide__box",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "cls": "ec-section-intro",
+       "md": "intro",
+       "opt": "intro"
+      },
+      {
+       "tag": "ul",
+       "cls": "{list_style}",
+       "kids": [
+        {
+         "tag": "li",
+         "md": "_",
+         "each": "items"
+        }
+       ]
+      },
+      {
+       "tag": "p",
+       "cls": "{closing_style}",
+       "md": "closing",
+       "opt": "closing"
+      },
+      {
+       "inserts": "inserts"
+      },
+      {
+       "tag": "div",
+       "cls": "ec-inline-cta",
+       "kids": [
+        {
+         "cta": "cta_text"
+        }
+       ],
+       "opt": "cta_text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {
+   "list_style": [
+    [
+     "ec-check-list ec-wide-list",
+     "Галочки"
+    ],
+    [
+     "ec-check-list ec-wide-list ec-check-list--ticks",
+     "Галочки (великі)"
+    ],
+    [
+     "ec-check-list ec-wide-list diagnostic-question-list",
+     "Питання"
+    ]
+   ],
+   "closing_style": [
+    [
+     "info-note",
+     "Примітка"
+    ],
+    [
+     "ec-result-closing",
+     "Підсумок"
+    ],
+    [
+     "_plain",
+     "Звичайний абзац"
+    ]
+   ]
+  },
+  "labels": {
+   "items": "Пункти списку",
+   "intro": "Вступ над списком",
+   "closing": "Текст під списком",
+   "list_style": "Вигляд списку",
+   "closing_style": "Вигляд тексту під списком",
+   "cta_text": "Текст кнопки (порожньо — без кнопки)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "cards",
+  "label": "Картки з заголовками",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-wide ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-wide__box",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "cls": "ec-section-intro",
+       "md": "intro",
+       "opt": "intro"
+      },
+      {
+       "tag": "div",
+       "cls": "{grid}",
+       "kids": [
+        {
+         "tag": "article",
+         "kids": [
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "body": "body",
+           "ulcls": "ec-check-list"
+          },
+          {
+           "inserts": "inserts"
+          },
+          {
+           "body": "body_more",
+           "ulcls": "ec-check-list",
+           "opt": "body_more"
+          }
+         ],
+         "each": "cards"
+        }
+       ]
+      },
+      {
+       "tag": "p",
+       "cls": "{note_style}",
+       "md": "note",
+       "opt": "note"
+      },
+      {
+       "inserts": "inserts"
+      },
+      {
+       "tag": "div",
+       "cls": "ec-inline-cta",
+       "kids": [
+        {
+         "cta": "cta_text"
+        }
+       ],
+       "opt": "cta_text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {
+   "grid": [
+    [
+     "diagnostic-card-grid",
+     "Картки (великі)"
+    ],
+    [
+     "diagnostic-method-grid",
+     "Картки (методи)"
+    ],
+    [
+     "info-question-grid",
+     "Картки-питання"
+    ],
+    [
+     "diagnostic-card-grid vc-implement-grid",
+     "Картки (впровадження)"
+    ]
+   ],
+   "note_style": [
+    [
+     "info-note",
+     "Примітка"
+    ],
+    [
+     "ec-coffee-note",
+     "Примітка (кава)"
+    ]
+   ]
+  },
+  "labels": {
+   "cards": "Картки",
+   "body_more": "Продовження тексту картки (після вставки)",
+   "cta_text": "Текст кнопки (порожньо — без кнопки)",
+   "intro": "Вступ над картками",
+   "note": "Примітка під картками",
+   "grid": "Вигляд сітки",
+   "note_style": "Вигляд примітки",
+   "body": "Текст картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "steps",
+  "label": "Кроки (1, 2, 3…)",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-process ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-section-heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "cls": "ec-section-intro",
+     "md": "intro",
+     "opt": "intro"
+    },
+    {
+     "tag": "div",
+     "cls": "ec-coffee-note",
+     "md": "note_before",
+     "opt": "note_before"
+    },
+    {
+     "tag": "div",
+     "cls": "ec-steps",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "ec-step",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "ec-step__num",
+         "index": "1"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "steps"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "ec-coffee-note",
+     "md": "note_after",
+     "opt": "note_after"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "steps": "Кроки",
+   "intro": "Вступ",
+   "note_before": "Примітка перед кроками",
+   "note_after": "Примітка після кроків",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "numbered",
+  "label": "Нумерований перелік",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-how ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-section-heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "cls": "ec-section-intro",
+     "md": "intro",
+     "opt": "intro"
+    },
+    {
+     "tag": "p",
+     "cls": "ec-section-intro",
+     "md": "intro2",
+     "opt": "intro2"
+    },
+    {
+     "tag": "div",
+     "cls": "ec-how__grid",
+     "kids": [
+      {
+       "tag": "div",
+       "kids": [
+        {
+         "tag": "span",
+         "index": "1"
+        },
+        {
+         "tag": "p",
+         "md": "_"
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "ec-coffee-note",
+     "md": "note",
+     "opt": "note"
+    },
+    {
+     "inserts": "inserts"
+    },
+    {
+     "tag": "div",
+     "cls": "ec-inline-cta",
+     "kids": [
+      {
+       "cta": "cta_text"
+      }
+     ],
+     "opt": "cta_text"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Пункти",
+   "intro": "Вступ",
+   "intro2": "Другий абзац вступу",
+   "note": "Примітка",
+   "cta_text": "Текст кнопки (порожньо — без кнопки)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "result",
+  "label": "Результат (список + цифри)",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-result ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-result__grid",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "ec-result__content",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "text": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        },
+        {
+         "tag": "div",
+         "cls": "ec-result-list",
+         "kids": [
+          {
+           "tag": "div",
+           "kids": [
+            {
+             "tag": "h3",
+             "md": "title"
+            },
+            {
+             "tag": "p",
+             "md": "text"
+            }
+           ],
+           "each": "items"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "ec-result__quote",
+       "kids": [
+        {
+         "tag": "div",
+         "kids": [
+          {
+           "tag": "span",
+           "text": "value"
+          },
+          {
+           "tag": "strong",
+           "md": "label"
+          }
+         ],
+         "each": "stats"
+        }
+       ]
+      },
+      {
+       "tag": "p",
+       "cls": "ec-result-note",
+       "md": "note",
+       "opt": "note"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Результати",
+   "stats": "Цифри справа",
+   "value": "Цифра / значок",
+   "label": "Підпис",
+   "note": "Текст під блоком",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "st",
+  "label": "Етапи проєкту (кроки з результатом)",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "st-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "st-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "flow": "flow",
+     "opt": "flow"
+    },
+    {
+     "tag": "div",
+     "cls": "st-block__intro",
+     "kids": [
+      {
+       "tag": "h3",
+       "cls": "st-block__intro-title",
+       "md": "intro_title",
+       "tail": "intro_tag"
+      },
+      {
+       "tag": "p",
+       "md": "intro_text"
+      }
+     ],
+     "opt": "intro_title"
+    },
+    {
+     "tag": "div",
+     "cls": "st-steps",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "st-step",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "st-step__head",
+         "kids": [
+          {
+           "tag": "span",
+           "cls": "st-step__num",
+           "index": "1",
+           "sattr": {
+            "aria-hidden": "true"
+           }
+          },
+          {
+           "tag": "h3",
+           "md": "title"
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "cls": "st-step__body",
+         "kids": [
+          {
+           "body": "text",
+           "ulcls": "st-step__list"
+          },
+          {
+           "inserts": "inserts"
+          },
+          {
+           "tag": "p",
+           "cls": "st-step__result",
+           "lead": "Результат",
+           "md": "result",
+           "opt": "result"
+          }
+         ]
+        }
+       ],
+       "each": "steps"
+      }
+     ]
+    },
+    {
+     "inserts": "inserts"
+    },
+    {
+     "tag": "div",
+     "cls": "st-block__cta",
+     "kids": [
+      {
+       "cta": "cta_text"
+      }
+     ],
+     "opt": "cta_text"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "flow": "Схема етапів зверху (кожен пункт — один етап; необов’язково)",
+   "intro_title": "Вступний етап — заголовок",
+   "intro_tag": "Позначка в заголовку (напр. «(безкоштовно)»)",
+   "intro_text": "Вступний етап — текст",
+   "steps": "Етапи",
+   "text": "Опис етапу (абзаци та список)",
+   "result": "Результат етапу",
+   "cta_text": "Текст кнопки (порожньо — без кнопки)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ЕТАПИ",
+   "title": "Як проходить проєкт",
+   "intro_tag": "(безкоштовно)",
+   "intro_title": "Перша зустріч",
+   "intro_text": "Обговорюємо бізнес і запит.",
+   "steps": [
+    {
+     "title": "Аудит",
+     "text": "- облік і звітність\n- прогалини",
+     "inserts": [
+      {
+       "type": "result_line",
+       "text": "обсяг робіт"
+      }
+     ]
+    },
+    {
+     "title": "Впровадження",
+     "text": "Система під ваш бізнес."
+    }
+   ]
+  }
+ },
+ {
+  "name": "stages",
+  "label": "Етапи зі вступом і списком",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-process ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-section-heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "iso-stages",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "iso-stage",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "iso-stage__head",
+         "kids": [
+          {
+           "tag": "span",
+           "cls": "iso-stage__num",
+           "index": "1",
+           "sattr": {
+            "aria-hidden": "true"
+           }
+          },
+          {
+           "tag": "h3",
+           "md": "title"
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "cls": "iso-stage__body",
+         "kids": [
+          {
+           "tag": "p",
+           "cls": "iso-stage__lead",
+           "md": "lead",
+           "opt": "lead"
+          },
+          {
+           "body": "text",
+           "ulcls": "ec-check-list"
+          },
+          {
+           "inserts": "inserts"
+          },
+          {
+           "tag": "p",
+           "cls": "iso-stage__result",
+           "lead": "Результат",
+           "md": "result",
+           "opt": "result"
+          }
+         ]
+        }
+       ],
+       "each": "stages"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "stages": "Етапи",
+   "lead": "Головна фраза етапу",
+   "text": "Опис етапу (абзаци та список)",
+   "result": "Результат етапу",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "hl",
+  "label": "Акцентна смуга",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "hl-block ec-animate",
+   "kids": [
+    {
+     "tag": "p",
+     "cls": "hl-block__text",
+     "md": "text"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "Одне речення. Виділіть головне слово жирним.",
+  "sample": {
+   "text": "Не просто знати цифри. А **розуміти**, що вони означають для бізнесу."
+  }
+ },
+ {
+  "name": "cf",
+  "label": "Порівняння 2 колонок",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "cf-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "cf-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "cls": "cf-block__lead",
+       "md": "lead",
+       "opt": "lead"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "cf-block__grid",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "cf-block__col",
+       "kids": [
+        {
+         "tag": "h3",
+         "text": "col1_title"
+        },
+        {
+         "tag": "ul",
+         "cls": "cf-block__list",
+         "kids": [
+          {
+           "tag": "li",
+           "md": "_",
+           "each": "col1_items"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "cf-block__col cf-block__col--accent",
+       "kids": [
+        {
+         "tag": "h3",
+         "text": "col2_title"
+        },
+        {
+         "tag": "ul",
+         "cls": "cf-block__list",
+         "kids": [
+          {
+           "tag": "li",
+           "md": "_",
+           "each": "col2_items"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "col1_title": "Ліва колонка — заголовок",
+   "col1_items": "Ліва колонка — пункти",
+   "col2_title": "Права колонка (виділена) — заголовок",
+   "col2_items": "Права колонка — пункти",
+   "lead": "Вступ під заголовком",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ПОРІВНЯННЯ",
+   "title": "Бухгалтерський vs управлінський",
+   "col1_title": "Бухгалтерський",
+   "col1_items": [
+    "Що вже відбулося",
+    "Податкова звітність"
+   ],
+   "col2_title": "Управлінський",
+   "col2_items": [
+    "Що зараз і чому",
+    "Яке рішення прийняти"
+   ]
+  }
+ },
+ {
+  "name": "tg",
+  "label": "Три картки з міткою",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tg-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "tg-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "cls": "tg-block__intro",
+       "md": "intro",
+       "opt": "intro"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "tg-block__grid",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "tg-card",
+       "kids": [
+        {
+         "tag": "span",
+         "cls": "tg-card__label",
+         "text": "label"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "body": "text",
+         "ulcls": ""
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "cards": "Картки",
+   "label": "Мітка (напр. «Минуле»)",
+   "intro": "Вступ під заголовком",
+   "text": "Текст картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ЗВІТНІСТЬ",
+   "title": "Було / є / буде",
+   "cards": [
+    {
+     "label": "Минуле",
+     "title": "Як було?",
+     "text": "Що спрацювало за період."
+    },
+    {
+     "label": "Сьогодні",
+     "title": "Як є?",
+     "text": "Динаміка зараз."
+    },
+    {
+     "label": "Майбутнє",
+     "title": "Як буде?",
+     "text": "Що, якщо тенденція збережеться."
+    }
+   ]
+  }
+ },
+ {
+  "name": "nr",
+  "label": "Нумеровані результати",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "nr-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "nr-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "nr-list",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "nr-item",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "nr-item__num",
+         "index": "1"
+        },
+        {
+         "tag": "div",
+         "cls": "nr-item__body",
+         "kids": [
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "md": "text"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Пункти",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "РЕЗУЛЬТАТ",
+   "title": "Три опори",
+   "items": [
+    {
+     "title": "Фінансова картина",
+     "text": "Виручка, маржа, прибуток."
+    },
+    {
+     "title": "План → Факт",
+     "text": "Відхилення з причинами."
+    },
+    {
+     "title": "5–7 KPI",
+     "text": "Ті, що впливають на прибуток."
+    }
+   ]
+  }
+ },
+ {
+  "name": "ic",
+  "label": "Картки з номерами 01, 02…",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "ic-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ic-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "ic-grid",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "ic-card",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "ic-card__mark",
+         "index": "pad2"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "cards": "Картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ОПОРИ",
+   "title": "Іконкові картки",
+   "cards": [
+    {
+     "title": "Прозорість",
+     "text": "Структура доходів і витрат."
+    },
+    {
+     "title": "Контроль",
+     "text": "План-факт."
+    },
+    {
+     "title": "Рішення",
+     "text": "Що робити далі."
+    },
+    {
+     "title": "Масштаб",
+     "text": "Росте з бізнесом."
+    }
+   ]
+  }
+ },
+ {
+  "name": "stat",
+  "label": "Цифри в рядок",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "stat-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "stat-row",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "stat-item",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "stat-item__value",
+         "text": "value"
+        },
+        {
+         "tag": "div",
+         "cls": "stat-item__label",
+         "text": "label"
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Цифри",
+   "value": "Цифра (напр. 20+)",
+   "label": "Підпис",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "value": "20+",
+     "label": "років"
+    },
+    {
+     "value": "5–7",
+     "label": "KPI"
+    },
+    {
+     "value": "1",
+     "label": "старт"
+    },
+    {
+     "value": "100%",
+     "label": "під бізнес"
+    }
+   ]
+  }
+ },
+ {
+  "name": "qz",
+  "label": "Цитата",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "qz-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "qz-block__inner",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "qz-block__quote",
+       "md": "quote"
+      },
+      {
+       "tag": "p",
+       "cls": "qz-block__author",
+       "text": "author",
+       "opt": "author"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "quote": "Цитата",
+   "author": "Підпис (необов’язково)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "quote": "Цифри потрібні, щоб **керувати** бізнесом.",
+   "author": "Принцип"
+  }
+ },
+ {
+  "name": "ct",
+  "label": "Вузький заклик з кнопкою",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "ct-strip ec-animate",
+   "kids": [
+    {
+     "tag": "p",
+     "md": "text"
+    },
+    {
+     "cta": "cta_text"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст",
+   "cta_text": "Текст кнопки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "text": "Вузький CTA-рядок: текст + кнопка",
+   "cta_text": "ОБГОВОРИТИ"
+  }
+ },
+ {
+  "name": "bn",
+  "label": "Бордова смуга з кнопкою",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "bn-strip ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "bn-strip__inner",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "bn-strip__text",
+       "kids": [
+        {
+         "tag": "h2",
+         "text": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ]
+      },
+      {
+       "btn": "cta_text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "text": "Текст",
+   "cta_text": "Текст кнопки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "title": "Бордова смуга",
+   "text": "Яскравий акцент між секціями",
+   "cta_text": "ЗАПИСАТИСЯ"
+  }
+ },
+ {
+  "name": "pain",
+  "label": "Болі власника (список)",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "pain-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "pain-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "pain-list",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "pain-item",
+       "md": "_",
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Ситуації",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "Початок речення виділіть жирним — так і задумано.",
+  "sample": {
+   "kicker": "ЗНАЙОМО?",
+   "title": "Типові ситуації",
+   "items": [
+    "**Виручка росте** — а вільних грошей не більше.",
+    "**Звіти є** — але з них незрозуміло, що робити наступного тижня.",
+    "**Кілька напрямів** — і неясно, який тягне прибуток, а який з’їдає ресурс.",
+    "**Рішення «на відчуттях»** — ціна помилки зі зростанням бізнесу стає вищою."
+   ]
+  }
+ },
+ {
+  "name": "who",
+  "label": "Для кого (ролі)",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "who-grid ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "who-grid__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "who-grid__list",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "who-card",
+       "kids": [
+        {
+         "tag": "span",
+         "cls": "who-card__role",
+         "text": "role"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "cards": "Картки",
+   "role": "Роль (напр. «Власник»)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ДЛЯ КОГО",
+   "title": "Кому це потрібно",
+   "cards": [
+    {
+     "role": "Власник",
+     "title": "Бачити бізнес за цифрами",
+     "text": "Коли оборот є, а прибуток і «куди йдуть гроші» — ні."
+    },
+    {
+     "role": "Керівник",
+     "title": "Керувати на фактах",
+     "text": "План-факт, відповідальні, зрозумілі показники для команди."
+    },
+    {
+     "role": "На етапі росту",
+     "title": "Система замість ручного контролю",
+     "text": "Коли «тримати все в голові» вже не працює."
+    }
+   ]
+  }
+ },
+ {
+  "name": "outcome",
+  "label": "Що отримаєте (картки)",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "outcome-grid ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "outcome-grid__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "outcome-grid__list",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "outcome-card",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "cards": "Картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "РЕЗУЛЬТАТ",
+   "title": "Після впровадження",
+   "cards": [
+    {
+     "title": "Реальна картина",
+     "text": "Виручка, собівартість, маржа, прибуток — без здогадок."
+    },
+    {
+     "title": "Контроль відхилень",
+     "text": "План → факт → причина → дія, а не «чому знову не так»."
+    },
+    {
+     "title": "Рішення наперед",
+     "text": "Моделювання «що буде, якщо…» до того, як витратити ресурс."
+    },
+    {
+     "title": "Система в команді",
+     "text": "Правила й відповідальність — щоб працювало після проєкту."
+    }
+   ]
+  }
+ },
+ {
+  "name": "tx",
+  "label": "Вільний текст (без рамки)",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "{variant}",
+   "kids": [
+    {
+     "tag": "p",
+     "cls": "ec-kicker",
+     "text": "kicker",
+     "opt": "kicker"
+    },
+    {
+     "tag": "h2",
+     "md": "title"
+    },
+    {
+     "body": "body",
+     "ulcls": ""
+    },
+    {
+     "inserts": "inserts"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {
+   "variant": [
+    [
+     "tx-block ec-animate",
+     "Звичайний"
+    ],
+    [
+     "tx-block tx-block--narrow ec-animate",
+     "Вужчий"
+    ],
+    [
+     "tx-block tx-block--center ec-animate",
+     "По центру"
+    ],
+    [
+     "tx-block tx-block--rule ec-animate",
+     "З лінією зверху"
+    ]
+   ]
+  },
+  "labels": {
+   "body": "Текст",
+   "variant": "Вигляд",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "variant": "tx-block ec-animate",
+   "kicker": "ПІДХІД",
+   "title": "Що ми робимо в проєкті",
+   "body": "Я допомагаю подивитися на бізнес **не через одну проблему, а як на цілісну систему**.\n\nСтратегія, фінанси, управління, процеси, команда, KPI і роль власника розглядаються разом — тому план не закінчується красивою фразою в презентації."
+  }
+ },
+ {
+  "name": "fl_block",
+  "label": "ланцюжок",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "fl-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "fl-block__track",
+     "md": "track"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "track": "<span class=\"fl-block__node\">Знайомство</span><span class=\"fl-block__sep\">→</span> <span class=\"fl-block__node\">Аудит</span><span class=\"fl-block__sep\">→</span> <span class=\"fl-block__node\">Впровадження</span><span class=\"fl-block__sep\">→</span> <span class=\"fl-block__node\">Передача</span>"
+  }
+ },
+ {
+  "name": "st_h",
+  "label": "Етапи горизонтальні",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "st-h ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "st-h__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "st-h__track",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "st-h__item",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "st-h__num",
+         "index": "1"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ШЛЯХ",
+   "title": "4 кроки",
+   "items": [
+    {
+     "title": "Знайомство",
+     "text": "Запит"
+    },
+    {
+     "title": "Аудит",
+     "text": "Що є"
+    },
+    {
+     "title": "Система",
+     "text": "Побудова"
+    },
+    {
+     "title": "Передача",
+     "text": "Команда"
+    }
+   ]
+  }
+ },
+ {
+  "name": "ps_grid_wrap",
+  "label": "Ps grid wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "ps-grid-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ps-grid-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "ps-grid",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "ps-card",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "ps-card__num",
+         "index": "1"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "text": "Текст",
+   "cards": "Картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "КРОКИ",
+   "title": "Горизонтальні ps-картки",
+   "cards": [
+    {
+     "title": "Заявка",
+     "text": "Фіксуємо запит"
+    },
+    {
+     "title": "Зустріч",
+     "text": "Розбір ситуації"
+    },
+    {
+     "title": "Аналіз",
+     "text": "Між зустрічами"
+    },
+    {
+     "title": "Висновки",
+     "text": "Наступні кроки"
+    }
+   ]
+  }
+ },
+ {
+  "name": "cg_wrap",
+  "label": "Cg wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "cg-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "cg-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "cg-grid",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "cg-card",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "text": "Текст",
+   "cards": "Картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ФОРМАТИ",
+   "title": "Сітка 2×N",
+   "cards": [
+    {
+     "title": "Індивідуально",
+     "text": "Один на один з фокусом на запит."
+    },
+    {
+     "title": "Супровід",
+     "text": "Підтримка між сесіями."
+    }
+   ]
+  }
+ },
+ {
+  "name": "xp_block",
+  "label": "Xp block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "xp-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "xp-block__inner",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "xp-block__top",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "xp-block__lead",
+         "kids": [
+          {
+           "tag": "p",
+           "cls": "ec-kicker",
+           "md": "kicker",
+           "opt": "kicker"
+          },
+          {
+           "tag": "h2",
+           "cls": "xp-block__title",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "cls": "xp-block__roles",
+           "md": "roles"
+          },
+          {
+           "tag": "p",
+           "cls": "xp-block__hook",
+           "md": "hook"
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "cls": "xp-block__photo",
+         "kids": [
+          {
+           "tag": "img",
+           "af": {
+            "src": "photo",
+            "alt": "photo_alt"
+           },
+           "void": true
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "xp-block__body",
+       "kids": [
+        {
+         "body": "body",
+         "ulcls": ""
+        },
+        {
+         "inserts": "inserts"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "photo": "Фото",
+   "photo_alt": "Підпис до фото (для Google)",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "body": "Текст під фото (абзаци)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "XP-BLOCK",
+   "title": "Лід + прямокутне фото",
+   "roles": "**Консультант · Coach**",
+   "hook": "Фото = висота ліда.",
+   "photo": "/assets/images/me.jpg",
+   "photo_alt": "",
+   "text": "Текст на всю ширину під сіткою."
+  }
+ },
+ {
+  "name": "xp_round",
+  "label": "Xp round",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "xp-round ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "xp-round__grid",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "xp-round__lead",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "md": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "cls": "xp-round__hook",
+         "md": "hook"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "xp-round__photo",
+       "kids": [
+        {
+         "tag": "img",
+         "af": {
+          "src": "photo",
+          "alt": "photo_alt"
+         },
+         "void": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "xp-round__body",
+     "kids": [
+      {
+       "tag": "p",
+       "md": "text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "photo": "Фото",
+   "photo_alt": "Підпис до фото (для Google)",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "XP-ROUND",
+   "title": "Кругле фото",
+   "hook": "Компактніший варіант експертизи.",
+   "photo": "/assets/images/me.jpg",
+   "photo_alt": "",
+   "text": "Body під лідом і фото."
+  }
+ },
+ {
+  "name": "ex_frame_wrap",
+  "label": "Ex frame wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "ex-frame-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ex-frame",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "ex-frame__text",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "md": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "ex-frame__photo",
+       "kids": [
+        {
+         "tag": "img",
+         "af": {
+          "src": "photo",
+          "alt": "photo_alt"
+         },
+         "void": true
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "photo": "Фото",
+   "photo_alt": "Підпис до фото (для Google)",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "EX-FRAME",
+   "title": "Спільна рамка з фото",
+   "text": "Текст і фото в одному блоці (старий mentoring-стиль).",
+   "photo": "/assets/images/me.jpg",
+   "photo_alt": ""
+  }
+ },
+ {
+  "name": "ab_wrap",
+  "label": "Ab wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "ab-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ab-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "ab-card",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "ab-card__was",
+       "kids": [
+        {
+         "tag": "span",
+         "cls": "ab-card__label",
+         "md": "label"
+        },
+        {
+         "tag": "h3",
+         "md": "title2"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "ab-card__now",
+       "kids": [
+        {
+         "tag": "span",
+         "cls": "ab-card__label",
+         "md": "label2"
+        },
+        {
+         "tag": "h3",
+         "md": "title3"
+        },
+        {
+         "tag": "p",
+         "md": "text2"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "label": "Підпис",
+   "text2": "Текст 2",
+   "title3": "Заголовок 3",
+   "text": "Текст",
+   "title2": "Заголовок 2",
+   "kicker": "Надзаголовок",
+   "label2": "Підпис 2",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "AB-CARD",
+   "title": "До / Після",
+   "label": "Було",
+   "title2": "На відчуттях",
+   "text": "Неясно, де прибуток.",
+   "label2": "Стало",
+   "title3": "На цифрах",
+   "text2": "Видно відхилення і крок."
+  }
+ },
+ {
+  "name": "sw_block",
+  "label": "Sw block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "sw-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "sw-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "sw-pair",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "sw-col sw-col--was",
+       "kids": [
+        {
+         "tag": "span",
+         "cls": "sw-col__label",
+         "md": "label"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "sw-arrow",
+       "md": "sw_arrow"
+      },
+      {
+       "tag": "div",
+       "cls": "sw-col sw-col--now",
+       "kids": [
+        {
+         "tag": "span",
+         "cls": "sw-col__label",
+         "md": "label2"
+        },
+        {
+         "tag": "p",
+         "md": "text2"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "label": "Підпис",
+   "text2": "Текст 2",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "label2": "Підпис 2",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "SW-BLOCK",
+   "title": "Було → стало (зі стрілкою)",
+   "label": "Було",
+   "text": "Інтуїція замість системи.",
+   "sw_arrow": "→",
+   "label2": "Стало",
+   "text2": "Рішення на основі цифр."
+  }
+ },
+ {
+  "name": "rs_block",
+  "label": "Rs block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "rs-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "rs-block__inner",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "rs-block__heading",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "md": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "rs-pair",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "rs-col",
+         "kids": [
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "md": "text"
+          }
+         ],
+         "each": "items"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "rs-quote",
+       "md": "rs_quote"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "RS-BLOCK",
+   "title": "Результат з quote",
+   "items": [
+    {
+     "title": "Було",
+     "text": "«Здається, нормально»"
+    },
+    {
+     "title": "Стало",
+     "text": "«Бачу, що змінити»"
+    }
+   ],
+   "rs_quote": "<span>Ключ</span>**Від хаосу в голові — до системи в управлінні.**"
+  }
+ },
+ {
+  "name": "mx_block",
+  "label": "Mx block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "mx-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "mx-block__grid",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "mx-block__text",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "md": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "mx-block__panel",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title2"
+        },
+        {
+         "tag": "ul",
+         "kids": [
+          {
+           "tag": "li",
+           "md": "_",
+           "each": "items"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "title2": "Заголовок 2",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "MX-BLOCK",
+   "title": "Текст + панель",
+   "text": "Пояснення зліва, список справа.",
+   "title2": "Розрізи",
+   "items": [
+    "продукти",
+    "напрями",
+    "клієнти"
+   ]
+  }
+ },
+ {
+  "name": "vc_wrap",
+  "label": "Vc wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "vc-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "vc-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "vc-cards",
+     "kids": [
+      {
+       "tag": "article",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title2"
+        },
+        {
+         "tag": "p",
+         "cls": "vc-flow",
+         "md": "vc_flow"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "text": "Текст",
+   "title2": "Заголовок 2",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "VC-CARDS",
+   "title": "Картки з flow",
+   "title2": "Панель власника",
+   "vc_flow": "**виручка → витрати → прибуток**",
+   "text": "5–7 показників для рішень."
+  }
+ },
+ {
+  "name": "rc_wrap",
+  "label": "Rc wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "rc-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "rc-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "rc-grid",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "rc-card",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "ul",
+         "kids": [
+          {
+           "tag": "li",
+           "md": "_",
+           "each": "items"
+          }
+         ]
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "cards": "Картки",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "RC-GRID",
+   "title": "Картки зі списками",
+   "cards": [
+    {
+     "title": "Стратегія",
+     "items": [
+      "пріоритети",
+      "фокус"
+     ]
+    },
+    {
+     "title": "Команда",
+     "items": [
+      "ролі",
+      "відповідальність"
+     ]
+    },
+    {
+     "title": "План",
+     "items": [
+      "кроки",
+      "контроль"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "check_cols_wrap",
+  "label": "Check cols wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "check-cols-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "check-cols-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "check-cols",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "check-col",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "ul",
+         "kids": [
+          {
+           "tag": "li",
+           "md": "_",
+           "each": "items"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "CHECK-COLS",
+   "title": "Три колонки списків",
+   "items": [
+    {
+     "title": "Аналіз",
+     "items": [
+      "аудит",
+      "витрати"
+     ]
+    },
+    {
+     "title": "Система",
+     "items": [
+      "KPI",
+      "звіти"
+     ]
+    },
+    {
+     "title": "Передача",
+     "items": [
+      "навчання",
+      "правила"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "stack_wrap",
+  "label": "Stack wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "stack-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "stack-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "stack-cards",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "stack-card",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "stack-card__num",
+         "index": "pad2"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "text": "Текст",
+   "cards": "Картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "STACK-CARDS",
+   "title": "Картки з тінню",
+   "cards": [
+    {
+     "title": "Зустріч",
+     "text": "Запит і доцільність."
+    },
+    {
+     "title": "Система",
+     "text": "Під структуру бізнесу."
+    },
+    {
+     "title": "Передача",
+     "text": "Команда працює сама."
+    }
+   ]
+  }
+ },
+ {
+  "name": "fw_block",
+  "label": "Fw block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "fw-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "fw-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "fw-grid",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "fw-cell",
+       "kids": [
+        {
+         "tag": "span",
+         "index": "1"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "FW-BLOCK",
+   "title": "Формат роботи",
+   "items": [
+    {
+     "text": "**Тривалість:** 2 год"
+    },
+    {
+     "text": "**Формат:** онлайн"
+    },
+    {
+     "text": "**Вартість:** індивід."
+    },
+    {
+     "text": "**Результат:** план"
+    }
+   ]
+  }
+ },
+ {
+  "name": "tb_block",
+  "label": "Tb block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tb-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "tb-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "tb-row",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "tb-label",
+       "md": "tb_label"
+      },
+      {
+       "tag": "div",
+       "cls": "tb-value",
+       "md": "tb_value"
+      }
+     ],
+     "each": "items"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "TB-BLOCK",
+   "title": "Мітка / значення",
+   "items": [
+    {
+     "tb_label": "Формат",
+     "tb_value": "Онлайн"
+    },
+    {
+     "tb_label": "Старт",
+     "tb_value": "Знайомство"
+    }
+   ]
+  }
+ },
+ {
+  "name": "feat_wrap",
+  "label": "Feat wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "feat-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "feat-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "feat-list",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "feat-row",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "feat-row__num",
+         "index": "pad2"
+        },
+        {
+         "tag": "div",
+         "cls": "feat-row__body",
+         "kids": [
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "md": "text"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "FEAT-ROW",
+   "title": "Фічі з номером",
+   "items": [
+    {
+     "title": "Під ваш бізнес",
+     "text": "Не шаблон."
+    },
+    {
+     "title": "З передачею",
+     "text": "Команда веде далі."
+    }
+   ]
+  }
+ },
+ {
+  "name": "tl_wrap",
+  "label": "Tl wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tl-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "tl-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "tl-list",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "tl-item",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "tl-item__dot",
+         "static": true
+        },
+        {
+         "tag": "div",
+         "cls": "tl-item__body",
+         "kids": [
+          {
+           "tag": "span",
+           "cls": "tl-item__meta",
+           "md": "meta"
+          },
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "md": "text"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "TIMELINE",
+   "title": "Вертикальна лінія",
+   "items": [
+    {
+     "meta": "Старт",
+     "title": "Знайомство",
+     "text": "Запит і доцільність."
+    },
+    {
+     "meta": "Крок 2",
+     "title": "Діагностика",
+     "text": "Точка А і вузькі місця."
+    },
+    {
+     "meta": "Крок 3",
+     "title": "Впровадження",
+     "text": "Система в роботу."
+    },
+    {
+     "meta": "Фініш",
+     "title": "Передача",
+     "text": "Команда користується сама."
+    }
+   ]
+  }
+ },
+ {
+  "name": "split_cta",
+  "label": "Split cta",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "split-cta ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "{variant}",
+     "kids": [
+      {
+       "tag": "h3",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      },
+      {
+       "btn": "cta_text"
+      }
+     ],
+     "each": "items"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {
+   "variant": [
+    [
+     "split-cta__card",
+     "Звичайний"
+    ],
+    [
+     "split-cta__card split-cta__card--accent",
+     "--accent"
+    ]
+   ]
+  },
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "cta_text": "Текст кнопки",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "variant": "split-cta__card",
+     "title": "Зустріч",
+     "text": "Без зобов’язань.",
+     "cta_text": "ЗАПИС"
+    },
+    {
+     "variant": "split-cta__card split-cta__card--accent",
+     "title": "Проєкт",
+     "text": "Під ключ.",
+     "cta_text": "ОБГОВОРИТИ"
+    }
+   ]
+  }
+ },
+ {
+  "name": "hero_mini",
+  "label": "Hero mini",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "hero-mini ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "hero-mini__inner",
+     "kids": [
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      },
+      {
+       "btn": "cta_text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "text": "Текст",
+   "cta_text": "Текст кнопки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "title": "Міні-банер без фото",
+   "text": "Короткий заклик по центру.",
+   "cta_text": "ОБГОВОРИТИ"
+  }
+ },
+ {
+  "name": "bk_block",
+  "label": "Bk block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "bk-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "bk-block__box",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "bk-block__heading",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "md": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        }
+       ]
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      },
+      {
+       "tag": "div",
+       "cls": "bk-block__cta",
+       "kids": [
+        {
+         "cta": "cta_text"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "cta_text": "Текст кнопки",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "BK-BLOCK",
+   "title": "Як записатися",
+   "text": "**Натисніть кнопку** або напишіть «КОНСУЛЬТАЦІЯ».",
+   "cta_text": "ЗАПИСАТИСЯ"
+  }
+ },
+ {
+  "name": "vz_block",
+  "label": "Vz block",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "vz-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "vz-block__box",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "vz-block__heading",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "md": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        }
+       ]
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "VZ-BLOCK",
+   "title": "Важливо / кому не підійде",
+   "text": "Формат для тих, хто готовий **дивитися в систему**, а не лише на симптоми."
+  }
+ },
+ {
+  "name": "fn_burgundy",
+  "label": "Fn burgundy",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "fn-burgundy ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "fn-burgundy__box",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "fn-burgundy__kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "p",
+       "cls": "fn-burgundy__lead",
+       "md": "lead"
+      },
+      {
+       "tag": "p",
+       "cls": "fn-burgundy__small",
+       "md": "small"
+      },
+      {
+       "cta": "cta_text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "cta_text": "Текст кнопки",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "FN-BURGUNDY",
+   "lead": "Нижній бордовий блок з кнопкою",
+   "small": "Фінальний акцент сторінки",
+   "cta_text": "ЗАПИСАТИСЯ"
+  }
+ },
+ {
+  "name": "side_note",
+  "label": "Side note",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "side-note ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "side-note__main",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      }
+     ]
+    },
+    {
+     "tag": "aside",
+     "cls": "side-note__aside",
+     "md": "aside"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "SIDE-NOTE",
+   "title": "Текст + бічна виноска",
+   "text": "Спочатку рішення власника — потім система цифр.",
+   "aside": "**На практиці**Часто справа не в «більше продажів», а в собівартості."
+  }
+ },
+ {
+  "name": "checklist_box",
+  "label": "Checklist box",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "checklist-box ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "checklist-box__inner",
+     "kids": [
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "ul",
+       "kids": [
+        {
+         "tag": "li",
+         "md": "_",
+         "each": "items"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "title": "Checklist-box",
+   "items": [
+    "дані",
+    "план-факт",
+    "напрями",
+    "відповідальність",
+    "що бачить власник",
+    "контроль"
+   ]
+  }
+ },
+ {
+  "name": "media_text",
+  "label": "Media text",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "media-text ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "media-text__img",
+     "kids": [
+      {
+       "tag": "img",
+       "af": {
+        "src": "photo",
+        "alt": "photo_alt"
+       },
+       "void": true
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "media-text__body",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "photo": "Фото",
+   "photo_alt": "Підпис до фото (для Google)",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "photo": "/assets/images/me.jpg",
+   "photo_alt": "",
+   "kicker": "MEDIA-TEXT",
+   "title": "Квадратне фото + текст",
+   "text": "Компактний блок «обличчя + теза»."
+  }
+ },
+ {
+  "name": "faq_mini_wrap",
+  "label": "Faq mini wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "faq-mini-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "faq-mini-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "faq-mini",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "faq-mini__item",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "FAQ-MINI",
+   "title": "Питання без акордеону",
+   "items": [
+    {
+     "title": "Скільки триває старт?",
+     "text": "1–2 тижні на аудит після зустрічі."
+    },
+    {
+     "title": "Чи потрібна програма?",
+     "text": "Не обов’язково — спочатку логіка."
+    }
+   ]
+  }
+ },
+ {
+  "name": "two_quote",
+  "label": "Two quote",
+  "group": "example",
+  "root": {
+   "tag": "div",
+   "cls": "two-quote ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "two-quote__item",
+     "kids": [
+      {
+       "tag": "p",
+       "md": "text"
+      },
+      {
+       "tag": "span",
+       "md": "text2"
+      }
+     ],
+     "each": "items"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст",
+   "items": "Елементи",
+   "text2": "Текст 2",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "text": "«Розуміти цифри, а не лише бачити»",
+     "text2": "ідея"
+    },
+    {
+     "text": "«Система — щоб керувати»",
+     "text2": "підхід"
+    }
+   ]
+  }
+ },
+ {
+  "name": "is_wrap",
+  "label": "Is wrap",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "is-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "is-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "is-stages",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "is-stage",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "is-stage__head",
+         "kids": [
+          {
+           "tag": "span",
+           "cls": "is-stage__num",
+           "md": "num"
+          },
+          {
+           "tag": "h3",
+           "md": "title2"
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "cls": "is-stage__body",
+         "kids": [
+          {
+           "tag": "p",
+           "cls": "is-stage__lead",
+           "md": "lead"
+          },
+          {
+           "tag": "p",
+           "cls": "is-stage__result",
+           "md": "result"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "num": "Номер",
+   "title2": "Заголовок 2",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "IS-STAGES",
+   "title": "Етапи ISO-стилю",
+   "num": "1",
+   "title2": "Діагностика",
+   "lead": "Що вже є",
+   "result": "<span>Результат</span> план дій"
+  }
+ },
+ {
+  "name": "dq_block",
+  "label": "Діагностичні питання",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "dq-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "dq-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "dq-block__box",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "diag-q",
+       "md": "_",
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ДІАГНОСТИКА",
+   "title": "Питання, з яких починається робота",
+   "items": [
+    "<span class=\"diag-q__mark\">?</span><span>Що власник хоче бачити щотижня / щомісяця, щоб керувати?</span>",
+    "<span class=\"diag-q__mark\">?</span><span>Які рішення відкладаються через відсутність зрозумілих цифр?</span>",
+    "<span class=\"diag-q__mark\">?</span><span>Де зараз «сірі зони»: витрати, собівартість, напрями, відповідальність?</span>",
+    "<span class=\"diag-q__mark\">?</span><span>Що вже працює в обліку — і чого бракує саме для управління?</span>"
+   ]
+  }
+ },
+ {
+  "name": "agenda_block",
+  "label": "Порядок сесії",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "agenda-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "agenda-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "agenda-list",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "agenda-item",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "agenda-item__time",
+         "md": "time"
+        },
+        {
+         "tag": "div",
+         "kids": [
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "md": "text"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "time": "Час",
+   "items": "Елементи",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ЯК ПРОХОДИТЬ",
+   "title": "Порядок стратегічної / консультаційної зустрічі",
+   "items": [
+    {
+     "time": "0–15 хв",
+     "title": "Точка А",
+     "text": "Ситуація, запит, що вже пробували"
+    },
+    {
+     "time": "15–50 хв",
+     "title": "Розбір",
+     "text": "Причини, обмеження, варіанти, пріоритети"
+    },
+    {
+     "time": "50–end",
+     "title": "Наступні кроки",
+     "text": "3–5 конкретних дій і точки контролю"
+    }
+   ]
+  }
+ },
+ {
+  "name": "principle_block",
+  "label": "Принципи роботи",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "principle-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "principle-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "principle-list",
+     "kids": [
+      {
+       "tag": "article",
+       "cls": "principle-item",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "cards"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "text": "Текст",
+   "cards": "Картки",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ПІДХІД",
+   "title": "Як я працюю з бізнесом",
+   "cards": [
+    {
+     "title": "Спочатку бізнес, потім таблиці",
+     "text": "Які рішення потрібні власнику — така й система цифр."
+    },
+    {
+     "title": "Не облік заради обліку",
+     "text": "Показники, якими реально користуються в управлінні."
+    },
+    {
+     "title": "Система залишається з вами",
+     "text": "Передача команді, а не залежність від консультанта."
+    },
+    {
+     "title": "Без універсальних тарифів",
+     "text": "Обсяг і вартість — після розуміння ситуації."
+    }
+   ]
+  }
+ },
+ {
+  "name": "deliverable_block",
+  "label": "Що здаємо (артефакти)",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "deliverable-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "deliverable-block__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "deliverable-list",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "deliverable-item",
+       "kids": [
+        {
+         "tag": "div",
+         "cls": "deliverable-item__icon",
+         "index": "1"
+        },
+        {
+         "tag": "div",
+         "kids": [
+          {
+           "tag": "h3",
+           "md": "title"
+          },
+          {
+           "tag": "p",
+           "md": "text"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "АРТЕФАКТИ",
+   "title": "Що залишається після проєкту",
+   "items": [
+    {
+     "title": "Структура обліку",
+     "text": "Доходи, витрати, центри відповідальності"
+    },
+    {
+     "title": "Набір звітів",
+     "text": "Те, що відкриває власник, а не «ще одна таблиця»"
+    },
+    {
+     "title": "5–7 KPI",
+     "text": "Показники під ваш бізнес і ритм контролю"
+    },
+    {
+     "title": "Правила роботи",
+     "text": "Хто що подає, як читати відхилення, що робити далі"
+    }
+   ]
+  }
+ },
+ {
+  "name": "tx_lead",
+  "label": "Tx lead",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tx-lead ec-animate",
+   "kids": [
+    {
+     "tag": "p",
+     "cls": "ec-kicker",
+     "md": "kicker",
+     "opt": "kicker"
+    },
+    {
+     "tag": "p",
+     "cls": "tx-lead__text",
+     "md": "text"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "СУТЬ",
+   "text": "Стратегія потрібна не для папки. Вона потрібна, щоб бізнес **рухався в потрібному напрямку**."
+  }
+ },
+ {
+  "name": "tx_split",
+  "label": "Дві колонки без карток",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tx-split ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "tx-split__col",
+     "kids": [
+      {
+       "tag": "h3",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "_",
+       "each": "items"
+      }
+     ],
+     "each": "items"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "title": "Що змінюємо",
+     "items": [
+      "Пріоритети, роль власника, зв’язок цілей із фінансами та KPI.",
+      "Без універсального шаблону — під структуру вашого бізнесу."
+     ]
+    },
+    {
+     "title": "Що не робимо",
+     "items": [
+      "Не пишемо «стратегію для звіту» і не залишаємо документ без плану дій.",
+      "Мета — рішення, якими можна користуватися в управлінні."
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "tx_stack",
+  "label": "Стек підзаголовків без рамок",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tx-stack ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "tx-stack__intro",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "md": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "tx-stack__item",
+     "kids": [
+      {
+       "tag": "h3",
+       "md": "title"
+      },
+      {
+       "tag": "p",
+       "md": "text"
+      }
+     ],
+     "each": "items"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "kicker": "Надзаголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "СКЛАД",
+   "title": "Три шари роботи",
+   "text": "Кожен пункт — лише лінія-роздільник, без карток.",
+   "items": [
+    {
+     "title": "Діагностика",
+     "text": "Точка А, вузькі місця, що стримує розвиток."
+    },
+    {
+     "title": "Стратегія",
+     "text": "Точка Б, цілі, напрямки, пріоритети."
+    },
+    {
+     "title": "План і KPI",
+     "text": "Дорожня карта, відповідальні, показники контролю."
+    }
+   ]
+  }
+ },
+ {
+  "name": "tx_pull",
+  "label": "Tx pull",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tx-pull ec-animate",
+   "kids": [
+    {
+     "tag": "p",
+     "md": "text"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "text": "Ви перестаєте лише реагувати — і починаєте **керувати розвитком**."
+  }
+ },
+ {
+  "name": "tx_meta",
+  "label": "пігулки",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "tx-meta ec-animate",
+   "kids": [
+    {
+     "tag": "p",
+     "cls": "ec-kicker",
+     "md": "kicker",
+     "opt": "kicker"
+    },
+    {
+     "tag": "h2",
+     "md": "title"
+    },
+    {
+     "tag": "p",
+     "md": "text"
+    },
+    {
+     "tag": "div",
+     "cls": "pill-meta",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "pill-meta__item",
+       "md": "_",
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок",
+   "items": "Елементи",
+   "text": "Текст",
+   "kicker": "Надзаголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ФОРМАТ",
+   "title": "Як стартуємо",
+   "text": "Спочатку зустріч без зобов’язань — щоб зрозуміти запит і чи потрібен саме цей формат.",
+   "items": [
+    "<span>Формат</span>**Онлайн**",
+    "<span>Старт</span>**Перша зустріч**",
+    "<span>Вартість</span>**Після аудиту**"
+   ]
+  }
+ },
+ {
+  "name": "chips",
+  "label": "chips · chip · chip--accent",
+  "group": "insert",
+  "root": {
+   "tag": "ul",
+   "cls": "chips",
+   "kids": [
+    {
+     "tag": "li",
+     "cls": "{variant}",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {
+   "variant": [
+    [
+     "chip",
+     "Звичайний"
+    ],
+    [
+     "chip chip--accent",
+     "--accent"
+    ]
+   ]
+  },
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "variant": "chip",
+     "_": "управлінський облік"
+    },
+    {
+     "variant": "chip chip--accent",
+     "_": "план-факт"
+    },
+    {
+     "variant": "chip",
+     "_": "KPI"
+    },
+    {
+     "variant": "chip",
+     "_": "бюджет"
+    }
+   ]
+  }
+ },
+ {
+  "name": "pill_meta",
+  "label": "pill-meta · pill-meta__item",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "pill-meta",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "pill-meta__item",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "<span>Формат</span>**Онлайн**",
+    "<span>Старт</span>**Знайомство**",
+    "<span>Тривалість</span>**2 год**"
+   ]
+  }
+ },
+ {
+  "name": "label_row",
+  "label": "label-row · label-row__tag · label-row__tag--soft",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "label-row",
+   "md": "label_row"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {
+   "label_row": "<span class=\"label-row__tag\">Онлайн</span> <span>Zoom, без виїзду</span>"
+  }
+ },
+ {
+  "name": "split_inline",
+  "label": "split-inline · split-inline__sep",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "split-inline",
+   "md": "split_inline"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {
+   "split_inline": "<span>Аудит</span><span class=\"split-inline__sep\">·</span> <span>Система</span><span class=\"split-inline__sep\">·</span> <span>Передача</span>"
+  }
+ },
+ {
+  "name": "call_out",
+  "label": "call-out",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "{variant}",
+   "kids": [
+    {
+     "tag": "p",
+     "md": "text"
+    }
+   ]
+  },
+  "selects": {
+   "variant": [
+    [
+     "call-out",
+     "Звичайний"
+    ],
+    [
+     "call-out call-out--soft",
+     "--soft"
+    ],
+    [
+     "call-out call-out--warn",
+     "--warn"
+    ]
+   ]
+  },
+  "labels": {
+   "text": "Текст"
+  },
+  "hint": "",
+  "sample": {
+   "variant": "call-out",
+   "text": "**Call-out:** важлива думка всередині тексту."
+  }
+ },
+ {
+  "name": "note_line",
+  "label": "note-line",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "note-line",
+   "md": "note_line"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {
+   "note_line": "Однорядкова примітка з маркером «i»."
+  }
+ },
+ {
+  "name": "soft_box",
+  "label": "soft-box",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "soft-box",
+   "kids": [
+    {
+     "tag": "p",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "**Soft-box** — ледь помітна підкладка під абзац або групу речень.",
+    "Зручно для вторинного тексту без важкої рамки."
+   ]
+  }
+ },
+ {
+  "name": "highlight_line",
+  "label": "highlight-line",
+  "group": "insert",
+  "root": {
+   "tag": "span",
+   "cls": "highlight-line",
+   "md": "highlight_line"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {
+   "highlight_line": "Highlight-line — один акцентний рядок з підкресленням"
+  }
+ },
+ {
+  "name": "star_list",
+  "label": "star-list",
+  "group": "insert",
+  "root": {
+   "tag": "ul",
+   "cls": "star-list",
+   "kids": [
+    {
+     "tag": "li",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "Star-list — пункти з зірочкою",
+    "Для коротких «що важливо»"
+   ]
+  }
+ },
+ {
+  "name": "arrow_list",
+  "label": "arrow-list",
+  "group": "insert",
+  "root": {
+   "tag": "ul",
+   "cls": "arrow-list",
+   "kids": [
+    {
+     "tag": "li",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "Arrow-list — кроки зі стрілкою",
+    "Логіка «далі → далі»"
+   ]
+  }
+ },
+ {
+  "name": "bullet_tight",
+  "label": "bullet-tight",
+  "group": "insert",
+  "root": {
+   "tag": "ul",
+   "cls": "bullet-tight",
+   "kids": [
+    {
+     "tag": "li",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "Bullet-tight — щільний список",
+    "Мінімум повітря між рядками",
+    "Зручно в картках і stage"
+   ]
+  }
+ },
+ {
+  "name": "icon_list",
+  "label": "icon-list · icon-list__mark",
+  "group": "insert",
+  "root": {
+   "tag": "ul",
+   "cls": "icon-list",
+   "kids": [
+    {
+     "tag": "li",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "<span class=\"icon-list__mark\">A</span><span>Icon-list — маркер-літера або цифра</span>",
+    "<span class=\"icon-list__mark\">B</span><span>Варіанти / пріоритети</span>",
+    "<span class=\"icon-list__mark\">1</span><span>Можна мішати літери й цифри</span>"
+   ]
+  }
+ },
+ {
+  "name": "kv_list",
+  "label": "kv-list · kv-row · kv-key · kv-val",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "kv-list",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "kv-row",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "kv-key",
+       "md": "kv_key"
+      },
+      {
+       "tag": "div",
+       "cls": "kv-val",
+       "md": "kv_val"
+      }
+     ],
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "kv_key": "Тривалість",
+     "kv_val": "2–2,5 години"
+    },
+    {
+     "kv_key": "Формат",
+     "kv_val": "Онлайн"
+    },
+    {
+     "kv_key": "Результат",
+     "kv_val": "План на 3–5 кроків"
+    }
+   ]
+  }
+ },
+ {
+  "name": "price_tag",
+  "label": "price-tag · price-tag__value · price-tag__note",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "price-tag",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "price-tag__value",
+     "md": "value"
+    },
+    {
+     "tag": "div",
+     "cls": "price-tag__note",
+     "md": "note"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "value": "Значення",
+   "note": "Примітка"
+  },
+  "hint": "",
+  "sample": {
+   "value": "6 000 ₴",
+   "note": "приклад ціни · 2 години"
+  }
+ },
+ {
+  "name": "step_num",
+  "label": "step-num · step-num__n · step-num__t",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "step-num",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "step-num__n",
+     "md": "n"
+    },
+    {
+     "tag": "div",
+     "cls": "step-num__t",
+     "md": "t"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "n": "Номер"
+  },
+  "hint": "",
+  "sample": {
+   "n": "1",
+   "t": "**Step-num:** номер у квадраті + текст у ряд."
+  }
+ },
+ {
+  "name": "metric_pill_row",
+  "label": "metric-pill · metric-pill-row · metric-pill__n · metric-pill__l",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "metric-pill-row",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "metric-pill",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "metric-pill__n",
+       "md": "n"
+      },
+      {
+       "tag": "div",
+       "cls": "metric-pill__l",
+       "md": "l"
+      }
+     ],
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "l": "Підпис",
+   "n": "Номер",
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "n": "20+",
+     "l": "років досвіду"
+    },
+    {
+     "n": "5–7",
+     "l": "KPI"
+    },
+    {
+     "n": "1",
+     "l": "старт-зустріч"
+    }
+   ]
+  }
+ },
+ {
+  "name": "avatar_row",
+  "label": "avatar-row · avatar-row__faces · avatar-row__text",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "avatar-row",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "avatar-row__faces",
+     "kids": [
+      {
+       "tag": "img",
+       "af": {
+        "src": "photo",
+        "alt": "photo_alt"
+       },
+       "void": true,
+       "each": "items"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "avatar-row__text",
+     "md": "text"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "photo": "Фото",
+   "photo_alt": "Підпис до фото (для Google)",
+   "items": "Елементи",
+   "text": "Текст"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "photo": "/assets/images/me.jpg",
+     "photo_alt": ""
+    },
+    {
+     "photo": "/assets/images/me.jpg",
+     "photo_alt": ""
+    },
+    {
+     "photo": "/assets/images/me.jpg",
+     "photo_alt": ""
+    }
+   ],
+   "text": "**Власник + команда**  \nпередача системи, не «файл і до побачення»"
+  }
+ },
+ {
+  "name": "link_row",
+  "label": "link-row",
+  "group": "insert",
+  "root": {
+   "tag": "ul",
+   "cls": "link-row",
+   "kids": [
+    {
+     "tag": "li",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "<a href=\"/upravlinskiy-oblik/\">Управлінський облік</a>",
+    "<a href=\"/upravlinnya-vytratamy/\">Витрати</a>",
+    "<a href=\"/vlasnytskyi-oblik/\">Власницький контроль</a>"
+   ]
+  }
+ },
+ {
+  "name": "text_cols",
+  "label": "text-cols",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "text-cols",
+   "kids": [
+    {
+     "tag": "p",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Елементи"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "**Ліва колонка.** Два абзаци поруч усередині секції, без окремих карток.",
+    "**Права колонка.** Зручно для короткого порівняння або двох тез."
+   ]
+  }
+ },
+ {
+  "name": "caption",
+  "label": "caption",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "caption",
+   "md": "caption"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {
+   "caption": "Caption — підпис під зображенням або прикладом"
+  }
+ },
+ {
+  "name": "badge_title",
+  "label": "badge-title · badge · badge--yellow",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "badge-title",
+   "kids": [
+    {
+     "tag": "span",
+     "cls": "badge",
+     "md": "badge"
+    },
+    {
+     "tag": "h3",
+     "md": "title"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "title": "Заголовок"
+  },
+  "hint": "",
+  "sample": {
+   "badge": "badge",
+   "title": "Badge над заголовком"
+  }
+ },
+ {
+  "name": "divider_label",
+  "label": "divider-label",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "divider-label",
+   "md": "divider_label"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {
+   "divider_label": "<span>роздільник з підписом</span>"
+  }
+ },
+ {
+  "name": "hr_soft",
+  "label": "hr-soft",
+  "group": "insert",
+  "root": {
+   "tag": "hr",
+   "cls": "hr-soft",
+   "void": true
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "",
+  "sample": {}
+ },
+ {
+  "name": "flow_track",
+  "label": "Схема кроків (А → Б → В)",
+  "group": "insert",
+  "root": {
+   "flow": "flow"
+  },
+  "selects": {},
+  "labels": {
+   "flow": "Кроки схеми (кожен — окремий пункт)"
+  },
+  "hint": ""
+ },
+ {
+  "name": "table",
+  "label": "Таблиця",
+  "group": "insert",
+  "root": {
+   "table": "table",
+   "wrap": "diagnostic-table-wrap",
+   "tcls": "diagnostic-table"
+  },
+  "selects": {},
+  "labels": {},
+  "hint": "Заголовки стовпців, далі рядки: клітинки по порядку стовпців."
+ },
+ {
+  "name": "formula_line",
+  "label": "Формула (А → Б → В жирним)",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "vc-flow",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "Формула"
+  },
+  "hint": ""
+ },
+ {
+  "name": "note_para",
+  "label": "Примітка-абзац (під таблицею)",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "diagnostic-note",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст"
+  },
+  "hint": ""
+ },
+ {
+  "name": "result_line",
+  "label": "Рядок «Результат: …»",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "st-step__result",
+   "lead": "Результат",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "Результат"
+  },
+  "hint": ""
+ }
+]

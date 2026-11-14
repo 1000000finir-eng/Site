@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ірина Стецуріна — Консалтинг</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="/booking/booking.css">
+  <script src="/booking/booking.js" defer></script>
+</head>
+
+
+<!-- ===================== EXIT-INTENT POPUP ===================== -->
+<!--<div id="exitPopup">
+  <div class="exit-popup-content">
+    <button class="modal-x" aria-label="Закрити"><span>&times;</span></button>
+    <img src="assets/images/checklist.png" class="exit-img" alt="Check-list">
+    <h3>Зачекай!</h3>
+    <p class="exit-sub">
+      Дарую чек-лист <br>
+      <strong>«5 блоків, які крадуть у тебе +500k грн/місяць»</strong><br>
+      Просто залиш контакти ↓
+    </p>
+    <form id="exitForm">
+      <input type="text" name="name" placeholder="Ваше ім’я" required>
+      <input type="text" name="phone" id="exitPhone" placeholder="Телефон" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <button type="submit" class="btn btn-main exit-btn">Отримати чек-лист</button>
+    </form>
+    <div id="exitStatus"></div>
+  </div>
+</div>-->
+
+<body>
+<!-- =================================================================
+                       topbar
+ =================================================================== -->
+  <div class="topbar">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Лого" />
+    </div>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="topbar-right">
+        <nav id="menu">
+          <a href="/" onclick="closeMenu()">Головна</a>
+          <a href="/#about" onclick="closeMenu()">Про мене</a>
+          <a href="/#products" onclick="closeMenu()">Продукти</a>
+          <!--<a href="/#faq" onclick="closeMenu()">FAQ</a>>-->
+          <!--  <a onclick="openPaymentModal(); closeMenu()">Оплата</a>-->
+          <a onclick="openContactsModal(); closeMenu()">Контакти</a>
+
+        </nav>
+          <!-- CALLBACK BUTTON — після nav, до кінця topbar -->
+        <button class="callback-topbar-btn" onclick="openCallbackModal()" aria-label="Замовити дзвінок">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </button>
+      </div>
+    </div>
+
+<!-- =========================================
+                HERO SECTION
+========================================= -->
+<section id="hero" class="fade-up">
+  <div class="hero-wrapper">
+    <img src="assets/images/hero.jpg" alt="" class="hero-cover">
+    <img src="assets/images/hero-overlay.png" class="hero-overlay" alt="">
+
+    <div class="hero-text">
+      <h1 class="hero-line hero-line-1"><span class="shifted">СИСТЕМНИЙ КОНСАЛТИНГ</span></h1>
+      <h1 class="hero-line hero-line-2">ЩО ДАЄ ПРОРИВИ, А НЕ ІЛЮЗІЮ РУХУ</h1>
+      <p class="hero-sub hero-line hero-line-3">
+        Для тих, хто хоче керувати бізнесом, а не бігати за ним
+      </p>
+      <br>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                      (ABOUT)
+ =================================================================== -->
+  <!-- <header class="fade-up"></header>-->
+<br><br>
+  <section class="section" id="about">
+    <div class="about-wrapper fade-left">
+      <div class="about-photo-wrapper">
+        <img class="about-photo" src="assets/images/about-photo.jpg" alt="Ірина Стецуріна" />
+        </div>
+      <div class="about-text">
+        <p><strong>ІРИНА СТЕЦУРІНА</strong> <br></p>
+          <p>Системний консультант | Бізнес-тренер | Коуч | MBA</p>
+        <p><strong>Для кого я працюю: </strong></p>
+        <p>Власники малого та середнього бізнесу, експерти, які переросли хаос і готові до системного масштабування без втрати сенсу й якості життя</p>
+          <p><strong>Результати для клієнтів:</strong></p>
+
+        <ul style="margin:10px 0; padding-left:20px;">
+          <li>зрозуміла стратегія та стабільне зростання</li>
+          <li>керовані процеси й підвищена капіталізація</li>
+          <li>бізнес, який працює без постійного «ручного» втручання</li>
+          <li>вихід на нові фінансові рівні</li>
+        </ul>
+
+        <p><strong>Мій фокус </strong>- не «латати проблеми», а <strong>показати новий рівень мислення і дій</strong><br></p>
+        <div class="about-highlights">
+          <div class="about-highlights">
+            <div class="about-card">
+                <img src="assets/images/cert.jpg" alt="">
+            </div>
+
+            <div class="about-card">
+                <img src="assets/images/diploma_LIFT.jpg" alt="">
+            </div>
+
+              <div class="about-card">
+                <img src="assets/images/diploma.jpg" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- =================================================================
+ INTRO MINI-FEATURES
+ ======================================================================= -->
+<section id="intro-features" class="section">
+
+
+  <div class="mini-features-grid">
+
+    <!-- 1 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Практичний досвід</h3>
+    </div>
+      <p><strong>22+ роки професійного тренінгу та консультування!</strong></p>
+        <p>Не теорія з підручників - реальний досвід впровадження систем у бізнесах різних масштабів.</p>
+      <p>Я не просто розробляю рекомендації - я допомагаю їх втілити.</p>
+
+    </div>
+        </div>
+
+    <!-- 2 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Варіанти нашої співпраці</h3>
+    </div>
+      <ul style=" padding-left:20px;">
+        <li>Індивідуальне консультування</li>
+        <li>Коучинг перших осіб компанії</li>
+        <li>Корпоративне консультування</li>
+        <li>Точкові консультації та тренінги</li>
+        <li>Консультаційний супровід процесів </li>
+        <li>Менторинг-програми та супровід власників</li>
+      </ul>
+    </div>
+        </div>
+
+    <!-- 3 -->
+      <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Індивідуальна робота з власниками</h3>
+    </div>
+      <p>У центрі роботи — особистість лідера:</p>
+      <ul style=" padding-left:20px;">
+        <li>мислення і його “точка огляду”</li>
+        <li>емоційна стійкість і здатність тримати навантаження</li>
+        <li>особистий стиль управління</li>
+        <li>відносини з собою, партнерами, грошима</li>
+      </ul>
+    </div>
+        </div>
+
+
+
+      <!-- 4 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Результати нашої співпраці</h3>
+    </div>
+      <ul style=" padding-left:20px;">
+        <li><strong>Системи, що працюють</strong> - не плани, а реально впроваджені інструменти контролю та розвитку</li>
+        <li><strong>Вихід з операційки</strong> - бізнес працює без вас 24/7, ви керуєте стратегічно</li>
+        <li><strong>Передбачуваність </strong>- від "гасіння пожеж" до чіткого контролю цифр та процесів</li>
+        <li><strong>Баланс</strong> - час на життя, а не тільки на роботу. Бізнес дає свободу, а не забирає її</li>
+      </ul>
+    </div>
+        </div>
+
+    <!-- 5 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Консалтинг без шаблонів</h3>
+    </div>
+      <p><strong>Управлінський та фінансовий консалтинг</strong>-
+        це <strong>унікальне рішення під ваш бізнес:</strong></p>
+      <ul style=" padding-left:20px;">
+        <li>Не копіюю "кращі практики" - аналізую, що спрацює саме у вас</li>
+        <li>Не нав'язую готові рішення - розробляю системи під вашу специфіку</li>
+          <li>Не даю універсальні поради - шукаю те, що стане вашою конкурентною перевагою</li>
+      </ul>
+
+    </div>
+        </div>
+
+    <!-- 6 -->
+    <div class="mini-feature fade-up">
+
+  <div class="mini-feature-border"></div>
+
+  <div class="mini-feature-content">
+    <div class="mini-top short-mode">
+      <img class="mini-icon" src="assets/icons/mission.png" alt="">
+      <h3>Мій підхід</h3>
+    </div>
+      <ul style=" padding-left:20px;">
+      <li>Логіка + інтуїція </li>
+          <li>Цифри + сенси</li>
+      <li>Cистемність + глибина</li>
+          <li>Фундамент, а не фасад</li>
+         </ul>
+      <p>Я не даю шаблонів - допомагаю знайти рішення, <strong>що працюють саме для вас</strong></p>
+
+    </div>
+        </div>
+
+  </div>
+</section>
+
+
+  <!--================================================================
+    Products
+    =======================================================================-->
+  <!--@@SECTIONS@@-->
+
+<!======================================
+                       Відгуки
+  =======================================>
+<section id="testimonials" class="section ft-animate">
+  <h2 class="testimonials-title">Відгуки клієнтів</h2>
+
+  <div class="testimonials-wrapper">
+    <div class="testimonials-track" id="testimonialsTrack">
+
+      <!-- CARD 1 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Після роботи з Іриною ми перестали гасити пожежі й нарешті побачила бізнес як систему.
+          З’явилась ясність по цифрах, відповідальності й пріоритетах. За 4 місяці оборот виріс на 32% без “забігів на виснаження”.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ОК</div>
+          <div>
+            <div class="testimonial-name">Олена Коваль К.</div>
+            <div class="testimonial-role">Власниця логістичної компанії</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Стратегічна сесія з Іриною — це коли тобі одночасно і дуже чесно, і дуже підтримуюче.
+          Ми побачили, де втрачаємо гроші, переглянули ролі в команді й прописали цілі співробітникіа, які наближають до виконання стратегічних та тактичних цілей компанії.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">МЛ</div>
+          <div>
+            <div class="testimonial-name">Максим Лозовий</div>
+            <div class="testimonial-role">Співвласник IT-компанії</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «На експрес-консультації ми за 45 хвилин розклали по поличках те, що я крутила в голові пів року.
+          Вийшла з конкретним планом на 3 місяці і відчуттям, що нарешті керую ситуацією, а не навпаки.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ІС</div>
+          <div>
+            <div class="testimonial-name">Ірина Самохвал</div>
+            <div class="testimonial-role">Підприємиця у сфері послуг</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «На консультації отримала практичні відповіді на питання, що мене цікавили. Великий практичний досвід консультанта дозволяє дати прості зрозумілі
+          поради щодо побудови системи управління фінансами в компанії.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ТО</div>
+          <div>
+            <div class="testimonial-name">Тамара Олександрівна</div>
+            <div class="testimonial-role">Власниця декількох компаній</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «За час індивідуальної роботи з Іриною у мене змінився не лише бізнес, а й відношення до себе.
+          Стало менше самокритики, більше рішень “з опори”, з’явився баланс між компанією та особистим життям.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">НВ</div>
+          <div>
+            <div class="testimonial-name">Наталія Вакуленко</div>
+            <div class="testimonial-role">Власниця виробничого бізнесу</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 6 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Доступное изложение информации, визуализация, решение практических задач. На индивидуальном тренинге я получила очень подробную информацию по КРІ и ССП.
+          Тренер информацию передавала интересно и с указанием реальных примеров, которые можно сразу же применить на нашем предприятии.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">АС</div>
+          <div>
+            <div class="testimonial-name">Антипова Снежана</div>
+            <div class="testimonial-role">Инженер по подготовке кадров<br>
+ГП «МТП«Южный»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 7 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «За один день получил выжимку информации по управлению финансами предприятия и управленческому учету.
+          Много полезных рекомендаций, которые буду внедрять на своем предприятии. Спасибо огромное Ирине! Все очень понравилось!»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ГВ</div>
+          <div>
+            <div class="testimonial-name">Гридасов Виталий</div>
+            <div class="testimonial-role">Учредитель, директор<br>
+ООО «Ариано»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 8 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Сильные стороны: Умение доносить информацию, большой опыт, понимание разных видов бизнеса и быстрое погружение в них. Получен хороший багаж знаний, которые необходимо и уже знаю как внедрять.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ТМ</div>
+          <div>
+            <div class="testimonial-name">Тийдо Марианна</div>
+            <div class="testimonial-role">HR-директор<br>
+ООО «ИНВО ГРУПП»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 9 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Зрозумілий і сучасний виклад, глибоке розуміння теми. Застосування практичних прикладів на базі проєктів нашої компанії. Рекомендації щодо оптимізації діючих моделей»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">СС</div>
+          <div>
+            <div class="testimonial-name">Слабенко Світлана</div>
+            <div class="testimonial-role">Фінансовий директор<br>
+ООО «Корса»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 10 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Сильные стороны тренинга: Возможность задавать вопросы, и более детально их рассмотреть, делать упор на ключевые моменты, которые нужны нам непосредственно. Тренер профессионал, с большим опытом, доброжелательна, внимательна, всегда готова помочь в вопросах»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ПИ</div>
+          <div>
+            <div class="testimonial-name">Петровская Ирина</div>
+            <div class="testimonial-role">Менеджер по KPI<br>
+ ПАО «Бердянские Жатки»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 11 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Дуже докладно і доступно викладена и донесена до слухачів основна інформація.
+Тренер - Професіонал з великої літери!!! Надзвичайно доступно і просто викладає матеріал! Я отримала багато необхідної інформації,
+            зокрема в своїй сфері діяльності, для прийняття необхідних рішень в своїй професіональній роботі.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЗЕ</div>
+          <div>
+            <div class="testimonial-name">Зінько Евгенія</div>
+            <div class="testimonial-role">Економіст-аналітик<br>
+ТОВ «ТБ Сад»
+</div>
+          </div>
+        </div>
+      </article>
+
+     <!-- CARD 12 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Искренняя благодарность за проведенные 2 дня обучения. Конструктивность, внимательность к важным моментам. Предоставление информации в комфортном формате. Ирина,
+            благодарю Вас за помощь нашему коллективу в обучении  и надеюсь на встречу в будущем.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">БМ</div>
+          <div>
+            <div class="testimonial-name">Бородина Марина</div>
+            <div class="testimonial-role">Финансовый менеджер</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 13 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Сильні позитивні емоції, бажання приїхати ще раз. Легкість у спілкуванні, цікава подача інформації,
+            обмін інформацією, бажання тренера відповісти та допомогти у конкретно поставленому питанні»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">КТ</div>
+          <div>
+            <div class="testimonial-name">Казачок Тетяна</div>
+            <div class="testimonial-role">СЕО</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 14 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Индивидуальный подход, систематизация информации. Понятное и интересное изложение информации,
+            рассмотрение практических примеров, обсуждение вопросов на примере предприятия.
+            Тренер - компетентный и профессиональный специалист, открытый и приятный в общении»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЧЕ</div>
+          <div>
+            <div class="testimonial-name">Чиханцова Елена</div>
+            <div class="testimonial-role">Начальник ПЭО<br>
+ООО «МПК Скворцово»
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 15 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Занятие с тренером индивидуальное, возможность задать интересующие вопросы (с учетом специфики предприятия).
+            Очень понравился и тренер и тренинг, получила дополнительные знания и планирую применять на практике.»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЧИ</div>
+          <div>
+            <div class="testimonial-name">Чернышева Илонна</div>
+            <div class="testimonial-role">Финансовый директор<br>
+ПАО "Севертранс"
+</div>
+          </div>
+        </div>
+      </article>
+
+       <!-- CARD 16 -->
+      <article class="testimonial-card">
+        <div class="testimonial-text">
+          «Тренер обладает глубокими знаниями в области управления финансами, бюджетирования, финансового анализа деятельности компании,
+            подает материал доступным способом, очень интересные примеры из практики. Спасибо за теплую обстановку и комфортные условия. Так держать!»
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ЕЛ</div>
+          <div>
+            <div class="testimonial-name">Ермоленко Людмила</div>
+            <div class="testimonial-role">Нач. отдела казначейства<br>
+ЧАО «МК «Азовсталь»
+</div>
+          </div>
+        </div>
+      </article>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<!--========================================================
+                      Галерея
+   ==========================================================-->
+<section id="appleGallery" class="section ">
+  <h2 class="gallery-title">Надихаючі моменти</h2>
+
+  <div class="apple-gallery-wrapper">
+
+    <div class="apple-gallery-track">
+      <div class="apple-slide"><img src="assets/gallery/1.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/2.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/3.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/4.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/5.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/6.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/7.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/8.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/9.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/10.jpg"></div>
+      <div class="apple-slide"><img src="assets/gallery/11.jpg"></div>
+          </div>
+
+    <!-- ТОЧКИ -->
+    <div class="apple-dots"></div>
+  </div>
+</section>
+
+
+
+
+  <!--========================================================
+                       Clients
+   ==========================================================-->
+<section id="clients" class="section ft-animate">
+  <h2 class="clients-title">Мої клієнти</h2>
+
+  <div class="clients-wrapper">
+    <div class="clients-track" id="clientsTrack">
+
+      <div class="logo-box"><img src="assets/clients/client1.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client2.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client3.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client4.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client5.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client6.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client7.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client8.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client9.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client10.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client11.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client12.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client13.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client14.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client15.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client16.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client17.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client18.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client19.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client20.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client21.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client22.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client23.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client24.png" alt=""></div>
+      <div class="logo-box"><img src="assets/clients/client25.png" alt=""></div>
+
+
+    </div>
+  </div>
+</section>
+  <!--=======================================
+     UP button
+     ======================================-->
+  <button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+    <img src="assets/icons/up-arrow.png" alt="up">
+  </button>
+
+  <!--=================================================================
+     Footer & offer button
+       ==============================================================-->
+  <div class="offer-section">
+  <button class="offer-button" onclick="openOfferModal()">Договір оферти</button>
+</div>
+
+<footer>
+  <div class="c">
+    <div class="social">
+      <a href="https://instagram.com/stetsurina.irina_coach" target="_blank">
+        <img src="/assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+        <img src="/assets/icons/instagram.png" class="color" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/IrenStetsurina" target="_blank">
+        <img src="/assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+        <img src="/assets/icons/facebook.png" class="color" alt="Facebook">
+      </a>
+      <a href="https://t.me/Stec0407" target="_blank">
+        <img src="/assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+        <img src="/assets/icons/telegram.png" class="color" alt="Telegram">
+      </a>
+    </div>
+    <div>ФОП Стецуріна Ірина Олександрівна © • м. Київ, Україна • <span id="year"></span></div>
+  </div>
+    <div class="footer-privacy-stick">
+  <button class="offer-button privacy-button" onclick="openPrivacyModal()">
+    Політика конфіденційності
+  </button>
+</div>
+</footer>
+
+<!--============================================================
+ МОДАЛЬНОЕ ОКНО КОНТАКТОВ
+ =====================================================-->
+<div id="contactsModal">
+  <div class="contacts-modal-content">
+     <button class="modal-x" aria-label="Закрити"onclick="closeContactsModal()"><span>&times;</span></button>
+
+    <h3>
+      <img src="assets/icons/phone.png" alt="Телефон" style="height: 28px; margin-right: 8px; vertical-align: middle;">
+      Контакти
+    </h3>
+    <p class="contact-name">ФОП Стецуріна Ірина Олександрівна</p>
+    <p class="location">Україна, м. Київ</p>
+
+    <div class="contacts-socials">
+  <a href="https://ig.me/m/stetsurina.irina_coach" target="_blank">
+    <img src="assets/icons/instagram-gray.png" class="gray" alt="Instagram">
+    <img src="assets/icons/instagram.png" class="color" alt="Instagram">
+  </a>
+  <a href="https://www.facebook.com/IrenStetsurina" target="_blank">
+    <img src="assets/icons/facebook-gray.png" class="gray" alt="Facebook">
+    <img src="assets/icons/facebook.png" class="color" alt="Facebook">
+  </a>
+  <a href="https://t.me/Stec0407" target="_blank">
+    <img src="assets/icons/telegram-gray.png" class="gray" alt="Telegram">
+    <img src="assets/icons/telegram.png" class="color" alt="Telegram">
+  </a>
+</div>
+
+
+  </div>
+</div>
+
+  <!====================================
+  Модалка карточки продуктов
+  ============================================>
+<div id="cardModal">
+  <div class="modal-card">
+    <img id="modalImg" src="" alt="">
+    <div id="modalContent" class="modal-content"></div>
+  </div>
+</div>
+
+<!--=======================================================
+Succes modal
+==========================================================-->
+<div id="successModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Заявку надіслано</h3>
+
+    <div class="success-svg-wrap" id="checkWrap">
+      <svg viewBox="0 0 52 52" aria-hidden="true">
+        <circle class="success-circle-bg" cx="26" cy="26" r="24"/>
+        <circle class="success-circle" cx="26" cy="26" r="24"/>
+        <path class="success-check" d="M14.5 27.5 L22 35 L37.5 18"/>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Перевірте пошту — я зв’яжусь з вами найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeSuccessModal()">Закрити</button>
+  </div>
+</div>
+
+<!--=======================================================
+CALLSucces modal
+==========================================================-->
+<div id="callSuccessModal">
+  <div class="popup-content">
+    <div class="success-kicker">Успішно</div>
+    <h3 class="success-title">Запит надіслано</h3>
+
+    <div class="success-svg-wrap" id="phoneWrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+          <path class="phone-body" stroke-dasharray="62"
+            d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z">
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/>
+            <animateTransform attributeName="transform" dur="2.7s"
+              keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1"
+              repeatCount="indefinite" type="rotate"
+              values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/>
+          </path>
+          <g fill="none">
+            <path stroke-dasharray="6" stroke-dashoffset="6"
+              d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72">
+              <animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/>
+            </path>
+            <path stroke-dasharray="8" stroke-dashoffset="8"
+              d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65">
+              <animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s"
+                keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/>
+            </path>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <p class="success-text">
+      Я зателефоную вам найближчим часом
+    </p>
+
+    <button type="button" class="success-btn" onclick="closeCallSuccessModal()">Закрити</button>
+  </div>
+</div>
+<!--==========================================================
+ ФОРМА ЗАПИСИ
+ ================================================= -->
+<div id="pricePopup">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closePricePopup()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <div class="popup-kicker">Заявка</div>
+      <h3 id="priceTitle"></h3>
+      <div class="price-pill" id="priceLabel"></div>
+    </div>
+
+    <div class="popup-body">
+      <form id="bookingForm">
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+          </span>
+          <input type="text" name="name" placeholder="Ваше ім'я" required autocomplete="name">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+          </span>
+          <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required autocomplete="tel">
+        </div>
+
+        <div class="required-field field has-icon">
+          <span class="field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none"><path fill="currentColor" d="m3 5l7.586 7.586a2 2 0 0 0 2.828 0L21 5v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" opacity=".16"/><path fill="currentColor" d="M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 5l9 9l9-9"/></g></svg>
+          </span>
+          <input type="email" id="emailInput" name="email" placeholder="Email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <textarea name="comment" rows="5" placeholder="Як краще з вами зв'язатися (зателефонувати, месенджер..)? Коли вам зручно? Які теми хочете обговорити? (не обов’язково)"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-main">Відправити заявку</button>
+      </form>
+
+      <p class="popup-note">Відповім особисто протягом <span>1 робочого дня</span></p>
+      <div id="popupStatus"></div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!--===============================================
+   МОДАЛКА ОПЛАТА ТА ПОВЕРНЕННЯ
+   =============================================== -->
+<div id="paymentModal">
+  <div class="payment-modal-content">
+      <button class="modal-x" aria-label="Закрити" onclick="closePaymentModal()"><span>&times;</span></button>
+
+    <h3>
+      <img src="assets/icons/wallet.png" alt="Гаманець">
+      <span>Оплата</span>
+    </h3>
+
+    <div class="payment-grid">
+      <div class="payment-icons">
+        <div class="icon-row">
+          <img src="assets/icons/visa.png" alt="Visa">
+          <img src="assets/icons/mc.png" alt="Mastercard">
+        </div>
+        <div class="icon-row">
+          <img src="assets/icons/apple-pay.png" alt="Apple Pay">
+        </div>
+        <div class="icon-row">
+          <img src="assets/icons/google-pay.png" alt="Google Pay">
+        </div>
+      </div>
+
+      <div class="payment-labels">
+        <div>Оплата карткою</div>
+        <div>Apple Pay</div>
+        <div>Google Pay</div>
+      </div>
+    </div>
+
+    <p class="payment-note">
+      Всі умови оплати зазначені на сторінці продукту<br><br>
+      Повернення- згідно із Законом «Про захист прав споживачів»
+    </p>
+
+
+  </div>
+</div>
+
+  <!-- MODAL: DIPLOMA VIEW -->
+<div id="diplomaModal">
+  <img id="diplomaModalImg" src="" alt="">
+</div>
+
+<!-- ===========================
+     BOOKING MODAL
+=========================== -->
+<div id="bookingModal" class="booking-modal">
+  <div class="booking-modal-content">
+
+    <button class="modal-x" aria-label="Закрити" onclick="closeBookingModal()"><span>&times;</span></button>
+
+    <!-- сюда встраивается наш bookingApp -->
+    <div id="bookingContainer"></div>
+
+  </div>
+</div>
+
+<!-- ОФЕРТА -->
+<div id="offerModal" class="offer-modal">
+  <div class="offer-modal-content">
+    <div id="offerContent"></div>
+  </div>
+</div>
+<!--===============================================
+   МОДАЛКА дзвінки
+   =============================================== -->
+<div id="callbackModal">
+  <div class="popup-content">
+    <button class="modal-x" aria-label="Закрити" onclick="closeCallbackModal()"><span>&times;</span></button>
+
+    <div class="popup-head">
+      <h3 class="callback-title">
+        <span class="callback-title-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        Зворотній дзвінок
+      </h3>
+      <p class="callback-subtitle">Залиште контакти і я вам передзвоню</p>
+    </div>
+
+    <div class="popup-body">
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/></svg>
+        </span>
+        <input type="text" id="callbackName" placeholder="Ваше ім'я" required autocomplete="name">
+      </div>
+
+      <div class="required-field field has-icon">
+        <span class="field-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="currentColor" fill-opacity="0" stroke-dasharray="62" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;0"/><animateTransform attributeName="transform" dur="2.7s" keyTimes="0;0.035;0.07;0.105;0.14;0.175;0.21;0.245;0.28;1" repeatCount="indefinite" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12;0 12 12"/><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.4s" to="1"/></path><g fill="none"><path stroke-dasharray="6" stroke-dashoffset="6" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate attributeName="stroke-dashoffset" begin="0.7s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="6;0;6;6"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate attributeName="stroke-dashoffset" begin="1s" dur="2.7s" keyTimes="0;0.15;0.3;1" repeatCount="indefinite" values="8;0;8;8"/></path></g></g></svg>
+        </span>
+        <input type="text" id="callbackPhone" placeholder="Телефон" required autocomplete="tel">
+      </div>
+
+      <button class="btn btn-main" onclick="submitCallback()">
+        Замовити дзвінок
+      </button>
+
+      <div id="callbackStatus"></div>
+    </div>
+  </div>
+</div>
+  <!-- Підключення скрипта -->
+  <script src="script-safe.js"></script>
+
+  <!-- платное -->
+ <script id="email-template-paid" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Ви залишили заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Для завершення — перейдіть до оплати кнопкою нижче:
+  </p>
+
+  <div style="text-align:center; margin:28px 0 32px;">
+    <a href="{{paylink}}"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Оплатити {{price}}
+    </a>
+  </div>
+
+    <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я зв’яжусь із вами найближчим часом.
+  </p>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+<!-- фри -->
+<script id="email-template-free" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png" alt="i-s-business-consulting.pp.ua"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Вітаю, {{name}}!
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Дякую за вашу заявку на <strong>{{product}}</strong>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Я отримала ваш запит і найближчим часом зв’яжуся з вами, щоб уточнити деталі та узгодити зручний час зустрічі.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    Якщо у вас виникнуть питання до нашої розмови — можете написати мені в
+    <a href="https://t.me/Stec0407" style="color:#8b1d1d; text-decoration:underline;">Telegram</a>.
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444;">
+    До зустрічі!
+  </p>
+
+  <p style="font-size:16px; line-height:1.6; color:#444; margin-bottom:6px;">
+    <strong>Ірина Стецуріна</strong>
+  </p>
+
+  <p style="font-size:14px; line-height:1.5; color:#777; margin-top:0;">
+    Executive Coach | бізнес-тренер | системний консультант
+  </p>
+
+  <p style="font-size:14px; color:#888; line-height:1.6; text-align:center; margin-top:32px;">
+    Будь ласка, не відповідайте на цей автоматичний лист.<br>
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+  <!-- ехит -->
+ <script id="email-template-exit" type="text/template">
+<div style="font-family: Manrope, Arial, sans-serif;
+            max-width: 520px; margin: 0 auto; padding: 20px; color:#222;">
+
+  <div style="text-align:center; margin-bottom: 25px;">
+    <a href="https://i-s-business-consulting.pp.ua" target="_blank">
+      <img src="https://i-s-business-consulting.pp.ua/assets/images/logo.png"
+           style="width:160px; height:auto;">
+    </a>
+  </div>
+
+  <h2 style="font-size:24px; margin-bottom:14px; color:#1a1a1a;">
+    Ваш подарунок готовий 🎁
+  </h2>
+
+  <p style="font-size:17px; line-height:1.6; color:#444;">
+    Дякуємо, {{name}}!
+    Тримайте ваш <strong>чекліст</strong>
+  </p>
+
+  <div style="text-align:center; margin: 28px 0 32px;">
+    <a href="https://i-s-business-consulting.pp.ua/checklist.pdf"
+       style="padding:14px 28px; background:#f7c843; color:#000;
+              border-radius:14px; font-size:18px; font-weight:600;
+              text-decoration:none; display:inline-block;">
+      Завантажити
+    </a>
+  </div>
+
+  <p style="font-size:15px; color:#666; line-height:1.6; text-align:center; margin-top:32px;">
+    Не відповідайте на це письмо<br>
+    Якщо виникнуть питання — напишіть мені в одну з соцмереж нижче:
+  </p>
+
+  <div style="text-align:center; margin-top:18px;">
+    <a href="https://ig.me/m/stetsurina.irina_coach"><img src="https://i-s-business-consulting.pp.ua/assets/icons/instagram.png" alt="instagram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://www.facebook.com/IrenStetsurina"><img src="https://i-s-business-consulting.pp.ua/assets/icons/facebook.png" alt="facebook" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+    <a href="https://t.me/Stec0407"><img src="https://i-s-business-consulting.pp.ua/assets/icons/telegram.png" alt="telegram" style="width:48px;height:48px;border-radius:50%;margin:0 10px;"></a>
+  </div>
+
+</div>
+</script>
+
+
+</body>
+</html>

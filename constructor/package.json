@@ -1,0 +1,31 @@
+{
+  "name": "site-constructor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare-shared": "node scripts/prepare-shared.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "check": "svelte-check --tsconfig ./jsconfig.json",
+    "test:logic": "node tests/logic.test.mjs",
+    "tauri": "tauri",
+    "test": "vitest run",
+    "predev": "npm run prepare-shared",
+    "prebuild": "npm run prepare-shared"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-dialog": "^2"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5",
+    "@tauri-apps/cli": "^2",
+    "@testing-library/svelte": "^5.4.2",
+    "jsdom": "^30.1.3",
+    "svelte": "^5",
+    "svelte-check": "^4",
+    "vite": "^6",
+    "vitest": "^5.0.5"
+  }
+}

@@ -1,0 +1,22 @@
+# Інлайн-стилі, прибрані при переведенні сторінок на стандартні блоки (сторінка, блок, елемент, стиль)
+[mentoring-dlya-vlasnykiv-biznesu] cards p.info-note margin-top:28px;
+[mentoring-dlya-vlasnykiv-biznesu] numbered p.ec-section-intro max-width:820px; margin: -12px 0 28px;
+[mentoring-dlya-vlasnykiv-biznesu] numbered p.ec-section-intro max-width:820px; margin: -12px 0 28px;
+[mentoring-dlya-vlasnykiv-biznesu] text p.diagnostic-note margin-top:20px;
+[mentoring-dlya-vlasnykiv-biznesu] checklist p margin-top:22px;
+[mentoring-dlya-vlasnykiv-biznesu] checklist div.ec-inline-cta margin-top:32px;
+[strategichna-sesiya-dlya-biznesu] checklist p.info-note margin-top:28px;
+[strategichna-sesiya-dlya-biznesu] cards p.info-note margin-top:28px;
+[strategichna-sesiya-dlya-biznesu] steps p.ec-section-intro max-width:820px; margin: -20px 0 28px; padding: 0;
+[strategichna-sesiya-dlya-biznesu] cards div.diagnostic-method-grid margin-top:28px;
+[strategichna-sesiya-dlya-biznesu] numbered div.ec-inline-cta margin-top:36px;
+[strategichna-sesiya] checklist p.info-note margin-top:28px;
+[strategichna-sesiya] steps p.ec-section-intro max-width:820px; margin: -20px 0 28px; padding: 0;
+[strategichna-sesiya] numbered div.ec-inline-cta margin-top:36px;
+[vlasnytskyi-oblik] cards p.ec-coffee-note margin-top:32px;
+[vprovadzhennya-iso-9001] checklist h2 font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; line-height: 1.25; letter-spacing: -0.5px; color: var(--text-dark); margin: 0 0 20px;
+[upravlinskiy-oblik] checklist p margin-top:18px;
+[upravlinskiy-oblik] checklist p margin-top:16px;
+[upravlinskiy-oblik] st div.fl-block padding:0;margin:0 0 24px;
+[upravlinskiy-oblik] checklist p margin-top:18px;
+[strategichne-planuvannya-biznesu] text div.fl-block padding:0;margin:14px 0 20px;
