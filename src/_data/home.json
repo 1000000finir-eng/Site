@@ -47,6 +47,39 @@
       ]
     },
     {
+      "id": "new-section",
+      "title": "СТРАТЕГІЯ ТА РОЗВИТОК БІЗНЕСУ",
+      "subtitle": "Визначити напрям і перетворити стратегію на конкретний план дій ",
+      "cards": [
+        {
+          "title": "Стратегічна сесія для власника бізнесу та експерта",
+          "image": "/assets/images/strategy-session.jpg",
+          "description": "**Зупинитися, побачити головне та визначити свій наступний крок**\n\nДля власника бізнесу/експерта, який стоїть перед змінами, важливим рішенням або новим етапом розвитку\n",
+          "link": "/strategichna-sesiya/",
+          "button_label": "🛒",
+          "button_action": "price",
+          "price": "6000 ₴",
+          "pay_link": "https://secure.wayforpay.com/button/b93e5be4236e3",
+          "email_template": "free",
+          "send_email": true,
+          "redirect": false
+        },
+        {
+          "title": "Стратегічна сесія для бізнесу та команди",
+          "image": "/assets/images/hero.jpg",
+          "description": "**Подивитися на бізнес як на єдину систему** \n\nСфокусована спільна робота власника/команди над конкретним стратегічним питанням, цілями та рішеннями\nКороткий опис послуги.",
+          "link": "/strategichna-sesiya-dlya-biznesu/",
+          "button_action": "price",
+          "button_label": "Записатися",
+          "price": "",
+          "pay_link": "",
+          "email_template": "free",
+          "send_email": true,
+          "redirect": false
+        }
+      ]
+    },
+    {
       "id": "upravlenie",
       "title": "Управлінський консалтинг",
       "subtitle": "Ваш бізнес працює наосліп? Час це змінити!",
@@ -169,19 +202,6 @@
           "send_email": true,
           "redirect": false,
           "heading": "Менторинг-супровід власника бізнесу"
-        },
-        {
-          "title": "Стратегічна сесія",
-          "image": "/assets/images/strategy-session.jpg",
-          "description": "**Зупинитися, побачити головне та визначити свій наступний крок**\n\nІндивідуальна 2-годинна сесія для власника бізнесу/експерта, який стоїть перед змінами, важливим рішенням або новим етапом розвитку. Разом розберемо поточну ситуацію, визначимо справжні цілі, пріоритети та сформуємо **чіткий напрямок і конкретний план дій**\n\n**Щоб не просто рухатися далі, а розуміти - куди і навіщо**",
-          "link": "/strategichna-sesiya/",
-          "button_label": "🛒",
-          "button_action": "price",
-          "price": "6000 ₴",
-          "pay_link": "https://secure.wayforpay.com/button/b93e5be4236e3",
-          "email_template": "free",
-          "send_email": true,
-          "redirect": false
         }
       ]
     }
