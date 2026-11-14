@@ -19,19 +19,6 @@
           "redirect": false
         },
         {
-          "title": "Діагностична консультація",
-          "image": "/assets/images/diagnostika.jpg",
-          "description": "**Побачити причини. Зрозуміти себе. Визначити напрямок**\n\nДослідження життєвих сценаріїв, внутрішньої  стратегії, сильних сторін та обмежень\n",
-          "link": "/diagnostychna-konsultatsiya/",
-          "button_label": "Записатися",
-          "button_action": "price",
-          "price": "5000 ₴",
-          "pay_link": "",
-          "email_template": "free",
-          "send_email": true,
-          "redirect": false
-        },
-        {
           "title": "Інформаційна консультація",
           "image": "/assets/images/information-consult.jpg",
           "description": "**Щоб отримати ясність там, де її бракує.** \nФормат «питанні – відповіді»\n",
@@ -40,6 +27,19 @@
           "button_action": "price",
           "price": "3500 ₴",
           "pay_link": "https://secure.wayforpay.com/button/b221e8882d224",
+          "email_template": "free",
+          "send_email": true,
+          "redirect": false
+        },
+        {
+          "title": "Діагностична консультація",
+          "image": "/assets/images/diagnostika.jpg",
+          "description": "**Побачити причини. Зрозуміти себе. Визначити напрямок**\n\nДослідження життєвих сценаріїв, внутрішньої  стратегії, сильних сторін та обмежень\n",
+          "link": "/diagnostychna-konsultatsiya/",
+          "button_label": "Записатися",
+          "button_action": "price",
+          "price": "5000 ₴",
+          "pay_link": "",
           "email_template": "free",
           "send_email": true,
           "redirect": false
