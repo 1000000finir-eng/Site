@@ -28,6 +28,7 @@ export const app = $state({
   sub: null, // вставка, що редагується окремо
   focusCard: null,
   phone: false,
+  editTick: 0, // зростає при кожному виборі елемента — панель редагування відкривається
   changeList: [], // [{ code, path, label }] — що саме буде опубліковано
   lastDeleted: null, // { slug, title, backup, removedCards } — для кнопки «Повернути»
   lastMigration: null, // { total, backup, pages } — для скасування масової міграції
@@ -39,6 +40,7 @@ export function select(i, scroll = true) {
     app.focusCard = null;
   }
   app.selected = i;
+  app.editTick++;
   if (scroll && i !== null) {
     app.gotoTarget = i;
     app.gotoTick++;

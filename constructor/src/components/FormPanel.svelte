@@ -9,6 +9,17 @@
   import HomeCards from "./HomeCards.svelte";
   import { SECTION_FIELDS } from "../lib/homeFields.js";
 
+  let { onclose = () => {} } = $props();
+
+  let formBody = $state();
+  // Новий блок — форма починається з початку, а не з місця, де був скрол.
+  $effect(() => {
+    app.selected;
+    app.sub;
+    app.focusCard;
+    if (formBody) formBody.scrollTop = 0;
+  });
+
   const idx = $derived(typeof app.selected === "number" ? app.selected : null);
   const block = $derived(app.kind === "page" && idx !== null ? app.data?.blocks?.[idx] : null);
   const section = $derived(app.kind === "home" && idx !== null ? app.data?.sections?.[idx] : null);
@@ -114,9 +125,12 @@
 </script>
 
 <aside class="form-panel">
+  {#snippet closeBtn()}
+    <button class="icon-close" title="Готово — сховати панель (Esc)" aria-label="Готово, сховати панель" onclick={onclose}>✕</button>
+  {/snippet}
   {#if app.kind === "page" && app.selected === "hero" && app.data}
-    <div class="form-head"><h2>Налаштування сторінки</h2><span class="muted small">/{app.slug}/</span></div>
-    <div class="form-body">
+    <div class="form-head"><h2>Налаштування сторінки</h2><span class="muted small">/{app.slug}/</span>{@render closeBtn()}</div>
+    <div class="form-body" bind:this={formBody}>
       <h4>Верхній екран</h4>
       <Fields fields={HERO} obj={app.data.hero} />
       <h4>Заявка (йде на бекенд)</h4>
@@ -129,8 +143,9 @@
     <div class="form-head">
       <h2>Вставка: {typeLabel(app.sub.type)}</h2>
       <button class="btn small" onclick={() => (app.sub = null)}>← До блоку</button>
+      {@render closeBtn()}
     </div>
-    <div class="form-body">
+    <div class="form-body" bind:this={formBody}>
       <div class="notice" style="margin-bottom:12px">
         Це вставка всередині блоку. Зміни видно одразу в перегляді зліва.
       </div>
@@ -144,8 +159,9 @@
     <div class="form-head">
       <h2>{typeLabel(block.type)}</h2>
       <span class="muted small">блок {idx + 1}</span>
+      {@render closeBtn()}
     </div>
-    <div class="form-body">
+    <div class="form-body" bind:this={formBody}>
       {#if block.type === "section" || block.type === "raw"}
         <div class="notice warn" style="margin-bottom:12px">
           Особливий блок. Розберіть його на елементи — і можна буде змінювати все: тексти, порядок, вставки.
@@ -183,12 +199,13 @@
       {/if}
     </div>
   {:else if section}
-    <div class="form-head"><h2>Розділ</h2><span class="muted small">розділ {idx + 1}</span></div>
-    <div class="form-body">
+    <div class="form-head"><h2>Розділ</h2><span class="muted small">розділ {idx + 1}</span>{@render closeBtn()}</div>
+    <div class="form-body" bind:this={formBody}>
       <Fields fields={SECTION_FIELDS} obj={section} />
       <HomeCards {section} si={idx} />
     </div>
   {:else}
+    <div class="form-head"><h2>Редактор</h2>{@render closeBtn()}</div>
     <div class="empty">
       <div class="big-ico">👆</div>
       <h3>Оберіть, що редагувати</h3>

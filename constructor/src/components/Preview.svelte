@@ -134,7 +134,7 @@
 
 <section class="preview">
   <div class="preview-bar">
-    <span>Попередній перегляд. Наведіть на блок/картку — кнопки. На головній: тягніть картку за тіло (не за картинку) між розділами.</span>
+    <span title="На головній картку можна тягнути за тіло (не за картинку) між розділами">Наведіть на блок — з’являться кнопки. Картки на головній можна тягнути між розділами.</span>
     <span class="grow"></span>
     <button class="btn small" class:active={!app.phone} onclick={() => (app.phone = false)} title="Комп’ютер">🖥</button>
     <button class="btn small" class:active={app.phone} onclick={() => (app.phone = true)} title="Телефон">📱</button>

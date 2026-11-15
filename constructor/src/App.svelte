@@ -13,7 +13,8 @@
 
   let booting = $state(true);
 
-  // Розміри панелей (px) + згортання — зберігаємо в localStorage
+  // Розміри панелей (px) + згортання структури — зберігаємо в localStorage.
+  // Панель редагування не зберігаємо: вона відкривається на вибір елемента й ховається "Готово".
   const ls = (k, d) => {
     try {
       const v = localStorage.getItem(k);
@@ -25,17 +26,43 @@
   let leftW = $state(ls("ui.leftW", 260));
   let rightW = $state(ls("ui.rightW", 360));
   let leftCollapsed = $state(ls("ui.leftCollapsed", false));
-  let rightCollapsed = $state(ls("ui.rightCollapsed", false));
+  let rightCollapsed = $state(true);
 
   $effect(() => {
     localStorage.setItem("ui.leftW", JSON.stringify(leftW));
     localStorage.setItem("ui.rightW", JSON.stringify(rightW));
     localStorage.setItem("ui.leftCollapsed", JSON.stringify(leftCollapsed));
-    localStorage.setItem("ui.rightCollapsed", JSON.stringify(rightCollapsed));
   });
 
   const leftPx = $derived(leftCollapsed ? 0 : Math.max(180, Math.min(420, leftW)));
-  const rightPx = $derived(rightCollapsed ? 0 : Math.max(260, Math.min(520, rightW)));
+  const rightPx = $derived(rightCollapsed ? 0 : Math.max(280, Math.min(520, rightW)));
+  const RAIL = 34;
+
+  // Панель редагування сама з'являється, коли щось обрано, і згортається,
+  // коли вибір зник (напр. перейшли на іншу сторінку). Ручне "Готово" поважаємо:
+  // поки вибір не зміниться, панель не відкривається знову.
+  let lastEditKey = null;
+  $effect(() => {
+    const key =
+      app.selected === null && !app.sub
+        ? ""
+        : `${app.kind}:${app.slug}:${app.selected ?? ""}:${app.editTick}:${app.sub ? "sub" : ""}`;
+    if (key === lastEditKey) return;
+    const had = lastEditKey;
+    lastEditKey = key;
+    if (key) rightCollapsed = false;
+    else if (had) rightCollapsed = true;
+  });
+
+  const cols = $derived(
+    [
+      `${leftCollapsed ? 0 : leftPx}px`,
+      `${leftCollapsed ? 0 : 5}px`,
+      "minmax(280px, 1fr)",
+      `${rightCollapsed ? 0 : 5}px`,
+      `${rightCollapsed ? RAIL : rightPx}px`,
+    ].join(" "),
+  );
 
   function startResize(side, ev) {
     ev.preventDefault();
@@ -104,6 +131,15 @@
   });
 
   function onKey(e) {
+    if (e.key === "Escape") {
+      if (app.modal) return;
+      if (isTyping(e)) e.target.blur();
+      if (!rightCollapsed) {
+        e.preventDefault();
+        rightCollapsed = true;
+      }
+      return;
+    }
     const mod = e.ctrlKey || e.metaKey;
     if (!mod) return;
     const k = e.key.toLowerCase();
@@ -149,7 +185,7 @@
         >{leftCollapsed ? "▶" : "◀"}</button>
         <button
           class="btn ghost"
-          title={rightCollapsed ? "Показати форму (Ctrl+Shift+E)" : "Сховати форму"}
+          title={rightCollapsed ? "Показати редактор (Ctrl+Shift+E)" : "Сховати редактор (Esc)"}
           onclick={() => (rightCollapsed = !rightCollapsed)}
         >{rightCollapsed ? "◀" : "▶"}</button>
         <button class="btn ghost" title="Скасувати (Ctrl+Z)" disabled={!app.canUndo} onclick={undo}>↶</button>
@@ -167,15 +203,13 @@
         </button>
       </div>
     </header>
-    <div
-      class="workspace"
-      style="grid-template-columns: {leftPx}px 5px minmax(280px, 1fr) 5px {rightPx}px"
-    >
+    <div class="workspace" style="grid-template-columns: {cols}">
       <div class="pane side" class:collapsed={leftCollapsed}>
         {#if !leftCollapsed}<Sidebar />{/if}
       </div>
       <div
         class="splitter"
+        class:off={leftCollapsed}
         role="separator"
         aria-orientation="vertical"
         onpointerdown={(e) => !leftCollapsed && startResize("left", e)}
@@ -183,12 +217,24 @@
       <Preview />
       <div
         class="splitter"
+        class:off={rightCollapsed}
         role="separator"
         aria-orientation="vertical"
         onpointerdown={(e) => !rightCollapsed && startResize("right", e)}
       ></div>
       <div class="pane form" class:collapsed={rightCollapsed}>
-        {#if !rightCollapsed}<FormPanel />{/if}
+        {#if rightCollapsed}
+          <button
+            class="rail"
+            title="Відкрити редактор (Ctrl+Shift+E)"
+            onclick={() => (rightCollapsed = false)}
+          >
+            <span class="rail-ico">✎</span>
+            <span class="rail-txt">Редагувати</span>
+          </button>
+        {:else}
+          <FormPanel onclose={() => (rightCollapsed = true)} />
+        {/if}
       </div>
     </div>
   </div>
