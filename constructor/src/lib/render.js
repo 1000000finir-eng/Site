@@ -83,7 +83,7 @@ html::-webkit-scrollbar{width:7px;height:7px}html::-webkit-scrollbar-button{disp
 .card.__card-over{outline:3px solid #8e1b3a!important;outline-offset:-3px;background:rgba(142,27,58,.06)}
 .__over{outline:3px dashed #8e1b3a!important;outline-offset:-3px;background:rgba(142,27,58,.04)}
 .__ins{cursor:pointer;position:relative}
-.__ins:hover{outline:2px dashed #b8860b;outline-offset:3px;background:rgba(184,134,11,.06)}
+.__ins:hover,.__ins-active{outline:2px dashed #b8860b;outline-offset:3px;background:rgba(184,134,11,.06)}
 .__ins-tb{box-shadow:0 2px 10px rgba(0,0,0,.18)}
 img,button,a{-webkit-user-drag:none;user-drag:none}`;
 

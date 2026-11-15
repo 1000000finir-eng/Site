@@ -50,49 +50,83 @@ function markInserts(doc, inserts) {
 }
 
 function insertTools(doc, c) {
+  const win = doc.defaultView || globalThis;
   const ft = doc.createElement("div");
   ft.className = "__tb __ins-tb";
   ft.style.cssText = "position:absolute;display:none;z-index:100000;gap:4px";
   doc.body.appendChild(ft);
 
+  let active = null;
+  let hideTimer = 0;
+
+  const clearHide = () => {
+    if (hideTimer) {
+      win.clearTimeout(hideTimer);
+      hideTimer = 0;
+    }
+  };
+  const hideNow = () => {
+    clearHide();
+    ft.style.display = "none";
+    if (active) active.classList.remove("__ins-active");
+    active = null;
+  };
+  // Панель не ховаємо одразу: даємо час перевести курсор із вставки на кнопки.
+  const hideSoon = () => {
+    if (ft.style.display === "none" || hideTimer) return;
+    hideTimer = win.setTimeout(hideNow, 260);
+  };
+
   function place(el) {
     const it = el._it;
     if (!it) return;
+    if (active === el && ft.style.display === "flex") return;
+    if (active && active !== el) active.classList.remove("__ins-active");
+    active = el;
+    el.classList.add("__ins-active");
     const bw = el.closest(".__bw");
     const bi = bw ? Number(bw.getAttribute("data-i")) : -1;
     ft.innerHTML = "";
     [
-      [`✎ ${c.insertLabel(it)}`, () => c.onEditInsert(it, bi)],
-      ["↑", () => c.onMoveInsert(it, -1)],
-      ["↓", () => c.onMoveInsert(it, 1)],
+      [`✎ ${c.insertLabel(it)}`, () => c.onEditInsert(it, bi), "Редагувати вставку"],
+      ["↑", () => c.onMoveInsert(it, -1), "Перемістити вище"],
+      ["↓", () => c.onMoveInsert(it, 1), "Перемістити нижче"],
       ["🗑", () => c.onDelInsert(it), "Видалити вставку"],
     ].forEach(([l, fn, ti]) => ft.appendChild(mkBtn(doc, l, ti, fn)));
     ft.style.display = "flex";
     // Спочатку показуємо, щоб дізнатися реальну ширину панелі
     const r = el.getBoundingClientRect();
-    const v = doc.defaultView;
-    const scrollY = v?.scrollY || 0;
-    const scrollX = v?.scrollX || 0;
-    const fw = ft.offsetWidth || 180;
+    const scrollY = win.scrollY || 0;
+    const scrollX = win.scrollX || 0;
+    const fw = ft.offsetWidth || 200;
     const fh = ft.offsetHeight || 32;
-    // Над вставкою, по лівому краю; якщо не влазить — зсуваємо вліво
-    let top = r.top + scrollY - fh - 6;
-    if (top < scrollY + 4) top = r.bottom + scrollY + 6;
+    // Над вставкою з нахлестом 4px — між нею та кнопками немає «порожнього» проміжку
+    let top = r.top + scrollY - fh + 4;
+    if (top < scrollY + 2) top = r.bottom + scrollY - 4;
     let left = r.left + scrollX;
-    const maxL = scrollX + (v?.innerWidth || 800) - fw - 8;
+    const maxL = scrollX + (win.innerWidth || 800) - fw - 8;
     if (left > maxL) left = Math.max(scrollX + 4, maxL);
+    if (left < scrollX + 4) left = scrollX + 4;
     ft.style.top = top + "px";
     ft.style.left = left + "px";
   }
 
   doc.addEventListener("mouseover", (ev) => {
-    const el = ev.target.closest && ev.target.closest(".__ins");
-    if (!el) {
-      if (!(ev.target.closest && ev.target.closest(".__ins-tb"))) ft.style.display = "none";
+    const t = ev.target;
+    if (!t || !t.closest) return hideSoon();
+    if (t.closest(".__ins-tb")) {
+      clearHide();
       return;
     }
-    place(el);
+    const el = t.closest(".__ins");
+    if (el && el._it) {
+      clearHide();
+      place(el);
+      return;
+    }
+    hideSoon();
   });
+  doc.documentElement?.addEventListener("mouseleave", hideNow);
   // Клік по вставці одразу відкриває редагування (не треба шукати дрібну кнопку)
   doc.addEventListener("click", (ev) => {
     const el = ev.target.closest && ev.target.closest(".__ins");

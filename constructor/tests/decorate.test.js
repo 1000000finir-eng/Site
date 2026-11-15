@@ -54,9 +54,19 @@ describe("панелі у перегляді сторінки", () => {
     ins[0].dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
     const ft = doc.body.lastElementChild;
     expect(ft.style.display).toBe("flex");
+    expect(ins[0].classList.contains("__ins-active")).toBe(true);
+    // курсор іде з вставки на кнопки — панель не зникає миттєво (є запас часу)
+    doc.body.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    expect(ft.style.display).toBe("flex");
+    ft.querySelector("button").dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    expect(ft.style.display).toBe("flex");
     [...ft.querySelectorAll("button")][0].click();
     expect(calls.ei[0][0]).toBe(text.inserts[0]);
     expect(calls.ei[0][1]).toBe(textIdx);
+    // наведення на іншу вставку переносить панель і підсвітку
+    ins[1].dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    expect(ins[1].classList.contains("__ins-active")).toBe(true);
+    expect(ins[0].classList.contains("__ins-active")).toBe(false);
     // виділення
     markSelected(doc, textIdx);
     expect(doc.querySelector(".__bw.sel").getAttribute("data-i")).toBe(String(textIdx));
