@@ -71,6 +71,34 @@ describe("панелі у перегляді сторінки", () => {
     markSelected(doc, textIdx);
     expect(doc.querySelector(".__bw.sel").getAttribute("data-i")).toBe(String(textIdx));
   });
+
+  it("панель вставки ховається за таймером, коли курсор пішов", () => {
+    vi.useFakeTimers();
+    try {
+      const page = newPageData({ title: "Тест", slug: "t2" });
+      const text = page.blocks.find((b) => b.type === "text");
+      text.inserts = [newInsert("chips")];
+      const doc = parse(pageBody(page));
+      decoratePage(doc, {
+        inserts: lastInserts(), label: () => "Блок", hasInserts: () => true,
+        onSelect() {}, onMove() {}, onDup() {}, onDel() {}, onAddAt() {}, onAddInsert() {},
+        insertLabel: (it) => it.type, onEditInsert() {}, onMoveInsert() {}, onDelInsert() {},
+      });
+      const ins = doc.querySelector(".__ins");
+      const ft = doc.body.lastElementChild;
+      ins.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+      expect(ft.style.display).toBe("flex");
+      expect(ins.classList.contains("__ins-active")).toBe(true);
+      // курсор пішов зі вставки в порожнє місце — ховаємо не одразу, а за таймером
+      doc.body.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+      expect(ft.style.display).toBe("flex");
+      vi.advanceTimersByTime(300);
+      expect(ft.style.display).toBe("none");
+      expect(ins.classList.contains("__ins-active")).toBe(false);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });
 
 describe("головна: перетягування карток між розділами", () => {

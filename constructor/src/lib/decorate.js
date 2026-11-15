@@ -61,7 +61,7 @@ function insertTools(doc, c) {
 
   const clearHide = () => {
     if (hideTimer) {
-      win.clearTimeout(hideTimer);
+      clearTimeout(hideTimer);
       hideTimer = 0;
     }
   };
@@ -72,9 +72,10 @@ function insertTools(doc, c) {
     active = null;
   };
   // Панель не ховаємо одразу: даємо час перевести курсор із вставки на кнопки.
+  // Таймер — батьківського вікна: в iframe без allow-scripts таймери не виконуються.
   const hideSoon = () => {
     if (ft.style.display === "none" || hideTimer) return;
-    hideTimer = win.setTimeout(hideNow, 260);
+    hideTimer = setTimeout(hideNow, 260);
   };
 
   function place(el) {
