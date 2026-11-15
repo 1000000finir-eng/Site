@@ -41,6 +41,7 @@ npm test                 # тест інтерфейсу (jsdom) ;  npm run test
 
 ## Примітка щодо збірки на Windows
 Вотчер Vite не повинен стежити за `src-tauri` (інакше помилка EBUSY на `target`): у `vite.config.js` задано `server.watch.ignored: ["**/src-tauri/**"]`.
+Закриття вікна йде через `onCloseRequested`: спершу зберігаємо, потім `destroy()`. Для цього в `capabilities/default.json` додано `core:window:allow-destroy` і `core:window:allow-close` — без них хрестик не закриває застосунок.
 
 ## Як влаштовано
 - `src/lib/schema.js` — форми блоків з каталогу (та сама логіка, що й `tools/gen_config.py`)

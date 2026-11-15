@@ -98,13 +98,31 @@
       if (!alive) return;
       booting = false;
 
-      // Гарантоване збереження перед закриттям вікна: Tauri чекає на цей обробник.
+      // Закриття вікна: спершу зберігаємо, потім закриваємо самі.
+      // event.preventDefault() беремо одразу — інакше Tauri може закрити вікно
+      // до завершення збереження, а якщо обробник упаде, вікно «зависне».
       try {
         const win = getCurrentWindow();
         const un = await win.onCloseRequested(async (event) => {
-          await flush();
-          if (app.dirty && !(await confirmAsk("Не вдалося зберегти останні зміни. Закрити без збереження?"))) {
-            event.preventDefault();
+          event.preventDefault();
+          try {
+            await flush();
+          } catch (e) {
+            app.error = "Не вдалося зберегти: " + (e?.message || e);
+          }
+          if (app.dirty) {
+            let closeAnyway = false;
+            try {
+              closeAnyway = await confirmAsk("Не вдалося зберегти останні зміни. Закрити без збереження?");
+            } catch {
+              closeAnyway = false;
+            }
+            if (!closeAnyway) return; // лишаємо вікно відкритим
+          }
+          try {
+            await win.destroy();
+          } catch (e) {
+            app.error = "Не вдалося закрити вікно: " + (e?.message || e);
           }
         });
         if (alive) unlistenClose = un;
