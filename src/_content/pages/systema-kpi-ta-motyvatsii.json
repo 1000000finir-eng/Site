@@ -1,0 +1,94 @@
+{
+  "slug": "systema-kpi-ta-motyvatsii",
+  "title": "СИСТЕМА KPI ТА МОТИВАЦІЇ | Ірина Стецуріна",
+  "description": "",
+  "og_title": "",
+  "og_description": "",
+  "og_image": "",
+  "css": "/css/new-pages.css",
+  "hero": {
+    "image": "/assets/images/hero.jpg",
+    "alt": "",
+    "title": "СИСТЕМА KPI ТА МОТИВАЦІЇ",
+    "headline": "Команда працює на результат, а система мотивації працює на прибуток",
+    "headline_tag": "h1",
+    "sub": "Розробка та впровадження системи KPI і мотивації, яка пов'язує цілі бізнесу, результат роботи команди та винагороду працівників",
+    "br": true
+  },
+  "breadcrumb": "СИСТЕМА KPI ТА МОТИВАЦІЇ",
+  "booking": {
+    "product": "СИСТЕМА KPI ТА МОТИВАЦІЇ",
+    "price": "",
+    "pay_link": "",
+    "email_template": "free",
+    "send_email": true,
+    "redirect": false
+  },
+  "cta": {
+    "action": "price",
+    "attrs": true
+  },
+  "jsonld_head": [],
+  "blocks": [
+    {
+      "type": "intro",
+      "image": "/assets/images/hero.jpg",
+      "image_alt": "",
+      "kicker": "ПРО ПОСЛУГУ",
+      "title": "Назва послуги",
+      "body": "Коротко про те, що отримає клієнт.",
+      "meta": [
+        {
+          "label": "Формат",
+          "value": "онлайн"
+        },
+        {
+          "label": "Тривалість",
+          "value": "60 хвилин"
+        }
+      ],
+      "cta_text": "ЗАПИСАТИСЯ"
+    },
+    {
+      "type": "text",
+      "anchor": "",
+      "variant": "ec-detail__single",
+      "kicker": "",
+      "title": "",
+      "body": "",
+      "body_more": "",
+      "cta_text": ""
+    },
+    {
+      "type": "faq",
+      "kicker": "FAQ",
+      "title": "Часті питання",
+      "items": [
+        {
+          "question": "Перше питання?",
+          "answer": "Відповідь. Важливе слово можна виділити **жирним**."
+        },
+        {
+          "question": "Друге питання?",
+          "answer": "Відповідь."
+        }
+      ]
+    },
+    {
+      "type": "final",
+      "title": "Готові почати?",
+      "cta_text": "ЗАПИСАТИСЯ",
+      "elements": [
+        {
+          "t": "p",
+          "md": "Запишіться — і разом знайдемо рішення."
+        },
+        {
+          "t": "p",
+          "md": "Короткий додатковий текст дрібнішим шрифтом.",
+          "cls": "diagnostic-final-small"
+        }
+      ]
+    }
+  ]
+}
