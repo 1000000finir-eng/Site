@@ -53,7 +53,8 @@ function walk(n, spec, out, seen) {
     if (sub.length === 1 && sub[0].name === "_") {
       return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), item: { kind: sub[0].kind === "string" ? "string" : "md" } });
     }
-    return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), fields: sub, titleOf: sub.find((f) => f.kind === "string" || f.kind === "md")?.name });
+    const titled = sub.find((f) => f.name === "title") || sub.find((f) => f.kind === "string" || f.kind === "md");
+    return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), fields: sub, titleOf: titled?.name });
   }
   walkChildren(n, spec, out, seen);
 }
@@ -69,6 +70,12 @@ function walkChildren(n, spec, out, seen) {
     add(out, seen, name === "title"
       ? { kind: "string", name, label: label(spec, name), hint: "Для переносу рядка напишіть <br>" }
       : { kind: "md", name, label: label(spec, name), optional: true });
+  }
+  if (n.style) {
+    for (const m of String(n.style).matchAll(/\{(\w+)\}/g)) {
+      if (spec.selects?.[m[1]]) continue;
+      add(out, seen, { kind: "string", name: m[1], label: label(spec, m[1]), optional: true, advanced: true });
+    }
   }
   if (n.text) add(out, seen, { kind: "string", name: n.text, label: label(spec, n.text), optional: true });
   for (const [a, f] of Object.entries(n.oaf || {})) add(out, seen, { kind: "string", name: f, label: label(spec, f), optional: true, advanced: true });
@@ -176,6 +183,9 @@ const INSERT_NAMES = {
   metric_pill_row: "Цифри-капсули", avatar_row: "Ряд з аватарами", link_row: "Посилання", text_cols: "Текст у колонках", caption: "Підпис",
   badge_title: "Заголовок із бейджем", divider_label: "Розділювач із написом", hr_soft: "М’яка лінія",
   table: "Таблиця", flow_track: "Схема кроків (А → Б → В)", formula_line: "Формула", note_para: "Примітка-абзац", result_line: "Рядок «Результат: …»",
+  contrast_pair: "Пара «було → стало»", result_pill: "Капсула з результатом", question_line: "Рядок-питання", scope_tags: "Мітки обсягу робіт",
+  decision_line: "Рядок-рішення", formula_row: "Формула зі стрілками", owner_quote: "Цитата власника", next_step: "Наступний крок", promise_line: "Рядок-обіцянка",
+  cn_note: "Примітка під секцією (по центру)",
 };
 export function typeLabel(type) {
   return INSERT_NAMES[type] || CUSTOM[type]?.label || SPEC[type]?.label || (type === "section" ? "Особливий блок" : type === "raw" ? "Свій HTML" : type);

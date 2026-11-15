@@ -83,8 +83,8 @@ add('st', 'Етапи проєкту (кроки з результатом)', E(
     HEAD('st-block'),
     {'flow': 'flow', 'opt': 'flow'},
     E('div', 'st-block__intro',
-      E('h3', 'st-block__intro-title', md='intro_title', tail='intro_tag'),
-      E('p', None, md='intro_text'), opt='intro_title'),
+      E('h3', 'st-block__intro-title', md='intro_title', tail='intro_tag', opt='intro_title'),
+      E('p', None, md='intro_text', opt='intro_text'), opt=['intro_title', 'intro_text']),
     E('div', 'st-steps', E('article', 'st-step',
         E('div', 'st-step__head', E('span', 'st-step__num', index='1', sattr={'aria-hidden': 'true'}), E('h3', None, md='title')),
         E('div', 'st-step__body', BODY('text', 'st-step__list'), INSERTS, E('p', 'st-step__result', lead='Результат', md='result', opt='result')),
@@ -139,6 +139,29 @@ add('outcome', 'Що отримаєте (картки)', E('section', 'outcome-g
 add('tx', 'Вільний текст (без рамки)', E('section', '{variant}', KICK, TITLE, BODY('body', ''), INSERTS),
     selects={'variant': [['tx-block ec-animate', 'Звичайний'], ['tx-block tx-block--narrow ec-animate', 'Вужчий'], ['tx-block tx-block--center ec-animate', 'По центру'], ['tx-block tx-block--rule ec-animate', 'З лінією зверху']]},
     group='example', labels={'body': 'Текст', 'variant': 'Вигляд'})
+add('service_links', 'Посилання на суміжні послуги', E('section', 'service-links ec-animate',
+    HEAD('service-links'),
+    E('div', 'service-links__grid', E('a', 'service-link',
+        E('h3', None, md='title'),
+        E('p', None, md='text'),
+        af={'href': 'url'}, each='links'))),
+    group='example',
+    labels={'links': 'Посилання на послуги', 'url': 'Адреса сторінки (напр. /upravlinskiy-oblik/)', 'title': 'Заголовок', 'text': 'Короткий опис'},
+    hint='Перелінковка на суміжні сторінки послуг.')
+add('cmp_wrap', 'Порівняльна таблиця', E('section', 'cmp-wrap ec-animate',
+    HEAD('cmp-wrap'),
+    {'table': 'table', 'wrap': 'cmp-table-wrap', 'tcls': 'cmp-table'}),
+    group='example',
+    labels={'head': 'Заголовки стовпців', 'rows': 'Рядки таблиці'},
+    hint='Перший стовпець — назви рядків, далі — значення для порівняння.')
+add('progress_wrap', 'Шкали прогресу', E('section', 'progress-wrap ec-animate',
+    E('div', 'progress-list',
+      E('div', 'progress-item',
+        E('label', None, md='label', tail='value'),
+        E('div', 'progress-bar', E('span', None, style='width:{pct}%')),
+        each='items'))),
+    group='example',
+    labels={'items': 'Показники', 'label': 'Назва показника', 'value': 'Значення словами (напр. «високий»)', 'pct': 'Заповнення шкали, % (0–100)'})
 
 import os
 _base = os.path.dirname(os.path.abspath(__file__))
@@ -155,6 +178,39 @@ SPECS.append({'name': 'table', 'label': 'Таблиця', 'group': 'insert', 'ro
 SPECS.append({'name': 'formula_line', 'label': 'Формула (А → Б → В жирним)', 'group': 'insert', 'root': E('p', 'vc-flow', md='text'), 'selects': {}, 'labels': {'text': 'Формула'}, 'hint': ''})
 SPECS.append({'name': 'note_para', 'label': 'Примітка-абзац (під таблицею)', 'group': 'insert', 'root': E('p', 'diagnostic-note', md='text'), 'selects': {}, 'labels': {'text': 'Текст'}, 'hint': ''})
 SPECS.append({'name': 'result_line', 'label': 'Рядок «Результат: …»', 'group': 'insert', 'root': E('p', 'st-step__result', lead='Результат', md='text'), 'selects': {}, 'labels': {'text': 'Результат'}, 'hint': ''})
+SPECS.append({'name': 'contrast_pair', 'label': 'Пара «було → стало»', 'group': 'insert',
+              'root': E('div', 'contrast-pair',
+                        E('span', 'contrast-pair__was', md='was'),
+                        E('span', 'contrast-pair__arrow', static='→'),
+                        E('span', 'contrast-pair__now', md='now')),
+              'selects': {}, 'labels': {'was': 'Було (напр. «більше продавати»)', 'now': 'Стало (напр. «бачити, де реально заробляєте»)'}, 'hint': ''})
+SPECS.append({'name': 'result_pill', 'label': 'Капсула з результатом', 'group': 'insert',
+              'root': E('p', 'result-pill', E('strong', None, static='Результат'), E('span', None, md='text')),
+              'selects': {}, 'labels': {'text': 'Що отримає власник'}, 'hint': ''})
+SPECS.append({'name': 'question_line', 'label': 'Рядок-питання', 'group': 'insert',
+              'root': E('div', 'question-line', md='text'),
+              'selects': {}, 'labels': {'text': 'Питання власника'}, 'hint': ''})
+SPECS.append({'name': 'scope_tags', 'label': 'Мітки обсягу робіт', 'group': 'insert',
+              'root': E('div', 'scope-tags', E('span', 'scope-tag', md='_', each='items')),
+              'selects': {}, 'labels': {'items': 'Мітки (напр. «для власника», «для фіндира»)'}, 'hint': ''})
+SPECS.append({'name': 'decision_line', 'label': 'Рядок-рішення', 'group': 'insert',
+              'root': E('div', 'decision-line', E('b', None, static='Рішення:'), E('span', None, md='text')),
+              'selects': {}, 'labels': {'text': 'Управлінське рішення'}, 'hint': ''})
+SPECS.append({'name': 'formula_row', 'label': 'Формула зі стрілками', 'group': 'insert',
+              'root': E('div', 'formula-row', E('span', None, md='_', each='items', sepCls='formula-row__sep', sep='→')),
+              'selects': {}, 'labels': {'items': 'Ланки формули (кожна — окремий пункт)'}, 'hint': ''})
+SPECS.append({'name': 'owner_quote', 'label': 'Цитата власника', 'group': 'insert',
+              'root': E('div', 'owner-quote', md='text'),
+              'selects': {}, 'labels': {'text': 'Думка власника'}, 'hint': ''})
+SPECS.append({'name': 'next_step', 'label': 'Наступний крок', 'group': 'insert',
+              'root': E('div', 'next-step', E('strong', None, static='Наступний крок'), E('span', None, md='text')),
+              'selects': {}, 'labels': {'text': 'Що робимо далі'}, 'hint': ''})
+SPECS.append({'name': 'promise_line', 'label': 'Рядок-обіцянка', 'group': 'insert',
+              'root': E('p', 'promise-line', md='text'),
+              'selects': {}, 'labels': {'text': 'М’яке зобов’язання формату'}, 'hint': ''})
+SPECS.append({'name': 'cn_note', 'label': 'Примітка під секцією (по центру)', 'group': 'insert',
+              'root': E('p', 'cn-note', md='text'),
+              'selects': {}, 'labels': {'text': 'Текст примітки'}, 'hint': ''})
 import catalog_patch
 catalog_patch.apply(SPECS, E, BODY, INSERTS)
 _samples = _load('catalog_samples.json') or {}

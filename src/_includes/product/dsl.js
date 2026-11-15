@@ -9,15 +9,20 @@ const tpl = (c, sc, spec) =>
     .replace(/^_plain$/, "");
 const val = (sc, k) => (k === "_" ? sc._ : sc[k]);
 const filled = (v) => (Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null && String(v).trim() !== "");
+// opt може бути одним полем або списком: вузол показується, якщо заповнене хоч одне.
+const shown = (sc, opt) => (Array.isArray(opt) ? opt.some((k) => filled(sc[k])) : filled(sc[opt]));
 
 function node(n, sc, ctx, i = 0) {
   if (n.each) {
     const list = sc[n.each] || [];
+    const sep = n.sepCls
+      ? `\n<span class="${esc(n.sepCls)}">${esc(n.sep || "→")}</span>\n`
+      : "\n";
     return list
       .map((it, idx) => one(n, typeof it === "object" && it !== null ? it : { _: it }, ctx, idx))
-      .join("\n");
+      .join(sep);
   }
-  if (n.opt && !filled(sc[n.opt])) return "";
+  if (n.opt && !shown(sc, n.opt)) return "";
   if (n.inserts && !(sc[n.inserts] || []).length) return "";
   return one(n, sc, ctx, i);
 }
@@ -51,6 +56,7 @@ function one(n, sc, ctx, i) {
   }
   const cls = tpl(n.cls, sc, ctx.spec);
   let attrs = cls ? ` class="${esc(cls)}"` : "";
+  if (n.style) attrs += ` style="${esc(tpl(n.style, sc, ctx.spec))}"`;
   for (const [a, f] of Object.entries(n.af || {})) attrs += ` ${a}="${esc(sc[f] || "")}"`;
   for (const [a, f] of Object.entries(n.oaf || {})) if (filled(sc[f])) attrs += ` ${a}="${esc(sc[f])}"`;
   for (const [a, v] of Object.entries(n.sattr || {})) attrs += ` ${a}="${esc(v)}"`;
@@ -60,6 +66,7 @@ function one(n, sc, ctx, i) {
     inner = (n.lead ? `<span>${esc(n.lead)}</span> ` : "") + inl(val(sc, n.md)) + (n.tail && filled(sc[n.tail]) ? ` <span>${esc(sc[n.tail])}</span>` : "");
   }
   else if (n.text) inner = esc(val(sc, n.text) ?? "");
+  else if (n.static) inner = esc(n.static);
   else if (n.index) inner = n.index === "pad2" ? String(i + 1).padStart(2, "0") : String(i + 1);
   else if (n.kids) inner = "\n" + n.kids.map((k) => node(k, sc, ctx, i)).filter(Boolean).join("\n") + "\n";
   return `<${n.tag}${attrs}>${inner}</${n.tag}>`;

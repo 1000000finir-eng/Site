@@ -681,14 +681,19 @@
        "tag": "h3",
        "cls": "st-block__intro-title",
        "md": "intro_title",
-       "tail": "intro_tag"
+       "tail": "intro_tag",
+       "opt": "intro_title"
       },
       {
        "tag": "p",
-       "md": "intro_text"
+       "md": "intro_text",
+       "opt": "intro_text"
       }
      ],
-     "opt": "intro_title"
+     "opt": [
+      "intro_title",
+      "intro_text"
+     ]
     },
     {
      "tag": "div",
@@ -1761,6 +1766,222 @@
    "kicker": "ПІДХІД",
    "title": "Що ми робимо в проєкті",
    "body": "Я допомагаю подивитися на бізнес **не через одну проблему, а як на цілісну систему**.\n\nСтратегія, фінанси, управління, процеси, команда, KPI і роль власника розглядаються разом — тому план не закінчується красивою фразою в презентації."
+  }
+ },
+ {
+  "name": "service_links",
+  "label": "Посилання на суміжні послуги",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "service-links ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "service-links__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "service-links__grid",
+     "kids": [
+      {
+       "tag": "a",
+       "cls": "service-link",
+       "kids": [
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "af": {
+        "href": "url"
+       },
+       "each": "links"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "links": "Посилання на послуги",
+   "url": "Адреса сторінки (напр. /upravlinskiy-oblik/)",
+   "title": "Заголовок",
+   "text": "Короткий опис",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "Перелінковка на суміжні сторінки послуг.",
+  "sample": {
+   "kicker": "ТАКОЖ НА САЙТІ",
+   "title": "Суміжні напрями",
+   "links": [
+    {
+     "url": "/upravlinskiy-oblik/",
+     "title": "Управлінський облік під ключ",
+     "text": "Звітність, план-факт, прибуток для власника"
+    },
+    {
+     "url": "/upravlinnya-vytratamy/",
+     "title": "Управління витратами",
+     "text": "Собівартість, контроль, оптимізація без шкоди бізнесу"
+    },
+    {
+     "url": "/vlasnytskyi-oblik/",
+     "title": "Власницький контроль",
+     "text": "Панель показників і фінансовий контроль бізнесу"
+    }
+   ]
+  }
+ },
+ {
+  "name": "cmp_wrap",
+  "label": "Порівняльна таблиця",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "cmp-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "cmp-wrap__heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "table": "table",
+     "wrap": "cmp-table-wrap",
+     "tcls": "cmp-table"
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "head": "Заголовки стовпців",
+   "rows": "Рядки таблиці",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "Перший стовпець — назви рядків, далі — значення для порівняння.",
+  "sample": {
+   "kicker": "ПОРІВНЯННЯ",
+   "title": "Порівняльна таблиця",
+   "head": [
+    "",
+    "Консультація",
+    "Проєкт"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "Фокус",
+      "Один запит",
+      "Система"
+     ]
+    },
+    {
+     "cells": [
+      "Результат",
+      "Рекомендації",
+      "Робоча система"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "progress_wrap",
+  "label": "Шкали прогресу",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "progress-wrap ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "progress-list",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "progress-item",
+       "kids": [
+        {
+         "tag": "label",
+         "md": "label",
+         "tail": "value"
+        },
+        {
+         "tag": "div",
+         "cls": "progress-bar",
+         "kids": [
+          {
+           "tag": "span",
+           "style": "width:{pct}%"
+          }
+         ]
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Показники",
+   "label": "Назва показника",
+   "value": "Значення словами (напр. «високий»)",
+   "pct": "Заповнення шкали, % (0–100)",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    {
+     "label": "Фокус на прибутку",
+     "value": "високий",
+     "pct": "90"
+    },
+    {
+     "label": "Залежність від ПЗ",
+     "value": "низька",
+     "pct": "35"
+    }
+   ]
   }
  },
  {
@@ -5303,5 +5524,255 @@
    "text": "Результат"
   },
   "hint": ""
+ },
+ {
+  "name": "contrast_pair",
+  "label": "Пара «було → стало»",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "contrast-pair",
+   "kids": [
+    {
+     "tag": "span",
+     "cls": "contrast-pair__was",
+     "md": "was"
+    },
+    {
+     "tag": "span",
+     "cls": "contrast-pair__arrow",
+     "static": "→"
+    },
+    {
+     "tag": "span",
+     "cls": "contrast-pair__now",
+     "md": "now"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "was": "Було (напр. «більше продавати»)",
+   "now": "Стало (напр. «бачити, де реально заробляєте»)"
+  },
+  "hint": "",
+  "sample": {
+   "was": "більше продавати",
+   "now": "бачити, де реально заробляєте"
+  }
+ },
+ {
+  "name": "result_pill",
+  "label": "Капсула з результатом",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "result-pill",
+   "kids": [
+    {
+     "tag": "strong",
+     "static": "Результат"
+    },
+    {
+     "tag": "span",
+     "md": "text"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "text": "Що отримає власник"
+  },
+  "hint": "",
+  "sample": {
+   "text": "зрозуміла собівартість і точки контролю"
+  }
+ },
+ {
+  "name": "question_line",
+  "label": "Рядок-питання",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "question-line",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "Питання власника"
+  },
+  "hint": "",
+  "sample": {
+   "text": "Скільки насправді заробив бізнес минулого місяця — після всіх витрат?"
+  }
+ },
+ {
+  "name": "scope_tags",
+  "label": "Мітки обсягу робіт",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "scope-tags",
+   "kids": [
+    {
+     "tag": "span",
+     "cls": "scope-tag",
+     "md": "_",
+     "each": "items"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Мітки (напр. «для власника», «для фіндира»)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "для власника",
+    "для керівника",
+    "для фіндира / бухгалтера"
+   ]
+  }
+ },
+ {
+  "name": "decision_line",
+  "label": "Рядок-рішення",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "decision-line",
+   "kids": [
+    {
+     "tag": "b",
+     "static": "Рішення:"
+    },
+    {
+     "tag": "span",
+     "md": "text"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "text": "Управлінське рішення"
+  },
+  "hint": "",
+  "sample": {
+   "text": "підняти ціну на продукт А / скоротити канал Б / не відкривати новий напрям без точки беззбитковості"
+  }
+ },
+ {
+  "name": "formula_row",
+  "label": "Формула зі стрілками",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "formula-row",
+   "kids": [
+    {
+     "tag": "span",
+     "md": "_",
+     "each": "items",
+     "sepCls": "formula-row__sep",
+     "sep": "→"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "items": "Ланки формули (кожна — окремий пункт)"
+  },
+  "hint": "",
+  "sample": {
+   "items": [
+    "виручка",
+    "собівартість",
+    "маржа",
+    "прибуток",
+    "грошовий потік"
+   ]
+  }
+ },
+ {
+  "name": "owner_quote",
+  "label": "Цитата власника",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "owner-quote",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "Думка власника"
+  },
+  "hint": "",
+  "sample": {
+   "text": "Звіти є, а відповіді на просте питання «де гроші?» — немає"
+  }
+ },
+ {
+  "name": "next_step",
+  "label": "Наступний крок",
+  "group": "insert",
+  "root": {
+   "tag": "div",
+   "cls": "next-step",
+   "kids": [
+    {
+     "tag": "strong",
+     "static": "Наступний крок"
+    },
+    {
+     "tag": "span",
+     "md": "text"
+    }
+   ]
+  },
+  "selects": {},
+  "labels": {
+   "text": "Що робимо далі"
+  },
+  "hint": "",
+  "sample": {
+   "text": "Попередня зустріч — щоб зрозуміти, чи потрібен проєкт саме вам"
+  }
+ },
+ {
+  "name": "promise_line",
+  "label": "Рядок-обіцянка",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "promise-line",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "М’яке зобов’язання формату"
+  },
+  "hint": "",
+  "sample": {
+   "text": "**Без універсальних тарифів.** Вартість і обсяг — після розуміння вашої ситуації."
+  }
+ },
+ {
+  "name": "cn_note",
+  "label": "Примітка під секцією (по центру)",
+  "group": "insert",
+  "root": {
+   "tag": "p",
+   "cls": "cn-note",
+   "md": "text"
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст примітки"
+  },
+  "hint": "",
+  "sample": {
+   "text": "М’яка примітка під секцією. **Без рамки.**"
+  }
  }
 ]

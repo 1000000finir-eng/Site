@@ -15,7 +15,9 @@ const text1 = (el) => (el.textContent || "").replace(/\s+/g, " ").trim();
 const escMd = (t) => t.replace(/([\\*_`\[\]<>~])/g, "\\$1");
 
 export function onlyInline(el) {
-  return Array.from(el.childNodes).every((c) => c.nodeType === 3 || c.nodeType === 8 || (c.nodeType === 1 && INLINE.has(tag(c))));
+  return Array.from(el.childNodes).every(
+    (c) => c.nodeType === 3 || c.nodeType === 8 || (c.nodeType === 1 && INLINE.has(tag(c)) && (VOID.has(tag(c)) || !kidsOf(c).length || onlyInline(c))),
+  );
 }
 const hasStrayText = (el) => Array.from(el.childNodes).some((c) => c.nodeType === 3 && c.data.trim());
 
