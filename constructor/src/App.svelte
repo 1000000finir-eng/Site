@@ -195,6 +195,39 @@
   <div class="shell">
     <header class="topbar">
       <div class="brand"><span class="logo"></span> Конструктор сайту</div>
+      <div class="device-toggle" role="group" aria-label="Вигляд перегляду">
+        <button
+          class="btn ghost icon-btn"
+          class:active={!app.phone}
+          title="Комп’ютер"
+          aria-label="Комп’ютер"
+          aria-pressed={!app.phone}
+          onclick={() => (app.phone = false)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+              <path stroke-dasharray="8" d="M12 21h5M12 21h-5M12 21v-4">
+                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="8;0"></animate>
+              </path>
+              <path stroke-dasharray="62" stroke-dashoffset="62" d="M12 17h-9v-12h18v12Z">
+                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.6s" to="0"></animate>
+              </path>
+            </g>
+          </svg>
+        </button>
+        <button
+          class="btn ghost icon-btn"
+          class:active={app.phone}
+          title="Телефон"
+          aria-label="Телефон"
+          aria-pressed={app.phone}
+          onclick={() => (app.phone = true)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3m-2 20h-4v-1h4zm3.25-3H6.75V4h10.5z"></path>
+          </svg>
+        </button>
+      </div>
       <div class="page-title">{title}</div>
       <div class="top-actions">
         <label class="zoom-ctl" title="Масштаб попереднього перегляду (подвійний клік — 100%)">
@@ -212,15 +245,29 @@
           <span class="zoom-val">{zoom}%</span>
         </label>
         <button
-          class="btn ghost"
+          class="btn ghost icon-btn"
+          class:active={!leftCollapsed}
           title={leftCollapsed ? "Показати структуру (Ctrl+Shift+B)" : "Сховати структуру"}
+          aria-label={leftCollapsed ? "Показати структуру" : "Сховати структуру"}
+          aria-pressed={!leftCollapsed}
           onclick={() => (leftCollapsed = !leftCollapsed)}
-        >{leftCollapsed ? "▶" : "◀"}</button>
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true">
+            <path fill="currentColor" d="M23 9.005h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v1H11v-1a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h4v20a2 2 0 0 0 2 2h4v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v1h-4v-9h4v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v1h-4v-9h4v1a2 2 0 0 0 2 2m0-6h6v4h-6Zm-14 4H3v-4h6Zm14 18h6v4h-6Zm0-11h6v4h-6Z"></path>
+          </svg>
+        </button>
         <button
-          class="btn ghost"
+          class="btn ghost icon-btn"
+          class:active={!rightCollapsed}
           title={rightCollapsed ? "Показати редактор (Ctrl+Shift+E)" : "Сховати редактор (Esc)"}
+          aria-label={rightCollapsed ? "Показати редактор" : "Сховати редактор"}
+          aria-pressed={!rightCollapsed}
           onclick={() => (rightCollapsed = !rightCollapsed)}
-        >{rightCollapsed ? "◀" : "▶"}</button>
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4 13.885V8.769h7.5v5.116zm0-6.116V5.616q0-.667.475-1.141T5.615 4h12.77q.666 0 1.14.475T20 5.615V7.77zM14.039 21q-.344 0-.576-.232t-.232-.576v-.73q0-.332.133-.633q.134-.3.351-.518l4.848-4.828q.148-.13.306-.19t.315-.062q.172 0 .337.064t.302.193l.925.945q.123.148.187.307q.065.16.065.32t-.052.322t-.2.31l-4.829 4.83q-.217.217-.518.347q-.3.131-.632.131zm5.152-4.985l.925-.956l-.925-.943l-.95.95zM5.616 20q-.667 0-1.141-.475T4 18.386v-3.5h7.5V20zm6.884-6.115V8.769H20v2.935q-.72-.214-1.477-.039q-.758.176-1.327.745l-1.494 1.474z"></path>
+          </svg>
+        </button>
         <button class="btn ghost" title="Скасувати (Ctrl+Z)" disabled={!app.canUndo} onclick={undo}>↶</button>
         <button class="btn ghost" title="Повернути (Ctrl+Y)" disabled={!app.canRedo} onclick={redo}>↷</button>
         <span class="save-state" class:err={app.error} title={app.error}>{saveLabel}</span>
@@ -247,7 +294,7 @@
         aria-orientation="vertical"
         onpointerdown={(e) => !leftCollapsed && startResize("left", e)}
       ></div>
-      <Preview {zoom} rightInset={rightCollapsed ? 0 : rightPx} />
+      <Preview {zoom} />
       <div
         class="pane form overlay"
         class:collapsed={rightCollapsed}

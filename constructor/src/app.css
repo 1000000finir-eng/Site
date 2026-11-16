@@ -44,6 +44,11 @@ h1, h2, h3, h4 { margin: 0; }
 .zoom-ctl input[type="range"] { width: 106px; accent-color: var(--accent); cursor: pointer; }
 .zoom-val { min-width: 38px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
 .zoom-lbl { white-space: nowrap; }
+.device-toggle { display: flex; align-items: center; gap: 2px; padding: 0 2px; margin-left: -6px; }
+.icon-btn { width: 32px; height: 32px; padding: 0; display: grid; place-items: center; border-radius: 8px; color: var(--muted); flex: none; }
+.icon-btn svg { width: 18px; height: 18px; display: block; }
+.icon-btn:hover:not(:disabled) { background: #f6f3f0; border-color: transparent; color: var(--text); }
+.icon-btn.active { background: var(--accent-l); border-color: #ecc9d4; color: var(--accent); }
 @media (max-width: 1220px) {
   .zoom-lbl { display: none; }
   .zoom-ctl input[type="range"] { width: 86px; }
@@ -106,8 +111,6 @@ h1, h2, h3, h4 { margin: 0; }
 
 /* перегляд */
 .preview { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
-.preview-bar { padding: 8px 14px; font-size: 12.5px; color: var(--muted); background: #faf8f6; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 8px; }
-.preview-bar > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .preview iframe { flex: 1; border: 0; width: 100%; background: #fff; }
 
 /* права панель */
@@ -231,9 +234,7 @@ textarea.code { font-family: Consolas, "Courier New", monospace; font-size: 12.5
 .welcome-card h3 { margin-top: 14px; font-size: 15px; }
 .row { display: flex; align-items: center; gap: 10px; }
 
-/* перегляд: перемикач ПК/телефон, обгортка */
-.preview-bar .grow { flex: 1; }
-.preview-bar .btn.active { background: var(--accent-l); border-color: #ecc9d4; }
+/* перегляд: обгортка */
 .frame-wrap { flex: 1; background: #e9e6e2; min-height: 0; overflow: auto; }
 .frame-wrap iframe { display: block; border: 0; width: 100%; height: 100%; margin: 0 auto; background: #fff; }
 .frame-wrap iframe.phone { width: 390px; box-shadow: 0 2px 16px rgba(0, 0, 0, .25); margin: 10px auto; border-radius: 10px; }
