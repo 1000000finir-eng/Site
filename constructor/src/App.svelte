@@ -24,18 +24,21 @@
     }
   };
   let leftW = $state(ls("ui.leftW", 260));
-  let rightW = $state(ls("ui.rightW", 360));
+  let rightW = $state(ls("ui.editorW", 460));
   let leftCollapsed = $state(ls("ui.leftCollapsed", false));
   let rightCollapsed = $state(true);
+  let zoom = $state(ls("ui.zoom", 100));
 
   $effect(() => {
     localStorage.setItem("ui.leftW", JSON.stringify(leftW));
-    localStorage.setItem("ui.rightW", JSON.stringify(rightW));
+    localStorage.setItem("ui.editorW", JSON.stringify(rightW));
     localStorage.setItem("ui.leftCollapsed", JSON.stringify(leftCollapsed));
+    localStorage.setItem("ui.zoom", JSON.stringify(zoom));
   });
 
   const leftPx = $derived(leftCollapsed ? 0 : Math.max(180, Math.min(420, leftW)));
-  const rightPx = $derived(rightCollapsed ? 0 : Math.max(280, Math.min(520, rightW)));
+  // Редактор — накладка поверх перегляду, тому може бути ширшим за стару колонку.
+  const rightPx = $derived(rightCollapsed ? 0 : Math.max(320, Math.min(900, rightW)));
   const RAIL = 34;
 
   // Панель редагування сама з'являється, коли щось обрано, і згортається,
@@ -59,8 +62,6 @@
       `${leftCollapsed ? 0 : leftPx}px`,
       `${leftCollapsed ? 0 : 5}px`,
       "minmax(280px, 1fr)",
-      `${rightCollapsed ? 0 : 5}px`,
-      `${rightCollapsed ? RAIL : rightPx}px`,
     ].join(" "),
   );
 
@@ -72,7 +73,7 @@
     const onMove = (e) => {
       const dx = e.clientX - startX;
       if (side === "left") leftW = Math.max(180, Math.min(420, startL + dx));
-      else rightW = Math.max(260, Math.min(520, startR - dx));
+      else rightW = Math.max(320, Math.min(900, startR - dx));
     };
     const onUp = () => {
       window.removeEventListener("pointermove", onMove);
@@ -196,6 +197,20 @@
       <div class="brand"><span class="logo"></span> Конструктор сайту</div>
       <div class="page-title">{title}</div>
       <div class="top-actions">
+        <label class="zoom-ctl" title="Масштаб попереднього перегляду (подвійний клік — 100%)">
+          <span class="zoom-lbl">Масштаб</span>
+          <input
+            type="range"
+            min="50"
+            max="150"
+            step="5"
+            value={zoom}
+            aria-label="Масштаб попереднього перегляду"
+            oninput={(e) => (zoom = Number(e.currentTarget.value))}
+            ondblclick={() => (zoom = 100)}
+          />
+          <span class="zoom-val">{zoom}%</span>
+        </label>
         <button
           class="btn ghost"
           title={leftCollapsed ? "Показати структуру (Ctrl+Shift+B)" : "Сховати структуру"}
@@ -232,15 +247,13 @@
         aria-orientation="vertical"
         onpointerdown={(e) => !leftCollapsed && startResize("left", e)}
       ></div>
-      <Preview />
+      <Preview {zoom} rightInset={rightCollapsed ? 0 : rightPx} />
       <div
-        class="splitter"
-        class:off={rightCollapsed}
-        role="separator"
-        aria-orientation="vertical"
-        onpointerdown={(e) => !rightCollapsed && startResize("right", e)}
-      ></div>
-      <div class="pane form" class:collapsed={rightCollapsed}>
+        class="pane form overlay"
+        class:collapsed={rightCollapsed}
+        class:open={!rightCollapsed}
+        style="width: {rightCollapsed ? RAIL : rightPx}px"
+      >
         {#if rightCollapsed}
           <button
             class="rail"
@@ -251,6 +264,13 @@
             <span class="rail-txt">Редагувати</span>
           </button>
         {:else}
+          <div
+            class="panel-grip"
+            role="separator"
+            aria-orientation="vertical"
+            title="Потягніть, щоб змінити ширину панелі"
+            onpointerdown={(e) => startResize("right", e)}
+          ></div>
           <FormPanel onclose={() => (rightCollapsed = true)} />
         {/if}
       </div>

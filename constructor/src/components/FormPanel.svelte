@@ -126,7 +126,7 @@
 
 <aside class="form-panel">
   {#snippet closeBtn()}
-    <button class="icon-close" title="Готово — сховати панель (Esc)" aria-label="Готово, сховати панель" onclick={onclose}>✕</button>
+    <button class="icon-close" title="Згорнути панель (Esc)" aria-label="Згорнути панель" onclick={onclose}>→</button>
   {/snippet}
   {#if app.kind === "page" && app.selected === "hero" && app.data}
     <div class="form-head"><h2>Налаштування сторінки</h2><span class="muted small">/{app.slug}/</span>{@render closeBtn()}</div>

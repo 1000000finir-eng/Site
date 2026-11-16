@@ -10,10 +10,13 @@
   import { moveItem, removeItem, newHomeCard, newHomeSection } from "../lib/model.js";
   import { confirmAsk } from "../lib/api.js";
 
+  let { zoom = 100, rightInset = 0 } = $props();
+
   let frame = $state();
   let scrollY = 0;
   let timer;
   let version = 0;
+  const frameStyle = $derived(zoom === 100 ? "" : `zoom: ${zoom / 100}`);
 
   async function rebuild(kind) {
     const my = ++version;
@@ -133,13 +136,13 @@
 </script>
 
 <section class="preview">
-  <div class="preview-bar">
+  <div class="preview-bar" style="padding-right: {14 + rightInset}px">
     <span title="На головній картку можна тягнути за тіло (не за картинку) між розділами">Наведіть на блок — з’являться кнопки. Наведіть на вставку всередині блоку — її можна змінити або перемістити. Картки на головній можна тягнути між розділами.</span>
     <span class="grow"></span>
     <button class="btn small" class:active={!app.phone} onclick={() => (app.phone = false)} title="Комп’ютер">🖥</button>
     <button class="btn small" class:active={app.phone} onclick={() => (app.phone = true)} title="Телефон">📱</button>
   </div>
   <div class="frame-wrap">
-    <iframe bind:this={frame} class:phone={app.phone} sandbox="allow-same-origin" title="Попередній перегляд" onload={onload}></iframe>
+    <iframe bind:this={frame} class:phone={app.phone} style={frameStyle} sandbox="allow-same-origin" title="Попередній перегляд" onload={onload}></iframe>
   </div>
 </section>
