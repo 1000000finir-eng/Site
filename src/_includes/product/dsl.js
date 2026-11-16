@@ -12,22 +12,22 @@ const filled = (v) => (Array.isArray(v) ? v.length > 0 : v !== undefined && v !=
 // opt може бути одним полем або списком: вузол показується, якщо заповнене хоч одне.
 const shown = (sc, opt) => (Array.isArray(opt) ? opt.some((k) => filled(sc[k])) : filled(sc[opt]));
 
-function node(n, sc, ctx, i = 0) {
+function node(n, sc, ctx, i = 0, root = sc) {
   if (n.each) {
     const list = sc[n.each] || [];
     const sep = n.sepCls
       ? `\n<span class="${esc(n.sepCls)}">${esc(n.sep || "→")}</span>\n`
       : "\n";
     return list
-      .map((it, idx) => one(n, typeof it === "object" && it !== null ? it : { _: it }, ctx, idx))
+      .map((it, idx) => one(n, typeof it === "object" && it !== null ? it : { _: it }, ctx, idx, root))
       .join(sep);
   }
   if (n.opt && !shown(sc, n.opt)) return "";
   if (n.inserts && !(sc[n.inserts] || []).length) return "";
-  return one(n, sc, ctx, i);
+  return one(n, sc, ctx, i, root);
 }
 
-function one(n, sc, ctx, i) {
+function one(n, sc, ctx, i, root = sc) {
   const page = ctx.page;
   if (n.inserts) {
     return (sc[n.inserts] || [])
@@ -40,7 +40,8 @@ function one(n, sc, ctx, i) {
     if (!nodes.length) return "";
     const sep = esc(sc[n.flow + "_sep"] || "→");
     const parts = nodes.map((t, k) => `${k ? `<span class="fl-block__sep">${sep}</span>` : ""}<span class="fl-block__node">${esc(t)}</span>`);
-    return `<div class="fl-block"><div class="fl-block__track">${parts.join("")}</div></div>`;
+    const extra = n.style ? ` style="${esc(tpl(n.style, sc, ctx.spec))}"` : "";
+    return `<div class="fl-block"${extra}><div class="fl-block__track">${parts.join("")}</div></div>`;
   }
   if (n.table) {
     const head = sc.head || [], rows = sc.rows || [];
@@ -67,8 +68,12 @@ function one(n, sc, ctx, i) {
   }
   else if (n.text) inner = esc(val(sc, n.text) ?? "");
   else if (n.static) inner = esc(n.static);
-  else if (n.index) inner = n.index === "pad2" ? String(i + 1).padStart(2, "0") : String(i + 1);
-  else if (n.kids) inner = "\n" + n.kids.map((k) => node(k, sc, ctx, i)).filter(Boolean).join("\n") + "\n";
+  else if (n.index) {
+    const start = n.start ? Number(root[n.start]) : NaN;
+    const num = i + (Number.isFinite(start) ? start : 1);
+    inner = n.index === "pad2" ? String(num).padStart(2, "0") : String(num);
+  }
+  else if (n.kids) inner = "\n" + n.kids.map((k) => node(k, sc, ctx, i, root)).filter(Boolean).join("\n") + "\n";
   return `<${n.tag}${attrs}>${inner}</${n.tag}>`;
 }
 

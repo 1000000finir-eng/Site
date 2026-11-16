@@ -50,11 +50,15 @@ function walk(n, spec, out, seen) {
   if (n.each) {
     const sub = [];
     walkChildren(n, spec, sub, new Set());
-    if (sub.length === 1 && sub[0].name === "_") {
-      return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), item: { kind: sub[0].kind === "string" ? "string" : "md" } });
+    // поля з start/flow-конфігом живуть на блоці, не в елементах списку
+    const hoist = sub.filter((f) => f._blockLevel);
+    const itemFields = sub.filter((f) => !f._blockLevel);
+    for (const f of hoist) add(out, seen, { ...f, _blockLevel: undefined });
+    if (itemFields.length === 1 && itemFields[0].name === "_") {
+      return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), item: { kind: itemFields[0].kind === "string" ? "string" : "md" } });
     }
-    const titled = sub.find((f) => f.name === "title") || sub.find((f) => f.kind === "string" || f.kind === "md");
-    return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), fields: sub, titleOf: titled?.name });
+    const titled = itemFields.find((f) => f.name === "title") || itemFields.find((f) => f.kind === "string" || f.kind === "md");
+    return add(out, seen, { kind: "list", name: n.each, label: label(spec, n.each), fields: itemFields, titleOf: titled?.name });
   }
   walkChildren(n, spec, out, seen);
 }
@@ -78,6 +82,7 @@ function walkChildren(n, spec, out, seen) {
     }
   }
   if (n.text) add(out, seen, { kind: "string", name: n.text, label: label(spec, n.text), optional: true });
+  if (n.start) add(out, seen, { kind: "string", name: n.start, label: label(spec, n.start), optional: true, _blockLevel: true });
   for (const [a, f] of Object.entries(n.oaf || {})) add(out, seen, { kind: "string", name: f, label: label(spec, f), optional: true, advanced: true });
   if (n.tail) add(out, seen, { kind: "string", name: n.tail, label: label(spec, n.tail), optional: true });
   for (const [a, f] of Object.entries(n.af || {})) add(out, seen, { kind: a === "src" ? "image" : "string", name: f, label: label(spec, f), optional: a !== "src" });

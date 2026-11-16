@@ -58,6 +58,8 @@ def walk_children(n, spec, out, seen):
             add(out, seen, {'label': label(spec, name), 'name': name, **f, **({'required': False} if (opt or name not in ('title',)) else {})})
     for a, f in (n.get('oaf') or {}).items():
         add(out, seen, {'label': label(spec, f), 'name': f, 'widget': 'string', 'required': False})
+    if n.get('start'):
+        add(out, seen, {'label': label(spec, n['start']), 'name': n['start'], 'widget': 'string', 'required': False})
     if n.get('tail'):
         add(out, seen, {'label': label(spec, n['tail']), 'name': n['tail'], 'widget': 'string', 'required': False})
     for a, f in (n.get('af') or {}).items():

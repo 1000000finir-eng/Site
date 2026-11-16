@@ -194,34 +194,70 @@
       ]
     },
     {
-      "type": "section",
-      "cls": "st-block ec-animate",
-      "id": "etapy",
-      "heading": "none",
-      "kicker": "",
-      "title": "",
-      "elements": [
+      "type": "st",
+      "anchor": "etapy",
+      "kicker": "ЯК ПРОХОДИТЬ РОБОТА",
+      "title": "Етапи проєкту",
+      "flow": [
+        "Зустріч",
+        "Аудит",
+        "Узгодження",
+        "Стратегічна робота",
+        "Стратегія",
+        "Впровадження"
+      ],
+      "intro_title": "Етап 1. Перша зустріч",
+      "intro_text": "Починаємо з розмови про ваш бізнес, ситуацію, запит і те, що ви хочете змінити. На цьому етапі визначаємо, **чи потрібен вам саме цей формат роботи та який обсяг проєкту буде доцільним**.",
+      "steps_start": "2",
+      "steps": [
         {
-          "t": "raw",
-          "html": "<div class=\"st-block__heading\">\n<p class=\"ec-kicker\">ЯК ПРОХОДИТЬ РОБОТА</p>\n<h2>Етапи проєкту</h2>\n</div>"
+          "title": "Передпроєктний аудит",
+          "text": "Після першої зустрічі я аналізую необхідну інформацію про бізнес. Мета — не просто зібрати дані, а зрозуміти:",
+          "inserts": [
+            {
+              "type": "formula_row",
+              "items": [
+                "де ви зараз",
+                "що працює",
+                "де проблеми",
+                "що стримує розвиток",
+                "де є потенціал"
+              ]
+            }
+          ]
         },
         {
-          "t": "raw",
-          "html": "<div class=\"fl-block\" style=\"padding:0;margin:0 0 24px;\">\n<div class=\"fl-block__track\">\n<span class=\"fl-block__node\">Зустріч</span>\n<span class=\"fl-block__sep\">→</span>\n<span class=\"fl-block__node\">Аудит</span>\n<span class=\"fl-block__sep\">→</span>\n<span class=\"fl-block__node\">Узгодження</span>\n<span class=\"fl-block__sep\">→</span>\n<span class=\"fl-block__node\">Стратегічна робота</span>\n<span class=\"fl-block__sep\">→</span>\n<span class=\"fl-block__node\">Стратегія</span>\n<span class=\"fl-block__sep\">→</span>\n<span class=\"fl-block__node\">Впровадження</span>\n</div>\n</div>"
+          "title": "Узгодження проєкту",
+          "text": "За результатами аудиту визначаємо: завдання проєкту, обсяг роботи, формат, кількість зустрічей, необхідних учасників, строки, очікувані результати, **вартість**.\n\n**Я не пропоную однаковий пакет усім.** Обсяг стратегічного проєкту залежить від масштабу бізнесу, його стану та вашого запиту."
         },
         {
-          "t": "raw",
-          "html": "<div class=\"st-block__intro\">\n<h3 class=\"st-block__intro-title\">Етап 1. Перша зустріч</h3>\n<p>Починаємо з розмови про ваш бізнес, ситуацію, запит і те, що ви хочете змінити. На цьому етапі визначаємо, <b>чи потрібен вам саме цей формат роботи та який обсяг проєкту буде доцільним</b>.</p>\n</div>"
+          "title": "Стратегічна робота",
+          "text": "Проводимо необхідні робочі зустрічі та стратегічні сесії. Працюємо з власником, керівником або управлінською командою — залежно від завдання."
         },
         {
-          "t": "raw",
-          "html": "<div class=\"st-steps\">\n<article class=\"st-step\">\n<div class=\"st-step__head\"><span aria-hidden=\"true\" class=\"st-step__num\">2</span><h3>Передпроєктний аудит</h3></div>\n<div class=\"st-step__body\">\n<p>Після першої зустрічі я аналізую необхідну інформацію про бізнес. Мета — не просто зібрати дані, а зрозуміти:</p>\n<p class=\"formula-row\" style=\"margin:10px 0;\">\n<span>де ви зараз</span><span class=\"formula-row__sep\">→</span>\n<span>що працює</span><span class=\"formula-row__sep\">→</span>\n<span>де проблеми</span><span class=\"formula-row__sep\">→</span>\n<span>що стримує розвиток</span><span class=\"formula-row__sep\">→</span>\n<span>де є потенціал</span>\n</p>\n</div>\n</article>\n<article class=\"st-step\">\n<div class=\"st-step__head\"><span aria-hidden=\"true\" class=\"st-step__num\">3</span><h3>Узгодження проєкту</h3></div>\n<div class=\"st-step__body\">\n<p>За результатами аудиту визначаємо: завдання проєкту, обсяг роботи, формат, кількість зустрічей, необхідних учасників, строки, очікувані результати, <b>вартість</b>.</p>\n<p><b>Я не пропоную однаковий пакет усім.</b> Обсяг стратегічного проєкту залежить від масштабу бізнесу, його стану та вашого запиту.</p>\n</div>\n</article>\n<article class=\"st-step\">\n<div class=\"st-step__head\"><span aria-hidden=\"true\" class=\"st-step__num\">4</span><h3>Стратегічна робота</h3></div>\n<div class=\"st-step__body\">\n<p>Проводимо необхідні робочі зустрічі та стратегічні сесії. Працюємо з власником, керівником або управлінською командою — залежно від завдання.</p>\n</div>\n</article>\n<article class=\"st-step\">\n<div class=\"st-step__head\"><span aria-hidden=\"true\" class=\"st-step__num\">5</span><h3>Формування стратегії розвитку</h3></div>\n<div class=\"st-step__body\">\n<p>Фіксуємо:</p>\n<p class=\"formula-row\" style=\"margin:10px 0;\">\n<span>точку А</span><span class=\"formula-row__sep\">→</span>\n<span>точку Б</span><span class=\"formula-row__sep\">→</span>\n<span>стратегічні цілі</span><span class=\"formula-row__sep\">→</span>\n<span>напрямки</span><span class=\"formula-row__sep\">→</span>\n<span>пріоритети</span><span class=\"formula-row__sep\">→</span>\n<span>показники</span><span class=\"formula-row__sep\">→</span>\n<span>план реалізації</span>\n</p>\n</div>\n</article>\n<article class=\"st-step\">\n<div class=\"st-step__head\"><span aria-hidden=\"true\" class=\"st-step__num\">6</span><h3>Перехід до впровадження</h3></div>\n<div class=\"st-step__body\">\n<p>Стратегія переводиться в конкретні управлінські рішення та завдання. За потреби окремі напрямки можуть бути продовжені в інших консалтингових проєктах:</p>\n<ul class=\"st-step__list\">\n<li><a class=\"diagnostic-inline-link\" href=\"/upravlinskiy-oblik/\">Управлінський облік під ключ</a></li>\n<li><a class=\"diagnostic-inline-link\" href=\"/vlasnytskyi-oblik/\">Власницький облік та контроль бізнесу</a></li>\n<li><a class=\"diagnostic-inline-link\" href=\"/upravlinnya-vytratamy/\">Система управління витратами</a></li>\n<li><a class=\"diagnostic-inline-link\" href=\"/vprovadzhennya-iso-9001/\">Консалтинг з впровадження ISO 9001</a></li>\n</ul>\n<p>Таким чином стратегія не залишається окремим документом, а може стати <b>основою подальшої системної трансформації бізнесу</b>.</p>\n</div>\n</article>\n</div>"
+          "title": "Формування стратегії розвитку",
+          "text": "Фіксуємо:",
+          "inserts": [
+            {
+              "type": "formula_row",
+              "items": [
+                "точку А",
+                "точку Б",
+                "стратегічні цілі",
+                "напрямки",
+                "пріоритети",
+                "показники",
+                "план реалізації"
+              ]
+            }
+          ]
         },
         {
-          "t": "raw",
-          "html": "<div class=\"st-block__cta\">\n<div class=\"ec-booking-card card\">\n<button class=\"ec-main-btn\" onclick=\"openPricePopup(event)\">ОБГОВОРИТИ РОЗВИТОК МОГО БІЗНЕСУ</button>\n</div>\n</div>"
+          "title": "Перехід до впровадження",
+          "text": "Стратегія переводиться в конкретні управлінські рішення та завдання. За потреби окремі напрямки можуть бути продовжені в інших консалтингових проєктах:\n\n- <a class=\"diagnostic-inline-link\" href=\"/upravlinskiy-oblik/\">Управлінський облік під ключ</a>\n- <a class=\"diagnostic-inline-link\" href=\"/vlasnytskyi-oblik/\">Власницький облік та контроль бізнесу</a>\n- <a class=\"diagnostic-inline-link\" href=\"/upravlinnya-vytratamy/\">Система управління витратами</a>\n- <a class=\"diagnostic-inline-link\" href=\"/vprovadzhennya-iso-9001/\">Консалтинг з впровадження ISO 9001</a>\n\nТаким чином стратегія не залишається окремим документом, а може стати **основою подальшої системної трансформації бізнесу**."
         }
-      ]
+      ],
+      "cta_text": "ОБГОВОРИТИ РОЗВИТОК МОГО БІЗНЕСУ"
     },
     {
       "type": "outcome",
@@ -294,17 +330,11 @@
       ]
     },
     {
-      "type": "section",
-      "cls": "vz-block ec-animate",
-      "heading": "none",
-      "kicker": "",
-      "title": "",
-      "elements": [
-        {
-          "t": "raw",
-          "html": "<div class=\"vz-block__box\">\n<div class=\"vz-block__heading\">\n<p class=\"ec-kicker\">ВАЖЛИВО</p>\n<h2>Кому цей проєкт не потрібен</h2>\n</div>\n<p>Якщо вам потрібен просто красивий стратегічний документ «для звіту» — це не мій формат.</p>\n<p>Я працюю з бізнесом там, де стратегія має <b>впливати на реальні рішення, управління, фінанси, команду та розвиток</b>.</p>\n</div>"
-        }
-      ]
+      "type": "vz_block",
+      "anchor": "",
+      "kicker": "ВАЖЛИВО",
+      "title": "Кому цей проєкт не потрібен",
+      "text": "Якщо вам потрібен просто красивий стратегічний документ «для звіту» — це не мій формат.\n\nЯ працюю з бізнесом там, де стратегія має **впливати на реальні рішення, управління, фінанси, команду та розвиток**."
     },
     {
       "type": "xp_block",

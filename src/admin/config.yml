@@ -368,6 +368,10 @@ collections:
         name: steps
         widget: list
         fields:
+        - label: Номер першого кроку (якщо є вступний етап)
+          name: steps_start
+          widget: string
+          required: false
         - label: Заголовок
           name: title
           widget: string
@@ -919,6 +923,160 @@ collections:
               modes: *id002
               editor_components: *id003
               required: false
+          - label: ＋ Пара «було → стало»
+            name: contrast_pair
+            widget: object
+            summary: '{{fields.was}}'
+            fields:
+            - label: Було (напр. «більше продавати»)
+              name: was
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: більше продавати
+            - label: Стало (напр. «бачити, де реально заробляєте»)
+              name: now
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: бачити, де реально заробляєте
+          - label: ＋ Капсула з результатом
+            name: result_pill
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Що отримає власник
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: зрозуміла собівартість і точки контролю
+          - label: ＋ Рядок-питання
+            name: question_line
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Питання власника
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: Скільки насправді заробив бізнес минулого місяця — після всіх витрат?
+          - label: ＋ Мітки обсягу робіт
+            name: scope_tags
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Мітки (напр. «для власника», «для фіндира»)
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - для власника
+              - для керівника
+              - для фіндира / бухгалтера
+          - label: ＋ Рядок-рішення
+            name: decision_line
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Управлінське рішення
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: підняти ціну на продукт А / скоротити канал Б / не відкривати новий напрям без точки беззбитковості
+          - label: ＋ Формула зі стрілками
+            name: formula_row
+            widget: object
+            summary: '{{fields.items}}'
+            fields:
+            - label: Ланки формули (кожна — окремий пункт)
+              name: items
+              widget: list
+              field:
+                label: Пункт
+                widget: markdown
+                buttons: *id001
+                modes: *id002
+                editor_components: *id003
+                required: false
+                name: item
+              default:
+              - виручка
+              - собівартість
+              - маржа
+              - прибуток
+              - грошовий потік
+          - label: ＋ Цитата власника
+            name: owner_quote
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Думка власника
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: Звіти є, а відповіді на просте питання «де гроші?» — немає
+          - label: ＋ Наступний крок
+            name: next_step
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Що робимо далі
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: Попередня зустріч — щоб зрозуміти, чи потрібен проєкт саме вам
+          - label: ＋ Рядок-обіцянка
+            name: promise_line
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: М’яке зобов’язання формату
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: '**Без універсальних тарифів.** Вартість і обсяг — після розуміння вашої ситуації.'
+          - label: ＋ Примітка під секцією (по центру)
+            name: cn_note
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+            - label: Текст примітки
+              name: text
+              widget: markdown
+              buttons: *id001
+              modes: *id002
+              editor_components: *id003
+              required: false
+              default: М’яка примітка під секцією. **Без рамки.**
         - label: Результат етапу
           name: result
           widget: markdown
@@ -926,7 +1084,7 @@ collections:
           modes: *id002
           editor_components: *id003
           required: false
-        summary: '{{fields.title}}'
+        summary: '{{fields.steps_start}}'
         default:
         - title: Аудит
           text: '- облік і звітність
@@ -1446,6 +1604,175 @@ collections:
 
 
           Стратегія, фінанси, управління, процеси, команда, KPI і роль власника розглядаються разом — тому план не закінчується красивою фразою в презентації.'
+      - label: Вставки (додаткові елементи в цьому блоці)
+        name: inserts
+        widget: list
+        required: false
+        label_singular: вставку
+        add_to: bottom
+        hint: Чіпи, примітки, списки з іконками, цифри, ціна… — додавайте скільки потрібно.
+        types: *id007
+    - label: ★ Посилання на суміжні послуги
+      name: service_links
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ТАКОЖ НА САЙТІ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Суміжні напрями
+      - label: Посилання на послуги
+        name: links
+        widget: list
+        fields:
+        - label: Адреса сторінки (напр. /upravlinskiy-oblik/)
+          name: url
+          widget: string
+          required: false
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Короткий опис
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.url}}'
+        default:
+        - url: /upravlinskiy-oblik/
+          title: Управлінський облік під ключ
+          text: Звітність, план-факт, прибуток для власника
+        - url: /upravlinnya-vytratamy/
+          title: Управління витратами
+          text: Собівартість, контроль, оптимізація без шкоди бізнесу
+        - url: /vlasnytskyi-oblik/
+          title: Власницький контроль
+          text: Панель показників і фінансовий контроль бізнесу
+      hint: Перелінковка на суміжні сторінки послуг.
+    - label: ★ Порівняльна таблиця
+      name: cmp_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ПОРІВНЯННЯ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Порівняльна таблиця
+      - label: Заголовки стовпців
+        name: head
+        widget: list
+        field:
+          label: Стовпець
+          name: item
+          widget: string
+        default:
+        - ''
+        - Консультація
+        - Проєкт
+      - label: Рядки таблиці
+        name: rows
+        widget: list
+        summary: '{{fields.cells}}'
+        fields:
+        - label: Клітинки рядка (по порядку стовпців)
+          name: cells
+          widget: list
+          field:
+            label: Клітинка
+            name: item
+            widget: string
+        default:
+        - cells:
+          - Фокус
+          - Один запит
+          - Система
+        - cells:
+          - Результат
+          - Рекомендації
+          - Робоча система
+      hint: Перший стовпець — назви рядків, далі — значення для порівняння.
+    - label: ★ Шкали прогресу
+      name: progress_wrap
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Показники
+        name: items
+        widget: list
+        fields:
+        - label: Назва показника
+          name: label
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        - label: Значення словами (напр. «високий»)
+          name: value
+          widget: string
+          required: false
+        summary: '{{fields.label}}'
+        default:
+        - label: Фокус на прибутку
+          value: високий
+          pct: '90'
+        - label: Залежність від ПЗ
+          value: низька
+          pct: '35'
+    - label: ★ Важливо / кому не підійде
+      name: vz_block
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок
+        name: kicker
+        widget: string
+        required: false
+        default: VZ-BLOCK
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Важливо / кому не підійде
+      - label: Текст блоку
+        name: text
+        widget: markdown
+        hint: Жирний — кнопка B. Список — кнопка зі списком.
+        buttons: *id004
+        modes: *id005
+        editor_components: *id006
+        default: Формат для тих, хто готовий **дивитися в систему**, а не лише на симптоми.
       - label: Вставки (додаткові елементи в цьому блоці)
         name: inserts
         widget: list
@@ -2492,36 +2819,6 @@ collections:
         widget: string
         required: false
         default: ЗАПИСАТИСЯ
-    - label: ★ Vz block
-      name: vz_block
-      widget: object
-      summary: '{{fields.anchor}}'
-      fields:
-      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
-        name: anchor
-        widget: string
-        required: false
-      - label: Надзаголовок
-        name: kicker
-        widget: markdown
-        buttons: *id001
-        modes: *id002
-        editor_components: *id003
-        required: false
-        default: VZ-BLOCK
-      - label: Заголовок
-        name: title
-        widget: string
-        hint: Для переносу рядка напишіть <br>
-        default: Важливо / кому не підійде
-      - label: Текст
-        name: text
-        widget: markdown
-        buttons: *id001
-        modes: *id002
-        editor_components: *id003
-        required: false
-        default: Формат для тих, хто готовий **дивитися в систему**, а не лише на симптоми.
     - label: ★ Fn burgundy
       name: fn_burgundy
       widget: object
@@ -3562,6 +3859,13 @@ collections:
         name: title
         widget: string
         hint: Для переносу рядка напишіть <br>
+      - label: Вступ над списком
+        name: intro
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
       - label: Результати
         name: items
         widget: list
@@ -3601,6 +3905,119 @@ collections:
         modes: *id002
         editor_components: *id003
         required: false
+    - label: ▪ Результат (було / стало + примітки)
+      name: result_notes
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: РЕЗУЛЬТАТ
+      - label: Заголовок
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: 'Ви переходите від:'
+      - label: Пункти (було / стало)
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Було
+          text: «Я думаю, що у нас усе нормально»
+        - title: Стало
+          text: «Я знаю, що відбувається з моїм бізнесом»
+      - label: Виділена зміна справа
+        name: stats
+        widget: list
+        fields:
+        - label: Цифра / напис
+          name: value
+          widget: string
+          required: false
+        - label: Підпис
+          name: label
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.value}}'
+        default:
+        - value: Ключова зміна
+          label: Ви переходите до ролі власника, який бачить систему та керує нею.
+      - label: Примітки під блоком
+        name: notes
+        widget: list
+        field:
+          label: Пункт
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+          name: item
+        default:
+        - Від занурення в операційні цифри — до **управління через ключові показники**
+        - Від залежності від чужих звітів — до **власницького контролю**
+    - label: ▪ Переваги (номер + заголовок + текст)
+      name: benefits
+      widget: object
+      summary: '{{fields.anchor}}'
+      fields:
+      - label: Якір (id для посилання на цей блок, напр. process; необов’язково)
+        name: anchor
+        widget: string
+        required: false
+      - label: Надзаголовок (малий напис над заголовком)
+        name: kicker
+        widget: string
+        required: false
+        default: ЩО ВИ ОТРИМАЄТЕ
+      - label: Заголовок пункту
+        name: title
+        widget: string
+        hint: Для переносу рядка напишіть <br>
+        default: Результат впровадження системи
+      - label: Переваги
+        name: items
+        widget: list
+        fields:
+        - label: Заголовок пункту
+          name: title
+          widget: string
+          hint: Для переносу рядка напишіть <br>
+        - label: Текст пункту
+          name: text
+          widget: markdown
+          buttons: *id001
+          modes: *id002
+          editor_components: *id003
+          required: false
+        summary: '{{fields.title}}'
+        default:
+        - title: Прозорість
+          text: Ви розумієте, скільки заробляє бізнес і куди йдуть гроші
+        - title: Контроль
+          text: Бачите відхилення в процесі управління і своєчасно реагуєте
     - label: ▪ Етапи зі вступом і списком
       name: stages
       widget: object
@@ -3618,6 +4035,13 @@ collections:
         name: title
         widget: string
         hint: Для переносу рядка напишіть <br>
+      - label: Примітка перед етапами
+        name: note_before
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
       - label: Етапи
         name: stages
         widget: list
@@ -3656,6 +4080,13 @@ collections:
           editor_components: *id003
           required: false
         summary: '{{fields.title}}'
+      - label: Примітка після етапів
+        name: note_after
+        widget: markdown
+        buttons: *id001
+        modes: *id002
+        editor_components: *id003
+        required: false
     - label: Питання і відповіді (FAQ)
       name: faq
       widget: object

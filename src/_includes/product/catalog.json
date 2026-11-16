@@ -580,6 +580,11 @@
          "md": "title"
         },
         {
+         "tag": "p",
+         "md": "intro",
+         "opt": "intro"
+        },
+        {
          "tag": "div",
          "cls": "ec-result-list",
          "kids": [
@@ -640,10 +645,215 @@
    "stats": "Цифри справа",
    "value": "Цифра / значок",
    "label": "Підпис",
+   "intro": "Вступ над списком",
    "note": "Текст під блоком",
    "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
   },
   "hint": ""
+ },
+ {
+  "name": "result_notes",
+  "label": "Результат (було / стало + примітки)",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-result ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-result__grid",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "ec-result__content",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "text": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        },
+        {
+         "tag": "div",
+         "cls": "ec-result__main",
+         "kids": [
+          {
+           "tag": "div",
+           "cls": "ec-result-list",
+           "kids": [
+            {
+             "tag": "div",
+             "kids": [
+              {
+               "tag": "h3",
+               "md": "title"
+              },
+              {
+               "tag": "p",
+               "md": "text"
+              }
+             ],
+             "each": "items"
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "cls": "ec-result__quote",
+           "kids": [
+            {
+             "tag": "div",
+             "kids": [
+              {
+               "tag": "span",
+               "text": "value"
+              },
+              {
+               "tag": "strong",
+               "md": "label"
+              }
+             ],
+             "each": "stats"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "cls": "ec-result-notes",
+         "kids": [
+          {
+           "tag": "p",
+           "cls": "ec-coffee-note",
+           "md": "_",
+           "each": "notes"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Пункти (було / стало)",
+   "stats": "Виділена зміна справа",
+   "value": "Цифра / напис",
+   "label": "Підпис",
+   "notes": "Примітки під блоком",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "РЕЗУЛЬТАТ",
+   "title": "Ви переходите від:",
+   "items": [
+    {
+     "title": "Було",
+     "text": "«Я думаю, що у нас усе нормально»"
+    },
+    {
+     "title": "Стало",
+     "text": "«Я знаю, що відбувається з моїм бізнесом»"
+    }
+   ],
+   "stats": [
+    {
+     "value": "Ключова зміна",
+     "label": "Ви переходите до ролі власника, який бачить систему та керує нею."
+    }
+   ],
+   "notes": [
+    "Від занурення в операційні цифри — до **управління через ключові показники**",
+    "Від залежності від чужих звітів — до **власницького контролю**"
+   ]
+  }
+ },
+ {
+  "name": "benefits",
+  "label": "Переваги (номер + заголовок + текст)",
+  "group": "page",
+  "root": {
+   "tag": "section",
+   "cls": "ec-how ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "ec-section-heading",
+     "kids": [
+      {
+       "tag": "p",
+       "cls": "ec-kicker",
+       "text": "kicker",
+       "opt": "kicker"
+      },
+      {
+       "tag": "h2",
+       "md": "title"
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "ec-how__grid vc-benefits",
+     "kids": [
+      {
+       "tag": "div",
+       "kids": [
+        {
+         "tag": "span",
+         "index": "1"
+        },
+        {
+         "tag": "h3",
+         "md": "title"
+        },
+        {
+         "tag": "p",
+         "md": "text"
+        }
+       ],
+       "each": "items"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "items": "Переваги",
+   "title": "Заголовок пункту",
+   "text": "Текст пункту",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "ЩО ВИ ОТРИМАЄТЕ",
+   "title": "Результат впровадження системи",
+   "items": [
+    {
+     "title": "Прозорість",
+     "text": "Ви розумієте, скільки заробляє бізнес і куди йдуть гроші"
+    },
+    {
+     "title": "Контроль",
+     "text": "Бачите відхилення в процесі управління і своєчасно реагуєте"
+    }
+   ]
+  }
  },
  {
   "name": "st",
@@ -711,6 +921,7 @@
            "tag": "span",
            "cls": "st-step__num",
            "index": "1",
+           "start": "steps_start",
            "sattr": {
             "aria-hidden": "true"
            }
@@ -771,6 +982,7 @@
    "intro_tag": "Позначка в заголовку (напр. «(безкоштовно)»)",
    "intro_text": "Вступний етап — текст",
    "steps": "Етапи",
+   "steps_start": "Номер першого кроку (якщо є вступний етап)",
    "text": "Опис етапу (абзаци та список)",
    "result": "Результат етапу",
    "cta_text": "Текст кнопки (порожньо — без кнопки)",
@@ -824,6 +1036,12 @@
        "md": "title"
       }
      ]
+    },
+    {
+     "tag": "div",
+     "cls": "ec-coffee-note",
+     "md": "note_before",
+     "opt": "note_before"
     },
     {
      "tag": "div",
@@ -881,6 +1099,12 @@
        "each": "stages"
       }
      ]
+    },
+    {
+     "tag": "div",
+     "cls": "ec-coffee-note",
+     "md": "note_after",
+     "opt": "note_after"
     }
    ],
    "oaf": {
@@ -893,6 +1117,8 @@
    "lead": "Головна фраза етапу",
    "text": "Опис етапу (абзаци та список)",
    "result": "Результат етапу",
+   "note_before": "Примітка перед етапами",
+   "note_after": "Примітка після етапів",
    "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
   },
   "hint": ""
@@ -1982,6 +2208,62 @@
      "pct": "35"
     }
    ]
+  }
+ },
+ {
+  "name": "vz_block",
+  "label": "Важливо / кому не підійде",
+  "group": "example",
+  "root": {
+   "tag": "section",
+   "cls": "vz-block ec-animate",
+   "kids": [
+    {
+     "tag": "div",
+     "cls": "vz-block__box",
+     "kids": [
+      {
+       "tag": "div",
+       "cls": "vz-block__heading",
+       "kids": [
+        {
+         "tag": "p",
+         "cls": "ec-kicker",
+         "text": "kicker",
+         "opt": "kicker"
+        },
+        {
+         "tag": "h2",
+         "md": "title"
+        }
+       ]
+      },
+      {
+       "body": "text",
+       "ulcls": ""
+      },
+      {
+       "inserts": "inserts"
+      }
+     ]
+    }
+   ],
+   "oaf": {
+    "id": "anchor"
+   }
+  },
+  "selects": {},
+  "labels": {
+   "text": "Текст блоку",
+   "kicker": "Надзаголовок",
+   "title": "Заголовок",
+   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
+  },
+  "hint": "",
+  "sample": {
+   "kicker": "VZ-BLOCK",
+   "title": "Важливо / кому не підійде",
+   "text": "Формат для тих, хто готовий **дивитися в систему**, а не лише на симптоми."
   }
  },
  {
@@ -3714,59 +3996,6 @@
    "title": "Як записатися",
    "text": "**Натисніть кнопку** або напишіть «КОНСУЛЬТАЦІЯ».",
    "cta_text": "ЗАПИСАТИСЯ"
-  }
- },
- {
-  "name": "vz_block",
-  "label": "Vz block",
-  "group": "example",
-  "root": {
-   "tag": "section",
-   "cls": "vz-block ec-animate",
-   "kids": [
-    {
-     "tag": "div",
-     "cls": "vz-block__box",
-     "kids": [
-      {
-       "tag": "div",
-       "cls": "vz-block__heading",
-       "kids": [
-        {
-         "tag": "p",
-         "cls": "ec-kicker",
-         "md": "kicker",
-         "opt": "kicker"
-        },
-        {
-         "tag": "h2",
-         "md": "title"
-        }
-       ]
-      },
-      {
-       "tag": "p",
-       "md": "text"
-      }
-     ]
-    }
-   ],
-   "oaf": {
-    "id": "anchor"
-   }
-  },
-  "selects": {},
-  "labels": {
-   "title": "Заголовок",
-   "kicker": "Надзаголовок",
-   "text": "Текст",
-   "anchor": "Якір (id для посилання на цей блок, напр. process; необов’язково)"
-  },
-  "hint": "",
-  "sample": {
-   "kicker": "VZ-BLOCK",
-   "title": "Важливо / кому не підійде",
-   "text": "Формат для тих, хто готовий **дивитися в систему**, а не лише на симптоми."
   }
  },
  {

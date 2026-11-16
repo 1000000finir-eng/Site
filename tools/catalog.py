@@ -74,10 +74,24 @@ add('numbered', 'Нумерований перелік', E('section', 'ec-how ec
 add('result', 'Результат (список + цифри)', E('section', 'ec-result ec-animate',
     E('div', 'ec-result__grid',
       E('div', 'ec-result__content', KICK, TITLE,
+        E('p', None, md='intro', opt='intro'),
         E('div', 'ec-result-list', E('div', None, E('h3', None, md='title'), E('p', None, md='text'), each='items'))),
       E('div', 'ec-result__quote', E('div', None, E('span', None, text='value'), E('strong', None, md='label'), each='stats')),
       E('p', 'ec-result-note', md='note', opt='note'))),
-    labels={'items': 'Результати', 'stats': 'Цифри справа', 'value': 'Цифра / значок', 'label': 'Підпис', 'note': 'Текст під блоком'})
+    labels={'items': 'Результати', 'stats': 'Цифри справа', 'value': 'Цифра / значок', 'label': 'Підпис', 'intro': 'Вступ над списком', 'note': 'Текст під блоком'})
+add('result_notes', 'Результат (було / стало + примітки)', E('section', 'ec-result ec-animate',
+    E('div', 'ec-result__grid',
+      E('div', 'ec-result__content', KICK, TITLE,
+        E('div', 'ec-result__main',
+          E('div', 'ec-result-list', E('div', None, E('h3', None, md='title'), E('p', None, md='text'), each='items')),
+          E('div', 'ec-result__quote', E('div', None, E('span', None, text='value'), E('strong', None, md='label'), each='stats'))),
+        E('div', 'ec-result-notes', E('p', 'ec-coffee-note', md='_', each='notes'))))),
+    labels={'items': 'Пункти (було / стало)', 'stats': 'Виділена зміна справа', 'value': 'Цифра / напис', 'label': 'Підпис',
+            'notes': 'Примітки під блоком'})
+add('benefits', 'Переваги (номер + заголовок + текст)', E('section', 'ec-how ec-animate',
+    HEAD_BLOCK,
+    E('div', 'ec-how__grid vc-benefits', E('div', None, E('span', None, index='1'), E('h3', None, md='title'), E('p', None, md='text'), each='items'))),
+    labels={'items': 'Переваги', 'title': 'Заголовок пункту', 'text': 'Текст пункту'})
 
 add('st', 'Етапи проєкту (кроки з результатом)', E('section', 'st-block ec-animate',
     HEAD('st-block'),
@@ -86,22 +100,25 @@ add('st', 'Етапи проєкту (кроки з результатом)', E(
       E('h3', 'st-block__intro-title', md='intro_title', tail='intro_tag', opt='intro_title'),
       E('p', None, md='intro_text', opt='intro_text'), opt=['intro_title', 'intro_text']),
     E('div', 'st-steps', E('article', 'st-step',
-        E('div', 'st-step__head', E('span', 'st-step__num', index='1', sattr={'aria-hidden': 'true'}), E('h3', None, md='title')),
+        E('div', 'st-step__head', E('span', 'st-step__num', index='1', start='steps_start', sattr={'aria-hidden': 'true'}), E('h3', None, md='title')),
         E('div', 'st-step__body', BODY('text', 'st-step__list'), INSERTS, E('p', 'st-step__result', lead='Результат', md='result', opt='result')),
         each='steps')),
     INSERTS,
     E('div', 'st-block__cta', {'cta': 'cta_text'}, opt='cta_text')),
     group='example',
     labels={'flow': 'Схема етапів зверху (кожен пункт — один етап; необов’язково)', 'intro_title': 'Вступний етап — заголовок', 'intro_tag': 'Позначка в заголовку (напр. «(безкоштовно)»)',
-            'intro_text': 'Вступний етап — текст', 'steps': 'Етапи', 'text': 'Опис етапу (абзаци та список)', 'result': 'Результат етапу', 'cta_text': 'Текст кнопки (порожньо — без кнопки)'})
+            'intro_text': 'Вступний етап — текст', 'steps': 'Етапи', 'steps_start': 'Номер першого кроку (якщо є вступний етап)', 'text': 'Опис етапу (абзаци та список)', 'result': 'Результат етапу', 'cta_text': 'Текст кнопки (порожньо — без кнопки)'})
 
 add('stages', 'Етапи зі вступом і списком', E('section', 'ec-process ec-animate',
     HEAD_BLOCK,
+    E('div', 'ec-coffee-note', md='note_before', opt='note_before'),
     E('div', 'iso-stages', E('article', 'iso-stage',
         E('div', 'iso-stage__head', E('span', 'iso-stage__num', index='1', sattr={'aria-hidden': 'true'}), E('h3', None, md='title')),
         E('div', 'iso-stage__body', E('p', 'iso-stage__lead', md='lead', opt='lead'), BODY('text', 'ec-check-list'), INSERTS, E('p', 'iso-stage__result', lead='Результат', md='result', opt='result')),
-        each='stages'))),
-    labels={'stages': 'Етапи', 'lead': 'Головна фраза етапу', 'text': 'Опис етапу (абзаци та список)', 'result': 'Результат етапу'})
+        each='stages')),
+    E('div', 'ec-coffee-note', md='note_after', opt='note_after')),
+    labels={'stages': 'Етапи', 'lead': 'Головна фраза етапу', 'text': 'Опис етапу (абзаци та список)', 'result': 'Результат етапу',
+            'note_before': 'Примітка перед етапами', 'note_after': 'Примітка після етапів'})
 
 # ---------- Блоки з бібліотеки прикладів (pryklady-blokiv) ----------
 add('hl', 'Акцентна смуга', E('div', 'hl-block ec-animate', E('p', 'hl-block__text', md='text')), group='example', labels={'text': 'Текст'}, hint='Одне речення. Виділіть головне слово жирним.')
@@ -162,6 +179,11 @@ add('progress_wrap', 'Шкали прогресу', E('section', 'progress-wrap 
         each='items'))),
     group='example',
     labels={'items': 'Показники', 'label': 'Назва показника', 'value': 'Значення словами (напр. «високий»)', 'pct': 'Заповнення шкали, % (0–100)'})
+
+add('vz_block', 'Важливо / кому не підійде', E('section', 'vz-block ec-animate',
+    E('div', 'vz-block__box', E('div', 'vz-block__heading', KICK, TITLE), BODY('text', ''), INSERTS)),
+    group='example',
+    labels={'text': 'Текст блоку', 'kicker': 'Надзаголовок', 'title': 'Заголовок'})
 
 import os
 _base = os.path.dirname(os.path.abspath(__file__))
