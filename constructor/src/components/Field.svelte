@@ -57,7 +57,7 @@
     </label>
   {:else if f.kind === "md" || f.kind === "body"}
     <div class="lbl">{f.label}{#if f.optional}<i> · необов’язково</i>{/if}</div>
-    <RichText bind:value={obj[f.name]} mode={f.kind === "body" ? "body" : "inline"} />
+    <RichText bind:value={obj[f.name]} mode={f.kind === "body" ? "body" : "inline"} list={!f.heading} />
     {#if f.hint}<span class="hint">{f.hint}</span>{/if}
   {:else if f.kind === "select"}
     <label>

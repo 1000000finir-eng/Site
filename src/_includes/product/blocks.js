@@ -1,4 +1,4 @@
-import { esc, inl, rich, plain, cta, renderBody } from "./lib.js";
+import { esc, inl, inlWithLists, paraWithLists, rich, plain, cta, renderBody } from "./lib.js";
 import { renderSpec } from "./dsl.js";
 import catalog from "./catalog.json" with { type: "json" };
 
@@ -30,11 +30,11 @@ export function renderElements(list, page) {
 function renderElement(e, page) {
   switch (e.t) {
     case "p":
-      return `<p${clsAttr(e.cls)}${styleAttr(e.style)}>${inl(e.md)}</p>`;
+      return paraWithLists(e.md, clsAttr(e.cls) + styleAttr(e.style));
     case "ul":
       return `<ul${clsAttr(e.cls)}${styleAttr(e.style)}>${(e.items || []).map((i) => `\n      <li>${inl(i)}</li>`).join("")}\n    </ul>`;
     case "note":
-      return `<div${clsAttr(e.cls || "soft-box")}${styleAttr(e.style)}>${inl(e.md)}</div>`;
+      return `<div${clsAttr(e.cls || "soft-box")}${styleAttr(e.style)}>${inlWithLists(e.md)}</div>`;
     case "cta":
       return e.inline
         ? `<div class="ec-inline-cta"${styleAttr(e.style)}>${cta(page, e.text, e.light, e.action, e.attrs !== false, e.card_style)}</div>`
@@ -44,12 +44,12 @@ function renderElement(e, page) {
       <article class="ec-step">
         <div class="ec-step__num">${i + 1}</div>
         <h3>${inl(it.title)}</h3>
-        <p>${inl(it.text)}</p>
+        ${paraWithLists(it.text)}
       </article>`).join("")}
     </div>`;
     case "how":
       return `<div class="ec-how__grid">${(e.items || []).map((it, i) => `
-      <div><span>${i + 1}</span><p>${inl(it)}</p></div>`).join("")}
+      <div><span>${i + 1}</span>${paraWithLists(it)}</div>`).join("")}
     </div>`;
     case "cards":
       return `<div${clsAttr(e.cls)}${styleAttr(e.style)}>${(e.cards || []).map((c) => `
@@ -59,11 +59,12 @@ function renderElement(e, page) {
       </article>`).join("")}
     </div>`;
     case "txt":
-      return inl(e.md);
+      return inlWithLists(e.md);
     case "el": {
       const open = `<${e.tag}${clsAttr(e.cls)}${attrsHtml(e.attrs)}>`;
       if (VOID_TAGS.has(e.tag)) return open;
-      const inner = Array.isArray(e.kids) ? renderElements(e.kids, page) : e.md ? inl(e.md) : "";
+      if (e.tag === "p" && !Array.isArray(e.kids) && e.md) return paraWithLists(e.md, clsAttr(e.cls) + attrsHtml(e.attrs));
+      const inner = Array.isArray(e.kids) ? renderElements(e.kids, page) : e.md ? (/^h[1-6]$/i.test(e.tag) ? inl(e.md) : inlWithLists(e.md)) : "";
       return `${open}${inner}</${e.tag}>`;
     }
     case "raw":
@@ -142,7 +143,7 @@ export const renderers = {
         <img class="faq-icon" src="/assets/icons/faq-arrow.png" alt="розгорнути">
       </div>
       <div class="faq-answer">
-        ${inl(it.answer)}
+        ${inlWithLists(it.answer)}
       </div>
     </div>`).join("")}
   </div>

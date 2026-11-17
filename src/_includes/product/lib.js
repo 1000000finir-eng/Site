@@ -7,6 +7,32 @@ export const rich = (s) => md.render(s || ""); // абзаци
 export const inl = (s) => md.renderInline(String(s || "").trim()); // в рядку (жирний, курсив)
 export const plain = (s) => String(s || "").replace(/<[^>]+>/g, "").replace(/[*_\\]/g, "").replace(/\s+/g, " ").trim();
 
+const LIST_LINE = /^\s*(?:[-*+]\s+|\d+[.)]\s+)/;
+export const hasList = (s) => String(s ?? "").split("\n").some((line) => LIST_LINE.test(line));
+
+/**
+ * Текстове поле з підтримкою маркованого списку.
+ * Без списку — звичайний inl(), тобто наявні сторінки рендеряться як раніше.
+ * Зі списком — абзаци й <ul>; перший абзац повертаємо без <p>, щоб результат
+ * можна було вставляти і в <p>, і в <div>/<li> (браузер сам закриє <p> перед <ul>).
+ */
+export function inlWithLists(src, ulcls = "") {
+  const s = String(src ?? "");
+  if (!hasList(s)) return inl(s);
+  let html = renderBody(s, ulcls);
+  if (html.startsWith("<p>")) html = html.slice(3).replace(/<\/p>/, "");
+  return html;
+}
+
+/**
+ * Абзац із підтримкою списку. Звичайний текст лишається <p> (як і раніше),
+ * а для списку використовуємо <div> з тими самими класами — <ul> не можна
+ * вкладати в <p>, інакше браузер закриє абзац і список втратить стилі блоку.
+ */
+export function paraWithLists(src, attrs = "", ulcls = "") {
+  return hasList(src) ? `<div${attrs}>${renderBody(src, ulcls)}</div>` : `<p${attrs}>${inl(src)}</p>`;
+}
+
 /**
  * Текст з редактора (markdown) → <p> та <ul>. Підтримує: абзаци, маркований список, **жирний**, *курсив*.
  * ulcls — CSS-клас для <ul> (напр. "ec-check-list").

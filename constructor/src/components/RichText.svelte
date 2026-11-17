@@ -1,7 +1,7 @@
 <script>
   import { tick } from "svelte";
   import { autoresize } from "../lib/autoresize.js";
-  let { value = $bindable(), mode = "inline" } = $props();
+  let { value = $bindable(), mode = "inline", list = true } = $props();
   let ta = $state();
 
   const rows = $derived(mode === "body" ? 3 : 2);
@@ -54,7 +54,7 @@
   <div class="rich-bar">
     <button type="button" class="b" title="Жирний (Ctrl+B)" onclick={() => wrap("**")}>Ж</button>
     <button type="button" class="i" title="Курсив (Ctrl+I)" onclick={() => wrap("*")}>К</button>
-    {#if mode === "body"}<button type="button" title="Список" onclick={bullets}>• Список</button>{/if}
+    {#if list}<button type="button" title="Список" onclick={bullets}>• Список</button>{/if}
     <span class="hint">Виділіть слово → Ж</span>
   </div>
   <textarea bind:this={ta} bind:value {rows} onkeydown={keydown} use:autoresize={value}></textarea>

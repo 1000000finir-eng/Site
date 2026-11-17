@@ -71,9 +71,11 @@ function walkChildren(n, spec, out, seen) {
   }
   if (n.md) {
     const name = n.md;
+    // заголовки h1–h6 не отримують кнопку «Список»
+    const heading = /^h[1-6]$/i.test(n.tag || "");
     add(out, seen, name === "title"
       ? { kind: "string", name, label: label(spec, name), hint: "Для переносу рядка напишіть <br>" }
-      : { kind: "md", name, label: label(spec, name), optional: true });
+      : { kind: "md", name, label: label(spec, name), optional: true, heading });
   }
   if (n.style) {
     for (const m of String(n.style).matchAll(/\{(\w+)\}/g)) {

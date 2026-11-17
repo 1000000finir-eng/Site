@@ -204,7 +204,7 @@
             {:else if isContainer(el)}
               <ElementsEditor bind:elements={el.kids} depth={depth + 1} label="Вміст блоку" />
             {:else if !isVoid(el)}
-              <div class="field"><div class="lbl">Текст</div><RichText bind:value={el.md} mode="inline" /></div>
+              <div class="field"><div class="lbl">Текст</div><RichText bind:value={el.md} mode="inline" list={!/^h[1-6]$/i.test(el.tag)} /></div>
             {/if}
             <details class="adv">
               <summary>Додатково (тег, клас, атрибути)</summary>

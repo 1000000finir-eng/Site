@@ -180,3 +180,16 @@ describe("головна, налаштування, вставки, нова с�
     await until(() => f2.srcdoc.includes('data-i="3"') && f2.srcdoc.includes("НОВА ПОСЛУГА"), 6000);
   });
 });
+
+describe("кнопка списку в текстових полях", () => {
+  it("є в звичайних текстових полях і відсутня в заголовках", async () => {
+    const { render } = await import("@testing-library/svelte");
+    const { default: RichText } = await import("../src/components/RichText.svelte");
+    const normal = render(RichText, { value: "Текст" });
+    expect(normal.container.querySelector('.rich-bar button[title="Список"]')).toBeTruthy();
+    normal.unmount();
+    const heading = render(RichText, { value: "Заголовок", list: false });
+    expect(heading.container.querySelector('.rich-bar button[title="Список"]')).toBeFalsy();
+    heading.unmount();
+  });
+});

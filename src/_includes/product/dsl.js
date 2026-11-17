@@ -1,6 +1,6 @@
 // Рушій блоків: один опис (catalog.json) → HTML сайту, форма CMS і попередній перегляд.
 // Вузол опису: { tag, cls, kids, md|text (поле), each (список), opt (необов'язковий), body, cta, btn, af, index }
-import { esc, inl, renderBody, cta } from "./lib.js";
+import { esc, inl, inlWithLists, hasList, renderBody, cta } from "./lib.js";
 
 const VOID = new Set(["img", "br", "hr", "input"]);
 const tpl = (c, sc, spec) =>
@@ -62,9 +62,15 @@ function one(n, sc, ctx, i, root = sc) {
   for (const [a, f] of Object.entries(n.oaf || {})) if (filled(sc[f])) attrs += ` ${a}="${esc(sc[f])}"`;
   for (const [a, v] of Object.entries(n.sattr || {})) attrs += ` ${a}="${esc(v)}"`;
   if (VOID.has(n.tag)) return `<${n.tag}${attrs}>`;
+  // список у <p> виносимо в <div> з тим самим класом — інакше браузер закриє <p> і стилі зникнуть
+  const mdValue = n.md ? val(sc, n.md) : "";
+  const listPara = n.tag === "p" && !!n.md && hasList(mdValue);
   let inner = "";
   if (n.md) {
-    inner = (n.lead ? `<span>${esc(n.lead)}</span> ` : "") + inl(val(sc, n.md)) + (n.tail && filled(sc[n.tail]) ? ` <span>${esc(sc[n.tail])}</span>` : "");
+    // у заголовках список не передбачений — лишаємо звичайний inline-рендер
+    const renderMd = /^h[1-6]$/i.test(n.tag || "") ? inl : inlWithLists;
+    const body = listPara ? renderBody(mdValue, n.ulcls || "") : renderMd(mdValue);
+    inner = (n.lead ? `<span>${esc(n.lead)}</span> ` : "") + body + (n.tail && filled(sc[n.tail]) ? ` <span>${esc(sc[n.tail])}</span>` : "");
   }
   else if (n.text) inner = esc(val(sc, n.text) ?? "");
   else if (n.static) inner = esc(n.static);
@@ -74,7 +80,8 @@ function one(n, sc, ctx, i, root = sc) {
     inner = n.index === "pad2" ? String(num).padStart(2, "0") : String(num);
   }
   else if (n.kids) inner = "\n" + n.kids.map((k) => node(k, sc, ctx, i, root)).filter(Boolean).join("\n") + "\n";
-  return `<${n.tag}${attrs}>${inner}</${n.tag}>`;
+  const tag = listPara ? "div" : n.tag;
+  return `<${tag}${attrs}>${inner}</${tag}>`;
 }
 
 export function renderSpec(spec, data, page, byName) {
