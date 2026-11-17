@@ -39,7 +39,6 @@
   const leftPx = $derived(leftCollapsed ? 0 : Math.max(180, Math.min(420, leftW)));
   // Редактор — накладка поверх перегляду, тому може бути ширшим за стару колонку.
   const rightPx = $derived(rightCollapsed ? 0 : Math.max(320, Math.min(900, rightW)));
-  const RAIL = 34;
 
   // Панель редагування сама з'являється, коли щось обрано, і згортається,
   // коли вибір зник (напр. перейшли на іншу сторінку). Ручне "Готово" поважаємо:
@@ -295,22 +294,8 @@
         onpointerdown={(e) => !leftCollapsed && startResize("left", e)}
       ></div>
       <Preview {zoom} />
-      <div
-        class="pane form overlay"
-        class:collapsed={rightCollapsed}
-        class:open={!rightCollapsed}
-        style="width: {rightCollapsed ? RAIL : rightPx}px"
-      >
-        {#if rightCollapsed}
-          <button
-            class="rail"
-            title="Відкрити редактор (Ctrl+Shift+E)"
-            onclick={() => (rightCollapsed = false)}
-          >
-            <span class="rail-ico">✎</span>
-            <span class="rail-txt">Редагувати</span>
-          </button>
-        {:else}
+      {#if !rightCollapsed}
+        <div class="pane form overlay open" style="width: {rightPx}px">
           <div
             class="panel-grip"
             role="separator"
@@ -319,8 +304,8 @@
             onpointerdown={(e) => startResize("right", e)}
           ></div>
           <FormPanel onclose={() => (rightCollapsed = true)} />
-        {/if}
-      </div>
+        </div>
+      {/if}
     </div>
   </div>
   {#if app.modal === "picker"}<TilePicker />{/if}

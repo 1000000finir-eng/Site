@@ -10,8 +10,8 @@ export function autoresize(node, value) {
     });
   };
   node.addEventListener("input", resize);
-  const ro = new ResizeObserver(() => resize());
-  ro.observe(node);
+  const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(() => resize()) : null;
+  ro?.observe(node);
   requestAnimationFrame(resize);
   return {
     update() {
@@ -19,7 +19,7 @@ export function autoresize(node, value) {
     },
     destroy() {
       node.removeEventListener("input", resize);
-      ro.disconnect();
+      ro?.disconnect();
     },
   };
 }
