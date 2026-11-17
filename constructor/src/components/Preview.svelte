@@ -16,7 +16,13 @@
   let scrollY = 0;
   let timer;
   let version = 0;
+  let lastPageKey = null;
   const frameStyle = $derived(zoom === 100 ? "" : `zoom: ${zoom / 100}`);
+
+  // Нова сторінка (або новий сайт) починається з початку, на відміну від редагування однієї сторінки.
+  function pageKey() {
+    return `${app.repo}|${app.kind}|${app.slug}`;
+  }
 
   async function rebuild(kind) {
     const my = ++version;
@@ -34,7 +40,11 @@
     if (!app.data) return;
     JSON.stringify(app.data);
     const kind = app.kind;
-    app.slug;
+    const key = pageKey();
+    if (key !== lastPageKey) {
+      lastPageKey = key;
+      scrollY = 0;
+    }
     clearTimeout(timer);
     timer = setTimeout(() => untrack(() => rebuild(kind)), 180);
   });

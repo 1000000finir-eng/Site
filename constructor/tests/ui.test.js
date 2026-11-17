@@ -197,6 +197,56 @@ describe("вибір сторінки у верхній панелі", () => {
   });
 });
 
+describe("кнопка «Наверх» на сайті", () => {
+  it("є в шаблонах сайту разом зі стилями та скриптом", () => {
+    const root = path.resolve(__dirname, "../..");
+    for (const f of [
+      "src/_includes/home.tpl",
+      "src/_includes/product/bottom.tpl",
+      "src/_includes/product/bottom-form.tpl",
+    ]) {
+      expect(fs.readFileSync(path.join(root, f), "utf8")).toContain('class="scroll-top"');
+    }
+    expect(fs.readFileSync(path.join(root, "src/style.css"), "utf8")).toContain(".scroll-top.visible");
+    expect(fs.readFileSync(path.join(root, "src/script-safe.js"), "utf8")).toContain("function scrollToTop()");
+  });
+});
+
+describe("скидання скролу прев'ю при зміні сторінки", () => {
+  it("нова сторінка відкривається з початку", async () => {
+    const { render, fireEvent } = await import("@testing-library/svelte");
+    const { default: App } = await import("../src/App.svelte");
+    const store = await import("../src/lib/store.svelte.js");
+    const { container } = render(App);
+    await until(() => container.querySelectorAll("#pagesel option").length > 5);
+
+    const frame = container.querySelector(".preview iframe");
+    await until(() => (frame.srcdoc || "").length > 100, 5000);
+
+    // Підвішуємо обробник scroll прев'ю, як це робить onload у реальному браузері.
+    const win0 = frame.contentWindow;
+    win0.scrollTo = () => {};
+    await fireEvent.load(frame);
+
+    // Скоримо стару сторінку — без скидання саме це значення відновилось би на новій.
+    Object.defineProperty(win0, "scrollY", { value: 500, configurable: true });
+    win0.dispatchEvent(new win0.Event("scroll"));
+
+    const oldSrcdoc = frame.srcdoc;
+    const top = container.querySelector(".topbar .page-select");
+    top.value = "diagnostychna-konsultatsiya";
+    await fireEvent.change(top);
+    await until(() => store.app.slug === "diagnostychna-konsultatsiya");
+    await until(() => frame.srcdoc && frame.srcdoc !== oldSrcdoc, 6000);
+
+    const calls = [];
+    const win1 = frame.contentWindow;
+    win1.scrollTo = (...args) => calls.push(args);
+    await fireEvent.load(frame);
+    expect(calls[0]).toEqual([0, 0]);
+  });
+});
+
 describe("кнопка списку в текстових полях", () => {
   it("є в звичайних текстових полях і відсутня в заголовках", async () => {
     const { render } = await import("@testing-library/svelte");
