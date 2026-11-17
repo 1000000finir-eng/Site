@@ -181,6 +181,22 @@ describe("головна, налаштування, вставки, нова с�
   });
 });
 
+describe("вибір сторінки у верхній панелі", () => {
+  it("перемикає сторінку так само, як меню зліва", async () => {
+    const { render, fireEvent } = await import("@testing-library/svelte");
+    const { default: App } = await import("../src/App.svelte");
+    const store = await import("../src/lib/store.svelte.js");
+    const { container } = render(App);
+    await until(() => container.querySelectorAll("#pagesel option").length > 5);
+    const top = container.querySelector(".topbar .page-select");
+    expect(top.value).toBe("__home");
+    top.value = "diagnostychna-konsultatsiya";
+    await fireEvent.change(top);
+    await until(() => store.app.kind === "page" && store.app.slug === "diagnostychna-konsultatsiya");
+    expect(container.querySelector("#pagesel").value).toBe("diagnostychna-konsultatsiya");
+  });
+});
+
 describe("кнопка списку в текстових полях", () => {
   it("є в звичайних текстових полях і відсутня в заголовках", async () => {
     const { render } = await import("@testing-library/svelte");

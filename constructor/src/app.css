@@ -38,7 +38,10 @@ h1, h2, h3, h4 { margin: 0; }
 .brand { font-weight: 700; display: flex; align-items: center; gap: 9px; }
 .logo { width: 24px; height: 24px; border-radius: 7px; background: linear-gradient(135deg, var(--accent), #c1476a); display: inline-block; }
 .logo.big { width: 54px; height: 54px; border-radius: 15px; margin: 0 auto 10px; }
-.page-title { flex: 1; text-align: center; font-weight: 600; font-size: 13.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.page-title { flex: 1; min-width: 0; text-align: center; font-weight: 600; font-size: 13.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.page-title select { max-width: 100%; padding: 5px 24px 5px 10px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--muted); font-weight: 600; font-size: 13.5px; text-align: center; text-align-last: center; cursor: pointer; }
+.page-title select:hover { background: #f6f3f0; border-color: var(--line); color: var(--text); }
+.page-title select:focus { outline: 2px solid #e6b6c4; border-color: var(--accent); background: #fff; color: var(--text); }
 .top-actions { display: flex; align-items: center; gap: 6px; }
 .zoom-ctl { display: flex; align-items: center; gap: 7px; padding: 0 10px 0 4px; margin-right: 2px; border-right: 1px solid var(--line); color: var(--muted); font-size: 12px; cursor: default; }
 .zoom-ctl input[type="range"] { width: 106px; accent-color: var(--accent); cursor: pointer; }

@@ -1,7 +1,7 @@
 <script>
   import { onMount, untrack } from "svelte";
   import { getCurrentWindow } from "@tauri-apps/api/window";
-  import { app, onChange, openRepo, undo, redo, flush, refreshChanges } from "./lib/store.svelte.js";
+  import { app, onChange, openRepo, openHome, openPage, undo, redo, flush, refreshChanges } from "./lib/store.svelte.js";
   import { confirmAsk } from "./lib/api.js";
   import Welcome from "./components/Welcome.svelte";
   import Sidebar from "./components/Sidebar.svelte";
@@ -183,6 +183,12 @@
   const isTyping = (e) => ["INPUT", "TEXTAREA"].includes(e.target?.tagName);
 
   const title = $derived(app.kind === "home" ? "Головна сторінка" : app.data?.breadcrumb || app.data?.title || "");
+  const currentPage = $derived(app.kind === "home" ? "__home" : app.slug);
+  async function onTopPage(e) {
+    const v = e.target.value;
+    if (v === "__home") await openHome();
+    else await openPage(v);
+  }
   const saveLabel = $derived(app.error ? "Помилка збереження" : app.dirty ? "Зберігаємо…" : app.savedAt ? "Збережено на комп’ютері" : "");
 </script>
 
@@ -227,7 +233,12 @@
           </svg>
         </button>
       </div>
-      <div class="page-title">{title}</div>
+      <div class="page-title">
+        <select class="page-select" title={title} aria-label="Відкрита сторінка" value={currentPage} onchange={onTopPage}>
+          <option value="__home">🏠 Головна сторінка</option>
+          {#each app.pages as p (p.slug)}<option value={p.slug}>{p.title}</option>{/each}
+        </select>
+      </div>
       <div class="top-actions">
         <label class="zoom-ctl" title="Масштаб попереднього перегляду (подвійний клік — 100%)">
           <span class="zoom-lbl">Масштаб</span>
