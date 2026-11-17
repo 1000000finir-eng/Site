@@ -16,7 +16,7 @@ export const hasList = (s) => String(s ?? "").split("\n").some((line) => LIST_LI
  * Зі списком — абзаци й <ul>; перший абзац повертаємо без <p>, щоб результат
  * можна було вставляти і в <p>, і в <div>/<li> (браузер сам закриє <p> перед <ul>).
  */
-export function inlWithLists(src, ulcls = "") {
+export function inlWithLists(src, ulcls = "ec-check-list") {
   const s = String(src ?? "");
   if (!hasList(s)) return inl(s);
   let html = renderBody(s, ulcls);
@@ -29,7 +29,7 @@ export function inlWithLists(src, ulcls = "") {
  * а для списку використовуємо <div> з тими самими класами — <ul> не можна
  * вкладати в <p>, інакше браузер закриє абзац і список втратить стилі блоку.
  */
-export function paraWithLists(src, attrs = "", ulcls = "") {
+export function paraWithLists(src, attrs = "", ulcls = "ec-check-list") {
   return hasList(src) ? `<div${attrs}>${renderBody(src, ulcls)}</div>` : `<p${attrs}>${inl(src)}</p>`;
 }
 
@@ -37,7 +37,7 @@ export function paraWithLists(src, attrs = "", ulcls = "") {
  * Текст з редактора (markdown) → <p> та <ul>. Підтримує: абзаци, маркований список, **жирний**, *курсив*.
  * ulcls — CSS-клас для <ul> (напр. "ec-check-list").
  */
-export function renderBody(src, ulcls = "") {
+export function renderBody(src, ulcls = "ec-check-list") {
   const tokens = md.parse(String(src || ""), {});
   const out = [];
   const cls = ulcls ? ` class="${esc(ulcls)}"` : "";

@@ -60,12 +60,12 @@ ok(blockTitle({ title: "**Привіт** світ" }) === "Привіт світ
 // 7. Списки в текстових полях; заголовки позначені окремо й списку не отримують
 ok(inlWithLists("Звичайний **текст**") === inl("Звичайний **текст**"), "без списку рендер не змінюється");
 const listed = inlWithLists("Вступ\n- перший\n- другий");
-ok(listed.includes("<ul>") && listed.includes("<li>перший</li>") && listed.startsWith("Вступ"), "markdown-список у текстовому полі");
+ok(listed.includes('<ul class="ec-check-list">') && listed.includes("<li>перший</li>") && listed.startsWith("Вступ"), "markdown-список зі стилем точок");
 const stFields = fieldsOf("st");
 ok(stFields.find((f) => f.name === "intro_title")?.heading === true, "h3-поле — заголовок");
 ok(stFields.find((f) => f.name === "result")?.heading !== true, "звичайне текстове поле не заголовок");
 const hl = newBlock("hl");
 hl.text = "Вступ\n- перший\n- другий";
-ok(singleBody(hl, page).includes("<li>перший</li>"), "список рендериться в блоці");
+ok(singleBody(hl, page).includes('<ul class="ec-check-list">'), "список у блоці має стиль точок");
 ok(singleBody(hl, page).includes('<div class="hl-block__text"><p>Вступ</p>'), "список у абзаці зберігає клас блоку");
 console.log(`✓ логіка конструктора: ${n} перевірок, перевірено ${blocks} блоків реальних сторінок`);

@@ -49,7 +49,7 @@ function one(n, sc, ctx, i, root = sc) {
     const tr = rows.map((r) => `<tr>${(r.cells || r || []).map((c) => `<td>${inl(c)}</td>`).join("")}</tr>`).join("");
     return `<div class="${esc(n.wrap)}"><table class="${esc(n.tcls)}"><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
   }
-  if (n.body) return renderBody(sc[n.body], n.ulcls || "");
+  if (n.body) return renderBody(sc[n.body], n.ulcls || "ec-check-list");
   if (n.cta) return filled(sc[n.cta]) ? cta(page, sc[n.cta], !!n.light, page.cta?.action || "price", page.cta?.attrs !== false) : "";
   if (n.btn) {
     const fn = (page.cta?.action || "price") === "price" ? "openPricePopup(event)" : "openBookingModal(event)";
@@ -69,7 +69,7 @@ function one(n, sc, ctx, i, root = sc) {
   if (n.md) {
     // у заголовках список не передбачений — лишаємо звичайний inline-рендер
     const renderMd = /^h[1-6]$/i.test(n.tag || "") ? inl : inlWithLists;
-    const body = listPara ? renderBody(mdValue, n.ulcls || "") : renderMd(mdValue);
+    const body = listPara ? renderBody(mdValue, n.ulcls || "ec-check-list") : renderMd(mdValue);
     inner = (n.lead ? `<span>${esc(n.lead)}</span> ` : "") + body + (n.tail && filled(sc[n.tail]) ? ` <span>${esc(sc[n.tail])}</span>` : "");
   }
   else if (n.text) inner = esc(val(sc, n.text) ?? "");

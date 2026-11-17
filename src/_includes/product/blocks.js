@@ -32,7 +32,7 @@ function renderElement(e, page) {
     case "p":
       return paraWithLists(e.md, clsAttr(e.cls) + styleAttr(e.style));
     case "ul":
-      return `<ul${clsAttr(e.cls)}${styleAttr(e.style)}>${(e.items || []).map((i) => `\n      <li>${inl(i)}</li>`).join("")}\n    </ul>`;
+      return `<ul${clsAttr(e.cls || "ec-check-list")}${styleAttr(e.style)}>${(e.items || []).map((i) => `\n      <li>${inl(i)}</li>`).join("")}\n    </ul>`;
     case "note":
       return `<div${clsAttr(e.cls || "soft-box")}${styleAttr(e.style)}>${inlWithLists(e.md)}</div>`;
     case "cta":
@@ -163,7 +163,7 @@ export const renderers = {
   final: (b, page) => `<section class="ec-final ec-animate">
   <div class="ec-final__box">
     <h2>${inl(b.title)}</h2>
-    ${b.body ? renderBody(b.body, "") : b.elements ? renderElements(b.elements, page) : b.text ? `<p>${inl(b.text)}</p>` : ""}
+    ${b.body ? renderBody(b.body, "ec-check-list") : b.elements ? renderElements(b.elements, page) : b.text ? `<p>${inl(b.text)}</p>` : ""}
     ${b.cta_text ? cta(page, b.cta_text, true, (b.cta_action ?? page.cta?.action ?? "price"), (b.cta_attrs ?? page.cta?.attrs ?? true), b.cta_style) : ""}
   </div>
 </section>`,

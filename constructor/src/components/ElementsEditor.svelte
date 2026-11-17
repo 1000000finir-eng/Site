@@ -33,7 +33,7 @@
     const make = {
       p: { t: "p", md: "Новий абзац. Можна виділити **жирним**." },
       h: { t: "el", tag: "h3", md: "Новий заголовок" },
-      ul: { t: "ul", items: ["Перший пункт", "Другий пункт"] },
+      ul: { t: "ul", cls: "ec-check-list", items: ["Перший пункт", "Другий пункт"] },
       note: { t: "note", md: "Текст примітки", cls: "soft-box" },
       cta: { t: "cta", text: "ЗАПИСАТИСЯ", inline: true },
       div: { t: "el", tag: "div", kids: [{ t: "p", md: "Текст у блоці." }] },
