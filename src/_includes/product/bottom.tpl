@@ -1,7 +1,7 @@
   <!--=======================================
        UP button — як на головній
        ======================================-->
-  <button class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
+  <button type="button" class="scroll-top" onclick="scrollToTop()" aria-label="Наверх">
     <img src="/assets/icons/up-arrow.png" alt="up">
   </button>
 

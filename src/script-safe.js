@@ -113,9 +113,12 @@ window.addEventListener('load', () => {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-on(window, 'scroll', () => {
+function updateScrollTop() {
   $('.scroll-top')?.classList.toggle('visible', window.scrollY > 300);
-});
+}
+on(window, 'scroll', updateScrollTop);
+on(window, 'load', updateScrollTop);
+updateScrollTop();
 
 /* =========================================================
    FIX SCROLL RESTORE ON RELOAD (SAFE)
