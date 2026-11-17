@@ -45,10 +45,10 @@ h1, h2, h3, h4 { margin: 0; }
 .zoom-val { min-width: 38px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
 .zoom-lbl { white-space: nowrap; }
 .device-toggle { display: flex; align-items: center; gap: 2px; padding: 0 2px; margin-left: -6px; }
-.icon-btn { width: 32px; height: 32px; padding: 0; display: grid; place-items: center; border-radius: 8px; color: var(--muted); flex: none; }
-.icon-btn svg { width: 18px; height: 18px; display: block; }
-.icon-btn:hover:not(:disabled) { background: #f6f3f0; border-color: transparent; color: var(--text); }
-.icon-btn.active { background: var(--accent-l); border-color: #ecc9d4; color: var(--accent); }
+.btn.icon-btn { width: 32px; height: 32px; padding: 0; display: grid; place-items: center; border-radius: 8px; color: var(--muted); flex: none; line-height: 0; }
+.btn.icon-btn svg { width: 18px; height: 18px; display: block; margin: 0; flex: none; }
+.btn.icon-btn:hover:not(:disabled) { background: #f6f3f0; border-color: transparent; color: var(--text); }
+.btn.icon-btn.active { background: var(--accent-l); border-color: #ecc9d4; color: var(--accent); }
 @media (max-width: 1220px) {
   .zoom-lbl { display: none; }
   .zoom-ctl input[type="range"] { width: 86px; }
