@@ -6,6 +6,7 @@
   import { moveItem, removeItem, duplicateItem } from "../lib/model.js";
   import { confirmAsk } from "../lib/api.js";
   import { addInsertTo } from "../lib/actions.js";
+  import { autoresize } from "../lib/autoresize.js";
 
   let { f, obj } = $props();
 
@@ -51,7 +52,7 @@
   {:else if f.kind === "text"}
     <label>
       <span class="lbl">{f.label}{#if f.optional}<i> · необов’язково</i>{/if}</span>
-      <textarea rows="3" bind:value={obj[f.name]}></textarea>
+      <textarea rows="2" bind:value={obj[f.name]} use:autoresize={obj[f.name]}></textarea>
       {#if f.hint}<span class="hint">{f.hint}</span>{/if}
     </label>
   {:else if f.kind === "md" || f.kind === "body"}

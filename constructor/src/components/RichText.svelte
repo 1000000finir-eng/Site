@@ -1,9 +1,10 @@
 <script>
   import { tick } from "svelte";
+  import { autoresize } from "../lib/autoresize.js";
   let { value = $bindable(), mode = "inline" } = $props();
   let ta = $state();
 
-  const rows = $derived(Math.max(mode === "body" ? 5 : 2, String(value ?? "").split("\n").length + (mode === "body" ? 1 : 0)));
+  const rows = $derived(mode === "body" ? 3 : 2);
 
   async function apply(next, s, e) {
     value = next;
@@ -56,5 +57,5 @@
     {#if mode === "body"}<button type="button" title="Список" onclick={bullets}>• Список</button>{/if}
     <span class="hint">Виділіть слово → Ж</span>
   </div>
-  <textarea bind:this={ta} bind:value {rows} onkeydown={keydown}></textarea>
+  <textarea bind:this={ta} bind:value {rows} onkeydown={keydown} use:autoresize={value}></textarea>
 </div>
